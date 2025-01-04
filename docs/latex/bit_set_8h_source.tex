@@ -1,0 +1,425 @@
+\doxysection{bit\+Set.\+h}
+\hypertarget{bit_set_8h_source}{}\label{bit_set_8h_source}\index{src/core/bitSet.h@{src/core/bitSet.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BITSET\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BITSET\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}array.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}couple.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}iterationStream.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}serial.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }original\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }bitSet\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}<bool>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iteration_stream}{iterationStream}}<bool>\{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }underlying\_type\ =\ uint64\_t;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ int64\_t\ BLOCK\_MAX\_SIZE\ =\ \textcolor{keyword}{sizeof}(underlying\_type)\ *\ 8;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1array}{array<underlying\_type>}}\ map;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ size\_;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ getBitFromBlock(underlying\_type\ block\_value,\ int64\_t\ bit);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ underlying\_type\ setBitFromBlock(underlying\_type\ block\_value,\ int64\_t\ bit);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ underlying\_type\ clearBitFromBlock(underlying\_type\ block\_value,\ int64\_t\ bit);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ underlying\_type\ clearAllBitsFromBlock(underlying\_type\ block\_value,\ int64\_t\ bit);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ getBit(int64\_t\ bit,\ int64\_t\ block)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setBit(int64\_t\ bit,\ int64\_t\ block);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clearBit(int64\_t\ bit,\ int64\_t\ block);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeBit(int64\_t\ bit,\ int64\_t\ block,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<uint32\_t,\ int64\_t>}}\ toInnerIdx(int64\_t\ index);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ int64\_t\ toOuterIdx(uint32\_t\ cur\_block,\ int64\_t\ cur\_bit);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1base_iterator}{baseIterator}}<bool>\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ int64\_t\ cur\_bit;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ int64\_t\ cur\_block;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ underlying\_type*\ block\_;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ bitSet*\ container\_;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Iterator(int64\_t\ bit,\ int64\_t\ block,\ underlying\_type*\ block\_p,\ \textcolor{keyword}{const}\ bitSet*\ \mbox{\hyperlink{classoriginal_1_1container}{container}});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }bitSet;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ clone()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ hasNext()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ hasPrev()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ next()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ prev()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ getPrev()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ getNext()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator+=(int64\_t\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator-\/=(int64\_t\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ get()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ get()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&data)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ isValid()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ bitSet(uint32\_t\ size);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ bitSet(\textcolor{keyword}{const}\ std::initializer\_list<bool>\&\ lst);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ bitSet(\textcolor{keyword}{const}\ bitSet\&\ other);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ bitSet\&\ operator=(\textcolor{keyword}{const}\ bitSet\&\ other);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ bitSet\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ count()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ bitSet\ resize(uint32\_t\ new\_size)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ size()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\ begins()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\ ends()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ get(int64\_t\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ operator[](int64\_t\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set(int64\_t\ index,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ indexOf(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ bitSet\&\ operator\&=(\textcolor{keyword}{const}\ bitSet\&\ other);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ bitSet\&\ operator|=(\textcolor{keyword}{const}\ bitSet\&\ other);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ bitSet\&\ operator\string^=(\textcolor{keyword}{const}\ bitSet\&\ other);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback\ =\ transform<\textcolor{keywordtype}{bool}>>}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ forEach(Callback\ operation\ =\ Callback\{\})\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\ operator\&(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\&\ rbs);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\ operator|(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\&\ rbs);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\ operator\string^(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\&\ rbs);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\ operator\string~(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}\&\ bs);}
+\DoxyCodeLine{00083\ \ \ \ \ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ bitSet\ operator\&(\textcolor{keyword}{const}\ bitSet\&\ lbs,\ \textcolor{keyword}{const}\ bitSet\&\ rbs);}
+\DoxyCodeLine{00086\ \ \ \ \ bitSet\ operator|(\textcolor{keyword}{const}\ bitSet\&\ lbs,\ \textcolor{keyword}{const}\ bitSet\&\ rbs);}
+\DoxyCodeLine{00087\ \ \ \ \ bitSet\ operator\string^(\textcolor{keyword}{const}\ bitSet\&\ lbs,\ \textcolor{keyword}{const}\ bitSet\&\ rbs);}
+\DoxyCodeLine{00088\ \ \ \ \ bitSet\ operator\string~(\textcolor{keyword}{const}\ bitSet\&\ bs);}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::getBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ int64\_t\ bit)\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(bit);}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::setBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ int64\_t\ bit)\ -\/>\ underlying\_type\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ |\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(bit);}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::clearBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ int64\_t\ bit)\ -\/>\ underlying\_type\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ \string~(\textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(bit));}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::clearAllBitsFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ int64\_t\ bit)\ -\/>\ underlying\_type\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ underlying\_type\ mask1\ =\ \string~static\_cast<underlying\_type>(0);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ underlying\_type\ mask2\ =\ bit\ <=\ BLOCK\_MAX\_SIZE\ -\/\ 1\ ?\ (1\ <<\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(bit\ +\ 1))\ -\/\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ :\ mask1;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ underlying\_type\ mask\ =\ mask1\ \string^\ mask2;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ mask;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::getBit(\textcolor{keyword}{const}\ int64\_t\ bit,\ \textcolor{keyword}{const}\ int64\_t\ block)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getBitFromBlock(this-\/>map.get(block),\ bit);}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::setBit(\textcolor{keyword}{const}\ int64\_t\ bit,\ \textcolor{keyword}{const}\ int64\_t\ block)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ this-\/>map.set(block,\ setBitFromBlock(this-\/>map.get(block),\ bit));}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::clearBit(\textcolor{keyword}{const}\ int64\_t\ bit,\ \textcolor{keyword}{const}\ int64\_t\ block)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>map.set(block,\ clearBitFromBlock(this-\/>map.get(block),\ bit));}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ original::bitSet::writeBit(\textcolor{keyword}{const}\ int64\_t\ bit,\ \textcolor{keyword}{const}\ int64\_t\ block,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ value)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ value\ ?\ this-\/>setBit(bit,\ block)\ :\ this-\/>clearBit(bit,\ block);}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::toInnerIdx(\textcolor{keyword}{const}\ int64\_t\ index)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<uint32\_t,\ int64\_t>}}\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(index\ /\ BLOCK\_MAX\_SIZE),\ index\ \%\ BLOCK\_MAX\_SIZE\};}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::toOuterIdx(\textcolor{keyword}{const}\ uint32\_t\ cur\_block,\ \textcolor{keyword}{const}\ int64\_t\ cur\_bit)\ -\/>\ int64\_t}
+\DoxyCodeLine{00131\ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_block\ *\ \ BLOCK\_MAX\_SIZE\ +\ cur\_bit;}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{inline}\ original::bitSet::Iterator::Iterator(\textcolor{keyword}{const}\ int64\_t\ bit,\ \textcolor{keyword}{const}\ int64\_t\ block,\ underlying\_type*\ block\_p,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bit_set}{bitSet}}*\ \mbox{\hyperlink{classoriginal_1_1container}{container}})}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ :\ cur\_bit(bit),\ cur\_block(block),\ block\_(block\_p),\ container\_(\mbox{\hyperlink{classoriginal_1_1container}{container}})\ \{\}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::equalPtr(\textcolor{keyword}{const}\ iterator\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_bit\ ==\ other\_it-\/>cur\_bit}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_block\ ==\ other\_it-\/>cur\_block;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::clone()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::hasNext()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ <\ this-\/>container\_-\/>size()\ -\/\ 1;}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::hasPrev()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ >\ 0;}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::atPrev(\textcolor{keyword}{const}\ iterator\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>operator-\/(*other\_it)\ ==\ -\/1;}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::atNext(\textcolor{keyword}{const}\ iterator\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>operator-\/(*other\_it)\ ==\ 1;}
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::next()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ this-\/>operator+=(1);}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::prev()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ this-\/>operator-\/=(1);}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::getPrev()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ it-\/>prev();}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00184\ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::getNext()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ it-\/>next();}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::operator+=(\textcolor{keyword}{const}\ int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00194\ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ toInnerIdx(toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ +\ steps);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ this-\/>cur\_bit\ =\ new\_idx.second();}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::operator-\/=(\textcolor{keyword}{const}\ int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00202\ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ toInnerIdx(toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ -\/\ steps);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ this-\/>cur\_bit\ =\ new\_idx.second();}
+\DoxyCodeLine{00207\ \ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{inline}\ int64\_t\ original::bitSet::Iterator::operator-\/(\textcolor{keyword}{const}\ iterator\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00210\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\textcolor{keyword}{>}(\&other);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ >\ \&other\ ?}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::max()\ :}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::min();}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>container\_\ !=\ other\_it-\/>container\_)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>container\_\ >\ other\_it-\/>container\_\ ?}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::max()\ :}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::min();}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ -\/\ toOuterIdx(other\_it-\/>cur\_block,\ other\_it-\/>cur\_bit);}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::get()\ -\/>\ \textcolor{keywordtype}{bool}\ \&\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}bitSet::Iterator"{}};}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::get()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00233\ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit);}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ original::bitSet::Iterator::set(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&data)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ *this-\/>block\_\ =\ data\ ?}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ setBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit)\ :\ clearBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit);}
+\DoxyCodeLine{00242\ \ \ \ \ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::isValid()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ outer\ =\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit);}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ outer\ >=\ 0\ \&\&\ outer\ <\ this-\/>container\_-\/>size();}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{inline}\ original::bitSet::bitSet(\textcolor{keyword}{const}\ uint32\_t\ size)}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ :\ map(array<underlying\_type>((size\ +\ BLOCK\_MAX\_SIZE\ -\/\ 1)\ /\ BLOCK\_MAX\_SIZE)),\ size\_(size)\ \{\}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{inline}\ original::bitSet::bitSet(\textcolor{keyword}{const}\ std::initializer\_list<bool>\&\ lst)\ :\ bitSet(lst.size())\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ uint32\_t\ i\ =\ 0;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ lst)\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(i);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>writeBit(idx.second(),\ idx.first(),\ e);}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ 1;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{inline}\ original::bitSet::bitSet(\textcolor{keyword}{const}\ bitSet\ \&other)\ :\ bitSet(other.size())\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ this-\/>operator=(other);}
+\DoxyCodeLine{00263\ \ \ \ \ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::operator=(\textcolor{keyword}{const}\ bitSet\ \&other)\ -\/>\ bitSet\&\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ this-\/>map\ =\ other.map;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00270\ \ \ \ \ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::operator==(\textcolor{keyword}{const}\ bitSet\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>map\ ==\ other.map\ \&\&\ this-\/>size\_\ ==\ other.size\_;}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::count()\ const\ -\/>\ uint32\_t\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ this-\/>map)\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ n\ =\ e;}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n)\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ \&=\ n\ -\/\ 1;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count\ +=\ 1;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00287\ \ \ \ \ \}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::resize(\textcolor{keyword}{const}\ uint32\_t\ new\_size)\ \textcolor{keyword}{const}\ -\/>\ bitSet\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ ==\ new\_size)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ nb\ =\ bitSet(new\_size);}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ new\_blocks\ =\ (new\_size\ +\ BLOCK\_MAX\_SIZE\ -\/\ 1)\ /\ BLOCK\_MAX\_SIZE;}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ blocks\_min\ =\ min(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(new\_blocks),}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.size());}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ blocks\_min;\ i++)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ nb.map.set(i,\ this-\/>map.get(i));}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ bits\_remaining\ =\ nb.size()\ -\/\ blocks\_min\ *\ BLOCK\_MAX\_SIZE;}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ nb.map.set(blocks\_min\ -\/\ 1,\ clearAllBitsFromBlock(nb.map.get(blocks\_min\ -\/\ 1),\ BLOCK\_MAX\_SIZE\ -\/\ bits\_remaining));}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nb;}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::size()\ const\ -\/>\ uint32\_t\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::begins()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}(0,\ 0,\ \&this-\/>map.data(),\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00312\ \ \ \ \ \}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::ends()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator}{Iterator}}(toInnerIdx(this-\/>size()\ -\/\ 1).second(),\ this-\/>map.size()\ -\/\ 1,}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&this-\/>map.data()\ +\ this-\/>map.size()\ -\/\ 1,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::get(int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(index);}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>getBit(idx.second(),\ idx.first());}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::operator[](int64\_t\ index)\ -\/>\ \textcolor{keywordtype}{bool}\&\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
+\DoxyCodeLine{00328\ \ \ \ \ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::set(int64\_t\ index,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(index);}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ this-\/>writeBit(idx.second(),\ idx.first(),\ e);}
+\DoxyCodeLine{00335\ \ \ \ \ \}}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::indexOf(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{const}\ -\/>\ uint32\_t\ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>size();\ i++)\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(i);}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\ ==\ this-\/>getBit(idx.second(),\ idx.first()))\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size();}
+\DoxyCodeLine{00345\ \ \ \ \ \}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::operator\&=(\textcolor{keyword}{const}\ bitSet\ \&other)\ -\/>\ bitSet\&\ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ !=\ other.size())\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>size());}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \&\ resized.map.get(i));}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \&\ other.map.get(i));}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00359\ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::operator|=(\textcolor{keyword}{const}\ bitSet\ \&other)\ -\/>\ bitSet\&\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ !=\ other.size())\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>size());}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ |\ resized.map.get(i));}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ |\ other.map.get(i));}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::operator\string^=(\textcolor{keyword}{const}\ bitSet\ \&other)\ -\/>\ bitSet\&\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ !=\ other.size())\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>size());}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \string^\ resized.map.get(i));}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \string^\ other.map.get(i));}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00387\ \ \ \ \ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}bitSet"{}};}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::operator\&(\textcolor{keyword}{const}\ bitSet\ \&lbs,\ \textcolor{keyword}{const}\ bitSet\ \&rbs)\ -\/>\ bitSet\ \{}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ bitSet\ bs(lbs);}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ \&=\ rbs;}
+\DoxyCodeLine{00396\ \ \ \ \ \}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::operator|(\textcolor{keyword}{const}\ bitSet\ \&lbs,\ \textcolor{keyword}{const}\ bitSet\ \&rbs)\ -\/>\ bitSet\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ bitSet\ bs(lbs);}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ |=\ rbs;}
+\DoxyCodeLine{00401\ \ \ \ \ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::operator\string^(\textcolor{keyword}{const}\ bitSet\ \&lbs,\ \textcolor{keyword}{const}\ bitSet\ \&rbs)\ -\/>\ bitSet\ \{}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ bitSet\ bs(lbs);}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ \string^=\ rbs;}
+\DoxyCodeLine{00406\ \ \ \ \ \}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::operator\string~(\textcolor{keyword}{const}\ bitSet\ \&bs)\ -\/>\ bitSet\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ bitSet\ nbs(bs);}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ nbs.map.size();\ i++)\ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ nbs.map.set(i,\ \string~nbs.map.get(i));}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ bits\_remaining\ =\ nbs.size()\ -\/\ nbs.map.size()\ *\ bitSet::BLOCK\_MAX\_SIZE;}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ nbs.map.set(nbs.map.size()\ -\/\ 1,\ bitSet::clearAllBitsFromBlock(nbs.map.get(nbs.map.size()\ -\/\ 1),}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ bitSet::BLOCK\_MAX\_SIZE\ -\/\ bits\_remaining));}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nbs;}
+\DoxyCodeLine{00417\ \ \ \ \ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BITSET\_H}}
+
+\end{DoxyCode}

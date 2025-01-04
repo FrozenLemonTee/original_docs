@@ -1,18 +1,18 @@
 var indexSectionsWithContent =
 {
-  0: "co多已并文模正简网计",
-  1: "o"
+  0: "abcdefgilmnopqrstuvw",
+  1: "abcdefgilmnopqrstuvw"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "pages"
+  1: "classes"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Pages"
+  1: "Classes"
 };
 
