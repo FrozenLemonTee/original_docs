@@ -13,7 +13,5 @@ var searchData=
   ['iterationstream_3c_20underlying_5ftype_20_3e_10',['iterationStream&lt; underlying_type &gt;',['../classoriginal_1_1iteration_stream.html',1,'original']]],
   ['iterator_11',['Iterator',['../classoriginal_1_1array_1_1_iterator.html',1,'original::array&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1bit_set_1_1_iterator.html',1,'original::bitSet::Iterator'],['../classoriginal_1_1blocks_list_1_1_iterator.html',1,'original::blocksList&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1chain_1_1_iterator.html',1,'original::chain&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1forward_chain_1_1_iterator.html',1,'original::forwardChain&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1vector_1_1_iterator.html',1,'original::vector&lt; TYPE &gt;::Iterator']]],
   ['iterator_12',['iterator',['../classoriginal_1_1iterator.html',1,'original']]],
-  ['iterator_3c_20b_5ftype_20_3e_13',['iterator&lt; B_TYPE &gt;',['../classoriginal_1_1iterator.html',1,'original']]],
-  ['iterator_3c_20bool_20_3e_14',['iterator&lt; bool &gt;',['../classoriginal_1_1iterator.html',1,'original']]],
-  ['iterator_3c_20e_5ftype_20_3e_15',['iterator&lt; E_TYPE &gt;',['../classoriginal_1_1iterator.html',1,'original']]]
+  ['iterator_3c_20bool_20_3e_13',['iterator&lt; bool &gt;',['../classoriginal_1_1iterator.html',1,'original']]]
 ];
