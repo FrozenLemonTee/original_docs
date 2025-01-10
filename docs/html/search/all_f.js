@@ -6,6 +6,5 @@ var searchData=
   ['serial_3c_20underlying_5ftype_20_3e_3',['serial&lt; underlying_type &gt;',['../classoriginal_1_1serial.html',1,'original']]],
   ['singledirectioniterator_4',['singleDirectionIterator',['../classoriginal_1_1single_direction_iterator.html',1,'original']]],
   ['stack_5',['stack',['../classoriginal_1_1stack.html',1,'original']]],
-  ['stepiterator_6',['stepIterator',['../classoriginal_1_1step_iterator.html',1,'original']]],
-  ['superof_7',['SuperOf',['../conceptoriginal_1_1_super_of.html',1,'original']]]
+  ['stepiterator_6',['stepIterator',['../classoriginal_1_1step_iterator.html',1,'original']]]
 ];
