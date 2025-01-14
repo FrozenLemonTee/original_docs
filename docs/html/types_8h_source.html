@@ -110,43 +110,38 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    };</div>
 </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> TYPE&gt;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> ReturnType, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_compare.html">   19</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_compare.html">Compare</a> =</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_concept" href="conceptoriginal_1_1_comparable.html">Comparable&lt;TYPE&gt;</a> &amp;&amp;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">requires</span>(Callback compare, <span class="keyword">const</span> TYPE&amp; t1, <span class="keyword">const</span> TYPE&amp; t2) {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        { compare(t1, t2) } -&gt; std::same_as&lt;bool&gt;;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_callback_of.html">   19</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_callback_of.html">CallbackOf</a> = <span class="keyword">requires</span>(Callback callback, Args&amp;&amp;... args){</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        { callback(std::forward&lt;Args&gt;(args)...) } -&gt; std::same_as&lt;ReturnType&gt;;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    };</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> TYPE&gt;</div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_condition.html">   26</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_condition.html">Condition</a> = <span class="keyword">requires</span>(Callback condition, <span class="keyword">const</span> TYPE&amp; t){</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        { condition(t) } -&gt; std::same_as&lt;bool&gt;;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    };</div>
-</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> TYPE&gt;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_compare.html">   24</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_compare.html">Compare</a> =</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_concept" href="conceptoriginal_1_1_comparable.html">Comparable&lt;TYPE&gt;</a> &amp;&amp; <a class="code hl_concept" href="conceptoriginal_1_1_callback_of.html">CallbackOf&lt;Callback, bool, const TYPE&amp;, const TYPE&amp;&gt;</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> TYPE&gt;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_condition.html">   28</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_condition.html">Condition</a> = <a class="code hl_concept" href="conceptoriginal_1_1_callback_of.html">CallbackOf&lt;Callback, bool, const TYPE&amp;&gt;</a>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">template</span> &lt; <span class="keyword">typename</span> Callback, <span class="keyword">typename</span> TYPE&gt;</div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_operation.html">   31</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_operation.html">Operation</a> = <span class="keyword">requires</span>(Callback operation, TYPE&amp; t){</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        { operation(t) } -&gt; std::same_as&lt;void&gt;;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
-</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> Derive&gt;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_super_of.html">   36</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_super_of.html">SuperOf</a> = std::is_base_of_v&lt;Base, Derive&gt; || std::is_same_v&lt;Base, Derive&gt;;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> Derive&gt;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_extends_of.html">   39</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_extends_of.html">ExtendsOf</a> = std::derived_from&lt;Derive, Base&gt; || std::is_same_v&lt;Base, Derive&gt;;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif </span><span class="comment">//TYPES_H</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> TYPE&gt;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_operation.html">   31</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_operation.html">Operation</a> = <a class="code hl_concept" href="conceptoriginal_1_1_callback_of.html">CallbackOf&lt;Callback, void, TYPE&amp;&gt;</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> Derive&gt;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_super_of.html">   34</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_super_of.html">SuperOf</a> = std::is_base_of_v&lt;Base, Derive&gt; || std::is_same_v&lt;Base, Derive&gt;;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Base, <span class="keyword">typename</span> Derive&gt;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="conceptoriginal_1_1_extends_of.html">   37</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_extends_of.html">ExtendsOf</a> = std::derived_from&lt;Derive, Base&gt; || std::is_same_v&lt;Base, Derive&gt;;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif </span><span class="comment">//TYPES_H</span></div>
+<div class="ttc" id="aconceptoriginal_1_1_callback_of_html"><div class="ttname"><a href="conceptoriginal_1_1_callback_of.html">original::CallbackOf</a></div><div class="ttdef"><b>Definition</b> types.h:19</div></div>
 <div class="ttc" id="aconceptoriginal_1_1_comparable_html"><div class="ttname"><a href="conceptoriginal_1_1_comparable.html">original::Comparable</a></div><div class="ttdef"><b>Definition</b> types.h:9</div></div>
-<div class="ttc" id="aconceptoriginal_1_1_compare_html"><div class="ttname"><a href="conceptoriginal_1_1_compare.html">original::Compare</a></div><div class="ttdef"><b>Definition</b> types.h:19</div></div>
-<div class="ttc" id="aconceptoriginal_1_1_condition_html"><div class="ttname"><a href="conceptoriginal_1_1_condition.html">original::Condition</a></div><div class="ttdef"><b>Definition</b> types.h:26</div></div>
-<div class="ttc" id="aconceptoriginal_1_1_extends_of_html"><div class="ttname"><a href="conceptoriginal_1_1_extends_of.html">original::ExtendsOf</a></div><div class="ttdef"><b>Definition</b> types.h:39</div></div>
+<div class="ttc" id="aconceptoriginal_1_1_compare_html"><div class="ttname"><a href="conceptoriginal_1_1_compare.html">original::Compare</a></div><div class="ttdef"><b>Definition</b> types.h:24</div></div>
+<div class="ttc" id="aconceptoriginal_1_1_condition_html"><div class="ttname"><a href="conceptoriginal_1_1_condition.html">original::Condition</a></div><div class="ttdef"><b>Definition</b> types.h:28</div></div>
+<div class="ttc" id="aconceptoriginal_1_1_extends_of_html"><div class="ttname"><a href="conceptoriginal_1_1_extends_of.html">original::ExtendsOf</a></div><div class="ttdef"><b>Definition</b> types.h:37</div></div>
 <div class="ttc" id="aconceptoriginal_1_1_operation_html"><div class="ttname"><a href="conceptoriginal_1_1_operation.html">original::Operation</a></div><div class="ttdef"><b>Definition</b> types.h:31</div></div>
-<div class="ttc" id="aconceptoriginal_1_1_super_of_html"><div class="ttname"><a href="conceptoriginal_1_1_super_of.html">original::SuperOf</a></div><div class="ttdef"><b>Definition</b> types.h:36</div></div>
+<div class="ttc" id="aconceptoriginal_1_1_super_of_html"><div class="ttname"><a href="conceptoriginal_1_1_super_of.html">original::SuperOf</a></div><div class="ttdef"><b>Definition</b> types.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

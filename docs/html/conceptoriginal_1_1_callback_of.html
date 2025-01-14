@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ORIGINAL: original::Condition Concept Reference</title>
+<title>ORIGINAL: original::CallbackOf Concept Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,19 +83,20 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>original</b></li><li class="navelem"><a class="el" href="conceptoriginal_1_1_condition.html">Condition</a></li>  </ul>
+<li class="navelem"><b>original</b></li><li class="navelem"><a class="el" href="conceptoriginal_1_1_callback_of.html">CallbackOf</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">original::Condition Concept Reference</div></div>
+  <div class="headertitle"><div class="title">original::CallbackOf Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <h2 class="groupheader">Concept definition</h2>
-<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> TYPE&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_condition.html">original::Condition</a> =  <a class="code hl_concept" href="conceptoriginal_1_1_callback_of.html">CallbackOf&lt;Callback, bool, const TYPE&amp;&gt;</a></div>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Callback, <span class="keyword">typename</span> ReturnType, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1_callback_of.html">original::CallbackOf</a> =  <span class="keyword">requires</span>(Callback callback, Args&amp;&amp;... args){</div>
+<div class="line">        { callback(std::forward&lt;Args&gt;(args)...) } -&gt; std::same_as&lt;ReturnType&gt;;</div>
+<div class="line">    }</div>
 <div class="ttc" id="aconceptoriginal_1_1_callback_of_html"><div class="ttname"><a href="conceptoriginal_1_1_callback_of.html">original::CallbackOf</a></div><div class="ttdef"><b>Definition</b> types.h:19</div></div>
-<div class="ttc" id="aconceptoriginal_1_1_condition_html"><div class="ttname"><a href="conceptoriginal_1_1_condition.html">original::Condition</a></div><div class="ttdef"><b>Definition</b> types.h:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
