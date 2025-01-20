@@ -8,13 +8,13 @@
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}doubleDirectionIterator.h"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}array.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}serial.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}baseList.h"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}iterationStream.h"{}}}
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }original\ \{}
 \DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1chain}{chain}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iteration_stream}{iterationStream}}<TYPE>\{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1chain}{chain}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseList}{baseList}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}<TYPE>\{}
 \DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }chainNode\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}<TYPE>\{}
 \DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<TYPE>;}
@@ -47,14 +47,14 @@
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ chainNode*\ lastDelete();}
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ chainDestruction();}
 \DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1double_direction_iterator}{doubleDirectionIterator}}<TYPE>}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1doubleDirectionIterator}{doubleDirectionIterator}}<TYPE>}
 \DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}(chainNode*\ ptr);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}(chainNode*\ ptr);}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1chain}{chain}};}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}\&\ other);}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}\&\ other);}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}*\ clone()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}\&\ other);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}\&\ other);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}*\ clone()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
@@ -80,8 +80,8 @@
 \DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ TYPE\ popBegin()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ TYPE\ pop(int64\_t\ index)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ TYPE\ popEnd()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}*\ begins()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}*\ ends()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}*\ begins()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_1_1Iterator}{Iterator}}*\ ends()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain}{\string~chain}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00083\ \ \ \ \ \};}
@@ -330,7 +330,7 @@
 \DoxyCodeLine{00326\ }
 \DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ this-\/>chainDestruction();}
 \DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ this-\/>begin\_\ =\ other.begin\_;}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ other.begin\_;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ other.end\_;}
 \DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
 \DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ other.chainInit();}
 \DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}

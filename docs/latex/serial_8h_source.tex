@@ -6,119 +6,59 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SERIAL\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}container.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}error.h"{}}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }original\{}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1container}{container}}<TYPE>\{}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ indexOutOfBound(int64\_t\ index)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ [[nodiscard]]\ int64\_t\ parseNegIndex(int64\_t\ index)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keyword}{const}\ TYPE\&\ e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ TYPE\ remove(\textcolor{keyword}{const}\ TYPE\&\ e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clear()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ get(int64\_t\ index)\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ getBegin()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ getEnd()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ operator[](int64\_t\ index)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\&\ operator[](int64\_t\ index)\ =\ 0;}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\&\ e)\ =\ 0;}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ indexOf(\textcolor{keyword}{const}\ TYPE\&\ e)\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ contains(\textcolor{keyword}{const}\ TYPE\&\ e)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ push(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\&\ e);}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ pop(int64\_t\ index);}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ pushBegin(\textcolor{keyword}{const}\ TYPE\&\ e);}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ popBegin();}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ pushEnd(\textcolor{keyword}{const}\ TYPE\&\ e);}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ popEnd();}
-\DoxyCodeLine{00031\ \ \ \ \ \};}
-\DoxyCodeLine{00032\ \}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::indexOutOfBound}}(\textcolor{keyword}{const}\ int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00036\ \ \ \ \ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ int64\_t\ parsed\_index\ =\ this-\/>parseNegIndex(index);}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parsed\_index\ <\ 0\ ||\ parsed\_index\ >=\ this-\/>size();}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }original\{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1container}{container}}<TYPE>\{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ indexOutOfBound(int64\_t\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ [[nodiscard]]\ int64\_t\ parseNegIndex(int64\_t\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ get(int64\_t\ index)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ getBegin()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ getEnd()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ operator[](int64\_t\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\&\ operator[](int64\_t\ index)\ =\ 0;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\&\ e)\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ indexOf(\textcolor{keyword}{const}\ TYPE\&\ e)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ contains(\textcolor{keyword}{const}\ TYPE\&\ e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00021\ \ \ \ \ \};}
+\DoxyCodeLine{00022\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::indexOutOfBound}}(\textcolor{keyword}{const}\ int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ int64\_t\ parsed\_index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parsed\_index\ <\ 0\ ||\ parsed\_index\ >=\ this-\/>size();}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::parseNegIndex}}(int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ int64\_t\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index\ >=\ 0\ ?\ index\ :\ this-\/>size()\ +\ index;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::getBegin}}()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get(0);}
 \DoxyCodeLine{00039\ \ \ \ \ \}}
 \DoxyCodeLine{00040\ }
 \DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::parseNegIndex}}(int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ int64\_t\ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ index\ >=\ 0\ ?\ index\ :\ this-\/>size()\ +\ index;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::getEnd}}()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get(-\/1);}
 \DoxyCodeLine{00044\ \ \ \ \ \}}
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::add}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::operator[]}}(\textcolor{keyword}{const}\ int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ TYPE}
 \DoxyCodeLine{00048\ \ \ \ \ \{}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ this-\/>pushEnd(e);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get(index);}
 \DoxyCodeLine{00050\ \ \ \ \ \}}
 \DoxyCodeLine{00051\ }
 \DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::remove}}(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ TYPE}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::contains}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{00054\ \ \ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ index\ =\ this-\/>indexOf(e);}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>pop(index);}
-\DoxyCodeLine{00057\ \ \ \ \ \}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::clear}}()\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!this-\/>empty())\ \{}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>popEnd();}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00064\ \ \ \ \ \}}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::getBegin}}()\ const\ -\/>\ TYPE\ \{}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get(0);}
-\DoxyCodeLine{00069\ \ \ \ \ \}}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::getEnd}}()\ const\ -\/>\ TYPE\ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get(-\/1);}
-\DoxyCodeLine{00074\ \ \ \ \ \}}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::operator[]}}(\textcolor{keyword}{const}\ int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ TYPE}
-\DoxyCodeLine{00078\ \ \ \ \ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get(index);}
-\DoxyCodeLine{00080\ \ \ \ \ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::contains}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00084\ \ \ \ \ \{}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>indexOf(e)\ !=\ this-\/>size();}
-\DoxyCodeLine{00086\ \ \ \ \ \}}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::push}}(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ \{}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
-\DoxyCodeLine{00091\ \ \ \ \ \}}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00094\ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::pop}}(int64\_t\ index)\ \{}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
-\DoxyCodeLine{00096\ \ \ \ \ \}}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::pushBegin}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \{}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
-\DoxyCodeLine{00101\ \ \ \ \ \}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00104\ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::popBegin}}()\ \{}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
-\DoxyCodeLine{00106\ \ \ \ \ \}}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::pushEnd}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \{}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
-\DoxyCodeLine{00111\ \ \ \ \ \}}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00114\ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1serial}{original::serial<TYPE>::popEnd}}()\ \{}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ unSupportedMethodError();}
-\DoxyCodeLine{00116\ \ \ \ \ \}}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SERIAL\_H}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>indexOf(e)\ !=\ this-\/>size();}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SERIAL\_H}}
 
 \end{DoxyCode}

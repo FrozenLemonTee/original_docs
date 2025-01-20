@@ -5,13 +5,13 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ VECTOR\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ VECTOR\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}serial.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}baseList.h"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}iterationStream.h"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}array.h"{}}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }original\{}
 \DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1vector}{vector}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iteration_stream}{iterationStream}}<TYPE>\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1vector}{vector}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseList}{baseList}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}<TYPE>\{}
 \DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ uint32\_t\ size\_;}
 \DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ INNER\_SIZE\_INIT\ =\ 16;}
 \DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ uint32\_t\ max\_size;}
@@ -29,14 +29,14 @@
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ adjust(uint32\_t\ increment);}
 \DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{randomAccessIterator}}<TYPE>}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator}{randomAccessIterator}}<TYPE>}
 \DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}(TYPE*\ ptr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1vector}{vector}}*\ \mbox{\hyperlink{classoriginal_1_1container}{container}},\ int64\_t\ pos);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}(TYPE*\ ptr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1vector}{vector}}*\ \mbox{\hyperlink{classoriginal_1_1container}{container}},\ int64\_t\ pos);}
 \DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1vector}{vector}};}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}\&\ other);}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}\&\ other);}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}*\ clone()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}\&\ other);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}\&\ other);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}*\ clone()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
@@ -62,8 +62,8 @@
 \DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ TYPE\ popBegin()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ TYPE\ pop(int64\_t\ index)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ TYPE\ popEnd()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}*\ begins()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator}{Iterator}}*\ ends()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}*\ begins()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}*\ ends()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector}{\string~vector}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00065\ \ \ \ \ \};}
@@ -120,7 +120,7 @@
 \DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1vector}{original::vector<TYPE>::outOfMaxSize}}(uint32\_t\ increment)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{00118\ \ \ \ \ \{}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>inner\_begin\ +\ this-\/>size()\ +\ increment\ >\ this-\/>max\_size\ -\/\ 1\ ||\ this-\/>inner\_begin\ -\/\ increment\ <\ 0;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>inner\_begin\ +\ this-\/>size()\ +\ increment\ >\ this-\/>max\_size\ -\/\ 1\ ||\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(this-\/>inner\_begin)\ -\/\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(increment)\ <\ 0;}
 \DoxyCodeLine{00120\ \ \ \ \ \}}
 \DoxyCodeLine{00121\ }
 \DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
@@ -142,8 +142,8 @@
 \DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>outOfMaxSize(increment))\ \{}
 \DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>max\_size\ >=\ this-\/>size\_\ +\ increment)\ \{}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ new\_begin\ =\ (this-\/>max\_size\ -\/\ this-\/>size()\ -\/\ increment)\ /\ 2;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ uint32\_t\ new\_begin\ =\ (this-\/>max\_size\ -\/\ this-\/>size()\ -\/\ increment)\ /\ 2;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>max\_size\ >=\ this-\/>size\_\ +\ increment\ \&\&\ new\_begin\ >\ 0)\ \{}
 \DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ offset\ =\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(new\_begin)\ -\/\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(this-\/>inner\_begin);}
 \DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ vector::moveElements(this-\/>body,\ this-\/>inner\_begin,\ this-\/>size(),}
 \DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>body,\ offset);}
@@ -378,7 +378,7 @@
 \DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector::moveElements(this-\/>body,\ index,}
 \DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size()\ -\/\ rel\_idx,\ this-\/>body,\ 1);}
 \DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>body[index]\ =\ e;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>body[this-\/>toInnerIdx(rel\_idx)]\ =\ e;}
 \DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
 \DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00380\ \ \ \ \ \}}
