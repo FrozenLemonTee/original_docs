@@ -8,110 +8,122 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}blocksList.h"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}comparator.h"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}containerAdapter.h"{}}}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }original}
-\DoxyCodeLine{00009\ \{}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ Callback\ =\ increaseComparator,}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ blocksList>}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1containerAdapter}{containerAdapter}}<TYPE,\ SERIAL>}
-\DoxyCodeLine{00014\ \ \ \ \ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ Callback<TYPE>\ compare\_;}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE>\{\},\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare\ =\ Callback<TYPE>\{\});}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst,\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare\ =\ Callback<TYPE>\{\});}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other);}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other);}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ push(\textcolor{keyword}{const}\ TYPE\&\ e);}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ pop();}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ top()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00028\ \ \ \ \ \};}
-\DoxyCodeLine{00029\ \}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::prique}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ serial,\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare)}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ :\ containerAdapter<TYPE,\ SERIAL>(serial),\ compare\_(compare)}
-\DoxyCodeLine{00034\ \ \ \ \ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ algorithms::heapInit(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
-\DoxyCodeLine{00036\ \ \ \ \ \}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::prique}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst,\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare)}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ :\ prique(SERIAL<TYPE>(lst),\ compare)\ \{\}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::prique}}(\textcolor{keyword}{const}\ prique\&\ other)}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ :\ containerAdapter<TYPE,\ SERIAL>(other.serial\_),\ compare\_(other.compare\_)\ \{\}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}types.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }original}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ Callback\ =\ \mbox{\hyperlink{classoriginal_1_1increaseComparator}{increaseComparator}},}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ \mbox{\hyperlink{classoriginal_1_1blocksList}{blocksList}}>}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1Compare}{Compare<Callback<TYPE>}},\ TYPE>}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }prique\ final\ :\ \textcolor{keyword}{public}\ containerAdapter<TYPE,\ SERIAL>}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Callback<TYPE>\ compare\_;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ prique(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE>\{\},\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare\ =\ Callback<TYPE>\{\});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ prique(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst,\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare\ =\ Callback<TYPE>\{\});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ prique(\textcolor{keyword}{const}\ prique\&\ other);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ prique\&\ operator=(\textcolor{keyword}{const}\ prique\&\ other);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ prique\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ prique(prique\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ prique\&\ operator=(prique\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ push(\textcolor{keyword}{const}\ TYPE\&\ e);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ pop();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ top()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1Compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
+\DoxyCodeLine{00035\ \ \ \ \ original::prique<TYPE,\ Callback,\ SERIAL>::prique(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ serial,\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ :\ containerAdapter<TYPE,\ SERIAL>(serial),\ compare\_(compare)}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ algorithms::heapInit(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00043\ \ \ \ \ original::prique<TYPE,\ Callback,\ SERIAL>::prique(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst,\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}(SERIAL<TYPE>(lst),\ compare)\ \{\}}
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::operator=}}(\textcolor{keyword}{const}\ prique\&\ other)\ -\/>\ prique\&}
-\DoxyCodeLine{00048\ \ \ \ \ \{}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ other.serial\_;}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ compare\_\ =\ other.compare\_;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00053\ \ \ \ \ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::operator==}}(\textcolor{keyword}{const}\ prique\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00057\ \ \ \ \ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_\ ==\ other.serial\_;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00048\ \ \ \ \ original::prique<TYPE,\ Callback,\ SERIAL>::prique(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1containerAdapter}{containerAdapter}}<TYPE,\ SERIAL>(other.serial\_),\ compare\_(other.compare\_)\ \{\}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{auto}\ original::prique<TYPE,\ Callback,\ SERIAL>::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ other.serial\_;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ compare\_\ =\ other.compare\_;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00059\ \ \ \ \ \}}
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::prique}}(prique\&\&\ other)\ noexcept\ :\ prique()}
-\DoxyCodeLine{00063\ \ \ \ \ \{}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
-\DoxyCodeLine{00065\ \ \ \ \ \}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::operator=}}(prique\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ prique\&}
-\DoxyCodeLine{00069\ \ \ \ \ \{}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ std::move(other.serial\_);}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ this-\/>compare\_\ =\ std::move(other.compare\_);}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ other.serial\_\ =\ SERIAL<TYPE>\{\};}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ other.compare\_\ =\ Callback<TYPE>\{\};}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00078\ \ \ \ \ \}}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::push}}(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00082\ \ \ \ \ \{}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ this-\/>serial\_.pushEnd(e);}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ algorithms::heapAdjustUp(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
-\DoxyCodeLine{00085\ \ \ \ \ \}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::pop}}()\ -\/>\ TYPE}
-\DoxyCodeLine{00089\ \ \ \ \ \{}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>empty())\ \textcolor{keywordflow}{throw}\ noElementError();}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ algorithms::swap(this-\/>serial\_.begin(),\ this-\/>serial\_.last());}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>serial\_.popEnd();}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ algorithms::heapAdjustDown(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>serial\_.begin(),\ compare\_);}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00096\ \ \ \ \ \}}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::top}}()\ const\ -\/>\ TYPE}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{auto}\ original::prique<TYPE,\ Callback,\ SERIAL>::operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00064\ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_\ ==\ other.serial\_;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00070\ \ \ \ \ original::prique<TYPE,\ Callback,\ SERIAL>::prique(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}()}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{auto}\ original::prique<TYPE,\ Callback,\ SERIAL>::operator=(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ std::move(other.serial\_);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ this-\/>compare\_\ =\ std::move(other.compare\_);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ other.serial\_\ =\ SERIAL<TYPE>\{\};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ other.compare\_\ =\ Callback<TYPE>\{\};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{auto}\ original::prique<TYPE,\ Callback,\ SERIAL>::push(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00092\ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ this-\/>serial\_.pushEnd(e);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ algorithms::heapAdjustUp(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{auto}\ original::prique<TYPE,\ Callback,\ SERIAL>::pop()\ -\/>\ TYPE}
 \DoxyCodeLine{00100\ \ \ \ \ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_.getBegin();}
-\DoxyCodeLine{00102\ \ \ \ \ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique}{original::prique<TYPE,\ Callback,\ SERIAL>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}}
-\DoxyCodeLine{00106\ \ \ \ \ \{}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}prique"{}};}
-\DoxyCodeLine{00108\ \ \ \ \ \}}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PRIQUE\_H}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>empty())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1noElementError}{noElementError}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ algorithms::swap(this-\/>serial\_.begin(),\ this-\/>serial\_.last());}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>serial\_.popEnd();}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ algorithms::heapAdjustDown(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>serial\_.begin(),\ compare\_);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{auto}\ original::prique<TYPE,\ Callback,\ SERIAL>::top()\ const\ -\/>\ TYPE}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_.getBegin();}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }Callback,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{auto}\ original::prique<TYPE,\ Callback,\ SERIAL>::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}}
+\DoxyCodeLine{00119\ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}prique"{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PRIQUE\_H}}
 
 \end{DoxyCode}

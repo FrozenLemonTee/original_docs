@@ -9,16 +9,16 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}containerAdapter.h"{}}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }original\{}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ chain>}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1deque}{deque}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1containerAdapter}{containerAdapter}}<TYPE,\ SERIAL>\{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ \mbox{\hyperlink{classoriginal_1_1chain}{chain}}>}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }deque\ final\ :\ \textcolor{keyword}{public}\ containerAdapter<TYPE,\ SERIAL>\{}
 \DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE>\{\});}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst);}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ other);}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ other);}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}(\mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ deque(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE>\{\});}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ deque(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst);}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ deque(\textcolor{keyword}{const}\ deque\&\ other);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ deque\&\ operator=(\textcolor{keyword}{const}\ deque\&\ other);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ deque\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ deque(deque\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ deque\&\ operator=(deque\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pushBegin(\textcolor{keyword}{const}\ TYPE\ \&e);}
 \DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pushEnd(\textcolor{keyword}{const}\ TYPE\ \&e);}
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ TYPE\ popBegin();}
@@ -30,38 +30,38 @@
 \DoxyCodeLine{00026\ \}}
 \DoxyCodeLine{00027\ }
 \DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::deque}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ serial)}
+\DoxyCodeLine{00029\ \ \ \ \ original::deque<TYPE,\ SERIAL>::deque(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ serial)}
 \DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ :\ containerAdapter<TYPE,\ SERIAL>(serial)\ \{\}}
 \DoxyCodeLine{00031\ }
 \DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::deque}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\ \&lst)}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ :\ deque(SERIAL<TYPE>(lst))\ \{\}}
+\DoxyCodeLine{00033\ \ \ \ \ original::deque<TYPE,\ SERIAL>::deque(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\ \&lst)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}(SERIAL<TYPE>(lst))\ \{\}}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::deque}}(\textcolor{keyword}{const}\ deque\&\ other)\ :\ deque()\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ original::deque<TYPE,\ SERIAL>::deque(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ other)\ :\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}()\ \{}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ this-\/>operator=(other);}
 \DoxyCodeLine{00039\ \ \ \ \ \}}
 \DoxyCodeLine{00040\ }
 \DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::operator=}}(\textcolor{keyword}{const}\ deque\&\ other)\ -\/>\ deque\&\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\ \{}
 \DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ other.serial\_;}
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00046\ \ \ \ \ \}}
 \DoxyCodeLine{00047\ }
 \DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::operator==}}(\textcolor{keyword}{const}\ deque\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
 \DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_\ ==\ other.serial\_;}
 \DoxyCodeLine{00051\ \ \ \ \ \}}
 \DoxyCodeLine{00052\ }
 \DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::deque}}(deque\&\&\ other)\ noexcept\ :\ deque()}
+\DoxyCodeLine{00054\ \ \ \ \ original::deque<TYPE,\ SERIAL>::deque(\mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}()}
 \DoxyCodeLine{00055\ \ \ \ \ \{}
 \DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
 \DoxyCodeLine{00057\ \ \ \ \ \}}
 \DoxyCodeLine{00058\ }
 \DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::operator=}}(deque\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ deque\&}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::operator=(\mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1deque}{deque}}\&}
 \DoxyCodeLine{00061\ \ \ \ \ \{}
 \DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
 \DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
@@ -72,37 +72,37 @@
 \DoxyCodeLine{00068\ \ \ \ \ \}}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::pushBegin}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::pushBegin(\textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
 \DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ this-\/>serial\_.pushBegin(e);}
 \DoxyCodeLine{00073\ \ \ \ \ \}}
 \DoxyCodeLine{00074\ }
 \DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::pushEnd}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::pushEnd(\textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
 \DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ this-\/>serial\_.pushEnd(e);}
 \DoxyCodeLine{00078\ \ \ \ \ \}}
 \DoxyCodeLine{00079\ }
 \DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::popBegin}}()\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::popBegin()\ -\/>\ TYPE\ \{}
 \DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_.popBegin();}
 \DoxyCodeLine{00083\ \ \ \ \ \}}
 \DoxyCodeLine{00084\ }
 \DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::popEnd}}()\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::popEnd()\ -\/>\ TYPE\ \{}
 \DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_.popEnd();}
 \DoxyCodeLine{00088\ \ \ \ \ \}}
 \DoxyCodeLine{00089\ }
 \DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::head}}()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::head()\ const\ -\/>\ TYPE\ \{}
 \DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_.getBegin();}
 \DoxyCodeLine{00093\ \ \ \ \ \}}
 \DoxyCodeLine{00094\ }
 \DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::tail}}()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::tail()\ const\ -\/>\ TYPE\ \{}
 \DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_.getEnd();}
 \DoxyCodeLine{00098\ \ \ \ \ \}}
 \DoxyCodeLine{00099\ }
 \DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1deque}{original::deque<TYPE,\ SERIAL>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{auto}\ original::deque<TYPE,\ SERIAL>::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
 \DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}deque"{}};}
 \DoxyCodeLine{00103\ \ \ \ \ \}}
 \DoxyCodeLine{00104\ }
