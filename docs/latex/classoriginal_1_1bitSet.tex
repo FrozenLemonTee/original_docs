@@ -46,9 +46,6 @@ class \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}
 \Hypertarget{classoriginal_1_1bitSet_a9e985c48162a58b9828ce629a712bec9}\label{classoriginal_1_1bitSet_a9e985c48162a58b9828ce629a712bec9} 
 \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} \&\&other) noexcept
 \item 
-\Hypertarget{classoriginal_1_1bitSet_a80c53fb49b429f64ed9d82aa614ffe5b}\label{classoriginal_1_1bitSet_a80c53fb49b429f64ed9d82aa614ffe5b} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} \&other) const
-\item 
 \Hypertarget{classoriginal_1_1bitSet_a95aeeb4486e54729b93a3c7e79211187}\label{classoriginal_1_1bitSet_a95aeeb4486e54729b93a3c7e79211187} 
 uint32\+\_\+t {\bfseries count} () const
 \item 
@@ -99,12 +96,14 @@ bool \mbox{\hyperlink{classoriginal_1_1serial_a689a824c570acbc125c5b7ee3e10581b}
 \item 
 bool {\bfseries empty} () const
 \end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ bool $>$}}}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ bool, bit\+Set $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_a7541e2a6dc42214fe9e00ef965dc30b4}{class\+Name}} () const override
+int {\bfseries compare\+To} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}} \&other) const override
 \item 
-std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_adc17b45187aa82d68ad52bf4290189ca}{to\+String}} (bool enter) const override
+std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{class\+Name}} () const override
+\item 
+std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_afdbf5c8276d763a8a7f8c620484b31a7}{to\+String}} (bool enter) const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -154,6 +153,23 @@ auto {\bfseries for\+Each} (Callback operation) -\/$>$ void
 \item 
 auto {\bfseries for\+Each} (const Callback \&operation) const -\/$>$ void
 \end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1comparable}{original\+::comparable$<$ iteration\+Stream$<$ bool, bit\+Set $>$ $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual int {\bfseries compare\+To} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ bool, \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} $>$ \&other) const=0
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ bool, \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} $>$ \&other) const
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ bool, \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} $>$ \&other) const
+\item 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ bool, \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} $>$ \&other) const
+\item 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ bool, \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} $>$ \&other) const
+\item 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ bool, \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} $>$ \&other) const
+\item 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ bool, \mbox{\hyperlink{classoriginal_1_1bitSet}{bit\+Set}} $>$ \&other) const
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -194,7 +210,7 @@ bool {\bfseries index\+Out\+Of\+Bound} (int64\+\_\+t index) const
 \item 
 int64\+\_\+t {\bfseries parse\+Neg\+Index} (int64\+\_\+t index) const
 \end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ bool $>$}}}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ bool, bit\+Set $>$}}}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string {\bfseries elements\+String} () const

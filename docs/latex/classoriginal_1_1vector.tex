@@ -46,9 +46,6 @@ class \mbox{\hyperlink{classoriginal_1_1vector_1_1Iterator}{Iterator}}
 \Hypertarget{classoriginal_1_1vector_a2a37112f93accf36a8958f93fc103985}\label{classoriginal_1_1vector_a2a37112f93accf36a8958f93fc103985} 
 \mbox{\hyperlink{classoriginal_1_1vector}{vector}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1vector}{vector}} \&\&other) noexcept
 \item 
-\Hypertarget{classoriginal_1_1vector_a811fd53d394b0d2331f943ab2d2c1f8c}\label{classoriginal_1_1vector_a811fd53d394b0d2331f943ab2d2c1f8c} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classoriginal_1_1vector}{vector}} \&other) const
-\item 
 uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1vector_aaba7a3eec5f328e67b7c1c5775182ed0}{size}} () const override
 \item 
 \Hypertarget{classoriginal_1_1vector_a24946fb007f676ec4ed9f13f88035349}\label{classoriginal_1_1vector_a24946fb007f676ec4ed9f13f88035349} 
@@ -105,10 +102,12 @@ bool \mbox{\hyperlink{classoriginal_1_1serial_a689a824c570acbc125c5b7ee3e10581b}
 \item 
 bool {\bfseries empty} () const
 \end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE $>$}}}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE, vector$<$ TYPE $>$ $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_adc17b45187aa82d68ad52bf4290189ca}{to\+String}} (bool enter) const override
+int {\bfseries compare\+To} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}} \&other) const override
+\item 
+std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_afdbf5c8276d763a8a7f8c620484b31a7}{to\+String}} (bool enter) const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -158,6 +157,23 @@ requires \mbox{\hyperlink{conceptoriginal_1_1Operation}{original\+::\+Operation}
 {\footnotesize template$<$typename Callback$>$ \newline
 requires \mbox{\hyperlink{conceptoriginal_1_1Operation}{original\+::\+Operation}}$<$Callback, TYPE$>$}\\auto {\bfseries for\+Each} (const Callback \&operation) const -\/$>$ void
 \end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1comparable}{original\+::comparable$<$ iteration\+Stream$<$ TYPE, vector$<$ TYPE $>$ $>$ $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual int {\bfseries compare\+To} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1vector}{vector}}$<$ TYPE $>$ $>$ \&other) const=0
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1vector}{vector}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1vector}{vector}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1vector}{vector}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1vector}{vector}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1vector}{vector}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1vector}{vector}}$<$ TYPE $>$ $>$ \&other) const
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -183,7 +199,7 @@ bool {\bfseries index\+Out\+Of\+Bound} (int64\+\_\+t index) const
 \item 
 int64\+\_\+t {\bfseries parse\+Neg\+Index} (int64\+\_\+t index) const
 \end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE $>$}}}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE, vector$<$ TYPE $>$ $>$}}}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string {\bfseries elements\+String} () const
@@ -211,7 +227,7 @@ auto \mbox{\hyperlink{classoriginal_1_1vector}{original\+::vector}}$<$ TYPE $>$\
 
 
 
-Reimplemented from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE $>$}}.
+Reimplemented from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE, vector$<$ TYPE $>$ $>$}}.
 
 \Hypertarget{classoriginal_1_1vector_a76414a2219bd10e83ccfac1bb25a955b}\index{original::vector$<$ TYPE $>$@{original::vector$<$ TYPE $>$}!ends@{ends}}
 \index{ends@{ends}!original::vector$<$ TYPE $>$@{original::vector$<$ TYPE $>$}}

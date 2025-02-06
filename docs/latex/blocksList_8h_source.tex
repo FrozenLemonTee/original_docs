@@ -11,7 +11,7 @@
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }original\ \{}
 \DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }blocksList\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseList}{baseList}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}<TYPE>\{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }blocksList\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseList}{baseList}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}<TYPE,\ blocksList<TYPE>>\{}
 \DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ BLOCK\_MAX\_SIZE\ =\ 16;}
 \DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ POS\_INIT\ =\ (BLOCK\_MAX\_SIZE\ -\/\ 1)\ /\ 2\ +\ 1;}
 \DoxyCodeLine{00013\ }
@@ -81,607 +81,591 @@
 \DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ blocksList\&\ operator=(\textcolor{keyword}{const}\ blocksList\&\ other);}
 \DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ blocksList(blocksList\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ blocksList\&\ operator=(blocksList\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ blocksList\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ TYPE\ get(int64\_t\ index)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ size()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ begins()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ ends()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ TYPE\&\ operator[](int64\_t\ index)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ uint32\_t\ indexOf(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ push(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ TYPE\ pop(int64\_t\ index)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pushBegin(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ TYPE\ popBegin()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pushEnd(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ TYPE\ popEnd()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \string~blocksList()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00096\ \ \ \ \ \};}
-\DoxyCodeLine{00097\ \}\textcolor{comment}{//\ namespace\ original}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::blocksListInit()\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00101\ \ \ \ \ \{}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ this-\/>map\ =\ vector(\{blockArrayInit()\});}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ 0;}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ POS\_INIT\ +\ 1;}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ POS\_INIT;}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ this-\/>map.size()\ /\ 2;}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ this-\/>map.size()\ /\ 2;}
-\DoxyCodeLine{00108\ \ \ \ \ \}}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::blocksListDestruct()\ const\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00112\ \ \ \ \ \{}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}*\ block\ :\ this-\/>map)\ \{}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ block;}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00116\ \ \ \ \ \}}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::blockArrayInit()\ -\/>\ TYPE*\ \{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ arr\ =\ \textcolor{keyword}{new}\ TYPE[BLOCK\_MAX\_SIZE];}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ BLOCK\_MAX\_SIZE;\ i++)\ \{}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ arr[i]\ =\ TYPE\{\};}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
-\DoxyCodeLine{00125\ \ \ \ \ \}}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::innerIdxToAbsIdx(\textcolor{keyword}{const}\ uint32\_t\ block,\ \textcolor{keyword}{const}\ uint32\_t\ pos)\ -\/>\ uint32\_t}
-\DoxyCodeLine{00129\ \ \ \ \ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\ *\ BLOCK\_MAX\_SIZE\ +\ pos;}
-\DoxyCodeLine{00131\ \ \ \ \ \}}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::firstAbsIdx()\ const\ -\/>\ uint32\_t}
-\DoxyCodeLine{00135\ \ \ \ \ \{}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ innerIdxToAbsIdx(this-\/>first\_block,\ this-\/>first\_);}
-\DoxyCodeLine{00137\ \ \ \ \ \}}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::lastAbsIdx()\ const\ -\/>\ uint32\_t}
-\DoxyCodeLine{00141\ \ \ \ \ \{}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ innerIdxToAbsIdx(this-\/>last\_block,\ this-\/>last\_);}
-\DoxyCodeLine{00143\ \ \ \ \ \}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::absIdxToOuterIdx(\textcolor{keyword}{const}\ uint32\_t\ absIdx)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
-\DoxyCodeLine{00147\ \ \ \ \ \{}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ absIdx\ -\/\ this-\/>firstAbsIdx();}
-\DoxyCodeLine{00149\ \ \ \ \ \}}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::outerIdxToAbsIdx(\textcolor{keyword}{const}\ int64\_t\ outerIdx)\ \textcolor{keyword}{const}\ -\/>\ uint32\_t}
-\DoxyCodeLine{00153\ \ \ \ \ \{}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>firstAbsIdx()\ +\ outerIdx;}
-\DoxyCodeLine{00155\ \ \ \ \ \}}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::absIdxToInnerIdx(\textcolor{keyword}{const}\ uint32\_t\ absIdx)\ -\/>\ couple<uint32\_t,\ uint32\_t>}
-\DoxyCodeLine{00159\ \ \ \ \ \{}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{absIdx\ /\ BLOCK\_MAX\_SIZE,\ absIdx\ \%\ BLOCK\_MAX\_SIZE\};}
-\DoxyCodeLine{00161\ \ \ \ \ \}}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::innerIdxOffset(\textcolor{keyword}{const}\ uint32\_t\ block,\ \textcolor{keyword}{const}\ uint32\_t\ pos,}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ offset)\ -\/>\ couple<uint32\_t,\ uint32\_t>}
-\DoxyCodeLine{00166\ \ \ \ \ \{}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ absIdxToInnerIdx(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(innerIdxToAbsIdx(block,\ pos))\ +\ offset));}
-\DoxyCodeLine{00168\ \ \ \ \ \}}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::outerIdxToInnerIdx(\textcolor{keyword}{const}\ int64\_t\ outerIdx)\ \textcolor{keyword}{const}\ -\/>\ couple<uint32\_t,\ uint32\_t>}
-\DoxyCodeLine{00172\ \ \ \ \ \{}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ absIdxToInnerIdx(this-\/>outerIdxToAbsIdx(outerIdx));}
-\DoxyCodeLine{00174\ \ \ \ \ \}}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::innerIdxToOuterIdx(\textcolor{keyword}{const}\ uint32\_t\ block,\ \textcolor{keyword}{const}\ uint32\_t\ pos)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
-\DoxyCodeLine{00178\ \ \ \ \ \{}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>absIdxToOuterIdx(innerIdxToAbsIdx(block,\ pos));}
-\DoxyCodeLine{00180\ \ \ \ \ \}}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::getElem(uint32\_t\ block,\ uint32\_t\ pos)\ \textcolor{keyword}{const}\ -\/>\ TYPE\&}
-\DoxyCodeLine{00184\ \ \ \ \ \{}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>map.get(block)[pos];}
-\DoxyCodeLine{00186\ \ \ \ \ \}}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::setElem(uint32\_t\ block,\ uint32\_t\ pos,\ \textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00190\ \ \ \ \ \{}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ this-\/>map.get(block)[pos]\ =\ e;}
-\DoxyCodeLine{00192\ \ \ \ \ \}}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::growNeeded(\textcolor{keyword}{const}\ uint32\_t\ increment,\ \textcolor{keywordtype}{bool}\ is\_first)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00196\ \ \ \ \ \{}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_first\ ?\ firstAbsIdx()\ <\ increment}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ :\ lastAbsIdx()\ +\ increment\ >\ innerIdxToAbsIdx(this-\/>map.size()\ -\/\ 1,\ BLOCK\_MAX\_SIZE\ -\/\ 1);}
-\DoxyCodeLine{00199\ \ \ \ \ \}}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::moveElements(\textcolor{keyword}{const}\ uint32\_t\ start\_block,\ \textcolor{keyword}{const}\ uint32\_t\ start\_pos,}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ len,\ \textcolor{keyword}{const}\ int64\_t\ offset)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00204\ \ \ \ \ \{}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (offset\ >\ 0)}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ len;\ i++)}
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ innerIdxOffset(start\_block,\ start\_pos,\ len\ -\/\ 1\ -\/\ i);}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\_offset\ =\ innerIdxOffset(start\_block,\ start\_pos,\ len\ -\/\ 1\ -\/\ i\ +\ offset);}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(idx\_offset.first(),\ idx\_offset.second(),}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>getElem(idx.first(),\ idx.second()));}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ len;\ i++)}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ innerIdxOffset(start\_block,\ start\_pos,\ i);}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\_offset\ =\ innerIdxOffset(start\_block,\ start\_pos,\ i\ +\ offset);}
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(idx\_offset.first(),\ idx\_offset.second(),}
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>getElem(idx.first(),\ idx.second()));}
-\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00224\ \ \ \ \ \}}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::addBlock(\textcolor{keywordtype}{bool}\ is\_first)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00228\ \ \ \ \ \{}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ new\_block\ =\ blockArrayInit();}
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ is\_first\ ?\ this-\/>map.pushBegin(new\_block)\ :\ this-\/>map.pushEnd(new\_block);}
-\DoxyCodeLine{00231\ \ \ \ \ \}}
-\DoxyCodeLine{00232\ }
-\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::adjust(\textcolor{keyword}{const}\ uint32\_t\ increment,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ is\_first)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00235\ \ \ \ \ \{}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>growNeeded(increment,\ is\_first))\{}
-\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ new\_blocks\_cnt\ =\ increment\ /\ BLOCK\_MAX\_SIZE\ +\ 1;}
-\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ new\_blocks\_cnt;\ ++i)\ \{}
-\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>addBlock(is\_first);}
-\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_first)\{}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_block\ +=\ new\_blocks\_cnt;}
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ +=\ new\_blocks\_cnt;}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00246\ \ \ \ \ \}}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00249\ \ \ \ \ original::blocksList<TYPE>::Iterator::Iterator(\textcolor{keyword}{const}\ int64\_t\ pos,\ \textcolor{keyword}{const}\ int64\_t\ block,\ TYPE**\ data\_ptr,\ \textcolor{keyword}{const}\ blocksList*\ container)}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ :\ cur\_pos(pos),\ cur\_block(block),\ data\_(data\_ptr),\ container\_(container)\ \{\}}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::equalPtr(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00254\ \ \ \ \ \{}
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}}
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_pos\ ==\ other\_it-\/>cur\_pos}
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_block\ ==\ other\_it-\/>cur\_block}
-\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>data\_\ ==\ other\_it-\/>data\_}
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>container\_\ ==\ other\_it-\/>container\_;}
-\DoxyCodeLine{00261\ \ \ \ \ \}}
-\DoxyCodeLine{00262\ }
-\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00264\ \ \ \ \ original::blocksList<TYPE>::Iterator::Iterator(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}\&\ other)\ :\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(0,\ 0,\ nullptr,\ nullptr)}
-\DoxyCodeLine{00265\ \ \ \ \ \{}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ this-\/>operator=(other);}
-\DoxyCodeLine{00267\ \ \ \ \ \}}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}\&}
-\DoxyCodeLine{00271\ \ \ \ \ \{}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00274\ }
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ this-\/>cur\_pos\ =\ other.cur\_pos;}
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ other.cur\_block;}
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ this-\/>data\_\ =\ other.data\_;}
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ this-\/>container\_\ =\ other.container\_;}
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00280\ \ \ \ \ \}}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::clone()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*}
-\DoxyCodeLine{00284\ \ \ \ \ \{}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00286\ \ \ \ \ \}}
-\DoxyCodeLine{00287\ }
-\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::hasNext()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00290\ \ \ \ \ \{}
-\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ blocksList::innerIdxToAbsIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ <\ this-\/>container\_-\/>lastAbsIdx();}
-\DoxyCodeLine{00292\ \ \ \ \ \}}
-\DoxyCodeLine{00293\ }
-\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::hasPrev()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00296\ \ \ \ \ \{}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ blocksList::innerIdxToAbsIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ >\ this-\/>container\_-\/>firstAbsIdx();}
-\DoxyCodeLine{00298\ \ \ \ \ \}}
-\DoxyCodeLine{00299\ }
-\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::next()\ const\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00302\ \ \ \ \ \{}
-\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ this-\/>operator+=(1);}
-\DoxyCodeLine{00304\ \ \ \ \ \}}
-\DoxyCodeLine{00305\ }
-\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::prev()\ const\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00308\ \ \ \ \ \{}
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ this-\/>operator-\/=(1);}
-\DoxyCodeLine{00310\ \ \ \ \ \}}
-\DoxyCodeLine{00311\ }
-\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator+=(\textcolor{keyword}{const}\ int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00314\ \ \ \ \ \{}
-\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>cur\_block,\ this-\/>cur\_pos,\ steps);}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ this-\/>cur\_pos\ =\ new\_idx.second();}
-\DoxyCodeLine{00318\ \ \ \ \ \}}
-\DoxyCodeLine{00319\ }
-\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator-\/=(\textcolor{keyword}{const}\ int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00322\ \ \ \ \ \{}
-\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>cur\_block,\ this-\/>cur\_pos,\ -\/steps);}
-\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ this-\/>cur\_pos\ =\ new\_idx.second();}
-\DoxyCodeLine{00326\ \ \ \ \ \}}
-\DoxyCodeLine{00327\ }
-\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator-\/(\textcolor{keyword}{const}\ iterator<TYPE>\&\ other)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
-\DoxyCodeLine{00330\ \ \ \ \ \{}
-\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(\&other);}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ >\ \&other\ ?}
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::max()\ :}
-\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::min();}
-\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>container\_\ !=\ other\_it-\/>container\_)}
-\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>container\_\ >\ other\_it-\/>container\_\ ?}
-\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::max()\ :}
-\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::min();}
-\DoxyCodeLine{00340\ }
-\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(innerIdxToAbsIdx(this-\/>cur\_block,\ this-\/>cur\_pos))\ -\/}
-\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(innerIdxToAbsIdx(other\_it-\/>cur\_block,\ other\_it-\/>cur\_pos));}
-\DoxyCodeLine{00343\ \ \ \ \ \}}
-\DoxyCodeLine{00344\ }
-\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::getPrev()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*}
-\DoxyCodeLine{00347\ \ \ \ \ \{}
-\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
-\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ it-\/>prev();}
-\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
-\DoxyCodeLine{00352\ \ \ \ \ \}}
-\DoxyCodeLine{00353\ }
-\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::getNext()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*}
-\DoxyCodeLine{00356\ \ \ \ \ \{}
-\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
-\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ it-\/>next();}
-\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
-\DoxyCodeLine{00361\ \ \ \ \ \}}
-\DoxyCodeLine{00362\ }
-\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::get()\ -\/>\ TYPE\&}
-\DoxyCodeLine{00365\ \ \ \ \ \{}
-\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_[this-\/>cur\_block][this-\/>cur\_pos];}
-\DoxyCodeLine{00368\ \ \ \ \ \}}
-\DoxyCodeLine{00369\ }
-\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::get()\ const\ -\/>\ TYPE}
-\DoxyCodeLine{00372\ \ \ \ \ \{}
-\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_[this-\/>cur\_block][this-\/>cur\_pos];}
-\DoxyCodeLine{00375\ \ \ \ \ \}}
-\DoxyCodeLine{00376\ }
-\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::set(\textcolor{keyword}{const}\ TYPE\&\ data)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00379\ \ \ \ \ \{}
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ this-\/>data\_[this-\/>cur\_block][this-\/>cur\_pos]\ =\ data;}
-\DoxyCodeLine{00382\ \ \ \ \ \}}
-\DoxyCodeLine{00383\ }
-\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::isValid()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00386\ \ \ \ \ \{}
-\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>container\_-\/>innerIdxToOuterIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ >=\ 0\ \&\&}
-\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>container\_-\/>innerIdxToOuterIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ <\ this-\/>container\_-\/>size();}
-\DoxyCodeLine{00389\ \ \ \ \ \}}
-\DoxyCodeLine{00390\ }
-\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::atPrev(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00393\ \ \ \ \ \{}
-\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>operator-\/(*other\_it)\ ==\ -\/1;}
-\DoxyCodeLine{00398\ \ \ \ \ \}}
-\DoxyCodeLine{00399\ }
-\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::atNext(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00402\ \ \ \ \ \{}
-\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>operator-\/(*other\_it)\ ==\ 1;}
-\DoxyCodeLine{00407\ \ \ \ \ \}}
-\DoxyCodeLine{00408\ }
-\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
-\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}blocksList::Iterator"{}};}
-\DoxyCodeLine{00412\ \ \ \ \ \}}
-\DoxyCodeLine{00413\ }
-\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00415\ \ \ \ \ original::blocksList<TYPE>::blocksList()}
-\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ :\ map(),\ size\_(),\ first\_(),\ last\_(),\ first\_block(),\ last\_block()}
-\DoxyCodeLine{00417\ \ \ \ \ \{}
-\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ this-\/>blocksListInit();}
-\DoxyCodeLine{00419\ \ \ \ \ \}}
-\DoxyCodeLine{00420\ }
-\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00422\ \ \ \ \ original::blocksList<TYPE>::blocksList(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst)\ :\ blocksList()\ \{}
-\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ this-\/>adjust(lst.size(),\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ lst)\ \{}
-\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
-\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>last\_block,\ this-\/>last\_,\ e);}
-\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
-\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00431\ \ \ \ \ \}}
-\DoxyCodeLine{00432\ }
-\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00434\ \ \ \ \ original::blocksList<TYPE>::blocksList(\textcolor{keyword}{const}\ array<TYPE>\&\ arr)\ :\ blocksList()\ \{}
-\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ this-\/>adjust(arr.size(),\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ arr)\ \{}
-\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
-\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>last\_block,\ this-\/>last\_,\ e);}
-\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
-\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00443\ \ \ \ \ \}}
-\DoxyCodeLine{00444\ }
-\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00446\ \ \ \ \ original::blocksList<TYPE>::blocksList(\textcolor{keyword}{const}\ blocksList\&\ other)\ :\ blocksList()\ \{}
-\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ this-\/>operator=(other);}
-\DoxyCodeLine{00448\ \ \ \ \ \}}
-\DoxyCodeLine{00449\ }
-\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00451\ \ \ \ \ original::blocksList<TYPE>\&\ original::blocksList<TYPE>::operator=(\textcolor{keyword}{const}\ blocksList\&\ other)\ \{}
-\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00453\ }
-\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ this-\/>map\ =\ vector<TYPE*>\{\};}
-\DoxyCodeLine{00455\ }
-\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 0;\ i\ <\ other.map.size();\ ++i)\ \{}
-\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ block\ =\ blockArrayInit();}
-\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ BLOCK\_MAX\_SIZE;\ ++j)\ \{}
-\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ block[j]\ =\ other.getElem(i,\ j);}
-\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.pushEnd(block);}
-\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00463\ }
-\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ other.first\_;}
-\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ other.last\_;}
-\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
-\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ other.first\_block;}
-\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ other.last\_block;}
-\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00470\ \ \ \ \ \}}
-\DoxyCodeLine{00471\ }
-\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00473\ \ \ \ \ original::blocksList<TYPE>::blocksList(blocksList\&\&\ other)\ noexcept\ :\ blocksList()}
-\DoxyCodeLine{00474\ \ \ \ \ \{}
-\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
-\DoxyCodeLine{00476\ \ \ \ \ \}}
-\DoxyCodeLine{00477\ }
-\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::operator=(blocksList\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ blocksList\&}
-\DoxyCodeLine{00480\ \ \ \ \ \{}
-\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00483\ }
-\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ this-\/>blocksListDestruct();}
-\DoxyCodeLine{00485\ }
-\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ this-\/>map\ =\ std::move(other.map);}
-\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ other.first\_;}
-\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ other.last\_;}
-\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ other.first\_block;}
-\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ other.last\_block;}
-\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
-\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ other.blocksListDestruct();}
-\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00494\ \ \ \ \ \}}
-\DoxyCodeLine{00495\ }
-\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::operator==(\textcolor{keyword}{const}\ blocksList\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00498\ \ \ \ \ \{}
-\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ !=\ other.size())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>size();\ ++i)\ \{}
-\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ this\_idx\ =\ this-\/>outerIdxToInnerIdx(i);}
-\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ other\_idx\ =\ other.outerIdxToInnerIdx(i);}
-\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>getElem(this\_idx.first(),}
-\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this\_idx.second())\ !=\ other.getElem(other\_idx.first(),\ other\_idx.second()))}
-\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00509\ \ \ \ \ \}}
-\DoxyCodeLine{00510\ }
-\DoxyCodeLine{00511\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::get(int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ TYPE\ \{}
-\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(this-\/>parseNegIndex(index)))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
-\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ inner\_idx\ =\ this-\/>outerIdxToInnerIdx(index);}
-\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>getElem(inner\_idx.first(),\ inner\_idx.second());}
-\DoxyCodeLine{00517\ \ \ \ \ \}}
-\DoxyCodeLine{00518\ }
-\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::size()\ const\ -\/>\ uint32\_t\ \{}
-\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
-\DoxyCodeLine{00522\ \ \ \ \ \}}
-\DoxyCodeLine{00523\ }
-\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::begins()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ \{}
-\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(this-\/>first\_,\ this-\/>first\_block,\ \&this-\/>map.data(),\ \textcolor{keyword}{this});}
-\DoxyCodeLine{00527\ \ \ \ \ \}}
-\DoxyCodeLine{00528\ }
-\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::ends()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ \{}
-\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(this-\/>last\_,\ this-\/>last\_block,\ \&this-\/>map.data(),\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ TYPE\ get(int64\_t\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ size()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ begins()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ ends()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ TYPE\&\ operator[](int64\_t\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ uint32\_t\ indexOf(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ push(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ TYPE\ pop(int64\_t\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pushBegin(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ TYPE\ popBegin()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pushEnd(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ TYPE\ popEnd()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \string~blocksList()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00095\ \ \ \ \ \};}
+\DoxyCodeLine{00096\ \}\textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::blocksListInit()\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ this-\/>map\ =\ vector(\{blockArrayInit()\});}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ 0;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ POS\_INIT\ +\ 1;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ POS\_INIT;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ this-\/>map.size()\ /\ 2;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ this-\/>map.size()\ /\ 2;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::blocksListDestruct()\ const\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00111\ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}*\ block\ :\ this-\/>map)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ block;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::blockArrayInit()\ -\/>\ TYPE*\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ arr\ =\ \textcolor{keyword}{new}\ TYPE[BLOCK\_MAX\_SIZE];}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ BLOCK\_MAX\_SIZE;\ i++)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ arr[i]\ =\ TYPE\{\};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ arr;}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::innerIdxToAbsIdx(\textcolor{keyword}{const}\ uint32\_t\ block,\ \textcolor{keyword}{const}\ uint32\_t\ pos)\ -\/>\ uint32\_t}
+\DoxyCodeLine{00128\ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\ *\ BLOCK\_MAX\_SIZE\ +\ pos;}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::firstAbsIdx()\ const\ -\/>\ uint32\_t}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ innerIdxToAbsIdx(this-\/>first\_block,\ this-\/>first\_);}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::lastAbsIdx()\ const\ -\/>\ uint32\_t}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ innerIdxToAbsIdx(this-\/>last\_block,\ this-\/>last\_);}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::absIdxToOuterIdx(\textcolor{keyword}{const}\ uint32\_t\ absIdx)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
+\DoxyCodeLine{00146\ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ absIdx\ -\/\ this-\/>firstAbsIdx();}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::outerIdxToAbsIdx(\textcolor{keyword}{const}\ int64\_t\ outerIdx)\ \textcolor{keyword}{const}\ -\/>\ uint32\_t}
+\DoxyCodeLine{00152\ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>firstAbsIdx()\ +\ outerIdx;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::absIdxToInnerIdx(\textcolor{keyword}{const}\ uint32\_t\ absIdx)\ -\/>\ couple<uint32\_t,\ uint32\_t>}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{absIdx\ /\ BLOCK\_MAX\_SIZE,\ absIdx\ \%\ BLOCK\_MAX\_SIZE\};}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::innerIdxOffset(\textcolor{keyword}{const}\ uint32\_t\ block,\ \textcolor{keyword}{const}\ uint32\_t\ pos,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int64\_t\ offset)\ -\/>\ couple<uint32\_t,\ uint32\_t>}
+\DoxyCodeLine{00165\ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ absIdxToInnerIdx(\textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(innerIdxToAbsIdx(block,\ pos))\ +\ offset));}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::outerIdxToInnerIdx(\textcolor{keyword}{const}\ int64\_t\ outerIdx)\ \textcolor{keyword}{const}\ -\/>\ couple<uint32\_t,\ uint32\_t>}
+\DoxyCodeLine{00171\ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ absIdxToInnerIdx(this-\/>outerIdxToAbsIdx(outerIdx));}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::innerIdxToOuterIdx(\textcolor{keyword}{const}\ uint32\_t\ block,\ \textcolor{keyword}{const}\ uint32\_t\ pos)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
+\DoxyCodeLine{00177\ \ \ \ \ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>absIdxToOuterIdx(innerIdxToAbsIdx(block,\ pos));}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::getElem(uint32\_t\ block,\ uint32\_t\ pos)\ \textcolor{keyword}{const}\ -\/>\ TYPE\&}
+\DoxyCodeLine{00183\ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>map.get(block)[pos];}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::setElem(uint32\_t\ block,\ uint32\_t\ pos,\ \textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00189\ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ this-\/>map.get(block)[pos]\ =\ e;}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::growNeeded(\textcolor{keyword}{const}\ uint32\_t\ increment,\ \textcolor{keywordtype}{bool}\ is\_first)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00195\ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_first\ ?\ firstAbsIdx()\ <\ increment}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ :\ lastAbsIdx()\ +\ increment\ >\ innerIdxToAbsIdx(this-\/>map.size()\ -\/\ 1,\ BLOCK\_MAX\_SIZE\ -\/\ 1);}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::moveElements(\textcolor{keyword}{const}\ uint32\_t\ start\_block,\ \textcolor{keyword}{const}\ uint32\_t\ start\_pos,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ len,\ \textcolor{keyword}{const}\ int64\_t\ offset)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00203\ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (offset\ >\ 0)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ len;\ i++)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ innerIdxOffset(start\_block,\ start\_pos,\ len\ -\/\ 1\ -\/\ i);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\_offset\ =\ innerIdxOffset(start\_block,\ start\_pos,\ len\ -\/\ 1\ -\/\ i\ +\ offset);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(idx\_offset.first(),\ idx\_offset.second(),}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>getElem(idx.first(),\ idx.second()));}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ len;\ i++)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ innerIdxOffset(start\_block,\ start\_pos,\ i);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\_offset\ =\ innerIdxOffset(start\_block,\ start\_pos,\ i\ +\ offset);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(idx\_offset.first(),\ idx\_offset.second(),}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>getElem(idx.first(),\ idx.second()));}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::addBlock(\textcolor{keywordtype}{bool}\ is\_first)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00227\ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ new\_block\ =\ blockArrayInit();}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ is\_first\ ?\ this-\/>map.pushBegin(new\_block)\ :\ this-\/>map.pushEnd(new\_block);}
+\DoxyCodeLine{00230\ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::adjust(\textcolor{keyword}{const}\ uint32\_t\ increment,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ is\_first)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00234\ \ \ \ \ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>growNeeded(increment,\ is\_first))\{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ new\_blocks\_cnt\ =\ increment\ /\ BLOCK\_MAX\_SIZE\ +\ 1;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ new\_blocks\_cnt;\ ++i)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>addBlock(is\_first);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_first)\{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_block\ +=\ new\_blocks\_cnt;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ +=\ new\_blocks\_cnt;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00248\ \ \ \ \ original::blocksList<TYPE>::Iterator::Iterator(\textcolor{keyword}{const}\ int64\_t\ pos,\ \textcolor{keyword}{const}\ int64\_t\ block,\ TYPE**\ data\_ptr,\ \textcolor{keyword}{const}\ blocksList*\ container)}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ :\ cur\_pos(pos),\ cur\_block(block),\ data\_(data\_ptr),\ container\_(container)\ \{\}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::equalPtr(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00253\ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_pos\ ==\ other\_it-\/>cur\_pos}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_block\ ==\ other\_it-\/>cur\_block}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>data\_\ ==\ other\_it-\/>data\_}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>container\_\ ==\ other\_it-\/>container\_;}
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00263\ \ \ \ \ original::blocksList<TYPE>::Iterator::Iterator(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}\&\ other)\ :\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(0,\ 0,\ nullptr,\ nullptr)}
+\DoxyCodeLine{00264\ \ \ \ \ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ this-\/>operator=(other);}
+\DoxyCodeLine{00266\ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}\&}
+\DoxyCodeLine{00270\ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ this-\/>cur\_pos\ =\ other.cur\_pos;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ other.cur\_block;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ this-\/>data\_\ =\ other.data\_;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ this-\/>container\_\ =\ other.container\_;}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00279\ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::clone()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*}
+\DoxyCodeLine{00283\ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00285\ \ \ \ \ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::hasNext()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00289\ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ blocksList::innerIdxToAbsIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ <\ this-\/>container\_-\/>lastAbsIdx();}
+\DoxyCodeLine{00291\ \ \ \ \ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::hasPrev()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00295\ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ blocksList::innerIdxToAbsIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ >\ this-\/>container\_-\/>firstAbsIdx();}
+\DoxyCodeLine{00297\ \ \ \ \ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::next()\ const\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00301\ \ \ \ \ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ this-\/>operator+=(1);}
+\DoxyCodeLine{00303\ \ \ \ \ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::prev()\ const\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00307\ \ \ \ \ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ this-\/>operator-\/=(1);}
+\DoxyCodeLine{00309\ \ \ \ \ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator+=(\textcolor{keyword}{const}\ int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00313\ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>cur\_block,\ this-\/>cur\_pos,\ steps);}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ this-\/>cur\_pos\ =\ new\_idx.second();}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator-\/=(\textcolor{keyword}{const}\ int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>cur\_block,\ this-\/>cur\_pos,\ -\/steps);}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ this-\/>cur\_pos\ =\ new\_idx.second();}
+\DoxyCodeLine{00325\ \ \ \ \ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::operator-\/(\textcolor{keyword}{const}\ iterator<TYPE>\&\ other)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
+\DoxyCodeLine{00329\ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(\&other);}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ >\ \&other\ ?}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::max()\ :}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::min();}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>container\_\ !=\ other\_it-\/>container\_)}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>container\_\ >\ other\_it-\/>container\_\ ?}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::max()\ :}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<int64\_t>::min();}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(innerIdxToAbsIdx(this-\/>cur\_block,\ this-\/>cur\_pos))\ -\/}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(innerIdxToAbsIdx(other\_it-\/>cur\_block,\ other\_it-\/>cur\_pos));}
+\DoxyCodeLine{00342\ \ \ \ \ \}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::getPrev()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*}
+\DoxyCodeLine{00346\ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ it-\/>prev();}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00351\ \ \ \ \ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::getNext()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*}
+\DoxyCodeLine{00355\ \ \ \ \ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ it-\/>next();}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00360\ \ \ \ \ \}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::get()\ -\/>\ TYPE\&}
+\DoxyCodeLine{00364\ \ \ \ \ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_[this-\/>cur\_block][this-\/>cur\_pos];}
+\DoxyCodeLine{00367\ \ \ \ \ \}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::get()\ const\ -\/>\ TYPE}
+\DoxyCodeLine{00371\ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_[this-\/>cur\_block][this-\/>cur\_pos];}
+\DoxyCodeLine{00374\ \ \ \ \ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::set(\textcolor{keyword}{const}\ TYPE\&\ data)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00378\ \ \ \ \ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ this-\/>data\_[this-\/>cur\_block][this-\/>cur\_pos]\ =\ data;}
+\DoxyCodeLine{00381\ \ \ \ \ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::isValid()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00385\ \ \ \ \ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>container\_-\/>innerIdxToOuterIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ >=\ 0\ \&\&}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>container\_-\/>innerIdxToOuterIdx(this-\/>cur\_block,\ this-\/>cur\_pos)\ <\ this-\/>container\_-\/>size();}
+\DoxyCodeLine{00388\ \ \ \ \ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::atPrev(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00392\ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>operator-\/(*other\_it)\ ==\ -\/1;}
+\DoxyCodeLine{00397\ \ \ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::atNext(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00401\ \ \ \ \ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>operator-\/(*other\_it)\ ==\ 1;}
+\DoxyCodeLine{00406\ \ \ \ \ \}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::Iterator::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}blocksList::Iterator"{}};}
+\DoxyCodeLine{00411\ \ \ \ \ \}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00414\ \ \ \ \ original::blocksList<TYPE>::blocksList()}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ :\ map(),\ size\_(),\ first\_(),\ last\_(),\ first\_block(),\ last\_block()}
+\DoxyCodeLine{00416\ \ \ \ \ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ this-\/>blocksListInit();}
+\DoxyCodeLine{00418\ \ \ \ \ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00421\ \ \ \ \ original::blocksList<TYPE>::blocksList(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst)\ :\ blocksList()\ \{}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ this-\/>adjust(lst.size(),\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ lst)\ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>last\_block,\ this-\/>last\_,\ e);}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00430\ \ \ \ \ \}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00433\ \ \ \ \ original::blocksList<TYPE>::blocksList(\textcolor{keyword}{const}\ array<TYPE>\&\ arr)\ :\ blocksList()\ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ this-\/>adjust(arr.size(),\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ arr)\ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>last\_block,\ this-\/>last\_,\ e);}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00442\ \ \ \ \ \}}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00445\ \ \ \ \ original::blocksList<TYPE>::blocksList(\textcolor{keyword}{const}\ blocksList\&\ other)\ :\ blocksList()\ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ this-\/>operator=(other);}
+\DoxyCodeLine{00447\ \ \ \ \ \}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00450\ \ \ \ \ original::blocksList<TYPE>\&\ original::blocksList<TYPE>::operator=(\textcolor{keyword}{const}\ blocksList\&\ other)\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ this-\/>map\ =\ vector<TYPE*>\{\};}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (int64\_t\ i\ =\ 0;\ i\ <\ other.map.size();\ ++i)\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ block\ =\ blockArrayInit();}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ BLOCK\_MAX\_SIZE;\ ++j)\ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ block[j]\ =\ other.getElem(i,\ j);}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.pushEnd(block);}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ other.first\_;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ other.last\_;}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ other.first\_block;}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ other.last\_block;}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00469\ \ \ \ \ \}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00472\ \ \ \ \ original::blocksList<TYPE>::blocksList(blocksList\&\&\ other)\ noexcept\ :\ blocksList()}
+\DoxyCodeLine{00473\ \ \ \ \ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
+\DoxyCodeLine{00475\ \ \ \ \ \}}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::operator=(blocksList\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ blocksList\&}
+\DoxyCodeLine{00479\ \ \ \ \ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ this-\/>blocksListDestruct();}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ this-\/>map\ =\ std::move(other.map);}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ other.first\_;}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ other.last\_;}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ other.first\_block;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ other.last\_block;}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ other.blocksListDestruct();}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00493\ \ \ \ \ \}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::get(int64\_t\ index)\ \textcolor{keyword}{const}\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(this-\/>parseNegIndex(index)))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ inner\_idx\ =\ this-\/>outerIdxToInnerIdx(index);}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>getElem(inner\_idx.first(),\ inner\_idx.second());}
+\DoxyCodeLine{00501\ \ \ \ \ \}}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::size()\ const\ -\/>\ uint32\_t\ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
+\DoxyCodeLine{00506\ \ \ \ \ \}}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::begins()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(this-\/>first\_,\ this-\/>first\_block,\ \&this-\/>map.data(),\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00511\ \ \ \ \ \}}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::ends()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1blocksList_1_1Iterator}{Iterator}}(this-\/>last\_,\ this-\/>last\_block,\ \&this-\/>map.data(),\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00516\ \ \ \ \ \}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::operator[](int64\_t\ index)\ -\/>\ TYPE\&\ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(this-\/>parseNegIndex(index)))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ inner\_idx\ =\ this-\/>outerIdxToInnerIdx(index);}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>getElem(inner\_idx.first(),\ inner\_idx.second());}
+\DoxyCodeLine{00524\ \ \ \ \ \}}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::set(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ inner\_idx\ =\ this-\/>outerIdxToInnerIdx(index);}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ this-\/>setElem(inner\_idx.first(),\ inner\_idx.second(),\ e);}
 \DoxyCodeLine{00532\ \ \ \ \ \}}
 \DoxyCodeLine{00533\ }
 \DoxyCodeLine{00534\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00535\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::operator[](int64\_t\ index)\ -\/>\ TYPE\&\ \{}
-\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(this-\/>parseNegIndex(index)))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
-\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ inner\_idx\ =\ this-\/>outerIdxToInnerIdx(index);}
-\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>getElem(inner\_idx.first(),\ inner\_idx.second());}
-\DoxyCodeLine{00540\ \ \ \ \ \}}
-\DoxyCodeLine{00541\ }
-\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::set(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
-\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ inner\_idx\ =\ this-\/>outerIdxToInnerIdx(index);}
-\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ this-\/>setElem(inner\_idx.first(),\ inner\_idx.second(),\ e);}
-\DoxyCodeLine{00548\ \ \ \ \ \}}
-\DoxyCodeLine{00549\ }
-\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::indexOf(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const}\ -\/>\ uint32\_t\ \{}
-\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>size();\ ++i)\ \{}
-\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ idx\ =\ this-\/>outerIdxToInnerIdx(i);}
-\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>getElem(idx.first(),\ idx.second())\ ==\ e)}
-\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
-\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size();}
-\DoxyCodeLine{00558\ \ \ \ \ \}}
-\DoxyCodeLine{00559\ }
-\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00561\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::push(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00562\ \ \ \ \ \{}
-\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ this-\/>size())}
-\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>pushEnd(e);}
-\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ 0)}
-\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>pushBegin(e);}
-\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))}
-\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00572\ }
-\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
-\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ is\_first\ =\ index\ <=\ (this-\/>size()\ -\/\ 1)\ /\ 2;}
-\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>adjust(1,\ is\_first);}
-\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_first)\{}
-\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>moveElements(this-\/>first\_block,\ this-\/>first\_,\ index\ +\ 1,\ -\/1);}
-\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ -\/1);}
-\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ outerIdxToInnerIdx(index);}
-\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>moveElements(idx.first(),\ idx.second(),\ this-\/>size()\ -\/\ index,\ 1);}
-\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
-\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
-\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ outerIdxToInnerIdx(index);}
-\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(idx.first(),\ idx.second(),\ e);}
-\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00592\ \ \ \ \ \}}
-\DoxyCodeLine{00593\ }
-\DoxyCodeLine{00594\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00595\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::pop(int64\_t\ index)\ -\/>\ TYPE}
-\DoxyCodeLine{00596\ \ \ \ \ \{}
-\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ 0)}
-\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>popBegin();}
-\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ this-\/>size()\ -\/\ 1)}
-\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>popEnd();}
-\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))}
-\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00603\ }
-\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
-\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ outerIdxToInnerIdx(index);}
-\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>getElem(idx.first(),\ idx.second());}
-\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <=\ (this-\/>size()\ -\/\ 1)\ /\ 2)\{}
-\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ moveElements(this-\/>first\_block,\ this-\/>first\_,\ index,\ 1);}
-\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ 1);}
-\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\_offset\ =\ innerIdxOffset(idx.first(),\ idx.second(),\ 1);}
-\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ moveElements(idx\_offset.first(),\ idx\_offset.second(),\ this-\/>size()\ -\/\ 1\ -\/\ index,\ -\/1);}
-\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ -\/1);}
-\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
-\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00621\ \ \ \ \ \}}
+\DoxyCodeLine{00535\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::indexOf(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const}\ -\/>\ uint32\_t\ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ this-\/>size();\ ++i)\ \{}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ idx\ =\ this-\/>outerIdxToInnerIdx(i);}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>getElem(idx.first(),\ idx.second())\ ==\ e)}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size();}
+\DoxyCodeLine{00542\ \ \ \ \ \}}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::push(int64\_t\ index,\ \textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00546\ \ \ \ \ \{}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ this-\/>size())}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>pushEnd(e);}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ 0)}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>pushBegin(e);}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ is\_first\ =\ index\ <=\ (this-\/>size()\ -\/\ 1)\ /\ 2;}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>adjust(1,\ is\_first);}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_first)\{}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>moveElements(this-\/>first\_block,\ this-\/>first\_,\ index\ +\ 1,\ -\/1);}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ -\/1);}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ outerIdxToInnerIdx(index);}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>moveElements(idx.first(),\ idx.second(),\ this-\/>size()\ -\/\ index,\ 1);}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ outerIdxToInnerIdx(index);}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>setElem(idx.first(),\ idx.second(),\ e);}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00576\ \ \ \ \ \}}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::pop(int64\_t\ index)\ -\/>\ TYPE}
+\DoxyCodeLine{00580\ \ \ \ \ \{}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ 0)}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>popBegin();}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>parseNegIndex(index)\ ==\ this-\/>size()\ -\/\ 1)}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>popEnd();}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>indexOutOfBound(index))}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ index\ =\ this-\/>parseNegIndex(index);}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ outerIdxToInnerIdx(index);}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>getElem(idx.first(),\ idx.second());}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <=\ (this-\/>size()\ -\/\ 1)\ /\ 2)\{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ moveElements(this-\/>first\_block,\ this-\/>first\_,\ index,\ 1);}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ 1);}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\_offset\ =\ innerIdxOffset(idx.first(),\ idx.second(),\ 1);}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ moveElements(idx\_offset.first(),\ idx\_offset.second(),\ this-\/>size()\ -\/\ 1\ -\/\ index,\ -\/1);}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ -\/1);}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00605\ \ \ \ \ \}}
+\DoxyCodeLine{00606\ }
+\DoxyCodeLine{00607\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00608\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::pushBegin(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00609\ \ \ \ \ \{}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ this-\/>adjust(1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ -\/1);}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>first\_block,\ this-\/>first\_,\ e);}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00616\ \ \ \ \ \}}
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::popBegin()\ -\/>\ TYPE}
+\DoxyCodeLine{00620\ \ \ \ \ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>empty())\ \textcolor{keywordflow}{throw}\ noElementError();}
 \DoxyCodeLine{00622\ }
-\DoxyCodeLine{00623\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00624\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::pushBegin(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00625\ \ \ \ \ \{}
-\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ this-\/>adjust(1,\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ -\/1);}
-\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>first\_block,\ this-\/>first\_,\ e);}
-\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
-\DoxyCodeLine{00632\ \ \ \ \ \}}
-\DoxyCodeLine{00633\ }
-\DoxyCodeLine{00634\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00635\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::popBegin()\ -\/>\ TYPE}
-\DoxyCodeLine{00636\ \ \ \ \ \{}
-\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>empty())\ \textcolor{keywordflow}{throw}\ noElementError();}
-\DoxyCodeLine{00638\ }
-\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>getElem(this-\/>first\_block,\ this-\/>first\_);}
-\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ 1);}
-\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
-\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00645\ \ \ \ \ \}}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>getElem(this-\/>first\_block,\ this-\/>first\_);}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>first\_block,\ this-\/>first\_,\ 1);}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ this-\/>first\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00629\ \ \ \ \ \}}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00632\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::pushEnd(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00633\ \ \ \ \ \{}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ this-\/>adjust(1,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>last\_block,\ this-\/>last\_,\ e);}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00640\ \ \ \ \ \}}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00642\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00643\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::popEnd()\ -\/>\ TYPE}
+\DoxyCodeLine{00644\ \ \ \ \ \{}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>empty())\ \textcolor{keywordflow}{throw}\ noElementError();}
 \DoxyCodeLine{00646\ }
-\DoxyCodeLine{00647\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00648\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::pushEnd(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00649\ \ \ \ \ \{}
-\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ this-\/>adjust(1,\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ 1);}
-\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ this-\/>setElem(this-\/>last\_block,\ this-\/>last\_,\ e);}
-\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
-\DoxyCodeLine{00656\ \ \ \ \ \}}
-\DoxyCodeLine{00657\ }
-\DoxyCodeLine{00658\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00659\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::popEnd()\ -\/>\ TYPE}
-\DoxyCodeLine{00660\ \ \ \ \ \{}
-\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>empty())\ \textcolor{keywordflow}{throw}\ noElementError();}
-\DoxyCodeLine{00662\ }
-\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>getElem(this-\/>last\_block,\ this-\/>last\_);}
-\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ -\/1);}
-\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
-\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
-\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00669\ \ \ \ \ \}}
-\DoxyCodeLine{00670\ }
-\DoxyCodeLine{00671\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00672\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
-\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}blocksList"{}};}
-\DoxyCodeLine{00674\ \ \ \ \ \}}
-\DoxyCodeLine{00675\ }
-\DoxyCodeLine{00676\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00677\ \ \ \ \ original::blocksList<TYPE>::\string~blocksList()\ \{}
-\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ this-\/>blocksListDestruct();}
-\DoxyCodeLine{00679\ \ \ \ \ \}}
-\DoxyCodeLine{00680\ }
-\DoxyCodeLine{00681\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BLOCKSLIST\_H}}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>getElem(this-\/>last\_block,\ this-\/>last\_);}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ innerIdxOffset(this-\/>last\_block,\ this-\/>last\_,\ -\/1);}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ this-\/>last\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ this-\/>last\_\ =\ new\_idx.second();}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00653\ \ \ \ \ \}}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00655\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00656\ \ \ \ \ \textcolor{keyword}{auto}\ original::blocksList<TYPE>::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}blocksList"{}};}
+\DoxyCodeLine{00658\ \ \ \ \ \}}
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00661\ \ \ \ \ original::blocksList<TYPE>::\string~blocksList()\ \{}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ this-\/>blocksListDestruct();}
+\DoxyCodeLine{00663\ \ \ \ \ \}}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00665\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BLOCKSLIST\_H}}
 
 \end{DoxyCode}

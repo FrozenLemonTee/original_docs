@@ -46,9 +46,6 @@ class \mbox{\hyperlink{classoriginal_1_1array_1_1Iterator}{Iterator}}
 \Hypertarget{classoriginal_1_1array_a9935a98f87e9911cd2253b7c2d4b9d38}\label{classoriginal_1_1array_a9935a98f87e9911cd2253b7c2d4b9d38} 
 \mbox{\hyperlink{classoriginal_1_1array}{array}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1array}{array}} \&\&other) noexcept
 \item 
-\Hypertarget{classoriginal_1_1array_a37d679c855e86d8ef716efb2cd8bc608}\label{classoriginal_1_1array_a37d679c855e86d8ef716efb2cd8bc608} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classoriginal_1_1array}{array}} \&other) const
-\item 
 uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1array_aa19f6e9662eb7bbe8e3815ce21716cfe}{size}} () const override
 \item 
 \Hypertarget{classoriginal_1_1array_aa5cff19b1d85f3a0946deb0aa2820ffa}\label{classoriginal_1_1array_aa5cff19b1d85f3a0946deb0aa2820ffa} 
@@ -68,12 +65,14 @@ uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1array_a491654f0b1a9453223297c8b7
 \item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1array_a6a16dbbb3954ff165bb0e3a10803a541}{class\+Name}} () const override
 \end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE $>$}}}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE, array$<$ TYPE $>$ $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_a7541e2a6dc42214fe9e00ef965dc30b4}{class\+Name}} () const override
+int {\bfseries compare\+To} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}} \&other) const override
 \item 
-std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_adc17b45187aa82d68ad52bf4290189ca}{to\+String}} (bool enter) const override
+std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{class\+Name}} () const override
+\item 
+std\+::string \mbox{\hyperlink{classoriginal_1_1iterationStream_afdbf5c8276d763a8a7f8c620484b31a7}{to\+String}} (bool enter) const override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -123,6 +122,23 @@ requires \mbox{\hyperlink{conceptoriginal_1_1Operation}{original\+::\+Operation}
 {\footnotesize template$<$typename Callback$>$ \newline
 requires \mbox{\hyperlink{conceptoriginal_1_1Operation}{original\+::\+Operation}}$<$Callback, TYPE$>$}\\auto {\bfseries for\+Each} (const Callback \&operation) const -\/$>$ void
 \end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1comparable}{original\+::comparable$<$ iteration\+Stream$<$ TYPE, array$<$ TYPE $>$ $>$ $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual int {\bfseries compare\+To} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1array}{array}}$<$ TYPE $>$ $>$ \&other) const=0
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1array}{array}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1array}{array}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1array}{array}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1array}{array}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1array}{array}}$<$ TYPE $>$ $>$ \&other) const
+\item 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classoriginal_1_1iterationStream}{iteration\+Stream}}$<$ TYPE, \mbox{\hyperlink{classoriginal_1_1array}{array}}$<$ TYPE $>$ $>$ \&other) const
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial$<$ TYPE $>$}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -157,7 +173,7 @@ template$<$$>$ auto {\bfseries format\+String} (const bool \&t) -\/$>$ std\+::st
 \item 
 template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
 \end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE $>$}}}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterationStream}{original\+::iteration\+Stream$<$ TYPE, array$<$ TYPE $>$ $>$}}}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string {\bfseries elements\+String} () const

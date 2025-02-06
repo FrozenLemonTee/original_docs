@@ -6,13 +6,13 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ITERATOR\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}cloneable.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}error.h"{}}}
-\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}comparable.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}error.h"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}printable.h"{}}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }original\ \{}
 \DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ cloneable\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ cloneable,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<iterator<TYPE>>\ \{}
 \DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ other)\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
@@ -24,164 +24,158 @@
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator-\/-\/(\textcolor{keywordtype}{int})\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ operator+=(int64\_t\ steps)\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ operator-\/=(int64\_t\ steps)\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ int64\_t\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ clone()\ \textcolor{keyword}{const\ override}\ =\ 0;}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ hasNext()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ hasPrev()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ other)\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ other)\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ next()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ prev()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ getNext()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ getPrev()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\&\ get()\ =\ 0;}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ get()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ getElem()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ TYPE\&\ data)\ =\ 0;}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equal(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equal(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ isValid()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ toString(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{\string~iterator}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}*\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}\&\ it,\ int64\_t\ steps);}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}*\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}\&\ it,\ int64\_t\ steps);}
-\DoxyCodeLine{00053\ \ \ \ \ \};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<TYPE>}
-\DoxyCodeLine{00057\ \ \ \ \ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}*\ clone()\ \textcolor{keyword}{const\ override}\ =\ 0;}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1baseIterator}{\string~baseIterator}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00061\ \ \ \ \ \};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it,\ int64\_t\ steps);}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it,\ int64\_t\ steps);}
-\DoxyCodeLine{00067\ \}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator*()\ -\/>\ TYPE\&\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
-\DoxyCodeLine{00072\ \ \ \ \ \}}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator*()\ const\ -\/>\ TYPE\ \{}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
-\DoxyCodeLine{00077\ \ \ \ \ \}}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator++()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ this-\/>next();}
-\DoxyCodeLine{00082\ \ \ \ \ \}}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator++(\textcolor{keywordtype}{int})\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ this-\/>operator++();}
-\DoxyCodeLine{00087\ \ \ \ \ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator-\/-\/()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ this-\/>prev();}
-\DoxyCodeLine{00092\ \ \ \ \ \}}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator-\/-\/(\textcolor{keywordtype}{int})\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ this-\/>operator-\/-\/();}
-\DoxyCodeLine{00097\ \ \ \ \ \}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator==(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>equal(other);}
-\DoxyCodeLine{00102\ \ \ \ \ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator!=(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>equal(other);}
-\DoxyCodeLine{00107\ \ \ \ \ \}}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{original::iterator<TYPE>::operator}}\ bool()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>isValid();}
-\DoxyCodeLine{00112\ \ \ \ \ \}}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::atPrev(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>atPrev(\&other);}
-\DoxyCodeLine{00117\ \ \ \ \ \}}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::atNext(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>atNext(\&other);}
-\DoxyCodeLine{00122\ \ \ \ \ \}}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::getNext()\ const\ -\/>\ iterator*\ \{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ this-\/>clone();}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ it-\/>next();}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ compareTo(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ \&other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ int64\_t\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ clone()\ \textcolor{keyword}{const\ override}\ =\ 0;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ hasNext()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ hasPrev()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ other)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ other)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ next()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ prev()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ getNext()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ getPrev()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\&\ get()\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ get()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE\ getElem()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ TYPE\&\ data)\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equal(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}*\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equal(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ isValid()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ toString(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{\string~iterator}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}*\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}\&\ it,\ int64\_t\ steps);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}*\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<T>}}\&\ it,\ int64\_t\ steps);}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<TYPE>}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}*\ clone()\ \textcolor{keyword}{const\ override}\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1baseIterator}{\string~baseIterator}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it,\ int64\_t\ steps);}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it,\ int64\_t\ steps);}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator*()\ -\/>\ TYPE\&\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator*()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator++()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ this-\/>next();}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator++(\textcolor{keywordtype}{int})\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ this-\/>operator++();}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator-\/-\/()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ this-\/>prev();}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::operator-\/-\/(\textcolor{keywordtype}{int})\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ this-\/>operator-\/-\/();}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::compareTo(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{int}\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>operator-\/(other);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{original::iterator<TYPE>::operator}}\ bool()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>isValid();}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::atPrev(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>atPrev(\&other);}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::atNext(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>atNext(\&other);}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::getNext()\ const\ -\/>\ iterator*\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>isValid())\ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ it-\/>next();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::getElem()\ const\ -\/>\ TYPE}
+\DoxyCodeLine{00128\ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
 \DoxyCodeLine{00130\ \ \ \ \ \}}
 \DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::getElem()\ const\ -\/>\ TYPE}
-\DoxyCodeLine{00134\ \ \ \ \ \{}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
-\DoxyCodeLine{00136\ \ \ \ \ \}}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::equal(\textcolor{keyword}{const}\ iterator\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>equalPtr(other);}
-\DoxyCodeLine{00141\ \ \ \ \ \}}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::equal(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>equal(\&other);}
-\DoxyCodeLine{00146\ \ \ \ \ \}}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}iterator"{}};}
-\DoxyCodeLine{00151\ \ \ \ \ \}}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::toString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string\ \{}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>className()\ <<\ \textcolor{stringliteral}{"{}("{}};}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>isValid())\ ss\ <<\ formatString(this-\/>get());}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ \{}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00163\ \ \ \ \ \}}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{auto}\ original::operator+(\textcolor{keyword}{const}\ iterator<TYPE>\&\ it,\ int64\_t\ steps)\ -\/>\ iterator<TYPE>*}
-\DoxyCodeLine{00167\ \ \ \ \ \{}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ nit\ =\ it.clone();}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ nit-\/>operator+=(steps);}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nit;}
-\DoxyCodeLine{00171\ \ \ \ \ \}}
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{auto}\ original::operator-\/(\textcolor{keyword}{const}\ iterator<TYPE>\&\ it,\ int64\_t\ steps)\ -\/>\ iterator<TYPE>*}
-\DoxyCodeLine{00175\ \ \ \ \ \{}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ nit\ =\ it.clone();}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ nit-\/>operator-\/=(steps);}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nit;}
-\DoxyCodeLine{00179\ \ \ \ \ \}}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ITERATOR\_H}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::equal(\textcolor{keyword}{const}\ iterator\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>equalPtr(other);}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::equal(\textcolor{keyword}{const}\ iterator\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>equal(\&other);}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}iterator"{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterator<TYPE>::toString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>className()\ <<\ \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>isValid())\ ss\ <<\ formatString(this-\/>get());}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{auto}\ original::operator+(\textcolor{keyword}{const}\ iterator<TYPE>\&\ it,\ int64\_t\ steps)\ -\/>\ iterator<TYPE>*}
+\DoxyCodeLine{00161\ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ nit\ =\ it.clone();}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ nit-\/>operator+=(steps);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nit;}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{auto}\ original::operator-\/(\textcolor{keyword}{const}\ iterator<TYPE>\&\ it,\ int64\_t\ steps)\ -\/>\ iterator<TYPE>*}
+\DoxyCodeLine{00169\ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ nit\ =\ it.clone();}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ nit-\/>operator-\/=(steps);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nit;}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ITERATOR\_H}}
 
 \end{DoxyCode}
