@@ -1,0 +1,100 @@
+\doxysection{src/core/iterator.h File Reference}
+\hypertarget{iterator_8h}{}\label{iterator_8h}\index{src/core/iterator.h@{src/core/iterator.h}}
+
+
+Defines the iterator class for traversing and manipulating container elements.  
+
+
+{\ttfamily \#include "{}cloneable.\+h"{}}\newline
+{\ttfamily \#include "{}comparable.\+h"{}}\newline
+{\ttfamily \#include "{}error.\+h"{}}\newline
+{\ttfamily \#include "{}printable.\+h"{}}\newline
+Include dependency graph for iterator.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iterator_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{iterator_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator$<$ TYPE $>$}}
+\begin{DoxyCompactList}\small\item\em Base iterator interface that supports common operations for iteration. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1baseIterator}{original\+::base\+Iterator$<$ TYPE $>$}}
+\begin{DoxyCompactList}\small\item\em A base class for basic iterators. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\auto \mbox{\hyperlink{iterator_8h_a55df7bef55cd9c2e099037fa856c5c06}{original\+::operator+}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&it, int64\+\_\+t steps) -\/$>$ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em Adds a number of steps to the iterator\textquotesingle{}s current position and returns a new iterator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\auto \mbox{\hyperlink{iterator_8h_af2e6e984343bc7786908376bfc0e170b}{original\+::operator-\/}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&it, int64\+\_\+t steps) -\/$>$ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*}
+\begin{DoxyCompactList}\small\item\em Subtracts a number of steps from the iterator\textquotesingle{}s current position and returns a new iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the iterator class for traversing and manipulating container elements. 
+
+Provides the base class for iterators, implementing common operations such as dereferencing, comparison, cloning, and navigating through elements. Derived classes must implement specific behavior such as how to move to the next or previous element, and how to get and set the element\textquotesingle{}s value. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{iterator_8h_a55df7bef55cd9c2e099037fa856c5c06}\index{iterator.h@{iterator.h}!operator+@{operator+}}
+\index{operator+@{operator+}!iterator.h@{iterator.h}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{iterator_8h_a55df7bef55cd9c2e099037fa856c5c06} 
+template$<$typename T$>$ \\
+auto original\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&}]{it}{, }\item[{int64\+\_\+t}]{steps}{}\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$T$>$\texorpdfstring{$\ast$}{*}}
+
+
+
+Adds a number of steps to the iterator\textquotesingle{}s current position and returns a new iterator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the elements the iterator will traverse. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em it} & The iterator to move. \\
+\hline
+{\em steps} & The number of steps to move forward. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new iterator that is moved forward by the specified steps from the original iterator.
+\end{DoxyReturn}
+This operator does not modify the original iterator, but creates a new one that is advanced by {\ttfamily steps} positions. \Hypertarget{iterator_8h_af2e6e984343bc7786908376bfc0e170b}\index{iterator.h@{iterator.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!iterator.h@{iterator.h}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{iterator_8h_af2e6e984343bc7786908376bfc0e170b} 
+template$<$typename T$>$ \\
+auto original\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&}]{it}{, }\item[{int64\+\_\+t}]{steps}{}\end{DoxyParamCaption}) -\/$>$ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$T$>$\texorpdfstring{$\ast$}{*}}
+
+
+
+Subtracts a number of steps from the iterator\textquotesingle{}s current position and returns a new iterator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the elements the iterator will traverse. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em it} & The iterator to move. \\
+\hline
+{\em steps} & The number of steps to move backward. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new iterator that is moved backward by the specified steps from the original iterator.
+\end{DoxyReturn}
+This operator does not modify the original iterator, but creates a new one that is moved backward by {\ttfamily steps} positions. 

@@ -1,5 +1,14 @@
 \doxysection{original\+::Super\+Of Concept Reference}
 \hypertarget{conceptoriginal_1_1SuperOf}{}\label{conceptoriginal_1_1SuperOf}\index{original::SuperOf@{original::SuperOf}}
+
+
+Checks inheritance or type equality.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
 \doxysubsection{Concept definition}
 
 \begin{DoxyCode}{0}
@@ -7,3 +16,28 @@
 \DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1SuperOf}{original::SuperOf}}\ =\ \ std::is\_base\_of\_v<Base,\ Derive>\ ||\ std::is\_same\_v<Base,\ Derive>}
 
 \end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Checks inheritance or type equality. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Base} & Base class or type \\
+\hline
+{\em Derive} & Derived class or same type\\
+\hline
+\end{DoxyTemplParams}
+Combines std\+::is\+\_\+base\+\_\+of\+\_\+v and std\+::is\+\_\+same\+\_\+v to validate "{}is-\/a"{} relationships.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }Base\ \{\};}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }Derived\ :\ Base\ \{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(SuperOf<Base,\ Derived>);\ \ \ \ \textcolor{comment}{//\ Passes:\ inheritance}}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(SuperOf<int,\ int>);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Passes:\ same\ type}}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!SuperOf<Derived,\ Base>);\ \ \ \textcolor{comment}{//\ Fails:\ reverse\ inheritance}}
+
+\end{DoxyCode}
+ 

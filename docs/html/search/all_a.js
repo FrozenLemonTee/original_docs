@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['noelementerror_0',['noElementError',['../classoriginal_1_1noElementError.html',1,'original']]],
-  ['notequalcomparator_1',['notEqualComparator',['../classoriginal_1_1notEqualComparator.html',1,'original']]],
-  ['notequalfilter_2',['notEqualFilter',['../classoriginal_1_1notEqualFilter.html',1,'original']]],
-  ['notgreaterfilter_3',['notGreaterFilter',['../classoriginal_1_1notGreaterFilter.html',1,'original']]],
-  ['notlessfilter_4',['notLessFilter',['../classoriginal_1_1notLessFilter.html',1,'original']]],
-  ['nullpointererror_5',['nullPointerError',['../classoriginal_1_1nullPointerError.html',1,'original']]]
+  ['maths_2eh_0',['maths.h',['../maths_8h.html',1,'']]],
+  ['max_1',['max',['../maths_8h.html#a0f42f26b6aa61acc458a6bfd9c49581f',1,'original']]],
+  ['min_2',['min',['../maths_8h.html#a0d69e120da2a56a2e72fc9834edfb0ec',1,'original']]],
+  ['multiopttransform_3',['multiOptTransform',['../classoriginal_1_1multiOptTransform.html',1,'original']]]
 ];

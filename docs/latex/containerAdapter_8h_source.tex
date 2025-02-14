@@ -5,8 +5,8 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONTAINERADAPTER\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONTAINERADAPTER\_H}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}baseList.h"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}types.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}printable.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{printable_8h}{printable.h}}"{}}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }original\ \{}
 \DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
@@ -17,11 +17,11 @@
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ containerAdapter(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}});}
 \DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ size()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_a40c1988316696888b058db8cfd20cc90}{size}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clear();}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ contains(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ toString(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_a36fed86d1f12e2f8338bcb8875324c6c}{contains}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_aa0148d963d6d2455eddcbd571f8f7f3c}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_a49165d300bc4de094e5b581dc5fe865d}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \string~containerAdapter()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00022\ \ \ \ \ \};}
 \DoxyCodeLine{00023\ \}}
@@ -33,38 +33,38 @@
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
 \DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{requires}\ original::ExtendsOf<original::baseList<TYPE>,\ SERIAL<TYPE>>}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{auto}\ original::containerAdapter<TYPE,\ SERIAL>::size()\ const\ -\/>\ uint32\_t\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_a40c1988316696888b058db8cfd20cc90}{original::containerAdapter<TYPE,\ SERIAL>::size}}()\ const\ -\/>\ uint32\_t\ \{}
 \DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_.size();}
 \DoxyCodeLine{00034\ \ \ \ \ \}}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{requires}\ original::ExtendsOf<original::baseList<TYPE>,\ SERIAL<TYPE>>}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1ExtendsOf}{original::ExtendsOf<original::baseList<TYPE>}},\ SERIAL<TYPE>>}
 \DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{auto}\ original::containerAdapter<TYPE,\ SERIAL>::clear()\ -\/>\ \textcolor{keywordtype}{void}\ \{}
 \DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ serial\_.clear();}
 \DoxyCodeLine{00040\ \ \ \ \ \}}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{requires}\ original::ExtendsOf<original::baseList<TYPE>,\ SERIAL<TYPE>>}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{auto}\ original::containerAdapter<TYPE,\ SERIAL>::contains(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1ExtendsOf}{original::ExtendsOf<original::baseList<TYPE>}},\ SERIAL<TYPE>>}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_a36fed86d1f12e2f8338bcb8875324c6c}{original::containerAdapter<TYPE,\ SERIAL>::contains}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_.contains(e);}
 \DoxyCodeLine{00046\ \ \ \ \ \}}
 \DoxyCodeLine{00047\ }
 \DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{requires}\ original::ExtendsOf<original::baseList<TYPE>,\ SERIAL<TYPE>>}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{auto}\ original::containerAdapter<TYPE,\ SERIAL>::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1ExtendsOf}{original::ExtendsOf<original::baseList<TYPE>}},\ SERIAL<TYPE>>}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_aa0148d963d6d2455eddcbd571f8f7f3c}{original::containerAdapter<TYPE,\ SERIAL>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
 \DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}containerAdapter"{}};}
 \DoxyCodeLine{00052\ \ \ \ \ \}}
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{requires}\ original::ExtendsOf<original::baseList<TYPE>,\ SERIAL<TYPE>>}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{auto}\ original::containerAdapter<TYPE,\ SERIAL>::toString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1ExtendsOf}{original::ExtendsOf<original::baseList<TYPE>}},\ SERIAL<TYPE>>}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1containerAdapter_a49165d300bc4de094e5b581dc5fe865d}{original::containerAdapter<TYPE,\ SERIAL>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string\ \{}
 \DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>className()\ <<\ \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1containerAdapter_aa0148d963d6d2455eddcbd571f8f7f3c}{className}}()\ <<\ \textcolor{stringliteral}{"{}("{}};}
 \DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ e\ :\ this-\/>serial\_)}
 \DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!first)\ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ printable::formatString(e);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{printable::formatString}}(e);}
 \DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}

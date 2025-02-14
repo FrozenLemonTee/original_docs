@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefgilmnopqrstuvw多安已并文模正简网计",
+  0: "abcdefghilmnopqrstuvw~多安已并文模正简网计",
   1: "abcdefgilmnopqrstuvw",
-  2: "o",
-  3: "d",
-  4: "aclot",
-  5: "ceos"
+  2: "ceimoptw",
+  3: "abcdefghimnopst~",
+  4: "o",
+  5: "aclot",
+  6: "ceos"
 };
 
 var indexSectionNames =
@@ -14,8 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "pages",
-  5: "concepts"
+  4: "related",
+  5: "pages",
+  6: "concepts"
 };
 
 var indexSectionLabels =
@@ -24,7 +26,8 @@ var indexSectionLabels =
   1: "Classes",
   2: "Files",
   3: "Functions",
-  4: "Pages",
-  5: "Concepts"
+  4: "Friends",
+  5: "Pages",
+  6: "Concepts"
 };
 

@@ -1,0 +1,84 @@
+\doxysection{/home/frozenlemontee/\+Projects/original/src/core/maths.\+h}
+\hypertarget{_2home_2frozenlemontee_2Projects_2original_2src_2core_2maths_8h-example}{}\label{_2home_2frozenlemontee_2Projects_2original_2src_2core_2maths_8h-example}Returns the absolute value of a given number.
+
+Returns the absolute value of a given number.
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & The type of the input value. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The input value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The absolute value of the input value.
+\end{DoxyReturn}
+This function returns the absolute value of the input argument {\ttfamily a}, which is the distance of {\ttfamily a} from zero. It works for both positive and negative values.
+
+// Example usage\+: int a = -\/5; int result = original\+::abs(a); // result will be 5
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ MATHS\_H}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ MATHS\_H}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}error.h"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }original\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{maths_8h_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\ =\ 2.7182818284590452353602874713526624977572470937000L;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{maths_8h_a4c0f6145cd40bdb0d2a15907ab0a010d}{PI}}\ =\ 3.1415926535897932384626433832795028841971693993751L;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{TYPE\ abs(TYPE\ a);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{TYPE\ max(TYPE\ a,\ TYPE\ b);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{TYPE\ min(TYPE\ a,\ TYPE\ b);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ pow(\textcolor{keywordtype}{double}\ base,\ \textcolor{keywordtype}{int}\ exp);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Definitions\ of\ maths.h.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ original::abs(TYPE\ a)\ -\/>\ TYPE}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ a\ >\ TYPE\{\}\ ?\ a\ :\ -\/a;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ original::max(TYPE\ a,\ TYPE\ b)\ -\/>\ TYPE}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ a\ >\ b\ ?\ a\ :\ b;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ original::min(TYPE\ a,\ TYPE\ b)\ -\/>\ TYPE}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ a\ <\ b\ ?\ a\ :\ b;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::pow(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ base,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ exp)\ -\/>\ \textcolor{keywordtype}{double}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (base\ ==\ 0\ \&\&\ exp\ <=\ 0)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ valueError();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ res\ =\ 1.0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ abs(exp);\ i\ +=\ 1)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ res\ *=\ base;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ exp\ >=\ 0\ ?\ res\ :\ 1\ /\ res;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MATHS\_H}}
+
+\end{DoxyCodeInclude}
+ 

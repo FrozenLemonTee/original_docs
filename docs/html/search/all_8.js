@@ -1,5 +1,26 @@
 var searchData=
 [
-  ['lessfilter_0',['lessFilter',['../classoriginal_1_1lessFilter.html',1,'original']]],
-  ['library_1',['Original, A C++ Tool Library',['../index.html',1,'']]]
+  ['increasecomparator_0',['increaseComparator',['../classoriginal_1_1increaseComparator.html',1,'original']]],
+  ['increasenotstrictcomparator_1',['increaseNotStrictComparator',['../classoriginal_1_1increaseNotStrictComparator.html',1,'original']]],
+  ['indexof_2',['indexOf',['../classoriginal_1_1array.html#a491654f0b1a9453223297c8b7784dfb9',1,'original::array::indexOf()'],['../classoriginal_1_1bitSet.html#ac6602cbe1a0f218f588cf32a027e02cd',1,'original::bitSet::indexOf()'],['../classoriginal_1_1blocksList.html#ab9b5bd6867136ed4f69a3e2752503844',1,'original::blocksList::indexOf()'],['../classoriginal_1_1chain.html#afa358b390f319d84f61145be041a988c',1,'original::chain::indexOf()'],['../classoriginal_1_1forwardChain.html#a71f470f3186caf63f7745711bc326093',1,'original::forwardChain::indexOf()'],['../classoriginal_1_1serial.html#a52d30588c2517ea4fc4ba5bce5189cc1',1,'original::serial::indexOf()'],['../classoriginal_1_1vector.html#a4dec83c276c81d813547477b000834d2',1,'original::vector::indexOf()']]],
+  ['indexoutofbound_3',['indexOutOfBound',['../classoriginal_1_1serial.html#ac6e3e5c0c827ea92f53a180174d2abbb',1,'original::serial']]],
+  ['isvalid_4',['isValid',['../classoriginal_1_1bitSet_1_1Iterator.html#a22ca49d22d7d14a3af0b03d65f6df9a7',1,'original::bitSet::Iterator::isValid()'],['../classoriginal_1_1blocksList_1_1Iterator.html#a62e87442d9a663f1847f00a4ccfb0c25',1,'original::blocksList::Iterator::isValid()'],['../classoriginal_1_1iterable_1_1iterAdaptor.html#aafb13fdc6f8b1200316796f129b51d51',1,'original::iterable::iterAdaptor::isValid()'],['../classoriginal_1_1iterator.html#aa0bee5e665374006ce760fd8b7cbae6f',1,'original::iterator::isValid()'],['../classoriginal_1_1randomAccessIterator.html#a7f28d252d0ca834bfaa17179d80c9ed9',1,'original::randomAccessIterator::isValid()'],['../classoriginal_1_1stepIterator.html#adb52e5702ee1bc2589eef25e822f3f50',1,'original::stepIterator::isValid()']]],
+  ['iterable_5',['iterable',['../classoriginal_1_1iterable.html',1,'original']]],
+  ['iterable_3c_20bool_20_3e_6',['iterable&lt; bool &gt;',['../classoriginal_1_1iterable.html',1,'original']]],
+  ['iterable_3c_20opts_20_3e_7',['iterable&lt; opts &gt;',['../classoriginal_1_1iterable.html',1,'original']]],
+  ['iterable_3c_20underlying_5ftype_20_3e_8',['iterable&lt; underlying_type &gt;',['../classoriginal_1_1iterable.html',1,'original']]],
+  ['iteradaptor_9',['iterAdaptor',['../classoriginal_1_1iterable_1_1iterAdaptor.html',1,'original::iterable']]],
+  ['iterationstream_10',['iterationStream',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20bool_2c_20bitset_20_3e_11',['iterationStream&lt; bool, bitSet &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20opts_2c_20chain_3c_20opts_20_3e_20_3e_12',['iterationStream&lt; opts, chain&lt; opts &gt; &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20type_2c_20array_3c_20type_20_3e_20_3e_13',['iterationStream&lt; TYPE, array&lt; TYPE &gt; &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20type_2c_20blockslist_3c_20type_20_3e_20_3e_14',['iterationStream&lt; TYPE, blocksList&lt; TYPE &gt; &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20type_2c_20chain_3c_20type_20_3e_20_3e_15',['iterationStream&lt; TYPE, chain&lt; TYPE &gt; &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20type_2c_20forwardchain_3c_20type_20_3e_20_3e_16',['iterationStream&lt; TYPE, forwardChain&lt; TYPE &gt; &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20type_2c_20vector_3c_20type_20_3e_20_3e_17',['iterationStream&lt; TYPE, vector&lt; TYPE &gt; &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterationstream_3c_20underlying_5ftype_2c_20array_3c_20underlying_5ftype_20_3e_20_3e_18',['iterationStream&lt; underlying_type, array&lt; underlying_type &gt; &gt;',['../classoriginal_1_1iterationStream.html',1,'original']]],
+  ['iterator_19',['Iterator',['../classoriginal_1_1array_1_1Iterator.html',1,'original::array&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1bitSet_1_1Iterator.html',1,'original::bitSet::Iterator'],['../classoriginal_1_1blocksList_1_1Iterator.html',1,'original::blocksList&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1chain_1_1Iterator.html',1,'original::chain&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1forwardChain_1_1Iterator.html',1,'original::forwardChain&lt; TYPE &gt;::Iterator'],['../classoriginal_1_1vector_1_1Iterator.html',1,'original::vector&lt; TYPE &gt;::Iterator']]],
+  ['iterator_20',['iterator',['../classoriginal_1_1iterator.html',1,'original']]],
+  ['iterator_2eh_21',['iterator.h',['../iterator_8h.html',1,'']]],
+  ['iterator_3c_20bool_20_3e_22',['iterator&lt; bool &gt;',['../classoriginal_1_1iterator.html',1,'original']]]
 ];

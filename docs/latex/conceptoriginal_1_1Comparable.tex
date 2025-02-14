@@ -1,16 +1,43 @@
 \doxysection{original\+::Comparable Concept Reference}
 \hypertarget{conceptoriginal_1_1Comparable}{}\label{conceptoriginal_1_1Comparable}\index{original::Comparable@{original::Comparable}}
+
+
+Requires type to support all comparison operators.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
 \doxysubsection{Concept definition}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1Comparable}{original::Comparable}}\ =\ \ \textcolor{keyword}{requires}(\textcolor{keyword}{const}\ TYPE\&\ t1,\ \textcolor{keyword}{const}\ TYPE\&\ t2)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ ==\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ !=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ <\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ <=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ >\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ >=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \{\ t1\ ==\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \{\ t1\ !=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \{\ t1\ <\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \{\ t1\ <=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \{\ t1\ >\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \{\ t1\ >=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\}}
 
 \end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Requires type to support all comparison operators. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & The type to check.\\
+\hline
+\end{DoxyTemplParams}
+Enforces that the type provides all standard comparison operators (==, !=, \texorpdfstring{$<$}{<}, \texorpdfstring{$<$}{<}=, \texorpdfstring{$>$}{>}, \texorpdfstring{$>$}{>}=) returning boolean results.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(Comparable<int>);\ \ \textcolor{comment}{//\ Succeeds}}
+
+\end{DoxyCode}
+ 

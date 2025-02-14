@@ -6,8 +6,8 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ITERABLE\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}transform.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}types.h"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}iterator.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iterator_8h}{iterator.h}}"{}}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }original\{}
 \DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
@@ -17,30 +17,30 @@
 \DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator<TYPE>}}*\ it\_;}
 \DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ iterAdaptor(\mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator<TYPE>}}*\ it);}
 \DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor*\ clone()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor*\ getPrev()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor*\ getNext()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a93f2bf296872b133f8e89ea4ac6ac2c0}{equalPtr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor*\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a3180a5d1f11acb2c7ffa2dca62916648}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor*\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a3b77220e74c10213e9c48c6a84ba0ea4}{getPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor*\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a919f0c7359ee83653327571a300e6fdd}{getNext}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }iterable;}
 \DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor(\textcolor{keyword}{const}\ iterAdaptor\&\ other);}
 \DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ iterAdaptor\&\ operator=(\textcolor{keyword}{const}\ iterAdaptor\&\ other);}
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ getIt()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ hasNext()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ hasPrev()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ next()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ prev()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator+=(int64\_t\ steps)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator-\/=(int64\_t\ steps)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\&\ get()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keyword}{const}\ TYPE\&\ data)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ get()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ isValid()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ toString(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_ac9270676fcb9ef390b2a53620ed22871}{hasNext}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a6878d26b06e7f1a44c8793b4c4f29ae0}{hasPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_ab4e5029c2655afe63188fea7304792a0}{atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a2277ae5caa296094279d4cf809e3dbf1}{atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a962b3db7ea559fa8cfc2ed316cc92958}{next}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a7047c56b1d2b94f71a055b42a6e874e1}{prev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_ac7c9f1226295d179f73fbb0bbeaebf8c}{operator+=}}(int64\_t\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a7ca2003b3804016da42797c94ce5aec6}{operator-\/=}}(int64\_t\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a5856e59f22ccd0c4546f8cb09b672970}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a1871539012c808b85aa962c1b87901ea}{get}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a51779d1290a5c0b668c8ccaef9fc363a}{set}}(\textcolor{keyword}{const}\ TYPE\&\ data)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a1871539012c808b85aa962c1b87901ea}{get}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_aafb13fdc6f8b1200316796f129b51d51}{isValid}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_aa5dcb3cabdb0bb94d7bf796dbbf3b479}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a7fe139f04845af8165ccaad6bc651d15}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \string~iterAdaptor()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00042\ }
@@ -48,15 +48,15 @@
 \DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator<TYPE>}}*\ begins()\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator<TYPE>}}*\ ends()\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ begin();}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ end();}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ begin()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ end()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ iterAdaptor\ begin();}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ iterAdaptor\ end();}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ iterAdaptor\ begin()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ iterAdaptor\ end()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ first();}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ last();}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ first()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ last()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ iterAdaptor\ first();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ iterAdaptor\ last();}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ iterAdaptor\ first()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ iterAdaptor\ last()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00056\ }
 \DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback\ =\ transform<TYPE>>}
 \DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1Operation}{Operation<Callback,\ TYPE>}}}
@@ -72,32 +72,32 @@
 \DoxyCodeLine{00068\ \ \ \ \ original::iterable<TYPE>::iterAdaptor::iterAdaptor(baseIterator<TYPE>*\ it)\ :\ it\_(it)\ \{\}}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::equalPtr(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a93f2bf296872b133f8e89ea4ac6ac2c0}{original::iterable<TYPE>::iterAdaptor::equalPtr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{00072\ \ \ \ \ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }iterAdaptor*\textcolor{keyword}{>}(other);}
 \DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
 \DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>equal(other);}
 \DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>equal(other\_it-\/>it\_);}
 \DoxyCodeLine{00077\ \ \ \ \ \}}
 \DoxyCodeLine{00078\ }
 \DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::clone()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}*}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a3180a5d1f11acb2c7ffa2dca62916648}{original::iterable<TYPE>::iterAdaptor::clone}}()\ const\ -\/>\ iterAdaptor*}
 \DoxyCodeLine{00081\ \ \ \ \ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ iterAdaptor(*\textcolor{keyword}{this});}
 \DoxyCodeLine{00083\ \ \ \ \ \}}
 \DoxyCodeLine{00084\ }
 \DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::getPrev()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}*}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a3b77220e74c10213e9c48c6a84ba0ea4}{original::iterable<TYPE>::iterAdaptor::getPrev}}()\ const\ -\/>\ iterAdaptor*}
 \DoxyCodeLine{00087\ \ \ \ \ \{}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a3180a5d1f11acb2c7ffa2dca62916648}{clone}}();}
 \DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ it-\/>next();}
 \DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
 \DoxyCodeLine{00091\ \ \ \ \ \}}
 \DoxyCodeLine{00092\ }
 \DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::getNext()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}*}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a919f0c7359ee83653327571a300e6fdd}{original::iterable<TYPE>::iterAdaptor::getNext}}()\ const\ -\/>\ iterAdaptor*}
 \DoxyCodeLine{00095\ \ \ \ \ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a3180a5d1f11acb2c7ffa2dca62916648}{clone}}();}
 \DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ it-\/>prev();}
 \DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
 \DoxyCodeLine{00099\ \ \ \ \ \}}
@@ -109,7 +109,7 @@
 \DoxyCodeLine{00105\ \ \ \ \ \}}
 \DoxyCodeLine{00106\ }
 \DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\&}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::operator=(\textcolor{keyword}{const}\ iterAdaptor\&\ other)\ -\/>\ iterAdaptor\&}
 \DoxyCodeLine{00109\ \ \ \ \ \{}
 \DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00111\ }
@@ -125,100 +125,100 @@
 \DoxyCodeLine{00121\ \ \ \ \ \}}
 \DoxyCodeLine{00122\ }
 \DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::hasNext()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_ac9270676fcb9ef390b2a53620ed22871}{original::iterable<TYPE>::iterAdaptor::hasNext}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{00125\ \ \ \ \ \{}
 \DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>hasNext();}
 \DoxyCodeLine{00127\ \ \ \ \ \}}
 \DoxyCodeLine{00128\ }
 \DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::hasPrev()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a6878d26b06e7f1a44c8793b4c4f29ae0}{original::iterable<TYPE>::iterAdaptor::hasPrev}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{00131\ \ \ \ \ \{}
 \DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>hasPrev();}
 \DoxyCodeLine{00133\ \ \ \ \ \}}
 \DoxyCodeLine{00134\ }
 \DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::atPrev(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_ab4e5029c2655afe63188fea7304792a0}{original::iterable<TYPE>::iterAdaptor::atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{00137\ \ \ \ \ \{}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }iterAdaptor*\textcolor{keyword}{>}(other);}
 \DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
 \DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>atPrev(other);}
 \DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>atPrev(other\_it-\/>it\_);}
 \DoxyCodeLine{00142\ \ \ \ \ \}}
 \DoxyCodeLine{00143\ }
 \DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::atNext(\textcolor{keyword}{const}\ iterator<TYPE>*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a2277ae5caa296094279d4cf809e3dbf1}{original::iterable<TYPE>::iterAdaptor::atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{00146\ \ \ \ \ \{}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }iterAdaptor*\textcolor{keyword}{>}(other);}
 \DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
 \DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>atNext(other);}
 \DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>atNext(other\_it-\/>it\_);}
 \DoxyCodeLine{00151\ \ \ \ \ \}}
 \DoxyCodeLine{00152\ }
 \DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::next()\ const\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a962b3db7ea559fa8cfc2ed316cc92958}{original::iterable<TYPE>::iterAdaptor::next}}()\ const\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00155\ \ \ \ \ \{}
 \DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ this-\/>it\_-\/>next();}
 \DoxyCodeLine{00157\ \ \ \ \ \}}
 \DoxyCodeLine{00158\ }
 \DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::prev()\ const\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a7047c56b1d2b94f71a055b42a6e874e1}{original::iterable<TYPE>::iterAdaptor::prev}}()\ const\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00161\ \ \ \ \ \{}
 \DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ this-\/>it\_-\/>prev();}
 \DoxyCodeLine{00163\ \ \ \ \ \}}
 \DoxyCodeLine{00164\ }
 \DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::operator+=(int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_ac7c9f1226295d179f73fbb0bbeaebf8c}{original::iterable<TYPE>::iterAdaptor::operator+=}}(int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00167\ \ \ \ \ \{}
 \DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ this-\/>it\_-\/>operator+=(steps);}
 \DoxyCodeLine{00169\ \ \ \ \ \}}
 \DoxyCodeLine{00170\ }
 \DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::operator-\/=(int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a7ca2003b3804016da42797c94ce5aec6}{original::iterable<TYPE>::iterAdaptor::operator-\/=}}(int64\_t\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00173\ \ \ \ \ \{}
 \DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ this-\/>it\_-\/>operator-\/=(steps);}
 \DoxyCodeLine{00175\ \ \ \ \ \}}
 \DoxyCodeLine{00176\ }
 \DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::operator-\/(\textcolor{keyword}{const}\ iterator<TYPE>\&\ other)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a5856e59f22ccd0c4546f8cb09b672970}{original::iterable<TYPE>::iterAdaptor::operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ other)\ \textcolor{keyword}{const}\ -\/>\ int64\_t}
 \DoxyCodeLine{00179\ \ \ \ \ \{}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}*\textcolor{keyword}{>}(\&other);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }iterAdaptor*\textcolor{keyword}{>}(\&other);}
 \DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
 \DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>operator-\/(other);}
 \DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>operator-\/(*other\_it-\/>it\_);}
 \DoxyCodeLine{00184\ \ \ \ \ \}}
 \DoxyCodeLine{00185\ }
 \DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::get()\ -\/>\ TYPE\&}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a1871539012c808b85aa962c1b87901ea}{original::iterable<TYPE>::iterAdaptor::get}}()\ -\/>\ TYPE\&}
 \DoxyCodeLine{00188\ \ \ \ \ \{}
 \DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>get();}
 \DoxyCodeLine{00190\ \ \ \ \ \}}
 \DoxyCodeLine{00191\ }
 \DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::set(\textcolor{keyword}{const}\ TYPE\&\ data)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a51779d1290a5c0b668c8ccaef9fc363a}{original::iterable<TYPE>::iterAdaptor::set}}(\textcolor{keyword}{const}\ TYPE\&\ data)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00194\ \ \ \ \ \{}
 \DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ this-\/>it\_-\/>set(data);}
 \DoxyCodeLine{00196\ \ \ \ \ \}}
 \DoxyCodeLine{00197\ }
 \DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::get()\ const\ -\/>\ TYPE}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a1871539012c808b85aa962c1b87901ea}{original::iterable<TYPE>::iterAdaptor::get}}()\ const\ -\/>\ TYPE}
 \DoxyCodeLine{00200\ \ \ \ \ \{}
 \DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>getElem();}
 \DoxyCodeLine{00202\ \ \ \ \ \}}
 \DoxyCodeLine{00203\ }
 \DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::iterable<TYPE>::iterAdaptor::isValid()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_aafb13fdc6f8b1200316796f129b51d51}{original::iterable<TYPE>::iterAdaptor::isValid}}()\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>it\_-\/>isValid();}
 \DoxyCodeLine{00207\ \ \ \ \ \}}
 \DoxyCodeLine{00208\ }
 \DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_aa5dcb3cabdb0bb94d7bf796dbbf3b479}{original::iterable<TYPE>::iterAdaptor::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
 \DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}iterAdaptor"{}};}
 \DoxyCodeLine{00212\ \ \ \ \ \}}
 \DoxyCodeLine{00213\ }
 \DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::iterAdaptor::toString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_a7fe139f04845af8165ccaad6bc651d15}{original::iterable<TYPE>::iterAdaptor::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string\ \{}
 \DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>className();}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor_aa5dcb3cabdb0bb94d7bf796dbbf3b479}{className}}();}
 \DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ *this-\/>it\_\ <<\ \textcolor{stringliteral}{"{})"{}};}
 \DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
@@ -230,15 +230,15 @@
 \DoxyCodeLine{00226\ \ \ \ \ \}}
 \DoxyCodeLine{00227\ }
 \DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::begin()\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ \{}
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}(this-\/>begins());}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::begin()\ -\/>\ iterAdaptor\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iterAdaptor(this-\/>begins());}
 \DoxyCodeLine{00231\ \ \ \ \ \}}
 \DoxyCodeLine{00232\ }
 \DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::end()\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{auto}\ original::iterable<TYPE>::end()\ -\/>\ iterAdaptor\ \{}
 \DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>ends();}
 \DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ it-\/>next();}
-\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1iterable_1_1iterAdaptor}{iterAdaptor}}(it);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iterAdaptor(it);}
 \DoxyCodeLine{00238\ \ \ \ \ \}}
 \DoxyCodeLine{00239\ }
 \DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}

@@ -1,6 +1,14 @@
 var searchData=
 [
-  ['tool_20library_0',['Original, A C++ Tool Library',['../index.html',1,'']]],
-  ['transform_1',['transform',['../classoriginal_1_1transform.html',1,'original']]],
-  ['transformstream_2',['transformStream',['../classoriginal_1_1transformStream.html',1,'original']]]
+  ['serial_0',['serial',['../classoriginal_1_1serial.html',1,'original']]],
+  ['serial_3c_20bool_20_3e_1',['serial&lt; bool &gt;',['../classoriginal_1_1serial.html',1,'original']]],
+  ['serial_3c_20opts_20_3e_2',['serial&lt; opts &gt;',['../classoriginal_1_1serial.html',1,'original']]],
+  ['serial_3c_20underlying_5ftype_20_3e_3',['serial&lt; underlying_type &gt;',['../classoriginal_1_1serial.html',1,'original']]],
+  ['set_4',['set',['../classoriginal_1_1array.html#a0cc174bfdf108bc114af63d98c7e67d4',1,'original::array::set()'],['../classoriginal_1_1bitSet_1_1Iterator.html#a7a41d805d2f5fecfa459b48411f79759',1,'original::bitSet::Iterator::set()'],['../classoriginal_1_1bitSet.html#a35fedf4042acba5d1703bf4b384644bf',1,'original::bitSet::set()'],['../classoriginal_1_1blocksList_1_1Iterator.html#ae5833394d34950dc881db3fe9f314610',1,'original::blocksList::Iterator::set()'],['../classoriginal_1_1blocksList.html#ac3261d55157aacee7b57d84454fe1891',1,'original::blocksList::set()'],['../classoriginal_1_1chain.html#a29b99b2b431f114b99c4cd6a2d5456b7',1,'original::chain::set()'],['../classoriginal_1_1forwardChain.html#ae59fb870f9dfa2621c41e2388238c093',1,'original::forwardChain::set()'],['../classoriginal_1_1iterable_1_1iterAdaptor.html#a51779d1290a5c0b668c8ccaef9fc363a',1,'original::iterable::iterAdaptor::set()'],['../classoriginal_1_1iterator.html#a4ca097831179d22512cbae55959e69cb',1,'original::iterator::set()'],['../classoriginal_1_1randomAccessIterator.html#adcbd7ae0af63b9c8ab56c4422c8ab2ac',1,'original::randomAccessIterator::set()'],['../classoriginal_1_1serial.html#a5a6aeda0aff18e4596fbec8295b81adb',1,'original::serial::set()'],['../classoriginal_1_1stepIterator.html#a545756198391c96f8636ed497b99c25e',1,'original::stepIterator::set()'],['../classoriginal_1_1vector.html#a998998632298451854e808fd2a8ae4c2',1,'original::vector::set()']]],
+  ['setval_5',['setVal',['../classoriginal_1_1wrapper.html#aaa126bf90e2dccf8763b519d5f8f1366',1,'original::wrapper']]],
+  ['singledirectioniterator_6',['singleDirectionIterator',['../classoriginal_1_1singleDirectionIterator.html',1,'original']]],
+  ['size_7',['size',['../classoriginal_1_1array.html#aa19f6e9662eb7bbe8e3815ce21716cfe',1,'original::array::size()'],['../classoriginal_1_1bitSet.html#aeeaf35e49d068e13698ee6f6923d282e',1,'original::bitSet::size()'],['../classoriginal_1_1blocksList.html#a48cc7b6524e96a33ff964245a4552799',1,'original::blocksList::size()'],['../classoriginal_1_1chain.html#ab5b216b51293251adb92db8aa43ec467',1,'original::chain::size()'],['../classoriginal_1_1container.html#aff79ee5a7719800dab303159cd965ce4',1,'original::container::size()'],['../classoriginal_1_1containerAdapter.html#a40c1988316696888b058db8cfd20cc90',1,'original::containerAdapter::size()'],['../classoriginal_1_1forwardChain.html#a83d127a0b139c85f04390e50909e99fd',1,'original::forwardChain::size()'],['../classoriginal_1_1vector.html#aaba7a3eec5f328e67b7c1c5775182ed0',1,'original::vector::size()']]],
+  ['stack_8',['stack',['../classoriginal_1_1stack.html',1,'original']]],
+  ['stepiterator_9',['stepIterator',['../classoriginal_1_1stepIterator.html',1,'original']]],
+  ['superof_10',['SuperOf',['../conceptoriginal_1_1SuperOf.html',1,'original']]]
 ];

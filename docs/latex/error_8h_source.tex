@@ -1,88 +1,95 @@
 \doxysection{error.\+h}
 \hypertarget{error_8h_source}{}\label{error_8h_source}\index{src/core/error.h@{src/core/error.h}}
-
+\mbox{\hyperlink{error_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ERROR\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ERROR\_H}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <exception>}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }original\ \{}
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1callBackChecker}{callBackChecker}}\{}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}\ ...Args\_TYPE>}
-\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ check();}
-\DoxyCodeLine{00010\ \ \ \ \ \};}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\{}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object."{}};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00018\ \ \ \ \ \};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1valueError}{valueError}}\ final\ :\ \textcolor{keyword}{public}\ \ std::exception\{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }original\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1callBackChecker}{callBackChecker}}\ \{}
 \DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Wrong\ value\ given."{}};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00026\ \ \ \ \ \};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1nullPointerError}{nullPointerError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\{}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer."{}};}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00034\ \ \ \ \ \};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\{}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class."{}};}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00042\ \ \ \ \ \};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1noElementError}{noElementError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\{}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}No\ such\ element."{}};}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00050\ \ \ \ \ \};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1CallbackSignatureError}{CallbackSignatureError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch."{}};}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00058\ \ \ \ \ \};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1CallbackReturnTypeError}{CallbackReturnTypeError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch."{}};}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00066\ \ \ \ \ \};}
-\DoxyCodeLine{00067\ \}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}...\ Args\_TYPE>}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ original::callBackChecker::check()\ \{}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\ =\ std::is\_invocable\_v<Callback,\ Args\_TYPE...>;}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ !is\_valid)\{}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ CallbackSignatureError();}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }result\_type\ =\ std::invoke\_result\_t<Callback,\ Args\_TYPE...>;}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\_return\_type\ =\ std::is\_same\_v<result\_type,\ Ret\_TYPE>;}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !is\_valid\_return\_type)}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ CallbackReturnTypeError();}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00080\ \ \ \ \ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ERROR\_H}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}\ ...Args\_TYPE>}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1callBackChecker_ac58a38eb4c6aa5a542533c0e83db3900}{check}}();}
+\DoxyCodeLine{00038\ \ \ \ \ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Exception\ Classes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object."{}};}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1valueError}{valueError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Wrong\ value\ given."{}};}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1nullPointerError}{nullPointerError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00074\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00075\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer."{}};}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00087\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00088\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class."{}};}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1noElementError}{noElementError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00100\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00101\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00102\ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}No\ such\ element."{}};}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1CallbackSignatureError}{CallbackSignatureError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00113\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00114\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00115\ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch."{}};}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1CallbackReturnTypeError}{CallbackReturnTypeError}}\ final\ :\ \textcolor{keyword}{public}\ std::exception\ \{}
+\DoxyCodeLine{00126\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00127\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00128\ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch."{}};}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ \};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Definitions\ of\ error.h\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}...\ Args\_TYPE>}
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1callBackChecker_ac58a38eb4c6aa5a542533c0e83db3900}{original::callBackChecker::check}}()\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\ =\ std::is\_invocable\_v<Callback,\ Args\_TYPE...>;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ !is\_valid)\{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1CallbackSignatureError}{CallbackSignatureError}}();}
+\DoxyCodeLine{00142\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }result\_type\ =\ std::invoke\_result\_t<Callback,\ Args\_TYPE...>;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\_return\_type\ =\ std::is\_same\_v<result\_type,\ Ret\_TYPE>;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ !is\_valid\_return\_type)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1CallbackReturnTypeError}{CallbackReturnTypeError}}();}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ERROR\_H}}
 
 \end{DoxyCode}
