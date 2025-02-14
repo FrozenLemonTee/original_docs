@@ -2,8 +2,8 @@ var indexSectionsWithContent =
 {
   0: "abcdefghilmnopqrstuvw~多安已并文模正简网计",
   1: "abcdefgilmnopqrstuvw",
-  2: "ceimoptw",
-  3: "abcdefghimnopst~",
+  2: "abceimoptw",
+  3: "abcdefghilmnoprst~",
   4: "o",
   5: "aclot",
   6: "ceos"
