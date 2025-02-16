@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['randomaccessiterator_0',['randomAccessIterator',['../classoriginal_1_1random_access_iterator.html',1,'original']]],
-  ['rangefilter_1',['rangeFilter',['../classoriginal_1_1range_filter.html',1,'original']]]
+  ['randomaccessiterator_0',['randomAccessIterator',['../classoriginal_1_1randomAccessIterator.html',1,'original']]],
+  ['rangefilter_1',['rangeFilter',['../classoriginal_1_1rangeFilter.html',1,'original']]]
 ];
