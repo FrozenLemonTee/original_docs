@@ -1,0 +1,43 @@
+\doxysection{original\+::Callback\+Of Concept Reference}
+\hypertarget{conceptoriginal_1_1_callback_of}{}\label{conceptoriginal_1_1_callback_of}\index{original::CallbackOf@{original::CallbackOf}}
+
+
+Validates callback signature compatibility.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ ReturnType,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_callback_of}{original::CallbackOf}}\ =\ \ \textcolor{keyword}{requires}(Callback\ callback,\ Args\&\&...\ args)\{}
+\DoxyCodeLine{\ \ \ \ \{\ callback(std::forward<Args>(args)...)\ \}\ -\/>\ std::same\_as<ReturnType>;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Validates callback signature compatibility. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callback} & Callable type to check \\
+\hline
+{\em Return\+Type} & Expected return type \\
+\hline
+{\em Args} & Expected argument types\\
+\hline
+\end{DoxyTemplParams}
+Ensures the callback can be invoked with specified arguments and returns the specified type.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ lambda\ =\ [](\textcolor{keywordtype}{int}\ x)\ \{\ \textcolor{keywordflow}{return}\ x\ *\ 2;\ \};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(CallbackOf<\textcolor{keyword}{decltype}(lambda),\ double,\ \textcolor{keywordtype}{int}>);\ \ \textcolor{comment}{//\ Fails\ (return\ type\ mismatch)}}
+
+\end{DoxyCode}
+ 

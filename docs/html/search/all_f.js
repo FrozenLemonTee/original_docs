@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['serial_0',['serial',['../classoriginal_1_1serial.html',1,'original']]],
-  ['serial_3c_20bool_20_3e_1',['serial&lt; bool &gt;',['../classoriginal_1_1serial.html',1,'original']]],
-  ['serial_3c_20opts_20_3e_2',['serial&lt; opts &gt;',['../classoriginal_1_1serial.html',1,'original']]],
-  ['serial_3c_20underlying_5ftype_20_3e_3',['serial&lt; underlying_type &gt;',['../classoriginal_1_1serial.html',1,'original']]],
-  ['singledirectioniterator_4',['singleDirectionIterator',['../classoriginal_1_1single_direction_iterator.html',1,'original']]],
-  ['stack_5',['stack',['../classoriginal_1_1stack.html',1,'original']]],
-  ['stepiterator_6',['stepIterator',['../classoriginal_1_1step_iterator.html',1,'original']]],
-  ['superof_7',['SuperOf',['../conceptoriginal_1_1_super_of.html',1,'original']]]
+  ['randomaccessiterator_0',['randomAccessIterator',['../classoriginal_1_1random_access_iterator.html',1,'original']]],
+  ['rangefilter_1',['rangeFilter',['../classoriginal_1_1range_filter.html',1,'original']]],
+  ['remove_2',['remove',['../classoriginal_1_1base_list.html#a0b178dfc8f5315530671534ee8dcacf0',1,'original::baseList']]],
+  ['resize_3',['resize',['../classoriginal_1_1bit_set.html#af1aa3dce52945a2aee5164c51e8cb3a0',1,'original::bitSet']]],
+  ['reverse_4',['reverse',['../classoriginal_1_1algorithms.html#a5d6cd7b121c4a3b84e4f7264fdea3295',1,'original::algorithms']]]
 ];

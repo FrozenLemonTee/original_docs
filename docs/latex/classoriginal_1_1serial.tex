@@ -2,8 +2,16 @@
 \hypertarget{classoriginal_1_1serial}{}\label{classoriginal_1_1serial}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
 
 
-Inheritance diagram for original\+::serial\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
-\nopagebreak
+Abstract base class for sequential containers with index-\/based access.  
+
+
+
+
+{\ttfamily \#include $<$serial.\+h$>$}
+
+
+
+Inheritance diagram for original\+::serial\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,92 +30,53 @@ Collaboration diagram for original\+::serial\texorpdfstring{$<$}{<} TYPE \texorp
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classoriginal_1_1serial_a3feda36ac9a78536fb524764caf2a243}{add}} (const TYPE \&e) override
-\item 
-void \mbox{\hyperlink{classoriginal_1_1serial_a6ddd09ee27cdf21272725562d92e855a}{clear}} () override
-\item 
-\Hypertarget{classoriginal_1_1serial_a78abe0a415dd59ddd648e8a028051fca}\label{classoriginal_1_1serial_a78abe0a415dd59ddd648e8a028051fca} 
-virtual TYPE {\bfseries get} (int64\+\_\+t index) const =0
-\item 
-\Hypertarget{classoriginal_1_1serial_a19a71d93a0f454addb14b03b5173e621}\label{classoriginal_1_1serial_a19a71d93a0f454addb14b03b5173e621} 
-virtual TYPE {\bfseries get\+Begin} () const
-\item 
-\Hypertarget{classoriginal_1_1serial_ac74ad50a9fb7eae3fcec7780ca73cc00}\label{classoriginal_1_1serial_ac74ad50a9fb7eae3fcec7780ca73cc00} 
-virtual TYPE {\bfseries get\+End} () const
-\item 
-\Hypertarget{classoriginal_1_1serial_ad4784c38d09067e976ef9bf40ccc7385}\label{classoriginal_1_1serial_ad4784c38d09067e976ef9bf40ccc7385} 
-virtual TYPE {\bfseries operator\mbox{[}$\,$\mbox{]}} (int64\+\_\+t index) const
-\item 
-\Hypertarget{classoriginal_1_1serial_a6aedb4da5bf9c8524088ea8a1f0f662c}\label{classoriginal_1_1serial_a6aedb4da5bf9c8524088ea8a1f0f662c} 
-virtual TYPE \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int64\+\_\+t index)=0
-\item 
-\Hypertarget{classoriginal_1_1serial_a5a6aeda0aff18e4596fbec8295b81adb}\label{classoriginal_1_1serial_a5a6aeda0aff18e4596fbec8295b81adb} 
-virtual void {\bfseries set} (int64\+\_\+t index, const TYPE \&e)=0
-\item 
-\Hypertarget{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1}\label{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1} 
-virtual uint32\+\_\+t {\bfseries index\+Of} (const TYPE \&e) const =0
-\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_a78abe0a415dd59ddd648e8a028051fca}{get}} (int64\+\_\+t index) const =0
+\begin{DoxyCompactList}\small\item\em Retrieves the element at the specified index. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_a19a71d93a0f454addb14b03b5173e621}{get\+Begin}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the first element in the container. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_ac74ad50a9fb7eae3fcec7780ca73cc00}{get\+End}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the last element in the container. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_ad4784c38d09067e976ef9bf40ccc7385}{operator\mbox{[}$\,$\mbox{]}}} (int64\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Retrieves the element at the specified index (const version). \end{DoxyCompactList}\item 
+virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1serial_a6aedb4da5bf9c8524088ea8a1f0f662c}{operator\mbox{[}$\,$\mbox{]}}} (int64\+\_\+t index)=0
+\begin{DoxyCompactList}\small\item\em Retrieves or sets the element at the specified index (non-\/const version). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1serial_a5a6aeda0aff18e4596fbec8295b81adb}{set}} (int64\+\_\+t index, const TYPE \&e)=0
+\begin{DoxyCompactList}\small\item\em Sets the element at the specified index. \end{DoxyCompactList}\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1}{index\+Of}} (const TYPE \&e) const =0
+\begin{DoxyCompactList}\small\item\em Finds the index of the specified element. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1serial_a689a824c570acbc125c5b7ee3e10581b}{contains}} (const TYPE \&e) const override
-\item 
-\Hypertarget{classoriginal_1_1serial_a92cbbd43bc453fe6accfca171e2c3fac}\label{classoriginal_1_1serial_a92cbbd43bc453fe6accfca171e2c3fac} 
-virtual void {\bfseries push} (int64\+\_\+t index, const TYPE \&e)
-\item 
-\Hypertarget{classoriginal_1_1serial_a9729ef26d936da81b9b43a5c1488c4e0}\label{classoriginal_1_1serial_a9729ef26d936da81b9b43a5c1488c4e0} 
-virtual TYPE {\bfseries pop} (int64\+\_\+t index)
-\item 
-\Hypertarget{classoriginal_1_1serial_abea4eb94d288990dde42958e6cb865f8}\label{classoriginal_1_1serial_abea4eb94d288990dde42958e6cb865f8} 
-virtual void {\bfseries push\+Begin} (const TYPE \&e)
-\item 
-\Hypertarget{classoriginal_1_1serial_a46822e3808cd424b7bc7df5cbf945ed9}\label{classoriginal_1_1serial_a46822e3808cd424b7bc7df5cbf945ed9} 
-virtual TYPE {\bfseries pop\+Begin} ()
-\item 
-\Hypertarget{classoriginal_1_1serial_a2722242b2dfded88318645057deeea1f}\label{classoriginal_1_1serial_a2722242b2dfded88318645057deeea1f} 
-virtual void {\bfseries push\+End} (const TYPE \&e)
-\item 
-\Hypertarget{classoriginal_1_1serial_a86275f8cd406a8e60f205055d9774db3}\label{classoriginal_1_1serial_a86275f8cd406a8e60f205055d9774db3} 
-virtual TYPE {\bfseries pop\+End} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks if the container contains the specified element. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1container}{original\+::container$<$ TYPE $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-virtual uint32\+\_\+t {\bfseries size} () const =0
-\item 
-bool {\bfseries empty} () const
-\end{DoxyCompactItemize}
+virtual uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1container_aff79ee5a7719800dab303159cd965ce4}{size}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the number of elements in the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1container_a187c5f0c91b12c6ef6566929c85fdef5}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the container is empty. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classoriginal_1_1container_aa6cc924a4932026432be0bcd88adfa5c}{\texorpdfstring{$\sim$}{\string~}container}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the container class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1serial_ac6e3e5c0c827ea92f53a180174d2abbb}\label{classoriginal_1_1serial_ac6e3e5c0c827ea92f53a180174d2abbb} 
-bool {\bfseries index\+Out\+Of\+Bound} (int64\+\_\+t index) const
-\item 
-\Hypertarget{classoriginal_1_1serial_a4062062539a06c07d8bedf976704cf81}\label{classoriginal_1_1serial_a4062062539a06c07d8bedf976704cf81} 
-int64\+\_\+t {\bfseries parse\+Neg\+Index} (int64\+\_\+t index) const
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classoriginal_1_1serial_ac6e3e5c0c827ea92f53a180174d2abbb}{index\+Out\+Of\+Bound}} (int64\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Checks if the provided index is out of bounds. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1serial_a4062062539a06c07d8bedf976704cf81}{parse\+Neg\+Index}} (int64\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Converts negative indices into valid positive indices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::serial$<$ TYPE $>$}
+Abstract base class for sequential containers with index-\/based access. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of the elements contained in the serial container\\
+\hline
+\end{DoxyTemplParams}
+Defines common interface for containers that support index-\/based access to their elements. It provides methods for element retrieval, bounds checking, and negative index handling. Derived classes must implement {\ttfamily \doxylink{classoriginal_1_1serial_a78abe0a415dd59ddd648e8a028051fca}{get()}}, {\ttfamily operator\mbox{[}\mbox{]}}, {\ttfamily \doxylink{classoriginal_1_1serial_a5a6aeda0aff18e4596fbec8295b81adb}{set()}}, and {\ttfamily \doxylink{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1}{index\+Of()}} methods. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classoriginal_1_1serial_a3feda36ac9a78536fb524764caf2a243}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!add@{add}}
-\index{add@{add}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
-\doxysubsubsection{\texorpdfstring{add()}{add()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1serial_a3feda36ac9a78536fb524764caf2a243} 
-template$<$typename TYPE$>$ \\
-auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::add (\begin{DoxyParamCaption}\item[{const TYPE \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{classoriginal_1_1container}{original\+::container$<$ TYPE $>$}}.
-
-\Hypertarget{classoriginal_1_1serial_a6ddd09ee27cdf21272725562d92e855a}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!clear@{clear}}
-\index{clear@{clear}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
-\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1serial_a6ddd09ee27cdf21272725562d92e855a} 
-template$<$typename TYPE$>$ \\
-auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
-
-
-
-Implements \mbox{\hyperlink{classoriginal_1_1container}{original\+::container$<$ TYPE $>$}}.
-
 \Hypertarget{classoriginal_1_1serial_a689a824c570acbc125c5b7ee3e10581b}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!contains@{contains}}
 \index{contains@{contains}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{contains()}{contains()}}
@@ -117,10 +86,201 @@ auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\
 
 
 
-Implements \mbox{\hyperlink{classoriginal_1_1container}{original\+::container$<$ TYPE $>$}}.
+Checks if the container contains the specified element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The element to check for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the container contains the element, otherwise {\ttfamily false}.
+\end{DoxyReturn}
+This method uses {\ttfamily \doxylink{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1}{index\+Of()}} by default to check if the element exists within the container. 
+
+Implements \mbox{\hyperlink{classoriginal_1_1container_ad8e536ffbe03619dc1ebbaf2fe504718}{original\+::container$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1serial_a78abe0a415dd59ddd648e8a028051fca}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!get@{get}}
+\index{get@{get}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_a78abe0a415dd59ddd648e8a028051fca} 
+template$<$typename TYPE$>$ \\
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::get (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves the element at the specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element at the given index.
+\end{DoxyReturn}
+Derived classes must implement this method to provide the actual element retrieval. 
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1array_aeb97fce9dfdf0f309cdbb1cf00dcc93c}{original\+::array$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1array_aeb97fce9dfdf0f309cdbb1cf00dcc93c}{original\+::array$<$ underlying\+\_\+type $>$}}, \mbox{\hyperlink{classoriginal_1_1bit_set_a6576c14c2e9b717dce58269be489ee9e}{original\+::bit\+Set}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_a0a4dfac372a3919cd833054a0f4336c2}{original\+::blocks\+List$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_abf112eaa13281db525e6328583d1fec4}{original\+::chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_abf112eaa13281db525e6328583d1fec4}{original\+::chain$<$ opts $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_abf112eaa13281db525e6328583d1fec4}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::filter$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_abf112eaa13281db525e6328583d1fec4}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::transform$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1forward_chain_a47753fbea8918e014c7f6f4d89b31668}{original\+::forward\+Chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1vector_a580c003bfac21560fed73998d6da6f49}{original\+::vector$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1vector_a580c003bfac21560fed73998d6da6f49}{original\+::vector$<$ TYPE \texorpdfstring{$\ast$}{*} $>$}}.
+
+\Hypertarget{classoriginal_1_1serial_a19a71d93a0f454addb14b03b5173e621}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!getBegin@{getBegin}}
+\index{getBegin@{getBegin}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{getBegin()}{getBegin()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_a19a71d93a0f454addb14b03b5173e621} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::get\+Begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the first element in the container. 
+
+\begin{DoxyReturn}{Returns}
+The first element in the container.
+\end{DoxyReturn}
+This method provides a shortcut to get the first element by calling {\ttfamily get(0)}. \Hypertarget{classoriginal_1_1serial_ac74ad50a9fb7eae3fcec7780ca73cc00}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!getEnd@{getEnd}}
+\index{getEnd@{getEnd}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{getEnd()}{getEnd()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_ac74ad50a9fb7eae3fcec7780ca73cc00} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::get\+End (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the last element in the container. 
+
+\begin{DoxyReturn}{Returns}
+The last element in the container.
+\end{DoxyReturn}
+This method provides a shortcut to get the last element by calling {\ttfamily get(-\/1)}. \Hypertarget{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!indexOf@{indexOf}}
+\index{indexOf@{indexOf}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{indexOf()}{indexOf()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1} 
+template$<$typename TYPE$>$ \\
+virtual uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::index\+Of (\begin{DoxyParamCaption}\item[{const TYPE \&}]{e}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Finds the index of the specified element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The element to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the element, or {\ttfamily \doxylink{classoriginal_1_1container_aff79ee5a7719800dab303159cd965ce4}{size()}} if not found.
+\end{DoxyReturn}
+This method searches for the element in the container and returns its index. 
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1array_a491654f0b1a9453223297c8b7784dfb9}{original\+::array$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1array_a491654f0b1a9453223297c8b7784dfb9}{original\+::array$<$ underlying\+\_\+type $>$}}, \mbox{\hyperlink{classoriginal_1_1bit_set_ac6602cbe1a0f218f588cf32a027e02cd}{original\+::bit\+Set}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_ab9b5bd6867136ed4f69a3e2752503844}{original\+::blocks\+List$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_afa358b390f319d84f61145be041a988c}{original\+::chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_afa358b390f319d84f61145be041a988c}{original\+::chain$<$ opts $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_afa358b390f319d84f61145be041a988c}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::filter$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_afa358b390f319d84f61145be041a988c}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::transform$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1forward_chain_a71f470f3186caf63f7745711bc326093}{original\+::forward\+Chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1vector_a4dec83c276c81d813547477b000834d2}{original\+::vector$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1vector_a4dec83c276c81d813547477b000834d2}{original\+::vector$<$ TYPE \texorpdfstring{$\ast$}{*} $>$}}.
+
+\Hypertarget{classoriginal_1_1serial_ac6e3e5c0c827ea92f53a180174d2abbb}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!indexOutOfBound@{indexOutOfBound}}
+\index{indexOutOfBound@{indexOutOfBound}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{indexOutOfBound()}{indexOutOfBound()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_ac6e3e5c0c827ea92f53a180174d2abbb} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::index\+Out\+Of\+Bound (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [protected]}}
+
+
+
+Checks if the provided index is out of bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the index is out of bounds, otherwise {\ttfamily false}.
+\end{DoxyReturn}
+This method accounts for negative indices by converting them to positive indices before performing the bounds check. \Hypertarget{classoriginal_1_1serial_ad4784c38d09067e976ef9bf40ccc7385}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_ad4784c38d09067e976ef9bf40ccc7385} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retrieves the element at the specified index (const version). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A copy of the element at the given index.
+\end{DoxyReturn}
+This method calls {\ttfamily get(index)} to retrieve the element, but returns a copy. \Hypertarget{classoriginal_1_1serial_a6aedb4da5bf9c8524088ea8a1f0f662c}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_a6aedb4da5bf9c8524088ea8a1f0f662c} 
+template$<$typename TYPE$>$ \\
+virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retrieves or sets the element at the specified index (non-\/const version). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the element at the given index.
+\end{DoxyReturn}
+This method allows direct modification of the element at the specified index. 
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1array_a2555310e74eab90fb01d3df99b33c64b}{original\+::array$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1array_a2555310e74eab90fb01d3df99b33c64b}{original\+::array$<$ underlying\+\_\+type $>$}}, \mbox{\hyperlink{classoriginal_1_1bit_set_a39f438bb0773fc0efdcf8075e76d2027}{original\+::bit\+Set}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_af65d71f03a12a39e4c7b30e2fa387f3a}{original\+::blocks\+List$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_ab09da3bdffb8d5cbf592b778b0367876}{original\+::chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_ab09da3bdffb8d5cbf592b778b0367876}{original\+::chain$<$ opts $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_ab09da3bdffb8d5cbf592b778b0367876}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::filter$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_ab09da3bdffb8d5cbf592b778b0367876}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::transform$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1forward_chain_ad88b910df5e9998fe2b579be311ef183}{original\+::forward\+Chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1vector_afd9491e35da4dad72838256b1ec5b3a3}{original\+::vector$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1vector_afd9491e35da4dad72838256b1ec5b3a3}{original\+::vector$<$ TYPE \texorpdfstring{$\ast$}{*} $>$}}.
+
+\Hypertarget{classoriginal_1_1serial_a4062062539a06c07d8bedf976704cf81}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!parseNegIndex@{parseNegIndex}}
+\index{parseNegIndex@{parseNegIndex}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{parseNegIndex()}{parseNegIndex()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_a4062062539a06c07d8bedf976704cf81} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::parse\+Neg\+Index (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [protected]}}
+
+
+
+Converts negative indices into valid positive indices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index to convert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding positive index for negative indices, otherwise returns the original index.
+\end{DoxyReturn}
+For example, if the index is -\/1, it will be converted to the last element\textquotesingle{}s index. \Hypertarget{classoriginal_1_1serial_a5a6aeda0aff18e4596fbec8295b81adb}\index{original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}!set@{set}}
+\index{set@{set}!original::serial$<$ TYPE $>$@{original::serial$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1serial_a5a6aeda0aff18e4596fbec8295b81adb} 
+template$<$typename TYPE$>$ \\
+virtual void \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial}}$<$ TYPE $>$\+::set (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{index}{, }\item[{const TYPE \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the element at the specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the element to set. \\
+\hline
+{\em e} & The new value to store at the specified index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+get(index) == e 
+\end{DoxyPostcond}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1array_a0cc174bfdf108bc114af63d98c7e67d4}{original\+::array$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1array_a0cc174bfdf108bc114af63d98c7e67d4}{original\+::array$<$ underlying\+\_\+type $>$}}, \mbox{\hyperlink{classoriginal_1_1bit_set_a35fedf4042acba5d1703bf4b384644bf}{original\+::bit\+Set}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_ac3261d55157aacee7b57d84454fe1891}{original\+::blocks\+List$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_a29b99b2b431f114b99c4cd6a2d5456b7}{original\+::chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_a29b99b2b431f114b99c4cd6a2d5456b7}{original\+::chain$<$ opts $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_a29b99b2b431f114b99c4cd6a2d5456b7}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::filter$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1chain_a29b99b2b431f114b99c4cd6a2d5456b7}{original\+::chain$<$ std\+::shared\+\_\+ptr$<$ original\+::transform$<$ TYPE $>$ $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1forward_chain_ae59fb870f9dfa2621c41e2388238c093}{original\+::forward\+Chain$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1vector_a998998632298451854e808fd2a8ae4c2}{original\+::vector$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1vector_a998998632298451854e808fd2a8ae4c2}{original\+::vector$<$ TYPE \texorpdfstring{$\ast$}{*} $>$}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/core/serial.\+h\end{DoxyCompactItemize}
+src/core/\mbox{\hyperlink{serial_8h}{serial.\+h}}\end{DoxyCompactItemize}

@@ -1,11 +1,44 @@
 \doxysection{original\+::Operation Concept Reference}
 \hypertarget{conceptoriginal_1_1_operation}{}\label{conceptoriginal_1_1_operation}\index{original::Operation@{original::Operation}}
+
+
+Constraint for mutating operations.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
 \doxysubsection{Concept definition}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_operation}{original::Operation}}\ =\ \ \textcolor{keyword}{requires}(Callback\ operation,\ TYPE\&\ t)\{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ operation(t)\ \}\ -\/>\ std::same\_as<void>;}
-\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_operation}{original::Operation}}\ =\ \ \mbox{\hyperlink{conceptoriginal_1_1_callback_of}{CallbackOf<Callback,\ void,\ TYPE\&>}}}
 
 \end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Constraint for mutating operations. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callback} & Mutation function type \\
+\hline
+{\em TYPE} & Type being modified\\
+\hline
+\end{DoxyTemplParams}
+Requires a callback that takes a mutable TYPE reference and returns void.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Validates\ increment\ operation}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ increment\ =\ [](\textcolor{keyword}{auto}\&\ x)\ \{\ x\ +=\ 1;\ \};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(Operation<\textcolor{keyword}{decltype}(increment),\ \textcolor{keywordtype}{int}>);\ \ \textcolor{comment}{//\ Passes}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Invalid\ example\ (wrong\ return\ type)}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ bad\_op\ =\ [](\textcolor{keywordtype}{int}\&\ x)\ \{\ \textcolor{keywordflow}{return}\ x++;\ \};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!Operation<\textcolor{keyword}{decltype}(bad\_op),\ \textcolor{keywordtype}{int}>);\ \ \textcolor{comment}{//\ Fails:\ returns\ int\ instead\ of\ void}}
+
+\end{DoxyCode}
+ 
