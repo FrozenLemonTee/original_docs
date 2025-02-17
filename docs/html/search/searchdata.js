@@ -3,7 +3,7 @@ var indexSectionsWithContent =
   0: "abcdefghilmnopqrstuvw~多安已并文模正简网计",
   1: "abcdefgilmnopqrstuvw",
   2: "o",
-  3: "abcdeimopqstvw",
+  3: "abcdefimopqstvw",
   4: "abcdefghilmnopqrstv~",
   5: "eps",
   6: "o",

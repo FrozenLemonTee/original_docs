@@ -5,7 +5,7 @@ var searchData=
   ['callbackof_2',['CallbackOf',['../conceptoriginal_1_1_callback_of.html',1,'original']]],
   ['callbackreturntypeerror_3',['CallbackReturnTypeError',['../classoriginal_1_1_callback_return_type_error.html',1,'original']]],
   ['callbacksignatureerror_4',['CallbackSignatureError',['../classoriginal_1_1_callback_signature_error.html',1,'original']]],
-  ['chain_5',['chain',['../classoriginal_1_1chain.html',1,'original']]],
+  ['chain_5',['chain',['../classoriginal_1_1chain.html',1,'original::chain&lt; TYPE &gt;'],['../classoriginal_1_1chain.html#a3643fe67d7ed31973847566ddf643d1d',1,'original::chain::chain()'],['../classoriginal_1_1chain.html#ac2a7a0970eebfa6bd3012dfbc802e27e',1,'original::chain::chain(const chain &amp;other)'],['../classoriginal_1_1chain.html#a536c5b4e080131ad9650b42eef760273',1,'original::chain::chain(const std::initializer_list&lt; TYPE &gt; &amp;list)'],['../classoriginal_1_1chain.html#a662e2043b10c8551bbf34ef8ac502529',1,'original::chain::chain(const array&lt; TYPE &gt; &amp;arr)'],['../classoriginal_1_1chain.html#a06c244feadb67a43ae63081bbd1fe220',1,'original::chain::chain(chain &amp;&amp;other) noexcept']]],
   ['chain_2eh_6',['chain.h',['../chain_8h.html',1,'']]],
   ['chain_3c_20opts_20_3e_7',['chain&lt; opts &gt;',['../classoriginal_1_1chain.html',1,'original']]],
   ['chain_3c_20std_3a_3ashared_5fptr_3c_20original_3a_3afilter_3c_20type_20_3e_20_3e_20_3e_8',['chain&lt; std::shared_ptr&lt; original::filter&lt; TYPE &gt; &gt; &gt;',['../classoriginal_1_1chain.html',1,'original']]],

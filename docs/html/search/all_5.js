@@ -9,6 +9,7 @@ var searchData=
   ['formatcstring_6',['formatCString',['../classoriginal_1_1printable.html#add55e1dfceb5c3f8129f4288acb369ce',1,'original::printable']]],
   ['formatenum_7',['formatEnum',['../classoriginal_1_1printable.html#ae855a42c7ce42173f1821938d433d29f',1,'original::printable']]],
   ['formatstring_8',['formatString',['../classoriginal_1_1printable.html#af9c95c33d1f0abc8188d2c594e879fb6',1,'original::printable::formatString(const TYPE &amp;t)'],['../classoriginal_1_1printable.html#a4bf2a2858408f5bac18b5ef37e8def97',1,'original::printable::formatString(TYPE *const &amp;ptr)']]],
-  ['forwardchain_9',['forwardChain',['../classoriginal_1_1forward_chain.html',1,'original']]],
-  ['frontof_10',['frontOf',['../classoriginal_1_1algorithms.html#a0bc1f932f07ab2b2ded2bd2e016c65fb',1,'original::algorithms']]]
+  ['forwardchain_9',['forwardChain',['../classoriginal_1_1forward_chain.html',1,'original::forwardChain&lt; TYPE &gt;'],['../classoriginal_1_1forward_chain.html#af667f2240fe044ab2a3e56c30ac77942',1,'original::forwardChain::forwardChain()'],['../classoriginal_1_1forward_chain.html#adc6cfac92210021b1082042e77c4ab09',1,'original::forwardChain::forwardChain(const forwardChain &amp;other)'],['../classoriginal_1_1forward_chain.html#a4257b4004c13ca8287e73ca11b85071c',1,'original::forwardChain::forwardChain(std::initializer_list&lt; TYPE &gt; list)'],['../classoriginal_1_1forward_chain.html#a7915a907e4760337fdd0164cf14fb57b',1,'original::forwardChain::forwardChain(const array&lt; TYPE &gt; &amp;arr)'],['../classoriginal_1_1forward_chain.html#aacf2aa20e1b903f8d5f91a908a5ac3da',1,'original::forwardChain::forwardChain(forwardChain &amp;&amp;other) noexcept']]],
+  ['forwardchain_2eh_10',['forwardChain.h',['../forward_chain_8h.html',1,'']]],
+  ['frontof_11',['frontOf',['../classoriginal_1_1algorithms.html#a0bc1f932f07ab2b2ded2bd2e016c65fb',1,'original::algorithms']]]
 ];
