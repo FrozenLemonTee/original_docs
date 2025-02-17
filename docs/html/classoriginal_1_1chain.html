@@ -95,12 +95,17 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">original::chain&lt; TYPE &gt; Class Template Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Non-cyclic doubly linked list container.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="chain_8h_source.html">chain.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for original::chain&lt; TYPE &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classoriginal_1_1chain__inherit__graph.png" border="0" usemap="#aoriginal_1_1chain_3_01_t_y_p_e_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="aoriginal_1_1chain_3_01_t_y_p_e_01_4_inherit__map" id="aoriginal_1_1chain_3_01_t_y_p_e_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="168,965,317,1248"/>
+<area shape="rect" title="Non&#45;cyclic doubly linked list container." alt="" coords="168,965,317,1248"/>
 <area shape="rect" href="classoriginal_1_1base_list.html" title="Base class for variable&#45;size serial containers." alt="" coords="108,661,217,917"/>
 <area shape="poly" title=" " alt="" coords="201,931,209,965,204,966,196,933"/>
 <area shape="rect" href="classoriginal_1_1serial.html" title="Abstract base class for sequential containers with index&#45;based access." alt="" coords="5,277,154,539"/>
@@ -122,7 +127,7 @@ Collaboration diagram for original::chain&lt; TYPE &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classoriginal_1_1chain__coll__graph.png" border="0" usemap="#aoriginal_1_1chain_3_01_t_y_p_e_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="aoriginal_1_1chain_3_01_t_y_p_e_01_4_coll__map" id="aoriginal_1_1chain_3_01_t_y_p_e_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="168,965,317,1248"/>
+<area shape="rect" title="Non&#45;cyclic doubly linked list container." alt="" coords="168,965,317,1248"/>
 <area shape="rect" href="classoriginal_1_1base_list.html" title="Base class for variable&#45;size serial containers." alt="" coords="108,661,217,917"/>
 <area shape="poly" title=" " alt="" coords="201,931,209,965,204,966,196,933"/>
 <area shape="rect" href="classoriginal_1_1serial.html" title="Abstract base class for sequential containers with index&#45;based access." alt="" coords="5,277,154,539"/>
@@ -143,6 +148,7 @@ Collaboration diagram for original::chain&lt; TYPE &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1chain_1_1_iterator.html">Iterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bidirectional iterator implementation for chain &lt;TYPE&gt;  <a href="classoriginal_1_1chain_1_1_iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -391,7 +397,22 @@ template&lt;&gt; </td></tr>
 <tr class="memdesc:a4460e332fe161cda6f4f8a540890276a inherit pro_methods_classoriginal_1_1iteration_stream"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of the elements in the stream.  <br /></td></tr>
 <tr class="separator:a4460e332fe161cda6f4f8a540890276a inherit pro_methods_classoriginal_1_1iteration_stream"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename TYPE&gt;<br />
+class original::chain&lt; TYPE &gt;</div><p>Non-cyclic doubly linked list container. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TYPE</td><td>Type of elements stored in the list</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Implements a classic doubly linked list with:</p><ul>
+<li>Sentinel nodes for boundary management</li>
+<li>Bidirectional traversal capabilities</li>
+<li>Index-based element access (O(n) complexity)</li>
+<li>Deep copy semantics </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7d2ae7e4eb14df1dc4f29ed836a774ce" name="a7d2ae7e4eb14df1dc4f29ed836a774ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d2ae7e4eb14df1dc4f29ed836a774ce">&#9670;&#160;</a></span>begins()</h2>
 
@@ -910,10 +931,10 @@ template&lt;typename TYPE&gt; </div>
 <p>This method must be implemented by derived classes to return the correct size.</p>
 <div class="fragment"><div class="line"><a class="code hl_class" href="classoriginal_1_1container.html">container&lt;int&gt;</a>* c = <span class="keyword">new</span> <a class="code hl_class" href="classoriginal_1_1vector.html">vector&lt;int&gt;</a>();</div>
 <div class="line">uint32_t <a class="code hl_function" href="#ab5b216b51293251adb92db8aa43ec467">size</a> = c-&gt;<a class="code hl_function" href="classoriginal_1_1container.html#aff79ee5a7719800dab303159cd965ce4">size</a>(); <span class="comment">// Returns the number of elements</span></div>
-<div class="ttc" id="aclassoriginal_1_1chain_html_ab5b216b51293251adb92db8aa43ec467"><div class="ttname"><a href="#ab5b216b51293251adb92db8aa43ec467">original::chain::size</a></div><div class="ttdeci">uint32_t size() const override</div><div class="ttdoc">Gets the number of elements in the container.</div><div class="ttdef"><b>Definition</b> chain.h:347</div></div>
+<div class="ttc" id="aclassoriginal_1_1chain_html_ab5b216b51293251adb92db8aa43ec467"><div class="ttname"><a href="#ab5b216b51293251adb92db8aa43ec467">original::chain::size</a></div><div class="ttdeci">uint32_t size() const override</div><div class="ttdoc">Gets the number of elements in the container.</div><div class="ttdef"><b>Definition</b> chain.h:393</div></div>
 <div class="ttc" id="aclassoriginal_1_1container_html"><div class="ttname"><a href="classoriginal_1_1container.html">original::container</a></div><div class="ttdoc">Abstract base class for containers.</div><div class="ttdef"><b>Definition</b> container.h:25</div></div>
 <div class="ttc" id="aclassoriginal_1_1container_html_aff79ee5a7719800dab303159cd965ce4"><div class="ttname"><a href="classoriginal_1_1container.html#aff79ee5a7719800dab303159cd965ce4">original::container::size</a></div><div class="ttdeci">virtual uint32_t size() const =0</div><div class="ttdoc">Gets the number of elements in the container.</div></div>
-<div class="ttc" id="aclassoriginal_1_1vector_html"><div class="ttname"><a href="classoriginal_1_1vector.html">original::vector</a></div><div class="ttdef"><b>Definition</b> vector.h:10</div></div>
+<div class="ttc" id="aclassoriginal_1_1vector_html"><div class="ttname"><a href="classoriginal_1_1vector.html">original::vector</a></div><div class="ttdoc">Dynamic array container with amortized constant time operations.</div><div class="ttdef"><b>Definition</b> vector.h:30</div></div>
 </div><!-- fragment --> 
 <p>Implements <a class="el" href="classoriginal_1_1container.html#aff79ee5a7719800dab303159cd965ce4">original::container&lt; TYPE &gt;</a>.</p>
 

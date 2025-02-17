@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_0',['data',['../classoriginal_1_1array.html#aa5cff19b1d85f3a0946deb0aa2820ffa',1,'original::array']]],
+  ['data_0',['data',['../classoriginal_1_1array.html#aa5cff19b1d85f3a0946deb0aa2820ffa',1,'original::array::data()'],['../classoriginal_1_1vector.html#a24946fb007f676ec4ed9f13f88035349',1,'original::vector::data()']]],
   ['decreasecomparator_1',['decreaseComparator',['../classoriginal_1_1decrease_comparator.html',1,'original']]],
   ['decreasenotstrictcomparator_2',['decreaseNotStrictComparator',['../classoriginal_1_1decrease_not_strict_comparator.html',1,'original']]],
   ['deque_3',['deque',['../classoriginal_1_1deque.html',1,'original::deque&lt; TYPE, SERIAL &gt;'],['../classoriginal_1_1deque.html#ae24a6722ce815f81bafd178a764d230a',1,'original::deque::deque(const SERIAL&lt; TYPE &gt; &amp;serial=SERIAL&lt; TYPE &gt;{})'],['../classoriginal_1_1deque.html#a7806f08a9050999df74686ca315359a5',1,'original::deque::deque(const std::initializer_list&lt; TYPE &gt; &amp;lst)'],['../classoriginal_1_1deque.html#a68d103da039c794e4b791719904c36c7',1,'original::deque::deque(const deque &amp;other)'],['../classoriginal_1_1deque.html#ad10471a7cefcb66a75d9e658fe1b8a11',1,'original::deque::deque(deque &amp;&amp;other) noexcept']]],
