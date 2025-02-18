@@ -4,8 +4,8 @@ var searchData=
   ['noelementerror_1',['noElementError',['../classoriginal_1_1no_element_error.html',1,'original']]],
   ['noneof_2',['noneOf',['../classoriginal_1_1algorithms.html#af950ec05916d44c221231e150ce2abdb',1,'original::algorithms']]],
   ['notequalcomparator_3',['notEqualComparator',['../classoriginal_1_1not_equal_comparator.html',1,'original']]],
-  ['notequalfilter_4',['notEqualFilter',['../classoriginal_1_1not_equal_filter.html',1,'original']]],
-  ['notgreaterfilter_5',['notGreaterFilter',['../classoriginal_1_1not_greater_filter.html',1,'original']]],
-  ['notlessfilter_6',['notLessFilter',['../classoriginal_1_1not_less_filter.html',1,'original']]],
+  ['notequalfilter_4',['notEqualFilter',['../classoriginal_1_1not_equal_filter.html',1,'original::notEqualFilter&lt; TYPE &gt;'],['../classoriginal_1_1not_equal_filter.html#a7aadeaec487bff6203b0e743e129ebfe',1,'original::notEqualFilter::notEqualFilter()']]],
+  ['notgreaterfilter_5',['notGreaterFilter',['../classoriginal_1_1not_greater_filter.html',1,'original::notGreaterFilter&lt; TYPE &gt;'],['../classoriginal_1_1not_greater_filter.html#ae3bc29a2e7ed95ad4d371b580ea076ea',1,'original::notGreaterFilter::notGreaterFilter()']]],
+  ['notlessfilter_6',['notLessFilter',['../classoriginal_1_1not_less_filter.html',1,'original::notLessFilter&lt; TYPE &gt;'],['../classoriginal_1_1not_less_filter.html#aa05c9c78c121ac4d9d370ecc5a28c987',1,'original::notLessFilter::notLessFilter()']]],
   ['nullpointererror_7',['nullPointerError',['../classoriginal_1_1null_pointer_error.html',1,'original']]]
 ];

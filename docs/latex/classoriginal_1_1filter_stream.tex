@@ -2,7 +2,17 @@
 \hypertarget{classoriginal_1_1filter_stream}{}\label{classoriginal_1_1filter_stream}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
 
 
-Collaboration diagram for original\+::filter\+Stream\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Composite filter builder with logical operator chaining.  
+
+
+
+
+{\ttfamily \#include $<$filter\+Stream.\+h$>$}
+
+
+
+Collaboration diagram for original\+::filter\+Stream\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,83 +22,564 @@ Collaboration diagram for original\+::filter\+Stream\texorpdfstring{$<$}{<} TYPE
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1filter_stream_a196385db70ef5408df65d49c431a1c00}\label{classoriginal_1_1filter_stream_a196385db70ef5408df65d49c431a1c00} 
-\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& {\bfseries operator\&\&} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&f)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a759c4bea191fa2281e2ca96e5a1442f2}\label{classoriginal_1_1filter_stream_a759c4bea191fa2281e2ca96e5a1442f2} 
-\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& {\bfseries operator\&\&} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \&fs)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_af04eb0c590337a1a1d56273726573eaf}\label{classoriginal_1_1filter_stream_af04eb0c590337a1a1d56273726573eaf} 
-\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& {\bfseries operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&f)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a50de86d4761776b1b681ed3ddf371ba9}\label{classoriginal_1_1filter_stream_a50de86d4761776b1b681ed3ddf371ba9} 
-\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& {\bfseries operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \&fs)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a939f36241b5d9820944caa0b00ed9e95}\label{classoriginal_1_1filter_stream_a939f36241b5d9820944caa0b00ed9e95} 
-\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& {\bfseries operator!} ()
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_aae1ff8af606ebafe3059c6ffacae386b}\label{classoriginal_1_1filter_stream_aae1ff8af606ebafe3059c6ffacae386b} 
-bool {\bfseries operator()} (const TYPE \&t) const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& \mbox{\hyperlink{classoriginal_1_1filter_stream_a196385db70ef5408df65d49c431a1c00}{operator\&\&}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&f)
+\begin{DoxyCompactList}\small\item\em AND operator with single filter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& \mbox{\hyperlink{classoriginal_1_1filter_stream_a759c4bea191fa2281e2ca96e5a1442f2}{operator\&\&}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \&fs)
+\begin{DoxyCompactList}\small\item\em AND operator with another \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& \mbox{\hyperlink{classoriginal_1_1filter_stream_af04eb0c590337a1a1d56273726573eaf}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&f)
+\begin{DoxyCompactList}\small\item\em OR operator with single filter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& \mbox{\hyperlink{classoriginal_1_1filter_stream_a50de86d4761776b1b681ed3ddf371ba9}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \&fs)
+\begin{DoxyCompactList}\small\item\em OR operator with another \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \& \mbox{\hyperlink{classoriginal_1_1filter_stream_a939f36241b5d9820944caa0b00ed9e95}{operator!}} ()
+\begin{DoxyCompactList}\small\item\em Logical NOT operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1filter_stream_aae1ff8af606ebafe3059c6ffacae386b}{operator()}} (const TYPE \&t) const
+\begin{DoxyCompactList}\small\item\em Filter evaluation operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1filter_stream_a8231e28de3916fbda64e9c6c5cbc6912}\label{classoriginal_1_1filter_stream_a8231e28de3916fbda64e9c6c5cbc6912} 
-void {\bfseries add\+Brackets} ()
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a9a0ec6e8fb57ddc0531469e6f34d8667}\label{classoriginal_1_1filter_stream_a9a0ec6e8fb57ddc0531469e6f34d8667} 
-void {\bfseries add\+And\+Opt} ()
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_abf286276940c2a989b5475f443d0b40b}\label{classoriginal_1_1filter_stream_abf286276940c2a989b5475f443d0b40b} 
-void {\bfseries add\+Or\+Opt} ()
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a6d5e6bae28fc3857a8edf2608c567df7}\label{classoriginal_1_1filter_stream_a6d5e6bae28fc3857a8edf2608c567df7} 
-void {\bfseries add\+Not\+Opt} ()
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a39d409dede5a5e919cf07a0beb61d072}\label{classoriginal_1_1filter_stream_a39d409dede5a5e919cf07a0beb61d072} 
-void {\bfseries push\+End} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&f)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_ab4c6042d2bff6a5a1a27a498ac690398}\label{classoriginal_1_1filter_stream_ab4c6042d2bff6a5a1a27a498ac690398} 
-void {\bfseries push\+All} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \&fs)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a2b063e76c31fe391cf18deb0b7355131}\label{classoriginal_1_1filter_stream_a2b063e76c31fe391cf18deb0b7355131} 
-void {\bfseries to\+Post\+Fix} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classoriginal_1_1filter_stream_af396975a37b4ab90ae340d50cc2bc671}{filter\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Protected constructor for stream initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1filter_stream_a8231e28de3916fbda64e9c6c5cbc6912}{add\+Brackets}} ()
+\begin{DoxyCompactList}\small\item\em Add bracket operators for grouping. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1filter_stream_a9a0ec6e8fb57ddc0531469e6f34d8667}{add\+And\+Opt}} ()
+\begin{DoxyCompactList}\small\item\em Add AND operator to the stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1filter_stream_abf286276940c2a989b5475f443d0b40b}{add\+Or\+Opt}} ()
+\begin{DoxyCompactList}\small\item\em Add OR operator to the stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1filter_stream_a6d5e6bae28fc3857a8edf2608c567df7}{add\+Not\+Opt}} ()
+\begin{DoxyCompactList}\small\item\em Add NOT operator to the stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1filter_stream_a39d409dede5a5e919cf07a0beb61d072}{push\+End}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&f)
+\begin{DoxyCompactList}\small\item\em Append filter to the stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1filter_stream_ab4c6042d2bff6a5a1a27a498ac690398}{push\+All}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}} \&fs)
+\begin{DoxyCompactList}\small\item\em Merge another \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} into this one. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1filter_stream_a2b063e76c31fe391cf18deb0b7355131}{to\+Post\+Fix}} () const
+\begin{DoxyCompactList}\small\item\em Convert infix notation to postfix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1filter_stream_ab2bb9b101194d18ad7f7c576a0b88a21}\label{classoriginal_1_1filter_stream_ab2bb9b101194d18ad7f7c576a0b88a21} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator\&\&} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f1, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f2)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a174953c15121fe19ee5df523da763806}\label{classoriginal_1_1filter_stream_a174953c15121fe19ee5df523da763806} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator\&\&} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f, const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_aa7fbabee13dd3ee5f0c77529219072aa}\label{classoriginal_1_1filter_stream_aa7fbabee13dd3ee5f0c77529219072aa} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator\&\&} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a82d3e91d2b8eebdc73c8ad57c1578059}\label{classoriginal_1_1filter_stream_a82d3e91d2b8eebdc73c8ad57c1578059} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f1, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f2)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_aef431ef45977faa64b92106cf7a38329}\label{classoriginal_1_1filter_stream_aef431ef45977faa64b92106cf7a38329} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f, const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a63de992b7bbbaca28518bb7efeaf9e97}\label{classoriginal_1_1filter_stream_a63de992b7bbbaca28518bb7efeaf9e97} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a343f7dd8253683c0af1c53dafff3446f}\label{classoriginal_1_1filter_stream_a343f7dd8253683c0af1c53dafff3446f} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator!} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_a631b61b1b3bd57ccf73e9f0c2d7f3934}\label{classoriginal_1_1filter_stream_a631b61b1b3bd57ccf73e9f0c2d7f3934} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries operator!} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_abcf25c575eb652dff5694bc1d07809e2}\label{classoriginal_1_1filter_stream_abcf25c575eb652dff5694bc1d07809e2} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries group} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
-\item 
-\Hypertarget{classoriginal_1_1filter_stream_abfe854e29bcbc5d5a50f1fe08ade2c8e}\label{classoriginal_1_1filter_stream_abfe854e29bcbc5d5a50f1fe08ade2c8e} 
-{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ {\bfseries group} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
-\end{DoxyCompactItemize}
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_ab2bb9b101194d18ad7f7c576a0b88a21}{operator\&\&}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f1, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f2)
+\begin{DoxyCompactList}\small\item\em Create AND \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from two filters. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_a174953c15121fe19ee5df523da763806}{operator\&\&}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f, const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
+\begin{DoxyCompactList}\small\item\em AND operator between filter and \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_aa7fbabee13dd3ee5f0c77529219072aa}{operator\&\&}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
+\begin{DoxyCompactList}\small\item\em AND operator between \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} and filter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_a82d3e91d2b8eebdc73c8ad57c1578059}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f1, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f2)
+\begin{DoxyCompactList}\small\item\em Create OR \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from two filters. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_aef431ef45977faa64b92106cf7a38329}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f, const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
+\begin{DoxyCompactList}\small\item\em OR operator between filter and \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_a63de992b7bbbaca28518bb7efeaf9e97}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
+\begin{DoxyCompactList}\small\item\em OR operator between \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} and filter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_a343f7dd8253683c0af1c53dafff3446f}{operator!}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
+\begin{DoxyCompactList}\small\item\em Create negated \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from filter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_a631b61b1b3bd57ccf73e9f0c2d7f3934}{operator!}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
+\begin{DoxyCompactList}\small\item\em Create negated \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from existing stream. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_abcf25c575eb652dff5694bc1d07809e2}{group}} (const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
+\begin{DoxyCompactList}\small\item\em Create grouped \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from existing stream. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{classoriginal_1_1filter_stream_abfe854e29bcbc5d5a50f1fe08ade2c8e}{group}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f)
+\begin{DoxyCompactList}\small\item\em Create grouped \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from single filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::filter\+Stream$<$ TYPE $>$}
+Composite filter builder with logical operator chaining. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Element type for filtering\\
+\hline
+\end{DoxyTemplParams}
+Enables construction of complex filter conditions through operator overloading. Maintains internal operator precedence using postfix conversion. Use \doxylink{classoriginal_1_1filter_stream_abcf25c575eb652dff5694bc1d07809e2}{group()} for explicit precedence control instead of parentheses. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1filter_stream_af396975a37b4ab90ae340d50cc2bc671}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!filterStream@{filterStream}}
+\index{filterStream@{filterStream}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{filterStream()}{filterStream()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_af396975a37b4ab90ae340d50cc2bc671} 
+template$<$typename TYPE$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::filter\+Stream (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+Protected constructor for stream initialization. 
+
+\begin{DoxyNote}{Note}
+Used internally and by friend functions 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1filter_stream_a9a0ec6e8fb57ddc0531469e6f34d8667}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!addAndOpt@{addAndOpt}}
+\index{addAndOpt@{addAndOpt}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{addAndOpt()}{addAndOpt()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a9a0ec6e8fb57ddc0531469e6f34d8667} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::add\+And\+Opt (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Add AND operator to the stream. 
+
+Inserts logical AND between subsequent filters \Hypertarget{classoriginal_1_1filter_stream_a8231e28de3916fbda64e9c6c5cbc6912}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!addBrackets@{addBrackets}}
+\index{addBrackets@{addBrackets}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{addBrackets()}{addBrackets()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a8231e28de3916fbda64e9c6c5cbc6912} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::add\+Brackets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Add bracket operators for grouping. 
+
+Wraps current stream in logical parentheses \Hypertarget{classoriginal_1_1filter_stream_a6d5e6bae28fc3857a8edf2608c567df7}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!addNotOpt@{addNotOpt}}
+\index{addNotOpt@{addNotOpt}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{addNotOpt()}{addNotOpt()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a6d5e6bae28fc3857a8edf2608c567df7} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::add\+Not\+Opt (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Add NOT operator to the stream. 
+
+Negates subsequent filter condition \Hypertarget{classoriginal_1_1filter_stream_abf286276940c2a989b5475f443d0b40b}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!addOrOpt@{addOrOpt}}
+\index{addOrOpt@{addOrOpt}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{addOrOpt()}{addOrOpt()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_abf286276940c2a989b5475f443d0b40b} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::add\+Or\+Opt (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Add OR operator to the stream. 
+
+Inserts logical OR between subsequent filters \Hypertarget{classoriginal_1_1filter_stream_a939f36241b5d9820944caa0b00ed9e95}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!()}{operator!()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a939f36241b5d9820944caa0b00ed9e95} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::operator! (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Logical NOT operator. 
+
+\begin{DoxyReturn}{Returns}
+Reference to negated \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Automatically adds grouping parentheses 
+\end{DoxyNote}
+\Hypertarget{classoriginal_1_1filter_stream_a196385db70ef5408df65d49c431a1c00}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\&\&()}{operator\&\&()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a196385db70ef5408df65d49c431a1c00} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::operator\&\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&}]{f}{}\end{DoxyParamCaption})}
+
+
+
+AND operator with single filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Filter to AND with current stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to modified \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_a759c4bea191fa2281e2ca96e5a1442f2}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\&\&()}{operator\&\&()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a759c4bea191fa2281e2ca96e5a1442f2} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::operator\&\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ TYPE $>$ \&}]{fs}{}\end{DoxyParamCaption})}
+
+
+
+AND operator with another \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} to AND with current stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to modified \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_aae1ff8af606ebafe3059c6ffacae386b}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_aae1ff8af606ebafe3059c6ffacae386b} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::operator() (\begin{DoxyParamCaption}\item[{const TYPE \&}]{t}{}\end{DoxyParamCaption}) const}
+
+
+
+Filter evaluation operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Element to test against filter conditions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool True if element passes filter chain 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_af04eb0c590337a1a1d56273726573eaf}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}()}{operator||()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_af04eb0c590337a1a1d56273726573eaf} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&}]{f}{}\end{DoxyParamCaption})}
+
+
+
+OR operator with single filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Filter to OR with current stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to modified \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_a50de86d4761776b1b681ed3ddf371ba9}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}()}{operator||()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a50de86d4761776b1b681ed3ddf371ba9} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ TYPE $>$ \&}]{fs}{}\end{DoxyParamCaption})}
+
+
+
+OR operator with another \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} to OR with current stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to modified \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_ab4c6042d2bff6a5a1a27a498ac690398}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!pushAll@{pushAll}}
+\index{pushAll@{pushAll}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{pushAll()}{pushAll()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_ab4c6042d2bff6a5a1a27a498ac690398} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::push\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ TYPE $>$ \&}]{fs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Merge another \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} into this one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fs} & Source \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} to merge \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1filter_stream_a39d409dede5a5e919cf07a0beb61d072}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!pushEnd@{pushEnd}}
+\index{pushEnd@{pushEnd}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{pushEnd()}{pushEnd()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a39d409dede5a5e919cf07a0beb61d072} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::push\+End (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ TYPE $>$ \&}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Append filter to the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Filter to add to the end of stream \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1filter_stream_a2b063e76c31fe391cf18deb0b7355131}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!toPostFix@{toPostFix}}
+\index{toPostFix@{toPostFix}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{toPostFix()}{toPostFix()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a2b063e76c31fe391cf18deb0b7355131} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1filter_stream}{original\+::filter\+Stream}}$<$ TYPE $>$\+::to\+Post\+Fix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Convert infix notation to postfix. 
+
+Internal implementation of Shunting Yard algorithm 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classoriginal_1_1filter_stream_abfe854e29bcbc5d5a50f1fe08ade2c8e}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!group@{group}}
+\index{group@{group}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{group}{group}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_abfe854e29bcbc5d5a50f1fe08ade2c8e} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Create grouped \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from single filter. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Filter to group \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New grouped \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}
+\end{DoxyReturn}
+Enables future operator precedence modifications \Hypertarget{classoriginal_1_1filter_stream_abcf25c575eb652dff5694bc1d07809e2}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!group@{group}}
+\index{group@{group}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{group}{group}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_abcf25c575eb652dff5694bc1d07809e2} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&}]{ofs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Create grouped \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from existing stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} to group \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New grouped \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}
+\end{DoxyReturn}
+Use instead of parentheses for explicit precedence control \Hypertarget{classoriginal_1_1filter_stream_a343f7dd8253683c0af1c53dafff3446f}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!}{operator!}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a343f7dd8253683c0af1c53dafff3446f} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator! (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Create negated \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from filter. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Filter to negate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} with NOT operation 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Automatically adds grouping parentheses 
+\end{DoxyNote}
+\Hypertarget{classoriginal_1_1filter_stream_a631b61b1b3bd57ccf73e9f0c2d7f3934}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!}{operator!}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a631b61b1b3bd57ccf73e9f0c2d7f3934} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator! (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&}]{ofs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Create negated \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from existing stream. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} to negate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New negated \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Automatically adds grouping parentheses 
+\end{DoxyNote}
+\Hypertarget{classoriginal_1_1filter_stream_a174953c15121fe19ee5df523da763806}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\&\&}{operator\&\&}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a174953c15121fe19ee5df523da763806} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator\&\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&}]{ofs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+AND operator between filter and \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Filter operand \\
+\hline
+{\em ofs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New combined \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_ab2bb9b101194d18ad7f7c576a0b88a21}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\&\&}{operator\&\&}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_ab2bb9b101194d18ad7f7c576a0b88a21} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator\&\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f1}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Create AND \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from two filters. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & First filter operand \\
+\hline
+{\em f2} & Second filter operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} with AND operation 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_aa7fbabee13dd3ee5f0c77529219072aa}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\&\&}{operator\&\&}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_aa7fbabee13dd3ee5f0c77529219072aa} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator\&\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&}]{ofs}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+AND operator between \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} and filter. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} operand \\
+\hline
+{\em f} & Filter operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New combined \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_aef431ef45977faa64b92106cf7a38329}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}}{operator||}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_aef431ef45977faa64b92106cf7a38329} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&}]{ofs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+OR operator between filter and \doxylink{classoriginal_1_1filter_stream}{filter\+Stream}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Filter operand \\
+\hline
+{\em ofs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New combined \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_a82d3e91d2b8eebdc73c8ad57c1578059}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}}{operator||}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a82d3e91d2b8eebdc73c8ad57c1578059} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f1}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Create OR \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from two filters. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f1} & First filter operand \\
+\hline
+{\em f2} & Second filter operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} with OR operation 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1filter_stream_a63de992b7bbbaca28518bb7efeaf9e97}\index{original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!original::filterStream$<$ TYPE $>$@{original::filterStream$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}}{operator||}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1filter_stream_a63de992b7bbbaca28518bb7efeaf9e97} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&}]{ofs}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+OR operator between \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} and filter. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Element type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ofs} & \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} operand \\
+\hline
+{\em f} & Filter operand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New combined \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/core/filter\+Stream.\+h\end{DoxyCompactItemize}
+src/core/\mbox{\hyperlink{filter_stream_8h}{filter\+Stream.\+h}}\end{DoxyCompactItemize}
