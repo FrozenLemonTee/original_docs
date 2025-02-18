@@ -5,7 +5,7 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FORWARDCHAIN\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FORWARDCHAIN\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}singleDirectionIterator.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{single_direction_iterator_8h}{singleDirectionIterator.h}}"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{array_8h}{array.h}}"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{base_list_8h}{baseList.h}}"{}}}
 \DoxyCodeLine{00007\ }
@@ -62,7 +62,7 @@
 \DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ chainDestruction();}
 \DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00150\ }
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ singleDirectionIterator<TYPE>}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1single_direction_iterator_a0aa982d025442fb1514c92a59f2640d7}{singleDirectionIterator}}<TYPE>}
 \DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Iterator(forwardChainNode*\ ptr);}
 \DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
@@ -240,14 +240,14 @@
 \DoxyCodeLine{00457\ }
 \DoxyCodeLine{00458\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00459\ \ \ \ \ original::forwardChain<TYPE>::Iterator::Iterator(\textcolor{keyword}{const}\ Iterator\ \&other)}
-\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ :\ singleDirectionIterator<TYPE>(nullptr)\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1single_direction_iterator_a0aa982d025442fb1514c92a59f2640d7}{singleDirectionIterator}}<TYPE>(nullptr)\ \{}
 \DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1forward_chain_1_1_iterator_af1448892c8c30a1b7eb65985e808c2b1}{operator=}}(other);}
 \DoxyCodeLine{00462\ \ \ \ \ \}}
 \DoxyCodeLine{00463\ }
 \DoxyCodeLine{00464\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00465\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1forward_chain_1_1_iterator_af1448892c8c30a1b7eb65985e808c2b1}{original::forwardChain<TYPE>::Iterator::operator=}}(\textcolor{keyword}{const}\ Iterator\ \&other)\ -\/>\ Iterator\ \&\ \{}
 \DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ singleDirectionIterator<TYPE>::operator=(other);}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1single_direction_iterator_a8f9879087abfe40e8a60d259d64d68fb}{singleDirectionIterator<TYPE>::operator=}}(other);}
 \DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00469\ \ \ \ \ \}}
 \DoxyCodeLine{00470\ }
@@ -259,13 +259,13 @@
 \DoxyCodeLine{00476\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00477\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1forward_chain_1_1_iterator_a15155bc7783e7d01e9c370bd7f8d836c}{original::forwardChain<TYPE>::Iterator::atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
 \DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ this-\/>\_ptr-\/>getPNext()\ ==\ other\_it-\/>\_ptr;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ this-\/>\mbox{\hyperlink{classoriginal_1_1step_iterator_a17b96b2840275abe720ead12f78b05f2}{\_ptr}}-\/>getPNext()\ ==\ other\_it-\/>\_ptr;}
 \DoxyCodeLine{00480\ \ \ \ \ \}}
 \DoxyCodeLine{00481\ }
 \DoxyCodeLine{00482\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00483\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1forward_chain_1_1_iterator_a896cbac6d2a298c905b7f0e7fb5c8ac8}{original::forwardChain<TYPE>::Iterator::atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
 \DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ other\_it-\/>\_ptr-\/>getPNext()\ ==\ this-\/>\_ptr;}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ other\_it-\/>\_ptr-\/>getPNext()\ ==\ this-\/>\mbox{\hyperlink{classoriginal_1_1step_iterator_a17b96b2840275abe720ead12f78b05f2}{\_ptr}};}
 \DoxyCodeLine{00486\ \ \ \ \ \}}
 \DoxyCodeLine{00487\ }
 \DoxyCodeLine{00488\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}

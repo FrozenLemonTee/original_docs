@@ -2,7 +2,17 @@
 \hypertarget{classoriginal_1_1random_access_iterator}{}\label{classoriginal_1_1random_access_iterator}\index{original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}}
 
 
-Inheritance diagram for original\+::random\+Access\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Abstract base class for random-\/access iterators.  
+
+
+
+
+{\ttfamily \#include $<$random\+Access\+Iterator.\+h$>$}
+
+
+
+Inheritance diagram for original\+::random\+Access\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +21,8 @@ Inheritance diagram for original\+::random\+Access\+Iterator\texorpdfstring{$<$}
 \end{figure}
 
 
-Collaboration diagram for original\+::random\+Access\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::random\+Access\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,46 +32,44 @@ Collaboration diagram for original\+::random\+Access\+Iterator\texorpdfstring{$<
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1random_access_iterator_a0a196a08fbfe9a60410befdab658c009}\label{classoriginal_1_1random_access_iterator_a0a196a08fbfe9a60410befdab658c009} 
-{\bfseries random\+Access\+Iterator} (const \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \&other)
-\item 
-\Hypertarget{classoriginal_1_1random_access_iterator_af514c3079226299a56058e450ea9d1aa}\label{classoriginal_1_1random_access_iterator_af514c3079226299a56058e450ea9d1aa} 
-\mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \&other)
-\item 
+\mbox{\hyperlink{classoriginal_1_1random_access_iterator_a0a196a08fbfe9a60410befdab658c009}{random\+Access\+Iterator}} (const \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \& \mbox{\hyperlink{classoriginal_1_1random_access_iterator_af514c3079226299a56058e450ea9d1aa}{operator=}} (const \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a0bf6956be1d0216c432cd86b220c1c28}{clone}} () const override
-\begin{DoxyCompactList}\small\item\em Creates a clone of the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a heap-\/allocated copy. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a8c1fe7cd2a3ababdce814f24d83c493c}{has\+Next}} () const override
-\begin{DoxyCompactList}\small\item\em Checks if there is a next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks forward traversal capability. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aa0de92674eae2f2864065b995ac36cc0}{has\+Prev}} () const override
-\begin{DoxyCompactList}\small\item\em Checks if there is a previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks reverse traversal capability. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a863ed371f7d5b7a5f8626ec9f92ba40b}{at\+Prev}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}other) const override
-\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the current iterator is at the previous position compared to another iterator. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aaecc66e3925ea8c2b942613e04665159}{at\+Next}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}other) const override
-\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the current iterator is at the next position compared to another iterator. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aa94be04858824e8b472d5925574f4624}{next}} () const override
-\begin{DoxyCompactList}\small\item\em Moves the iterator to the next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Advances to the next position in the container. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a51246c7622af53c5a34c8f67f0cecf02}{prev}} () const override
-\begin{DoxyCompactList}\small\item\em Moves the iterator to the previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retreats to the previous position in the container. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a659e2542f43635775bf5cba2a453d281}{operator+=}} (int64\+\_\+t steps) const override
-\begin{DoxyCompactList}\small\item\em Adds a number of steps to the current position of iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Moves forward by N positions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a24ddb829f3c562049b03457ddf514050}{operator-\/=}} (int64\+\_\+t steps) const override
-\begin{DoxyCompactList}\small\item\em Subtracts a number of steps from the current position of iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Moves backward by N positions. \end{DoxyCompactList}\item 
 int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a6cc66c9f36731ad27c508a0d15135f13}{operator-\/}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const override
-\begin{DoxyCompactList}\small\item\em Returns the distance between this iterator and another iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Computes the distance between the current iterator and another iterator. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aa9cff154c3b75e2316ee118e86cf7f7e}{get\+Next}} () const override
-\begin{DoxyCompactList}\small\item\em Returns a new iterator pointing to the next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets an iterator pointing to the next element. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a90cb9780be0b1427ff6755c423573544}{get\+Prev}} () const override
-\begin{DoxyCompactList}\small\item\em Returns a new iterator pointing to the previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets an iterator pointing to the previous element. \end{DoxyCompactList}\item 
 TYPE \& \mbox{\hyperlink{classoriginal_1_1random_access_iterator_acb971011bf01b412fe0e1a9acc56db28}{get}} () override
-\begin{DoxyCompactList}\small\item\em Gets the element pointed to by the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the current element in the container. \end{DoxyCompactList}\item 
 TYPE \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a7e85ecf254414a5321fcdf8499eae2c3}{get}} () const override
-\begin{DoxyCompactList}\small\item\em Gets a copy of the element pointed to by the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the current element in the container (const version) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1random_access_iterator_adcbd7ae0af63b9c8ab56c4422c8ab2ac}{set}} (const TYPE \&data) override
-\begin{DoxyCompactList}\small\item\em Sets the element pointed to by the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the value of the current element. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a7f28d252d0ca834bfaa17179d80c9ed9}{is\+Valid}} () const override
-\begin{DoxyCompactList}\small\item\em Checks if the iterator is valid. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the iterator is valid (points to a valid element in the container) \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1random_access_iterator_af47f6230496e34c7eb7f426b8c83f975}{class\+Name}} () const override
-\begin{DoxyCompactList}\small\item\em Returns the class name of the iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the class name of the iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1base_iterator}{original\+::base\+Iterator$<$ TYPE $>$}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -146,11 +155,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1random_access_iterator_ae149b854ef8baac01f10e2bbaca47ede}\label{classoriginal_1_1random_access_iterator_ae149b854ef8baac01f10e2bbaca47ede} 
-{\bfseries random\+Access\+Iterator} (TYPE \texorpdfstring{$\ast$}{*}ptr, const \mbox{\hyperlink{classoriginal_1_1container}{container}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classoriginal_1_1container}{container}}, int64\+\_\+t pos)
-\item 
+\mbox{\hyperlink{classoriginal_1_1random_access_iterator_ae149b854ef8baac01f10e2bbaca47ede}{random\+Access\+Iterator}} (TYPE \texorpdfstring{$\ast$}{*}ptr, const \mbox{\hyperlink{classoriginal_1_1container}{container}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classoriginal_1_1container}{container}}, int64\+\_\+t pos)
+\begin{DoxyCompactList}\small\item\em Protected constructor for derived classes. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a23002c898ad6d0b34b13303c0d19f7b8}{equal\+Ptr}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}other) const override
-\begin{DoxyCompactList}\small\item\em Checks if two iterators point to the same object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Equality comparison implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1cloneable}{original\+::cloneable}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -166,13 +174,13 @@ bool \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a23002c898ad6d0b34
 \item 
 \Hypertarget{classoriginal_1_1random_access_iterator_a1c8d09ceddc3bb5d5dea487434dca7e0}\label{classoriginal_1_1random_access_iterator_a1c8d09ceddc3bb5d5dea487434dca7e0} 
 TYPE \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+ptr}
-\item 
+\begin{DoxyCompactList}\small\item\em Pointer to the current element. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1random_access_iterator_a0d4831ed738181c175dc79cbbe8fc919}\label{classoriginal_1_1random_access_iterator_a0d4831ed738181c175dc79cbbe8fc919} 
 const \mbox{\hyperlink{classoriginal_1_1container}{container}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+container}
-\item 
+\begin{DoxyCompactList}\small\item\em Reference to the parent container. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1random_access_iterator_afb01e6f828be0fba86127649ace6cbf1}\label{classoriginal_1_1random_access_iterator_afb01e6f828be0fba86127649ace6cbf1} 
 int64\+\_\+t {\bfseries \+\_\+pos}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Absolute position in the container. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -193,6 +201,73 @@ template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::random\+Access\+Iterator$<$ TYPE $>$}
+Abstract base class for random-\/access iterators. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of elements being iterated\\
+\hline
+\end{DoxyTemplParams}
+Implements core functionality for iterators that support\+:
+\begin{DoxyItemize}
+\item Pointer arithmetic operations (+, +=, -\/, -\/=)
+\item Bidirectional traversal
+\item Position validity checking
+\item Element access/modification
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Maintains three state markers\+:
+\begin{DoxyItemize}
+\item Raw pointer to the current element
+\item Reference to parent container
+\item Absolute position index 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1random_access_iterator_ae149b854ef8baac01f10e2bbaca47ede}\index{original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}!randomAccessIterator@{randomAccessIterator}}
+\index{randomAccessIterator@{randomAccessIterator}!original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{randomAccessIterator()}{randomAccessIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1random_access_iterator_ae149b854ef8baac01f10e2bbaca47ede} 
+template$<$typename TYPE$>$ \\
+\mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::random\+Access\+Iterator}}$<$ TYPE $>$\+::random\+Access\+Iterator (\begin{DoxyParamCaption}\item[{TYPE \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1container}{container}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{container}{, }\item[{int64\+\_\+t}]{pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+Protected constructor for derived classes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Raw element pointer \\
+\hline
+{\em container} & Parent container reference \\
+\hline
+{\em pos} & Initial position index \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1random_access_iterator_a0a196a08fbfe9a60410befdab658c009}\index{original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}!randomAccessIterator@{randomAccessIterator}}
+\index{randomAccessIterator@{randomAccessIterator}!original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{randomAccessIterator()}{randomAccessIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1random_access_iterator_a0a196a08fbfe9a60410befdab658c009} 
+template$<$typename TYPE$>$ \\
+\mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::random\+Access\+Iterator}}$<$ TYPE $>$\+::random\+Access\+Iterator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Iterator to copy from \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classoriginal_1_1random_access_iterator_aaecc66e3925ea8c2b942613e04665159}\index{original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}!atNext@{atNext}}
 \index{atNext@{atNext}!original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}}
@@ -203,7 +278,7 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Checks if this iterator is positioned at the next element. 
+Checks if the current iterator is at the next position compared to another iterator. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -211,7 +286,7 @@ Checks if this iterator is positioned at the next element.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if this iterator is at the next position of the other, false otherwise. 
+True if the iterator is at the next position, otherwise false. 
 \end{DoxyReturn}
 
 
@@ -226,7 +301,7 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Checks if this iterator is positioned at the previous element. 
+Checks if the current iterator is at the previous position compared to another iterator. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -234,7 +309,7 @@ Checks if this iterator is positioned at the previous element.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if this iterator is at the previous position of the other, false otherwise. 
+True if the iterator is at the previous position, otherwise false. 
 \end{DoxyReturn}
 
 
@@ -249,10 +324,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Returns the class name of the iterator. 
+Gets the class name of the iterator. 
 
 \begin{DoxyReturn}{Returns}
-A string representing the class name. 
+The class name as a string 
 \end{DoxyReturn}
 
 
@@ -267,10 +342,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Creates a clone of the iterator. 
+Creates a heap-\/allocated copy. 
 
 \begin{DoxyReturn}{Returns}
-A new copy of the iterator. 
+New iterator instance 
 \end{DoxyReturn}
 
 
@@ -285,15 +360,15 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Checks if two iterators point to the same object. 
+Equality comparison implementation. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em other} & The iterator to compare with. \\
+{\em other} & Iterator to compare with \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if the iterators point to the same object, false otherwise. 
+True when pointing to the same memory location 
 \end{DoxyReturn}
 
 
@@ -308,10 +383,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Gets a copy of the element pointed to by the iterator. 
+Gets the current element in the container (const version) 
 
 \begin{DoxyReturn}{Returns}
-A copy of the element. 
+Const reference to the current element 
 \end{DoxyReturn}
 
 
@@ -326,10 +401,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Gets the element pointed to by the iterator. 
+Gets the current element in the container. 
 
 \begin{DoxyReturn}{Returns}
-A reference to the element. 
+Reference to the current element 
 \end{DoxyReturn}
 
 
@@ -344,10 +419,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Returns a new iterator pointing to the next element. 
+Gets an iterator pointing to the next element. 
 
 \begin{DoxyReturn}{Returns}
-A new iterator pointing to the next element. 
+A new iterator pointing to the next element 
 \end{DoxyReturn}
 
 
@@ -362,10 +437,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Returns a new iterator pointing to the previous element. 
+Gets an iterator pointing to the previous element. 
 
 \begin{DoxyReturn}{Returns}
-A new iterator pointing to the previous element. 
+A new iterator pointing to the previous element 
 \end{DoxyReturn}
 
 
@@ -380,10 +455,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Checks if there is a next element. 
+Checks forward traversal capability. 
 
 \begin{DoxyReturn}{Returns}
-True if there is a next element, false otherwise. 
+True if not at the end 
 \end{DoxyReturn}
 
 
@@ -398,10 +473,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Checks if there is a previous element. 
+Checks reverse traversal capability. 
 
 \begin{DoxyReturn}{Returns}
-True if there is a previous element, false otherwise. 
+True if not at the beginning 
 \end{DoxyReturn}
 
 
@@ -416,10 +491,10 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Checks if the iterator is valid. 
+Checks if the iterator is valid (points to a valid element in the container) 
 
 \begin{DoxyReturn}{Returns}
-True if the iterator is valid, false otherwise. 
+True if the iterator is valid, otherwise false 
 \end{DoxyReturn}
 
 
@@ -434,7 +509,7 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Moves the iterator to the next element. 
+Advances to the next position in the container. 
 
 
 
@@ -449,11 +524,11 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Adds a number of steps to the current position of iterator. 
+Moves forward by N positions. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em steps} & The number of steps to move forward. \\
+{\em steps} & Number of positions to advance \\
 \hline
 \end{DoxyParams}
 
@@ -469,15 +544,15 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Returns the distance between this iterator and another iterator. 
+Computes the distance between the current iterator and another iterator. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em other} & The iterator to compare against. \\
+{\em other} & The iterator to compare with \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The number of steps between the two iterators. 
+The number of positions between the two iterators 
 \end{DoxyReturn}
 
 
@@ -492,17 +567,36 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Subtracts a number of steps from the current position of iterator. 
+Moves backward by N positions. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em steps} & The number of steps to move backward. \\
+{\em steps} & Number of positions to retreat \\
 \hline
 \end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classoriginal_1_1iterator_a0c7c1d9fac42134367f926a364174598}{original\+::iterator$<$ TYPE $>$}}.
 
+\Hypertarget{classoriginal_1_1random_access_iterator_af514c3079226299a56058e450ea9d1aa}\index{original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1random_access_iterator_af514c3079226299a56058e450ea9d1aa} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::random\+Access\+Iterator}}$<$ TYPE $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{random\+Access\+Iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Iterator to copy from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this iterator 
+\end{DoxyReturn}
 \Hypertarget{classoriginal_1_1random_access_iterator_a51246c7622af53c5a34c8f67f0cecf02}\index{original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}!prev@{prev}}
 \index{prev@{prev}!original::randomAccessIterator$<$ TYPE $>$@{original::randomAccessIterator$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{prev()}{prev()}}
@@ -512,7 +606,7 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Moves the iterator to the previous element. 
+Retreats to the previous position in the container. 
 
 
 
@@ -527,11 +621,11 @@ auto \mbox{\hyperlink{classoriginal_1_1random_access_iterator}{original\+::rando
 
 
 
-Sets the element pointed to by the iterator. 
+Sets the value of the current element. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em data} & The new value to set. \\
+{\em data} & The value to set to the current element \\
 \hline
 \end{DoxyParams}
 
@@ -542,4 +636,4 @@ Implements \mbox{\hyperlink{classoriginal_1_1iterator_a4ca097831179d22512cbae559
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/core/random\+Access\+Iterator.\+h\end{DoxyCompactItemize}
+src/core/\mbox{\hyperlink{random_access_iterator_8h}{random\+Access\+Iterator.\+h}}\end{DoxyCompactItemize}

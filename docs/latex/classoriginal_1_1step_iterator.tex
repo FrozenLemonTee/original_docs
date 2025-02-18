@@ -2,7 +2,17 @@
 \hypertarget{classoriginal_1_1step_iterator}{}\label{classoriginal_1_1step_iterator}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
 
 
-Inheritance diagram for original\+::step\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Abstract base class for step iterators.  
+
+
+
+
+{\ttfamily \#include $<$step\+Iterator.\+h$>$}
+
+
+
+Inheritance diagram for original\+::step\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +21,8 @@ Inheritance diagram for original\+::step\+Iterator\texorpdfstring{$<$}{<} TYPE \
 \end{figure}
 
 
-Collaboration diagram for original\+::step\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::step\+Iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,42 +32,40 @@ Collaboration diagram for original\+::step\+Iterator\texorpdfstring{$<$}{<} TYPE
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1step_iterator_a88809a57b66f83e546c2bc067a4e9cde}\label{classoriginal_1_1step_iterator_a88809a57b66f83e546c2bc067a4e9cde} 
-{\bfseries step\+Iterator} (const \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \&other)
-\item 
-\Hypertarget{classoriginal_1_1step_iterator_acc4c3ff598ab4e2628070b2f49cce188}\label{classoriginal_1_1step_iterator_acc4c3ff598ab4e2628070b2f49cce188} 
-\mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \&other)
-\item 
+\mbox{\hyperlink{classoriginal_1_1step_iterator_a88809a57b66f83e546c2bc067a4e9cde}{step\+Iterator}} (const \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor for \doxylink{classoriginal_1_1step_iterator}{step\+Iterator}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \& \mbox{\hyperlink{classoriginal_1_1step_iterator_acc4c3ff598ab4e2628070b2f49cce188}{operator=}} (const \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for \doxylink{classoriginal_1_1step_iterator}{step\+Iterator}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1step_iterator_a34c74f9915801bdb6bb022317bb7a581}{clone}} () const override
-\begin{DoxyCompactList}\small\item\em Creates a clone of the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a heap-\/allocated copy of the iterator. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1step_iterator_ab605b00b52d30806256cbe3ce6d3bb66}{has\+Next}} () const override
-\begin{DoxyCompactList}\small\item\em Checks if there is a next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the iterator can move forward. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1step_iterator_a52ee8b8afce8d37d5db12c5cd51048f5}{has\+Prev}} () const override
-\begin{DoxyCompactList}\small\item\em Checks if there is a previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the iterator can move backward. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1step_iterator_af47d21b1a32f0e02531fb663bb9881fb}{at\+Prev}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}other) const override
-\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the current iterator is at the previous position relative to another iterator. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1step_iterator_aa76772042345b62a93c8dc956cebe2f3}{at\+Next}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}other) const override
-\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if the current iterator is at the next position relative to another iterator. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1step_iterator_a6f0b06b794d805cb8ac68a4f884cdf23}{next}} () const override
-\begin{DoxyCompactList}\small\item\em Moves the iterator to the next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Advances to the next position in the container. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1step_iterator_a7d52e13bc2b2f79b8164e8b0cb5f4efa}{prev}} () const override
-\begin{DoxyCompactList}\small\item\em Moves the iterator to the previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retreats to the previous position in the container. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1step_iterator_a35fa5f1f8688971b4102fbea2a1eda31}{operator+=}} (int64\+\_\+t steps) const override
-\begin{DoxyCompactList}\small\item\em Adds a number of steps to the current position of iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Moves forward by a specified number of steps. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1step_iterator_ac1d99dd58fd9214ba1d298de07662927}{operator-\/=}} (int64\+\_\+t steps) const override
-\begin{DoxyCompactList}\small\item\em Subtracts a number of steps from the current position of iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Moves backward by a specified number of steps. \end{DoxyCompactList}\item 
 int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1step_iterator_a67329058ad4519df8f10f7156eb407a4}{operator-\/}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const override
-\begin{DoxyCompactList}\small\item\em Returns the distance between this iterator and another iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Calculates the number of steps between the current iterator and another iterator. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1step_iterator_ae88b6682d19abe342a0eb64dcf6767a5}{get\+Next}} () const override
-\begin{DoxyCompactList}\small\item\em Returns a new iterator pointing to the next element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a new iterator pointing to the next element. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1step_iterator_a0e35b2af2df817297aab12833f480188}{get\+Prev}} () const override
-\begin{DoxyCompactList}\small\item\em Returns a new iterator pointing to the previous element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a new iterator pointing to the previous element. \end{DoxyCompactList}\item 
 TYPE \& \mbox{\hyperlink{classoriginal_1_1step_iterator_a71d613af72e961651ebb0656cae523ee}{get}} () override
-\begin{DoxyCompactList}\small\item\em Gets the element pointed to by the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the reference of current element in the container. \end{DoxyCompactList}\item 
 TYPE \mbox{\hyperlink{classoriginal_1_1step_iterator_ae042dd0cf34f0b64785d88bfb0086375}{get}} () const override
-\begin{DoxyCompactList}\small\item\em Gets a copy of the element pointed to by the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets the current element in the container. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1step_iterator_a545756198391c96f8636ed497b99c25e}{set}} (const TYPE \&data) override
-\begin{DoxyCompactList}\small\item\em Sets the element pointed to by the iterator. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the value of the current element. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1step_iterator_adb52e5702ee1bc2589eef25e822f3f50}{is\+Valid}} () const override
 \begin{DoxyCompactList}\small\item\em Checks if the iterator is valid. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1step_iterator_a6fa4efa340b94b1dcfb1a3f315c54eb0}{class\+Name}} () const override
@@ -146,11 +155,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1step_iterator_a9fa562faa6ee2a9d2d4a0b510c9ddc5d}\label{classoriginal_1_1step_iterator_a9fa562faa6ee2a9d2d4a0b510c9ddc5d} 
-{\bfseries step\+Iterator} (\mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}ptr)
-\item 
+\mbox{\hyperlink{classoriginal_1_1step_iterator_a9fa562faa6ee2a9d2d4a0b510c9ddc5d}{step\+Iterator}} (\mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}ptr)
+\begin{DoxyCompactList}\small\item\em Protected constructor for derived classes. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1step_iterator_a5d0e1c67b6f6f349765d2b520d864198}{equal\+Ptr}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}other) const override
-\begin{DoxyCompactList}\small\item\em Checks if two iterators point to the same object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Equality comparison for two iterators. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1cloneable}{original\+::cloneable}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -164,15 +172,14 @@ bool \mbox{\hyperlink{classoriginal_1_1step_iterator_a5d0e1c67b6f6f349765d2b520d
 \doxysubsubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1step_iterator_a754058a2cc813eb6e073bd67086f1865}\label{classoriginal_1_1step_iterator_a754058a2cc813eb6e073bd67086f1865} 
-static int64\+\_\+t {\bfseries ptr\+Distance} (\mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}start, \mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}end)
-\end{DoxyCompactItemize}
+static int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1step_iterator_a754058a2cc813eb6e073bd67086f1865}{ptr\+Distance}} (\mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}start, \mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}end)
+\begin{DoxyCompactList}\small\item\em Calculates the distance between two iterators. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classoriginal_1_1step_iterator_a17b96b2840275abe720ead12f78b05f2}\label{classoriginal_1_1step_iterator_a17b96b2840275abe720ead12f78b05f2} 
 \mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*} {\bfseries \+\_\+ptr}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pointer to the current element. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -193,6 +200,64 @@ template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::step\+Iterator$<$ TYPE $>$}
+Abstract base class for step iterators. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of elements being iterated\\
+\hline
+\end{DoxyTemplParams}
+Implements core functionality for iterators that iterate through elements one step at a time. Supports\+:
+\begin{DoxyItemize}
+\item Stepwise forward traversal ({\ttfamily next} and {\ttfamily prev})
+\item Cloning and comparison operations
+\item Element access/modification
+\item Position validity checking
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Derived iterators should provide the specific behavior of moving to the next element and accessing the current element. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1step_iterator_a9fa562faa6ee2a9d2d4a0b510c9ddc5d}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}!stepIterator@{stepIterator}}
+\index{stepIterator@{stepIterator}!original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{stepIterator()}{stepIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1step_iterator_a9fa562faa6ee2a9d2d4a0b510c9ddc5d} 
+template$<$typename TYPE$>$ \\
+\mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator}}$<$ TYPE $>$\+::step\+Iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+Protected constructor for derived classes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Raw pointer to the element \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1step_iterator_a88809a57b66f83e546c2bc067a4e9cde}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}!stepIterator@{stepIterator}}
+\index{stepIterator@{stepIterator}!original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{stepIterator()}{stepIterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1step_iterator_a88809a57b66f83e546c2bc067a4e9cde} 
+template$<$typename TYPE$>$ \\
+\mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator}}$<$ TYPE $>$\+::step\+Iterator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor for \doxylink{classoriginal_1_1step_iterator}{step\+Iterator}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to copy \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classoriginal_1_1step_iterator_aa76772042345b62a93c8dc956cebe2f3}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}!atNext@{atNext}}
 \index{atNext@{atNext}!original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
@@ -203,15 +268,15 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Checks if this iterator is positioned at the next element. 
+Checks if the current iterator is at the next position relative to another iterator. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em other} & The iterator to compare with. \\
+{\em other} & The iterator to compare with \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if this iterator is at the next position of the other, false otherwise. 
+Always throws \doxylink{classoriginal_1_1un_supported_method_error}{un\+Supported\+Method\+Error} for forward checks 
 \end{DoxyReturn}
 
 
@@ -226,15 +291,15 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Checks if this iterator is positioned at the previous element. 
+Checks if the current iterator is at the previous position relative to another iterator. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em other} & The iterator to compare with. \\
+{\em other} & The iterator to compare with \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if this iterator is at the previous position of the other, false otherwise. 
+Always throws \doxylink{classoriginal_1_1un_supported_method_error}{un\+Supported\+Method\+Error} for backward checks 
 \end{DoxyReturn}
 
 
@@ -252,7 +317,7 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 Returns the class name of the iterator. 
 
 \begin{DoxyReturn}{Returns}
-A string representing the class name. 
+The class name as a string 
 \end{DoxyReturn}
 
 
@@ -267,10 +332,10 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Creates a clone of the iterator. 
+Creates a heap-\/allocated copy of the iterator. 
 
 \begin{DoxyReturn}{Returns}
-A new copy of the iterator. 
+A new heap-\/allocated \doxylink{classoriginal_1_1step_iterator}{step\+Iterator} 
 \end{DoxyReturn}
 
 
@@ -285,15 +350,15 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Checks if two iterators point to the same object. 
+Equality comparison for two iterators. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em other} & The iterator to compare with. \\
+{\em other} & Iterator to compare with \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if the iterators point to the same object, false otherwise. 
+True if the iterators point to the same element, otherwise false 
 \end{DoxyReturn}
 
 
@@ -308,10 +373,10 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Gets a copy of the element pointed to by the iterator. 
+Gets the current element in the container. 
 
 \begin{DoxyReturn}{Returns}
-A copy of the element. 
+A constant reference to the current element 
 \end{DoxyReturn}
 
 
@@ -326,10 +391,10 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Gets the element pointed to by the iterator. 
+Gets the reference of current element in the container. 
 
 \begin{DoxyReturn}{Returns}
-A reference to the element. 
+A reference to the current element 
 \end{DoxyReturn}
 
 
@@ -344,10 +409,10 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Returns a new iterator pointing to the next element. 
+Creates a new iterator pointing to the next element. 
 
 \begin{DoxyReturn}{Returns}
-A new iterator pointing to the next element. 
+A new \doxylink{classoriginal_1_1step_iterator}{step\+Iterator} pointing to the next element 
 \end{DoxyReturn}
 
 
@@ -362,10 +427,10 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Returns a new iterator pointing to the previous element. 
+Creates a new iterator pointing to the previous element. 
 
 \begin{DoxyReturn}{Returns}
-A new iterator pointing to the previous element. 
+Always throws \doxylink{classoriginal_1_1un_supported_method_error}{un\+Supported\+Method\+Error} for backward iteration 
 \end{DoxyReturn}
 
 
@@ -380,10 +445,10 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Checks if there is a next element. 
+Checks if the iterator can move forward. 
 
 \begin{DoxyReturn}{Returns}
-True if there is a next element, false otherwise. 
+True if the iterator is not at the end, otherwise false 
 \end{DoxyReturn}
 
 
@@ -398,10 +463,10 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Checks if there is a previous element. 
+Checks if the iterator can move backward. 
 
 \begin{DoxyReturn}{Returns}
-True if there is a previous element, false otherwise. 
+Always throws \doxylink{classoriginal_1_1un_supported_method_error}{un\+Supported\+Method\+Error} since this iterator only supports forward movement 
 \end{DoxyReturn}
 
 
@@ -419,7 +484,7 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 Checks if the iterator is valid. 
 
 \begin{DoxyReturn}{Returns}
-True if the iterator is valid, false otherwise. 
+True if the iterator is valid (points to a valid element), otherwise false 
 \end{DoxyReturn}
 
 
@@ -434,7 +499,7 @@ void \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Moves the iterator to the next element. 
+Advances to the next position in the container. 
 
 
 
@@ -449,11 +514,11 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Adds a number of steps to the current position of iterator. 
+Moves forward by a specified number of steps. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em steps} & The number of steps to move forward. \\
+{\em steps} & The number of positions to move forward \\
 \hline
 \end{DoxyParams}
 
@@ -469,15 +534,15 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Returns the distance between this iterator and another iterator. 
+Calculates the number of steps between the current iterator and another iterator. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em other} & The iterator to compare against. \\
+{\em other} & The iterator to compare with \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The number of steps between the two iterators. 
+The number of steps between the two iterators 
 \end{DoxyReturn}
 
 
@@ -492,17 +557,36 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Subtracts a number of steps from the current position of iterator. 
+Moves backward by a specified number of steps. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em steps} & The number of steps to move backward. \\
+{\em steps} & The number of positions to move backward\\
 \hline
 \end{DoxyParams}
-
+This operation is supported by internally calling {\ttfamily operator+=} with a negative value of {\ttfamily steps}. 
 
 Implements \mbox{\hyperlink{classoriginal_1_1iterator_a0c7c1d9fac42134367f926a364174598}{original\+::iterator$<$ TYPE $>$}}.
 
+\Hypertarget{classoriginal_1_1step_iterator_acc4c3ff598ab4e2628070b2f49cce188}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1step_iterator_acc4c3ff598ab4e2628070b2f49cce188} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator}}$<$ TYPE $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1step_iterator}{step\+Iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for \doxylink{classoriginal_1_1step_iterator}{step\+Iterator}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this iterator 
+\end{DoxyReturn}
 \Hypertarget{classoriginal_1_1step_iterator_a7d52e13bc2b2f79b8164e8b0cb5f4efa}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}!prev@{prev}}
 \index{prev@{prev}!original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{prev()}{prev()}}
@@ -512,12 +596,33 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Moves the iterator to the previous element. 
+Retreats to the previous position in the container. 
 
-
+Always throws \doxylink{classoriginal_1_1un_supported_method_error}{un\+Supported\+Method\+Error} since backward movement is not supported for step iterators. 
 
 Implements \mbox{\hyperlink{classoriginal_1_1iterator_a9aa1c7c6134cfaddbe0ebcd356426ea4}{original\+::iterator$<$ TYPE $>$}}.
 
+\Hypertarget{classoriginal_1_1step_iterator_a754058a2cc813eb6e073bd67086f1865}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}!ptrDistance@{ptrDistance}}
+\index{ptrDistance@{ptrDistance}!original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{ptrDistance()}{ptrDistance()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1step_iterator_a754058a2cc813eb6e073bd67086f1865} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator}}$<$ TYPE $>$\+::ptr\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{start}{, }\item[{\mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Calculates the distance between two iterators. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Iterator pointing to the start position \\
+\hline
+{\em end} & Iterator pointing to the end position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of steps between the two iterators 
+\end{DoxyReturn}
 \Hypertarget{classoriginal_1_1step_iterator_a545756198391c96f8636ed497b99c25e}\index{original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}!set@{set}}
 \index{set@{set}!original::stepIterator$<$ TYPE $>$@{original::stepIterator$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{set()}{set()}}
@@ -527,11 +632,11 @@ auto \mbox{\hyperlink{classoriginal_1_1step_iterator}{original\+::step\+Iterator
 
 
 
-Sets the element pointed to by the iterator. 
+Sets the value of the current element. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em data} & The new value to set. \\
+{\em data} & The value to set to the current element \\
 \hline
 \end{DoxyParams}
 
@@ -542,4 +647,4 @@ Implements \mbox{\hyperlink{classoriginal_1_1iterator_a4ca097831179d22512cbae559
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/core/step\+Iterator.\+h\end{DoxyCompactItemize}
+src/core/\mbox{\hyperlink{step_iterator_8h}{step\+Iterator.\+h}}\end{DoxyCompactItemize}
