@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['backof_0',['backOf',['../classoriginal_1_1algorithms.html#a9e0541500bd3c6a45eed385579fcffb5',1,'original::algorithms']]],
+  ['backof_0',['backOf',['../classoriginal_1_1algorithms.html#a9e0541500bd3c6a45eed385579fcffb5',1,'original::algorithms::backOf(const iterator&lt; TYPE &gt; &amp;it, int64_t steps)'],['../classoriginal_1_1algorithms.html#abd70e7720964d8b717d83e53e08640e2',1,'original::algorithms::backOf(const iterator&lt; TYPE &gt; *it, int64_t steps) -&gt; iterator&lt; TYPE &gt; *']]],
   ['basearray_1',['baseArray',['../classoriginal_1_1base_array.html',1,'original']]],
   ['basearray_2eh_2',['baseArray.h',['../base_array_8h.html',1,'']]],
   ['basearray_3c_20bool_20_3e_3',['baseArray&lt; bool &gt;',['../classoriginal_1_1base_array.html',1,'original']]],

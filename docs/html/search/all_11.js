@@ -17,5 +17,5 @@ var searchData=
   ['stepiterator_14',['stepIterator',['../classoriginal_1_1step_iterator.html',1,'original::stepIterator&lt; TYPE &gt;'],['../classoriginal_1_1step_iterator.html#a9fa562faa6ee2a9d2d4a0b510c9ddc5d',1,'original::stepIterator::stepIterator(wrapper&lt; TYPE &gt; *ptr)'],['../classoriginal_1_1step_iterator.html#a88809a57b66f83e546c2bc067a4e9cde',1,'original::stepIterator::stepIterator(const stepIterator &amp;other)']]],
   ['stepiterator_2eh_15',['stepIterator.h',['../step_iterator_8h.html',1,'']]],
   ['superof_16',['SuperOf',['../conceptoriginal_1_1_super_of.html',1,'original']]],
-  ['swap_17',['swap',['../classoriginal_1_1algorithms.html#a78d5714e09e5a0564bb9e5c6ea2cfca4',1,'original::algorithms']]]
+  ['swap_17',['swap',['../classoriginal_1_1algorithms.html#a78d5714e09e5a0564bb9e5c6ea2cfca4',1,'original::algorithms::swap(const iterator&lt; TYPE &gt; &amp;it1, const iterator&lt; TYPE &gt; &amp;it2) noexcept'],['../classoriginal_1_1algorithms.html#a4a5a9ee630bf2667e0dee6f0d0f9a138',1,'original::algorithms::swap(const iterator&lt; TYPE &gt; *it1, const iterator&lt; TYPE &gt; *it2) noexcept -&gt; void']]]
 ];
