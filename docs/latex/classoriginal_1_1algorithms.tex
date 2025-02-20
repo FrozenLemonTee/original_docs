@@ -16,7 +16,7 @@ Collaboration diagram for original\+::algorithms\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=170pt]{classoriginal_1_1algorithms__coll__graph}
+\includegraphics[width=181pt]{classoriginal_1_1algorithms__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -197,6 +197,9 @@ requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classorigina
 requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_a84e21f685076376b3e463d792b3e2c3d}{intro\+Sort}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares)
 \begin{DoxyCompactList}\small\item\em Sorts a range of elements using introspective sort. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TYPE, typename Callback$>$ \newline
+requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}{stable\+Sort}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares)
+\begin{DoxyCompactList}\small\item\em Performs stable hybrid sort on element range. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE, typename Callback$>$ \newline
 requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_a96646cc6ff38bf19c08ada0bfdebf418}{heap\+Sort}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares)
 \begin{DoxyCompactList}\small\item\em Sorts a range of elements using heap sort. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TYPE, typename Callback$>$ \newline
@@ -304,6 +307,12 @@ requires \mbox{\hyperlink{conceptoriginal_1_1_compare}{original\+::\+Compare}}$<
 {\footnotesize template$<$typename TYPE, typename Callback$>$ \newline
 requires Compare$<$Callback, TYPE$>$}\\static \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1algorithms_ab17246853ef1d4472d7e10793f011e45}{\+\_\+heap\+Get\+Prior}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&range, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&parent, const Callback \&compares)
 \begin{DoxyCompactList}\small\item\em Get parent node\textquotesingle{}s priority child in heap structure. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE, typename Callback$>$ \newline
+requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_a510b5c1bf0b36c6274473e1ee2371f2b}{\+\_\+stable\+Sort\+Merge}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&mid, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares)
+\begin{DoxyCompactList}\small\item\em Merges two sorted sub-\/ranges during merge sort. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE, typename Callback$>$ \newline
+requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_af28c30a2e8c8c194bce70a1b8b05c78a}{\+\_\+stable\+Sort}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares)
+\begin{DoxyCompactList}\small\item\em Recursive implementation of stable sort. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1algorithms_a884a6bb5135179555c03001cb376b0ae}\label{classoriginal_1_1algorithms_a884a6bb5135179555c03001cb376b0ae} 
 {\footnotesize template$<$typename TYPE, typename Callback$>$ \newline
 requires \mbox{\hyperlink{conceptoriginal_1_1_compare}{original\+::\+Compare}}$<$Callback, TYPE$>$}\\static auto {\bfseries \+\_\+heap\+Get\+Prior} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}range, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}parent, const Callback \&compares) -\/$>$ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}
@@ -359,7 +368,82 @@ iterator$<$\+TYPE$>$\texorpdfstring{$\ast$}{*} Iterator to higher-\/priority chi
 \begin{DoxyNote}{Note}
 Protected helper for heap operations 
 \end{DoxyNote}
-\Hypertarget{classoriginal_1_1algorithms_ada4b03336a6bc356dd58fe52ae2e01b1}\index{original::algorithms@{original::algorithms}!allOf@{allOf}}
+\Hypertarget{classoriginal_1_1algorithms_af28c30a2e8c8c194bce70a1b8b05c78a}\index{original::algorithms@{original::algorithms}!\_stableSort@{\_stableSort}}
+\index{\_stableSort@{\_stableSort}!original::algorithms@{original::algorithms}}
+\doxysubsubsection{\texorpdfstring{\_stableSort()}{\_stableSort()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1algorithms_af28c30a2e8c8c194bce70a1b8b05c78a} 
+template$<$typename TYPE, typename Callback$>$ \newline
+requires Compare$<$Callback, TYPE$>$\\
+void original\+::algorithms\+::\+\_\+stable\+Sort (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{begin}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{end}{, }\item[{const Callback \&}]{compares}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Recursive implementation of stable sort. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Element type \\
+\hline
+{\em Callback} & Comparison callback type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Current sub-\/range start \\
+\hline
+{\em end} & Current sub-\/range end \\
+\hline
+{\em compares} & Comparison callback\\
+\hline
+\end{DoxyParams}
+Internal recursive method handling\+:
+\begin{DoxyItemize}
+\item Base case handling for small ranges
+\item Sub-\/range division
+\item Recursive sorting of divided ranges
+\item Merge operation invocation \begin{DoxyNote}{Note}
+Not intended for direct external use 
+\end{DoxyNote}
+
+\end{DoxyItemize}\Hypertarget{classoriginal_1_1algorithms_a510b5c1bf0b36c6274473e1ee2371f2b}\index{original::algorithms@{original::algorithms}!\_stableSortMerge@{\_stableSortMerge}}
+\index{\_stableSortMerge@{\_stableSortMerge}!original::algorithms@{original::algorithms}}
+\doxysubsubsection{\texorpdfstring{\_stableSortMerge()}{\_stableSortMerge()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1algorithms_a510b5c1bf0b36c6274473e1ee2371f2b} 
+template$<$typename TYPE, typename Callback$>$ \newline
+requires Compare$<$Callback, TYPE$>$\\
+void original\+::algorithms\+::\+\_\+stable\+Sort\+Merge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{begin}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{mid}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{end}{, }\item[{const Callback \&}]{compares}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Merges two sorted sub-\/ranges during merge sort. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Element type \\
+\hline
+{\em Callback} & Comparison callback type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Start of first sub-\/range \\
+\hline
+{\em mid} & Start of second sub-\/range (end of first) \\
+\hline
+{\em end} & End of second sub-\/range \\
+\hline
+{\em compares} & Comparison callback\\
+\hline
+\end{DoxyParams}
+Key merge step of merge sort algorithm\+:
+\begin{DoxyEnumerate}
+\item Creates temporary storage for merged elements
+\item Sequentially compares elements from both sub-\/ranges
+\item Copies sorted elements back to original container \begin{DoxyNote}{Note}
+Requires both input sub-\/ranges to be pre-\/sorted 
+\end{DoxyNote}
+
+\end{DoxyEnumerate}\Hypertarget{classoriginal_1_1algorithms_ada4b03336a6bc356dd58fe52ae2e01b1}\index{original::algorithms@{original::algorithms}!allOf@{allOf}}
 \index{allOf@{allOf}!original::algorithms@{original::algorithms}}
 \doxysubsubsection{\texorpdfstring{allOf()}{allOf()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1algorithms_ada4b03336a6bc356dd58fe52ae2e01b1} 
@@ -1156,7 +1240,7 @@ Sorts a range of elements using introspective sort.
 {\em compares} & Comparison callback to define the order\\
 \hline
 \end{DoxyParams}
-This method sorts the elements in the range \mbox{[}begin, end) into ascending order using an introspective sort (a hybrid of quicksort, heapsort, and insertion sort). The order is determined by the provided comparison function.
+This method sorts the elements in the range \mbox{[}begin, end\mbox{]} into ascending order using an introspective sort (a hybrid of quicksort, heapsort, and insertion sort). The order is determined by the provided comparison function.
 
 The algorithm switches to heapsort if the recursion depth exceeds 2\texorpdfstring{$\ast$}{*}log2(n), ensuring O(n log n) worst-\/case time complexity. For small partitions (\texorpdfstring{$<$}{<}=16 elements), it uses insertion sort for better cache performance.
 
@@ -1253,10 +1337,43 @@ Sorts a range of elements using either stable or unstable sorting algorithm.
 {\em is\+Stable} & Flag indicating whether to use stable sorting (default\+: false)\\
 \hline
 \end{DoxyParams}
-This function sorts the elements in the range \mbox{[}begin, end) based on the specified comparison callback. When is\+Stable is set to true, it delegates to insertion sort which preserves the relative order of equivalent elements, suitable for scenarios requiring stability. When false (default), it uses introspective sort (hybrid of quicksort/heapsort) which provides O(n log n) worst-\/case performance but does not preserve element order equality. The choice depends on use-\/case requirements\+: Introspective sort (default) is optimal for general-\/purpose sorting with large datasets Insertion sort is explicitly chosen for small ranges or when stability is required \begin{DoxyNote}{Note}
-The comparison callback must implement strict weak ordering. For stable sorting with large datasets, consider implementing a dedicated stable algorithm like merge sort. 
+This function sorts the elements in the range \mbox{[}begin, end\mbox{]} based on the specified comparison callback. When is\+Stable is set to true, it delegates to stable sort (hybrid of mergesort/insertion\+Sort, see \doxylink{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}{stable\+Sort()}) which preserves the relative order of equivalent elements, suitable for scenarios requiring stability. When false (default), it uses introspective sort (hybrid of quicksort/heap\+Sort/insertion\+Sort, see \doxylink{classoriginal_1_1algorithms_a84e21f685076376b3e463d792b3e2c3d}{intro\+Sort()}) which provides O(n log n) worst-\/case performance but does not preserve element order equality. The choice depends on use-\/case requirements\+: Introspective sort (default) is optimal for general-\/purpose sorting with large datasets Stable sort is explicitly chosen for when stability is required \Hypertarget{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}\index{original::algorithms@{original::algorithms}!stableSort@{stableSort}}
+\index{stableSort@{stableSort}!original::algorithms@{original::algorithms}}
+\doxysubsubsection{\texorpdfstring{stableSort()}{stableSort()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657} 
+template$<$typename TYPE, typename Callback$>$ \newline
+requires Compare$<$Callback, TYPE$>$\\
+void original\+::algorithms\+::stable\+Sort (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{begin}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{end}{, }\item[{const Callback \&}]{compares}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Performs stable hybrid sort on element range. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Element type \\
+\hline
+{\em Callback} & Comparison callback type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Start iterator of the range \\
+\hline
+{\em end} & End iterator of the range \\
+\hline
+{\em compares} & Comparison callback for ordering\\
+\hline
+\end{DoxyParams}
+Implements a stable sort algorithm (a hybrid of merge sort and insertion sort) with O(n log n) time complexity.
+\begin{DoxyItemize}
+\item Preserves original order of equivalent elements
+\item Uses insertion sort for small ranges (\texorpdfstring{$<$}{<}=16 elements)
+\item Recursively splits and merges sub-\/ranges \begin{DoxyNote}{Note}
+Preferred for scenarios requiring stable ordering guarantees 
 \end{DoxyNote}
-\Hypertarget{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}\index{original::algorithms@{original::algorithms}!swap@{swap}}
+
+\end{DoxyItemize}\Hypertarget{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}\index{original::algorithms@{original::algorithms}!swap@{swap}}
 \index{swap@{swap}!original::algorithms@{original::algorithms}}
 \doxysubsubsection{\texorpdfstring{swap()}{swap()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4} 
