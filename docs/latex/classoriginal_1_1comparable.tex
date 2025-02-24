@@ -38,6 +38,11 @@ bool \mbox{\hyperlink{classoriginal_1_1comparable_a28e05e7b5ee65cd29f3bb6be336de
 \Hypertarget{classoriginal_1_1comparable_ad4a2f94dd22d16e84f4b83a495b8a11d}\label{classoriginal_1_1comparable_ad4a2f94dd22d16e84f4b83a495b8a11d} 
 virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
 \begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup of derived objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename EXTENDED$>$ }\\std\+::strong\+\_\+ordering \mbox{\hyperlink{classoriginal_1_1comparable_ad71b69c3c11731e989760e36471e3715}{operator$<$=$>$}} (const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&lc, const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&rc)
+\begin{DoxyCompactList}\small\item\em Three-\/way comparison operator (\texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>}), returns an ordered comparison result. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -196,6 +201,43 @@ Checks if the current object is greater than or equal to another.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True if greater than or equal, otherwise false. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classoriginal_1_1comparable_ad71b69c3c11731e989760e36471e3715}\index{original::comparable$<$ DERIVED $>$@{original::comparable$<$ DERIVED $>$}!operator$<$=$>$@{operator$<$=$>$}}
+\index{operator$<$=$>$@{operator$<$=$>$}!original::comparable$<$ DERIVED $>$@{original::comparable$<$ DERIVED $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$=$>$}{operator<=>}}
+{\footnotesize\ttfamily \label{classoriginal_1_1comparable_ad71b69c3c11731e989760e36471e3715} 
+template$<$typename DERIVED$>$ \\
+template$<$typename EXTENDED$>$ \\
+std\+::strong\+\_\+ordering operator$<$=$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&}]{lc}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&}]{rc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Three-\/way comparison operator (\texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>}), returns an ordered comparison result. 
+
+This operator is implemented by invoking the \doxylink{classoriginal_1_1comparable_ab683f10d33ef5d307d717240af8a385c}{compare\+To()} method of the comparable object. The result type is std\+::strong\+\_\+ordering, indicating strong ordering semantics. Defined as a friend function to enable symmetric argument handling.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em EXTENDED} & The actual derived type using CRTP pattern. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left-\/hand side comparable object \\
+\hline
+{\em rhs} & Right-\/hand side comparable object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::strong\+\_\+ordering
+\begin{DoxyItemize}
+\item std\+::strong\+\_\+ordering\+::less if lhs \texorpdfstring{$<$}{<} rhs
+\item std\+::strong\+\_\+ordering\+::equal if lhs == rhs
+\item std\+::strong\+\_\+ordering\+::greater if lhs \texorpdfstring{$>$}{>} rhs 
+\end{DoxyItemize}
 \end{DoxyReturn}
 
 

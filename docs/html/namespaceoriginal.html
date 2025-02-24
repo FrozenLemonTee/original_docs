@@ -318,6 +318,9 @@ Functions</h2></td></tr>
 <tr class="separator:a1403544d2a1aff7b3024ad96a7c774f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d72b49c4ce518f5421f3317ed60f9b6" id="r_a1d72b49c4ce518f5421f3317ed60f9b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1bit_set.html">bitSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d72b49c4ce518f5421f3317ed60f9b6">operator~</a> (const <a class="el" href="classoriginal_1_1bit_set.html">bitSet</a> &amp;bs)</td></tr>
 <tr class="separator:a1d72b49c4ce518f5421f3317ed60f9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5dd1496be34e497277b67cd5e8cafb" id="r_a3f5dd1496be34e497277b67cd5e8cafb"><td class="memTemplParams" colspan="2">template&lt;typename EXTENDED&gt; </td></tr>
+<tr class="memitem:a3f5dd1496be34e497277b67cd5e8cafb"><td class="memTemplItemLeft" align="right" valign="top">std::strong_ordering&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3f5dd1496be34e497277b67cd5e8cafb">operator&lt;=&gt;</a> (const <a class="el" href="classoriginal_1_1comparable.html">comparable</a>&lt; EXTENDED &gt; &amp;lc, const <a class="el" href="classoriginal_1_1comparable.html">comparable</a>&lt; EXTENDED &gt; &amp;rc)</td></tr>
+<tr class="separator:a3f5dd1496be34e497277b67cd5e8cafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1db8c31a0d9119ae22cc0ee854023eb4" id="r_a1db8c31a0d9119ae22cc0ee854023eb4"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
 <tr class="memitem:a1db8c31a0d9119ae22cc0ee854023eb4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1filter_stream.html">filterStream</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1db8c31a0d9119ae22cc0ee854023eb4">operator&amp;&amp;</a> (const <a class="el" href="classoriginal_1_1filter.html">filter</a>&lt; T &gt; &amp;f1, const <a class="el" href="classoriginal_1_1filter.html">filter</a>&lt; T &gt; &amp;f2)</td></tr>
 <tr class="memdesc:a1db8c31a0d9119ae22cc0ee854023eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create AND <a class="el" href="classoriginal_1_1filter_stream.html" title="Composite filter builder with logical operator chaining.">filterStream</a> from two filters.  <br /></td></tr>
@@ -1045,6 +1048,49 @@ template&lt;typename T&gt; </div>
 <div class="line">std::cout &lt;&lt; obj; <span class="comment">// Outputs &quot;printable(@0x7ffd) \n&quot;</span></div>
 <div class="ttc" id="aclassoriginal_1_1printable_html"><div class="ttname"><a href="classoriginal_1_1printable.html">original::printable</a></div><div class="ttdoc">Base class providing polymorphic string conversion capabilities.</div><div class="ttdef"><b>Definition</b> printable.h:25</div></div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a id="a3f5dd1496be34e497277b67cd5e8cafb" name="a3f5dd1496be34e497277b67cd5e8cafb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f5dd1496be34e497277b67cd5e8cafb">&#9670;&#160;</a></span>operator&lt;=&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename EXTENDED&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::strong_ordering original::operator&lt;=&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoriginal_1_1comparable.html">comparable</a>&lt; EXTENDED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>lc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classoriginal_1_1comparable.html">comparable</a>&lt; EXTENDED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rc</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This operator is implemented by invoking the compareTo() method of the comparable object. The result type is std::strong_ordering, indicating strong ordering semantics. Defined as a friend function to enable symmetric argument handling.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EXTENDED</td><td>The actual derived type using CRTP pattern. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>Left-hand side comparable object </td></tr>
+    <tr><td class="paramname">rhs</td><td>Right-hand side comparable object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::strong_ordering<ul>
+<li>std::strong_ordering::less if lhs &lt; rhs</li>
+<li>std::strong_ordering::equal if lhs == rhs</li>
+<li>std::strong_ordering::greater if lhs &gt; rhs </li>
+</ul>
+</dd></dl>
+
 </div>
 </div>
 <a id="a1403544d2a1aff7b3024ad96a7c774f6" name="a1403544d2a1aff7b3024ad96a7c774f6"></a>

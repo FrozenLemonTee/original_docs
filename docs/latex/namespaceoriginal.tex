@@ -160,6 +160,8 @@ concept \mbox{\hyperlink{conceptoriginal_1_1_extends_of}{Extends\+Of}}
 \item 
 \mbox{\hyperlink{classoriginal_1_1bit_set}{bit\+Set}} \mbox{\hyperlink{namespaceoriginal_a1d72b49c4ce518f5421f3317ed60f9b6}{operator\texorpdfstring{$\sim$}{\string~}}} (const \mbox{\hyperlink{classoriginal_1_1bit_set}{bit\+Set}} \&bs)
 \item 
+{\footnotesize template$<$typename EXTENDED$>$ }\\std\+::strong\+\_\+ordering \mbox{\hyperlink{namespaceoriginal_a3f5dd1496be34e497277b67cd5e8cafb}{operator$<$=$>$}} (const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&lc, const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&rc)
+\item 
 {\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{namespaceoriginal_a1db8c31a0d9119ae22cc0ee854023eb4}{operator\&\&}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f1, const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f2)
 \begin{DoxyCompactList}\small\item\em Create AND \doxylink{classoriginal_1_1filter_stream}{filter\+Stream} from two filters. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \mbox{\hyperlink{namespaceoriginal_a1f9161566f8b79c18b9f7d44716e71ae}{operator\&\&}} (const \mbox{\hyperlink{classoriginal_1_1filter}{filter}}$<$ T $>$ \&f, const \mbox{\hyperlink{classoriginal_1_1filter_stream}{filter\+Stream}}$<$ T $>$ \&ofs)
@@ -648,7 +650,36 @@ Modified output stream
 \DoxyCodeLine{std::cout\ <<\ obj;\ \textcolor{comment}{//\ Outputs\ "{}printable(@0x7ffd)\ \(\backslash\)n"{}}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceoriginal_a1403544d2a1aff7b3024ad96a7c774f6}\index{original@{original}!operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}}
+ \Hypertarget{namespaceoriginal_a3f5dd1496be34e497277b67cd5e8cafb}\index{original@{original}!operator$<$=$>$@{operator$<$=$>$}}
+\index{operator$<$=$>$@{operator$<$=$>$}!original@{original}}
+\doxysubsubsection{\texorpdfstring{operator$<$=$>$()}{operator<=>()}}
+{\footnotesize\ttfamily \label{namespaceoriginal_a3f5dd1496be34e497277b67cd5e8cafb} 
+template$<$typename EXTENDED$>$ \\
+std\+::strong\+\_\+ordering original\+::operator$<$=$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&}]{lc}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}$<$ EXTENDED $>$ \&}]{rc}{}\end{DoxyParamCaption})}
+
+This operator is implemented by invoking the compare\+To() method of the comparable object. The result type is std\+::strong\+\_\+ordering, indicating strong ordering semantics. Defined as a friend function to enable symmetric argument handling.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em EXTENDED} & The actual derived type using CRTP pattern. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lhs} & Left-\/hand side comparable object \\
+\hline
+{\em rhs} & Right-\/hand side comparable object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::strong\+\_\+ordering
+\begin{DoxyItemize}
+\item std\+::strong\+\_\+ordering\+::less if lhs \texorpdfstring{$<$}{<} rhs
+\item std\+::strong\+\_\+ordering\+::equal if lhs == rhs
+\item std\+::strong\+\_\+ordering\+::greater if lhs \texorpdfstring{$>$}{>} rhs 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{namespaceoriginal_a1403544d2a1aff7b3024ad96a7c774f6}\index{original@{original}!operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}}
 \index{operator\texorpdfstring{$^\wedge$}{\string^}@{operator\texorpdfstring{$^\wedge$}{\string^}}!original@{original}}
 \doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$^\wedge$}{\string^}()}{operator\string^()}}
 {\footnotesize\ttfamily \label{namespaceoriginal_a1403544d2a1aff7b3024ad96a7c774f6} 
