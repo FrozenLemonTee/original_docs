@@ -10,6 +10,7 @@ var searchData=
   ['transform_2eh_7',['transform.h',['../transform_8h.html',1,'']]],
   ['transformstream_8',['transformStream',['../classoriginal_1_1transform_stream.html',1,'original::transformStream&lt; TYPE &gt;'],['../classoriginal_1_1transform_stream.html#af4ea28efd7546fee593cc1aafb7b9f50',1,'original::transformStream::transformStream()']]],
   ['transformstream_2eh_9',['transformStream.h',['../transform_stream_8h.html',1,'']]],
-  ['tuple_10',['tuple',['../classoriginal_1_1tuple.html',1,'original']]],
-  ['types_2eh_11',['types.h',['../types_8h.html',1,'']]]
+  ['tuple_10',['tuple',['../classoriginal_1_1tuple.html',1,'original::tuple&lt; TYPES &gt;'],['../classoriginal_1_1tuple.html#af2342bde3c697c4bc5a123598f1e339a',1,'original::tuple::tuple()'],['../classoriginal_1_1tuple.html#afaf64530bea6de267c2730256f815da1',1,'original::tuple::tuple(const TYPES &amp;... e)'],['../classoriginal_1_1tuple.html#a76da5fbddcd09b4a24a0f23896805704',1,'original::tuple::tuple(const tuple &amp;other)'],['../classoriginal_1_1tuple.html#ae1ca02e8dab861166a4e109239de7a8c',1,'original::tuple::tuple(tuple &amp;&amp;other) noexcept']]],
+  ['tuple_2eh_11',['tuple.h',['../tuple_8h.html',1,'']]],
+  ['types_2eh_12',['types.h',['../types_8h.html',1,'']]]
 ];
