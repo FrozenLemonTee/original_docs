@@ -1,0 +1,120 @@
+\doxysection{auto\+Ptr.\+h}
+\hypertarget{auto_ptr_8h_source}{}\label{auto_ptr_8h_source}\index{src/core/autoPtr.h@{src/core/autoPtr.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ AUTOPTR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ AUTOPTR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{printable_8h}{printable.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comparable_8h}{comparable.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{comment}{//\ todo}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<DERIVED>\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1auto_ptr_1_1ref_count}{refCount}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ strong\_refs;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ weak\_refs;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_1_1ref_count}{refCount}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ strongRefs()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ weakRefs()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addStrongRef();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeStrongRef();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ addWeakRef();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ removeWeakRef();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ TYPE*\ ptr;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1auto_ptr_1_1ref_count}{refCount}}*\ ref\_cnt;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}(TYPE*\ p,\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_1_1ref_count}{refCount}}*\ cnt);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{\string~autoPtr}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}(size\_t)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}*)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ TYPE\&\ operator*()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ TYPE*\ operator-\/>()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isValid()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ compareTo(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}\&\ p)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00057\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::refCount::refCount}}()}
+\DoxyCodeLine{00058\ \ \ \ \ :\ strong\_refs(1),\ weak\_refs(0)\ \{\}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00061\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::refCount::strongRefs}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>strong\_refs;}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00066\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::refCount::weakRefs}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>weak\_refs;}
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::refCount::addStrongRef}}()\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ this-\/>strong\_refs\ +=\ 1;}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::refCount::removeStrongRef}}()\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ this-\/>strong\_refs\ -\/=\ 1;}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::refCount::addWeakRef}}()\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ this-\/>weak\_refs\ +=\ 1;}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::refCount::removeWeakRef}}()\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ this-\/>weak\_refs\ -\/=\ 1;}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00091\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::autoPtr}}(TYPE*\ p,\ refCount*\ cnt)}
+\DoxyCodeLine{00092\ \ \ \ \ :\ ptr(p),\ ref\_cnt(cnt)\ \{\}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00095\ \textcolor{keyword}{const}\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::operator*}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>ptr;}
+\DoxyCodeLine{00097\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00100\ \textcolor{keyword}{const}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::operator-\/>}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ptr;}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::isValid}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_cnt-\/>strongRefs()\ >\ 0;}
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00110\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED>::compareTo}}(\textcolor{keyword}{const}\ autoPtr\&\ p)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ptr\ -\/\ p.ptr;}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//AUTOPTR\_H}}
+
+\end{DoxyCode}
