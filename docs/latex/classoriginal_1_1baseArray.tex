@@ -1,0 +1,84 @@
+\doxysection{original\+::base\+Array\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classoriginal_1_1baseArray}{}\label{classoriginal_1_1baseArray}\index{original::baseArray$<$ TYPE $>$@{original::baseArray$<$ TYPE $>$}}
+
+
+Base class for fixed-\/size serial containers.  
+
+
+
+
+{\ttfamily \#include $<$base\+Array.\+h$>$}
+
+
+
+Inheritance diagram for original\+::base\+Array\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classoriginal_1_1baseArray__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for original\+::base\+Array\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{classoriginal_1_1baseArray__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial$<$ TYPE $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_a78abe0a415dd59ddd648e8a028051fca}{get}} (int64\+\_\+t index) const =0
+\begin{DoxyCompactList}\small\item\em Retrieves the element at the specified index. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_a19a71d93a0f454addb14b03b5173e621}{get\+Begin}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the first element in the container. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_ac74ad50a9fb7eae3fcec7780ca73cc00}{get\+End}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the last element in the container. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1serial_ad4784c38d09067e976ef9bf40ccc7385}{operator\mbox{[}$\,$\mbox{]}}} (int64\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Retrieves the element at the specified index (const version). \end{DoxyCompactList}\item 
+virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1serial_a6aedb4da5bf9c8524088ea8a1f0f662c}{operator\mbox{[}$\,$\mbox{]}}} (int64\+\_\+t index)=0
+\begin{DoxyCompactList}\small\item\em Retrieves or sets the element at the specified index (non-\/const version). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1serial_a5a6aeda0aff18e4596fbec8295b81adb}{set}} (int64\+\_\+t index, const TYPE \&e)=0
+\begin{DoxyCompactList}\small\item\em Sets the element at the specified index. \end{DoxyCompactList}\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1serial_a52d30588c2517ea4fc4ba5bce5189cc1}{index\+Of}} (const TYPE \&e) const =0
+\begin{DoxyCompactList}\small\item\em Finds the index of the specified element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1serial_a689a824c570acbc125c5b7ee3e10581b}{contains}} (const TYPE \&e) const override
+\begin{DoxyCompactList}\small\item\em Checks if the container contains the specified element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1container}{original\+::container$<$ TYPE $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classoriginal_1_1container_aff79ee5a7719800dab303159cd965ce4}{size}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the number of elements in the container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1container_a187c5f0c91b12c6ef6566929c85fdef5}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the container is empty. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classoriginal_1_1container_aa6cc924a4932026432be0bcd88adfa5c}{\texorpdfstring{$\sim$}{\string~}container}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the container class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1serial}{original\+::serial$<$ TYPE $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classoriginal_1_1serial_ac6e3e5c0c827ea92f53a180174d2abbb}{index\+Out\+Of\+Bound}} (int64\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Checks if the provided index is out of bounds. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1serial_a4062062539a06c07d8bedf976704cf81}{parse\+Neg\+Index}} (int64\+\_\+t index) const
+\begin{DoxyCompactList}\small\item\em Converts negative indices into valid positive indices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::base\+Array$<$ TYPE $>$}
+Base class for fixed-\/size serial containers. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of the elements contained in the base array\\
+\hline
+\end{DoxyTemplParams}
+This class is used as the foundation for containers with a fixed size, such as static arrays. It inherits from \doxylink{classoriginal_1_1serial}{original\+::serial} and provides the standard serial container functionality while maintaining a constant size throughout its existence.
+
+Derived classes must implement specific behavior for accessing and modifying elements, but cannot alter the size of the container. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/core/\mbox{\hyperlink{baseArray_8h}{base\+Array.\+h}}\end{DoxyCompactItemize}

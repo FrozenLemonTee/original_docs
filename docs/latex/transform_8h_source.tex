@@ -1,163 +1,179 @@
 \doxysection{transform.\+h}
 \hypertarget{transform_8h_source}{}\label{transform_8h_source}\index{src/core/transform.h@{src/core/transform.h}}
-
+\mbox{\hyperlink{transform_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TRANSFORM\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TRANSFORM\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}cloneable.h"{}}}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}maths.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}container.h"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }original\{}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1transform}{transform}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1cloneable}{cloneable}}\ \{}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ apply(TYPE\&\ t);}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1transform}{\string~transform}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}*\ clone()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ operator()(TYPE\&\ t);}
-\DoxyCodeLine{00020\ \ \ \ \ \};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1add_opt_transform}{addOptTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ t\_;}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1add_opt_transform}{addOptTransform}}*\ clone()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform}{addOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ t);}
-\DoxyCodeLine{00029\ \ \ \ \ \};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1assign_opt_transform}{assignOptTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\{}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ val\_;}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform}{assignOptTransform}}*\ clone()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform}{assignOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ val);}
-\DoxyCodeLine{00038\ \ \ \ \ \};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1multi_opt_transform}{multiOptTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\{}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ t\_;}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform}{multiOptTransform}}*\ clone()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform}{multiOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ t);}
-\DoxyCodeLine{00047\ \ \ \ \ \};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1abs_transform}{absTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\{}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1abs_transform}{absTransform}}*\ clone()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1abs_transform}{absTransform}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00055\ \ \ \ \ \};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1copy_transform}{copyTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\{}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1container}{container<TYPE>}}*\ container\_;}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1copy_transform}{copyTransform}}*\ clone()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1copy_transform}{copyTransform}}(\mbox{\hyperlink{classoriginal_1_1container}{container<TYPE>}}\&\ \mbox{\hyperlink{classoriginal_1_1container}{container}});}
-\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{base_list_8h}{baseList.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cloneable_8h}{cloneable.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{maths_8h}{maths.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1transform}{transform}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1cloneable_ab979c76e6fb5cd0aeb924e7afb1d3aa2}{cloneable}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1transform_a0e37d8b376c17764a5fd4981dfcd5f26}{apply}}(TYPE\&\ t);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1transform_af17ef1266984c64a3e8df32956b789a6}{\string~transform}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}*\ \mbox{\hyperlink{classoriginal_1_1transform_a996093529bdc685a173a04f60a59a655}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1transform_afc7156585f6d320f6f0588290426b3f7}{operator()}}(TYPE\&\ t);}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1add_opt_transform_a0887de154b609401ee561dd23501df31}{addOptTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ TYPE\ t\_;\ }
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \}\ \textcolor{comment}{//\ namespace\ original}}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1transform}{original::transform<TYPE>::apply}}(TYPE\&)\ \{\}}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1transform}{original::transform<TYPE>::clone}}()\ const\ -\/>\ transform*}
-\DoxyCodeLine{00073\ \ \ \ \ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ transform(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00075\ \ \ \ \ \}}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1transform}{original::transform<TYPE>::operator()}}(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00079\ \ \ \ \ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ this-\/>apply(t);}
-\DoxyCodeLine{00081\ \ \ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform}{original::assignOptTransform<TYPE>::assignOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ val)}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ :\ val\_(val)\ \{\}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform}{original::assignOptTransform<TYPE>::clone}}()\ const\ -\/>\ assignOptTransform*}
-\DoxyCodeLine{00089\ \ \ \ \ \{}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ assignOptTransform(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00091\ \ \ \ \ \}}
-\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1add_opt_transform_a0887de154b609401ee561dd23501df31}{addOptTransform}}*\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform_ac366cceec40cf864a024878e7c31474f}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform_a0887de154b609401ee561dd23501df31}{addOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ t);}
+\DoxyCodeLine{00084\ \ \ \ \ \};}
+\DoxyCodeLine{00085\ }
 \DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform}{original::assignOptTransform<TYPE>::apply}}(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00095\ \ \ \ \ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ t\ =\ this-\/>val\_;}
-\DoxyCodeLine{00097\ \ \ \ \ \}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1add_opt_transform}{original::addOptTransform<TYPE>::addOptTransform}}(\textcolor{keyword}{const}\ TYPE\ \&t)\ :\ t\_(t)\ \{\}}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform}{original::addOptTransform<TYPE>::clone}}()\ const\ -\/>\ addOptTransform*}
-\DoxyCodeLine{00104\ \ \ \ \ \{}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ addOptTransform(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00106\ \ \ \ \ \}}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform}{original::addOptTransform<TYPE>::apply}}(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00110\ \ \ \ \ \{}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ t\ =\ t\ +\ this-\/>t\_;}
-\DoxyCodeLine{00112\ \ \ \ \ \}}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform}{original::multiOptTransform<TYPE>::multiOptTransform}}(\textcolor{keyword}{const}\ TYPE\ \&t)\ :\ t\_(t)\ \{\}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1assign_opt_transform_aaa382de75657cbc7d66d222a8eebe77c}{assignOptTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ TYPE\ val\_;\ }
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform_aaa382de75657cbc7d66d222a8eebe77c}{assignOptTransform}}*\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform_a2da5f768374ba1a3dc0c510d7366bb60}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform_aaa382de75657cbc7d66d222a8eebe77c}{assignOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ val);}
+\DoxyCodeLine{00115\ \ \ \ \ \};}
 \DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform}{original::multiOptTransform<TYPE>::clone}}()\ const\ -\/>\ multiOptTransform*}
-\DoxyCodeLine{00119\ \ \ \ \ \{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ multiOptTransform(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00121\ \ \ \ \ \}}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform}{original::multiOptTransform<TYPE>::apply}}(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00125\ \ \ \ \ \{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ t\ =\ t\ *\ this-\/>t\_;}
-\DoxyCodeLine{00127\ \ \ \ \ \}}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1abs_transform}{original::absTransform<TYPE>::clone}}()\ const\ -\/>\ absTransform*}
-\DoxyCodeLine{00131\ \ \ \ \ \{}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ absTransform(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00133\ \ \ \ \ \}}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1abs_transform}{original::absTransform<TYPE>::apply}}(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00137\ \ \ \ \ \{}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ t\ =\ original::abs(t);}
-\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1multi_opt_transform_a2ce48a27b1b8d80158cea048b6262fc4}{multiOptTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ TYPE\ t\_;\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform_a2ce48a27b1b8d80158cea048b6262fc4}{multiOptTransform}}*\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform_aad40c591e751984893d52f1dadb1ab0a}{clone}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1copy_transform}{original::copyTransform<TYPE>::copyTransform}}(container<TYPE>\&\ container)}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ :\ container\_(\&container)\ \{\}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1copy_transform}{original::copyTransform<TYPE>::clone}}()\ const\ -\/>\ copyTransform*}
-\DoxyCodeLine{00147\ \ \ \ \ \{}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ copyTransform(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00149\ \ \ \ \ \}}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1copy_transform}{original::copyTransform<TYPE>::apply}}(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00153\ \ \ \ \ \{}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ this-\/>container\_-\/>add(t);}
-\DoxyCodeLine{00155\ \ \ \ \ \}}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TRANSFORM\_H}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform_a2ce48a27b1b8d80158cea048b6262fc4}{multiOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ t);}
+\DoxyCodeLine{00146\ \ \ \ \ \};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1abs_transform_afdf50ff81bcb2caa6409de190ca25d65}{absTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1abs_transform_afdf50ff81bcb2caa6409de190ca25d65}{absTransform}}*\ \mbox{\hyperlink{classoriginal_1_1abs_transform_a622d1202ab64ed979e10801384d68871}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1abs_transform_afdf50ff81bcb2caa6409de190ca25d65}{absTransform}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00174\ \ \ \ \ \};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1copy_transform_a9efeb59aebaa5f2f58c3fbdb7795b36e}{copyTransform}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}<TYPE>\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1base_list}{baseList<TYPE>}}*\ container\_;\ }
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ apply(TYPE\ \&t)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1copy_transform_a9efeb59aebaa5f2f58c3fbdb7795b36e}{copyTransform}}*\ \mbox{\hyperlink{classoriginal_1_1copy_transform_a19a12f6bd2b3fbc0d6b96107f16fc1bb}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1copy_transform_a9efeb59aebaa5f2f58c3fbdb7795b36e}{copyTransform}}(\mbox{\hyperlink{classoriginal_1_1base_list}{baseList<TYPE>}}\&\ \mbox{\hyperlink{classoriginal_1_1container}{container}});}
+\DoxyCodeLine{00205\ \ \ \ \ \};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1transform_a0e37d8b376c17764a5fd4981dfcd5f26}{original::transform<TYPE>::apply}}(TYPE\&)\ \{\}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1transform_a996093529bdc685a173a04f60a59a655}{original::transform<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}*}
+\DoxyCodeLine{00214\ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1transform}{transform}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1transform_afc7156585f6d320f6f0588290426b3f7}{original::transform<TYPE>::operator()}}(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00220\ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1transform_a0e37d8b376c17764a5fd4981dfcd5f26}{apply}}(t);}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform_aaa382de75657cbc7d66d222a8eebe77c}{original::assignOptTransform<TYPE>::assignOptTransform}}(\textcolor{keyword}{const}\ TYPE\&\ val)}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ :\ val\_(val)\ \{\}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform_a2da5f768374ba1a3dc0c510d7366bb60}{original::assignOptTransform<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform_aaa382de75657cbc7d66d222a8eebe77c}{assignOptTransform}}*}
+\DoxyCodeLine{00230\ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1assign_opt_transform_aaa382de75657cbc7d66d222a8eebe77c}{assignOptTransform}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{auto}\ original::assignOptTransform<TYPE>::apply(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00236\ \ \ \ \ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ t\ =\ this-\/>val\_;}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1add_opt_transform_a0887de154b609401ee561dd23501df31}{original::addOptTransform<TYPE>::addOptTransform}}(\textcolor{keyword}{const}\ TYPE\ \&t)\ :\ t\_(t)\ \{\}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform_ac366cceec40cf864a024878e7c31474f}{original::addOptTransform<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform_a0887de154b609401ee561dd23501df31}{addOptTransform}}*}
+\DoxyCodeLine{00245\ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1add_opt_transform_a0887de154b609401ee561dd23501df31}{addOptTransform}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{auto}\ original::addOptTransform<TYPE>::apply(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00251\ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ t\ =\ t\ +\ this-\/>t\_;}
+\DoxyCodeLine{00253\ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00256\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform_a2ce48a27b1b8d80158cea048b6262fc4}{original::multiOptTransform<TYPE>::multiOptTransform}}(\textcolor{keyword}{const}\ TYPE\ \&t)\ :\ t\_(t)\ \{\}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform_aad40c591e751984893d52f1dadb1ab0a}{original::multiOptTransform<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform_a2ce48a27b1b8d80158cea048b6262fc4}{multiOptTransform}}*}
+\DoxyCodeLine{00260\ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1multi_opt_transform_a2ce48a27b1b8d80158cea048b6262fc4}{multiOptTransform}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{auto}\ original::multiOptTransform<TYPE>::apply(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00266\ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ t\ =\ t\ *\ this-\/>t\_;}
+\DoxyCodeLine{00268\ \ \ \ \ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1abs_transform_a622d1202ab64ed979e10801384d68871}{original::absTransform<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1abs_transform_afdf50ff81bcb2caa6409de190ca25d65}{absTransform}}*}
+\DoxyCodeLine{00272\ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1abs_transform_afdf50ff81bcb2caa6409de190ca25d65}{absTransform}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00274\ \ \ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keyword}{auto}\ original::absTransform<TYPE>::apply(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00278\ \ \ \ \ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ t\ =\ \mbox{\hyperlink{namespaceoriginal_a303822f1cf65f29a40abc3883f0fb138}{original::abs}}(t);}
+\DoxyCodeLine{00280\ \ \ \ \ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00283\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1copy_transform_a9efeb59aebaa5f2f58c3fbdb7795b36e}{original::copyTransform<TYPE>::copyTransform}}(\mbox{\hyperlink{classoriginal_1_1base_list}{baseList<TYPE>}}\&\ \mbox{\hyperlink{classoriginal_1_1container}{container}})}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ :\ container\_(\&\mbox{\hyperlink{classoriginal_1_1container}{container}})\ \{\}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1copy_transform_a19a12f6bd2b3fbc0d6b96107f16fc1bb}{original::copyTransform<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1copy_transform_a9efeb59aebaa5f2f58c3fbdb7795b36e}{copyTransform}}*}
+\DoxyCodeLine{00288\ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1copy_transform_a9efeb59aebaa5f2f58c3fbdb7795b36e}{copyTransform}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keyword}{auto}\ original::copyTransform<TYPE>::apply(TYPE\&\ t)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00294\ \ \ \ \ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ this-\/>container\_-\/>add(t);}
+\DoxyCodeLine{00296\ \ \ \ \ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TRANSFORM\_H}}
 
 \end{DoxyCode}

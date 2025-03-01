@@ -1,6 +1,6 @@
 \doxysection{printable.\+h}
 \hypertarget{printable_8h_source}{}\label{printable_8h_source}\index{src/core/printable.h@{src/core/printable.h}}
-
+\mbox{\hyperlink{printable_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PRINTABLE\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PRINTABLE\_H}}
@@ -9,131 +9,147 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}sstream"{}}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }original\ \{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1printable}{printable}}\ \{}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ std::string\ cache\_string\_;}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1printable}{\string~printable}}()\ =\ 0;}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::string\ className()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::string\ toString(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ std::string()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ toCString(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ formatString(\textcolor{keyword}{const}\ TYPE\&\ t);}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ formatString(TYPE*\ \textcolor{keyword}{const}\&\ ptr);}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ formatCString(\textcolor{keyword}{const}\ TYPE\&\ t);}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ formatEnum(\textcolor{keyword}{const}\ TYPE\&\ t);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1printable}{printable}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{mutable}\ std::string\ cache\_string\_;\ }
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ operator<<(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\&\ p);}
-\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1printable}{\string~printable}}()\ =\ 0;}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ std::ostream\&\ operator<<(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\&\ p);}
-\DoxyCodeLine{00032\ \}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{inline}\ original::printable::\string~printable()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::className()\ const\ -\/>\ std::\textcolor{keywordtype}{string}}
-\DoxyCodeLine{00037\ \ \ \ \ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}printable"{}};}
-\DoxyCodeLine{00039\ \ \ \ \ \}}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::toString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string}
-\DoxyCodeLine{00042\ \ \ \ \ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>className()\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ formatString(\textcolor{keyword}{this})\ <<\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00047\ \ \ \ \ \}}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{inline}\ original::printable::operator\ std::string()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>toString(\textcolor{keyword}{false});}
-\DoxyCodeLine{00051\ \ \ \ \ \}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{inline}\ original::printable::operator\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*()\ \textcolor{keyword}{const}\ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>toCString(\textcolor{keyword}{false});}
-\DoxyCodeLine{00055\ \ \ \ \ \}}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::toCString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*}
-\DoxyCodeLine{00058\ \ \ \ \ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ this-\/>cache\_string\_\ =\ this-\/>toString(enter);}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>cache\_string\_.c\_str();}
-\DoxyCodeLine{00061\ \ \ \ \ \}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{auto}\ original::printable::formatString(\textcolor{keyword}{const}\ TYPE\&\ t)\ -\/>\ std::string}
-\DoxyCodeLine{00065\ \ \ \ \ \{}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_enum\_v<TYPE>)\ \{}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ formatEnum(t);}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ t;}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00073\ \ \ \ \ \}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{auto}\ original::printable::formatCString(\textcolor{keyword}{const}\ TYPE\&\ t)\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*}
-\DoxyCodeLine{00077\ \ \ \ \ \{}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ result\ =}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_unique<std::string>(formatString<TYPE>(t));}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result-\/>c\_str();}
-\DoxyCodeLine{00081\ \ \ \ \ \}}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{auto}\ original::printable::formatEnum(\textcolor{keyword}{const}\ TYPE\&\ t)\ -\/>\ std::string}
-\DoxyCodeLine{00085\ \ \ \ \ \{}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ enumName\ =\ \textcolor{keyword}{typeid}(t).name();}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ enumValue\ =\ \textcolor{keyword}{static\_cast<}std::underlying\_type\_t<TYPE>\textcolor{keyword}{>}(t);}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ enumName\ +\ \textcolor{stringliteral}{"{}("{}}\ +\ std::to\_string(enumValue)\ +\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00089\ \ \ \ \ \}}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString<std::nullptr\_t>(\textcolor{keyword}{const}\ std::nullptr\_t\&)\ -\/>\ std::string}
-\DoxyCodeLine{00093\ \ \ \ \ \{}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}nullptr"{}};}
-\DoxyCodeLine{00095\ \ \ \ \ \}}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString<std::string>(\textcolor{keyword}{const}\ std::string\&\ t)\ -\/>\ std::string}
-\DoxyCodeLine{00099\ \ \ \ \ \{}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ t\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
-\DoxyCodeLine{00101\ \ \ \ \ \}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString<char>(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ t)\ -\/>\ std::string}
-\DoxyCodeLine{00105\ \ \ \ \ \{}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}'"{}}\ +\ std::string(1,\ t)\ +\ \textcolor{stringliteral}{"{}'"{}};}
-\DoxyCodeLine{00107\ \ \ \ \ \}}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString<bool>(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\&\ t)\ -\/>\ std::string}
-\DoxyCodeLine{00111\ \ \ \ \ \{}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ !=\ 0\ ?\ \textcolor{stringliteral}{"{}true"{}}\ :\ \textcolor{stringliteral}{"{}false"{}};}
-\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classoriginal_1_1printable_a964ede666275c3d0884df1c8a6e9f720}{className}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00057\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ std::string()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{toCString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Static\ Format\ Utilities\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{formatString}}(\textcolor{keyword}{const}\ TYPE\&\ t);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{formatString}}(TYPE*\ \textcolor{keyword}{const}\&\ ptr);}
 \DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString(TYPE*\ \textcolor{keyword}{const}\&\ ptr)\ -\/>\ std::string}
-\DoxyCodeLine{00117\ \ \ \ \ \{}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}@"{}}\ <<\ ptr;}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00121\ \ \ \ \ \}}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString<const\ char>(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ \&ptr)\ -\/>\ std::string\ \{}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ formatString<std::string>(ptr);}
-\DoxyCodeLine{00126\ \ \ \ \ \}}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{inline}\ std::ostream\&\ original::operator<<(std::ostream\&\ os,\ \textcolor{keyword}{const}\ printable\&\ p)\{}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ os\ <<\ p.toString(\textcolor{keyword}{false});}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00131\ \ \ \ \ \}}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRINTABLE\_H}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{formatCString}}(\textcolor{keyword}{const}\ TYPE\&\ t);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{formatEnum}}(\textcolor{keyword}{const}\ TYPE\&\ t);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classoriginal_1_1printable_a53b465a6fb022c42e9046a4838e50e12}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\&\ p);}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00156\ std::ostream\&\ \mbox{\hyperlink{namespaceoriginal_a6bf3733f8dbb6afdb7c4b4559c262da4}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\&\ p);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Definitions\ of\ printable.h\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{inline}\ original::printable::\string~printable()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_a964ede666275c3d0884df1c8a6e9f720}{original::printable::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}}
+\DoxyCodeLine{00165\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}printable"{}};}
+\DoxyCodeLine{00167\ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{original::printable::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string}
+\DoxyCodeLine{00170\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00172\ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1printable_a964ede666275c3d0884df1c8a6e9f720}{className}}()\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{formatString}}(\textcolor{keyword}{this})\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00175\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{keyword}{inline}\ original::printable::operator\ std::string()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{toString}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{keyword}{inline}\ original::printable::operator\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*()\ \textcolor{keyword}{const}\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{toCString}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00183\ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{original::printable::toCString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*}
+\DoxyCodeLine{00186\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ this-\/>cache\_string\_\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{toString}}(enter);}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>cache\_string\_.c\_str();}
+\DoxyCodeLine{00189\ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00192\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString}}(\textcolor{keyword}{const}\ TYPE\&\ t)\ -\/>\ std::string}
+\DoxyCodeLine{00193\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_enum\_v<TYPE>)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ formatEnum(t);}
+\DoxyCodeLine{00196\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ ss\ <<\ t;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00204\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{original::printable::formatCString}}(\textcolor{keyword}{const}\ TYPE\&\ t)\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*}
+\DoxyCodeLine{00205\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ result\ =}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_unique<std::string>(formatString<TYPE>(t));}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{return}\ result-\/>c\_str();}
+\DoxyCodeLine{00209\ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00212\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{original::printable::formatEnum}}(\textcolor{keyword}{const}\ TYPE\&\ t)\ -\/>\ std::string}
+\DoxyCodeLine{00213\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ enumName\ =\ \textcolor{keyword}{typeid}(t).name();}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ enumValue\ =\ \textcolor{keyword}{static\_cast<}std::underlying\_type\_t<TYPE>\textcolor{keyword}{>}(t);}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordflow}{return}\ enumName\ +\ \textcolor{stringliteral}{"{}("{}}\ +\ std::to\_string(enumValue)\ +\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00217\ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00220\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString<std::nullptr\_t>(\textcolor{keyword}{const}\ std::nullptr\_t\&)\ -\/>\ std::string}
+\DoxyCodeLine{00221\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}nullptr"{}};}
+\DoxyCodeLine{00223\ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00226\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::printable::formatString<std::string>(\textcolor{keyword}{const}\ std::string\&\ t)\ -\/>\ std::string}
+\DoxyCodeLine{00227\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ t\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00229\ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00232\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString<char>}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ t)\ -\/>\ std::string}
+\DoxyCodeLine{00233\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}'"{}}\ +\ std::string(1,\ t)\ +\ \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{00235\ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00238\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString<bool>}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\&\ t)\ -\/>\ std::string}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{return}\ t\ !=\ 0\ ?\ \textcolor{stringliteral}{"{}true"{}}\ :\ \textcolor{stringliteral}{"{}false"{}};}
+\DoxyCodeLine{00241\ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00244\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString}}(TYPE*\ \textcolor{keyword}{const}\&\ ptr)\ -\/>\ std::string}
+\DoxyCodeLine{00245\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00247\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}@"{}}\ <<\ ptr;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00249\ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00252\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString<const\ char>}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ \&ptr)\ -\/>\ std::string\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{return}\ formatString<std::string>(ptr);}
+\DoxyCodeLine{00254\ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{namespaceoriginal_a6bf3733f8dbb6afdb7c4b4559c262da4}{original::operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\&\ p)\{}
+\DoxyCodeLine{00257\ \ \ \ \ os\ <<\ p.\mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{toString}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00259\ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRINTABLE\_H}}
 
 \end{DoxyCode}

@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['noelementerror_0',['noElementError',['../classoriginal_1_1no_element_error.html',1,'original']]],
-  ['notequalcomparator_1',['notEqualComparator',['../classoriginal_1_1not_equal_comparator.html',1,'original']]],
-  ['notequalfilter_2',['notEqualFilter',['../classoriginal_1_1not_equal_filter.html',1,'original']]],
-  ['notgreaterfilter_3',['notGreaterFilter',['../classoriginal_1_1not_greater_filter.html',1,'original']]],
-  ['notlessfilter_4',['notLessFilter',['../classoriginal_1_1not_less_filter.html',1,'original']]],
-  ['nullpointererror_5',['nullPointerError',['../classoriginal_1_1null_pointer_error.html',1,'original']]]
+  ['last_0',['last',['../classoriginal_1_1iterable.html#ae26473236643fba6b1dc52143498fdb4',1,'original::iterable::last()'],['../classoriginal_1_1iterable.html#ab25370df2bf165184afa9c885e97fad2',1,'original::iterable::last() const']]],
+  ['lessfilter_1',['lessFilter',['../classoriginal_1_1less_filter.html',1,'original::lessFilter&lt; TYPE &gt;'],['../classoriginal_1_1less_filter.html#a73aefc932427b3931e9d54c052f8ef34',1,'original::lessFilter::lessFilter()']]],
+  ['library_2',['Original, A C++ Tool Library',['../index.html',1,'']]]
 ];

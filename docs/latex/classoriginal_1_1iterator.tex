@@ -2,6 +2,15 @@
 \hypertarget{classoriginal_1_1iterator}{}\label{classoriginal_1_1iterator}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
 
 
+Base iterator interface that supports common operations for iteration.  
+
+
+
+
+{\ttfamily \#include $<$iterator.\+h$>$}
+
+
+
 Inheritance diagram for original\+::iterator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -21,147 +30,151 @@ Collaboration diagram for original\+::iterator\texorpdfstring{$<$}{<} TYPE \texo
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1iterator_a91e4c8dbedaa948f83b75a146480f338}\label{classoriginal_1_1iterator_a91e4c8dbedaa948f83b75a146480f338} 
-TYPE \& {\bfseries operator\texorpdfstring{$\ast$}{*}} ()
-\item 
-\Hypertarget{classoriginal_1_1iterator_a992637e84368b0d7e247a87a25dcfd8a}\label{classoriginal_1_1iterator_a992637e84368b0d7e247a87a25dcfd8a} 
-TYPE {\bfseries operator\texorpdfstring{$\ast$}{*}} () const
-\item 
+TYPE \& \mbox{\hyperlink{classoriginal_1_1iterator_a91e4c8dbedaa948f83b75a146480f338}{operator\texorpdfstring{$\ast$}{*}}} ()
+\begin{DoxyCompactList}\small\item\em Dereferences the iterator to get the element. \end{DoxyCompactList}\item 
+TYPE \mbox{\hyperlink{classoriginal_1_1iterator_a992637e84368b0d7e247a87a25dcfd8a}{operator\texorpdfstring{$\ast$}{*}}} () const
+\begin{DoxyCompactList}\small\item\em Dereferences the iterator to get a copy of the element. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1iterator_ab8e83d148927dc255f9c65a0aa2e232e}\label{classoriginal_1_1iterator_ab8e83d148927dc255f9c65a0aa2e232e} 
 void {\bfseries operator++} () const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a7b13ab6ba5870d4e433d592caa67881e}\label{classoriginal_1_1iterator_a7b13ab6ba5870d4e433d592caa67881e} 
-void {\bfseries operator++} (int) const
-\item 
+\begin{DoxyCompactList}\small\item\em Moves the iterator forward by one position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1iterator_a0a02ed1fafce72df8ac33eec8c98c86b}{operator++}} (int postfix) const
+\begin{DoxyCompactList}\small\item\em Moves the iterator forward by one position (postfix). \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1iterator_a3e77bc8790a10d81a681ef05d0e88aee}\label{classoriginal_1_1iterator_a3e77bc8790a10d81a681ef05d0e88aee} 
 void {\bfseries operator-\/-\/} () const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a05d07a1e1364a2824d2d85cb98cf34b5}\label{classoriginal_1_1iterator_a05d07a1e1364a2824d2d85cb98cf34b5} 
-void {\bfseries operator-\/-\/} (int) const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a53465d4c0931b1079165b1c35e276a0e}\label{classoriginal_1_1iterator_a53465d4c0931b1079165b1c35e276a0e} 
-virtual void {\bfseries operator+=} (int64\+\_\+t steps) const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a0c7c1d9fac42134367f926a364174598}\label{classoriginal_1_1iterator_a0c7c1d9fac42134367f926a364174598} 
-virtual void {\bfseries operator-\/=} (int64\+\_\+t steps) const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a81fd49b0210bf349d92b210859c4eee8}\label{classoriginal_1_1iterator_a81fd49b0210bf349d92b210859c4eee8} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a5fa0d7ac7397e0c988eacef3322cad8b}\label{classoriginal_1_1iterator_a5fa0d7ac7397e0c988eacef3322cad8b} 
-bool {\bfseries operator!=} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a05bb6de3ffb335aeeeb7792466e95a62}\label{classoriginal_1_1iterator_a05bb6de3ffb335aeeeb7792466e95a62} 
-virtual int64\+\_\+t {\bfseries operator-\/} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const =0
-\item 
+\begin{DoxyCompactList}\small\item\em Moves the iterator backward by one position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1iterator_a36146ec6350b582893921ce93c7924ad}{operator-\/-\/}} (int postfix) const
+\begin{DoxyCompactList}\small\item\em Moves the iterator backward by one position (postfix). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator_a53465d4c0931b1079165b1c35e276a0e}{operator+=}} (int64\+\_\+t steps) const =0
+\begin{DoxyCompactList}\small\item\em Adds a number of steps to the current position of iterator. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator_a0c7c1d9fac42134367f926a364174598}{operator-\/=}} (int64\+\_\+t steps) const =0
+\begin{DoxyCompactList}\small\item\em Subtracts a number of steps from the current position of iterator. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1iterator_a95604290841a1dbe6c15dfb1f15a67a7}{compare\+To}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const override
+\begin{DoxyCompactList}\small\item\em Compares two iterators to determine their relative positions. \end{DoxyCompactList}\item 
+virtual int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1iterator_a05bb6de3ffb335aeeeb7792466e95a62}{operator-\/}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const =0
+\begin{DoxyCompactList}\small\item\em Returns the distance between this iterator and another iterator. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}} () const override=0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a462d4431f9aa9abe581e974e997164cc}\label{classoriginal_1_1iterator_a462d4431f9aa9abe581e974e997164cc} 
-{\bfseries operator bool} () const
-\item 
-\Hypertarget{classoriginal_1_1iterator_ab47f344cc4739a4961dbc596bd7ee0cc}\label{classoriginal_1_1iterator_ab47f344cc4739a4961dbc596bd7ee0cc} 
-virtual bool {\bfseries has\+Next} () const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a116d12b73ab2d049b61156b612f2d412}\label{classoriginal_1_1iterator_a116d12b73ab2d049b61156b612f2d412} 
-virtual bool {\bfseries has\+Prev} () const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a65baa49879bb4b29d0201d358874121d}\label{classoriginal_1_1iterator_a65baa49879bb4b29d0201d358874121d} 
-virtual bool {\bfseries at\+Prev} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a5ec53e1b4c7c0204a111c17e875eecae}\label{classoriginal_1_1iterator_a5ec53e1b4c7c0204a111c17e875eecae} 
-virtual bool {\bfseries at\+Next} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a13183cb9ff4406bcdfdec0707e5e4ebf}\label{classoriginal_1_1iterator_a13183cb9ff4406bcdfdec0707e5e4ebf} 
-bool {\bfseries at\+Prev} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
-\item 
-\Hypertarget{classoriginal_1_1iterator_ae74990b588d6825b7f9567b6b173aa0f}\label{classoriginal_1_1iterator_ae74990b588d6825b7f9567b6b173aa0f} 
-bool {\bfseries at\+Next} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a0229bb1ce4ce588da14acca494abd153}\label{classoriginal_1_1iterator_a0229bb1ce4ce588da14acca494abd153} 
-virtual void {\bfseries next} () const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a9aa1c7c6134cfaddbe0ebcd356426ea4}\label{classoriginal_1_1iterator_a9aa1c7c6134cfaddbe0ebcd356426ea4} 
-virtual void {\bfseries prev} () const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_aee694bbe04f98f29d8cef46cf1a4a131}\label{classoriginal_1_1iterator_aee694bbe04f98f29d8cef46cf1a4a131} 
-virtual \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Next} () const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a526892095639aa4ece2bca82442f9eaa}\label{classoriginal_1_1iterator_a526892095639aa4ece2bca82442f9eaa} 
-virtual \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Prev} () const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a813e40c0ac1f69dab383a74e0dbf36d9}\label{classoriginal_1_1iterator_a813e40c0ac1f69dab383a74e0dbf36d9} 
-virtual TYPE \& {\bfseries get} ()=0
-\item 
-\Hypertarget{classoriginal_1_1iterator_ae21ae10d4024ddaa8fae45e1d79b14b3}\label{classoriginal_1_1iterator_ae21ae10d4024ddaa8fae45e1d79b14b3} 
-virtual TYPE {\bfseries get} () const =0
-\item 
-\Hypertarget{classoriginal_1_1iterator_aeecf969ca31e4c008ce47b029ba9b363}\label{classoriginal_1_1iterator_aeecf969ca31e4c008ce47b029ba9b363} 
-virtual TYPE {\bfseries get\+Elem} () const
-\item 
-\Hypertarget{classoriginal_1_1iterator_a4ca097831179d22512cbae55959e69cb}\label{classoriginal_1_1iterator_a4ca097831179d22512cbae55959e69cb} 
-virtual void {\bfseries set} (const TYPE \&data)=0
-\item 
-\Hypertarget{classoriginal_1_1iterator_a2765375f6ad5656e2b0543ef27b31e43}\label{classoriginal_1_1iterator_a2765375f6ad5656e2b0543ef27b31e43} 
-bool {\bfseries equal} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const
-\item 
-\Hypertarget{classoriginal_1_1iterator_abe1ce8e86f3b98c54e7a141616652dba}\label{classoriginal_1_1iterator_abe1ce8e86f3b98c54e7a141616652dba} 
-bool {\bfseries equal} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
-\item 
-\Hypertarget{classoriginal_1_1iterator_aa0bee5e665374006ce760fd8b7cbae6f}\label{classoriginal_1_1iterator_aa0bee5e665374006ce760fd8b7cbae6f} 
-virtual bool {\bfseries is\+Valid} () const =0
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a clone of the iterator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1iterator_a462d4431f9aa9abe581e974e997164cc}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the iterator is valid (i.\+e., points to a valid element). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator_ab47f344cc4739a4961dbc596bd7ee0cc}{has\+Next}} () const =0
+\begin{DoxyCompactList}\small\item\em Checks if there is a next element. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator_a116d12b73ab2d049b61156b612f2d412}{has\+Prev}} () const =0
+\begin{DoxyCompactList}\small\item\em Checks if there is a previous element. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator_a65baa49879bb4b29d0201d358874121d}{at\+Prev}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const =0
+\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the previous element. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator_a5ec53e1b4c7c0204a111c17e875eecae}{at\+Next}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const =0
+\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the next element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1iterator_a13183cb9ff4406bcdfdec0707e5e4ebf}{at\+Prev}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the previous element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1iterator_ae74990b588d6825b7f9567b6b173aa0f}{at\+Next}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if this iterator is positioned at the next element. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator_a0229bb1ce4ce588da14acca494abd153}{next}} () const =0
+\begin{DoxyCompactList}\small\item\em Moves the iterator to the next element. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator_a9aa1c7c6134cfaddbe0ebcd356426ea4}{prev}} () const =0
+\begin{DoxyCompactList}\small\item\em Moves the iterator to the previous element. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1iterator_aee694bbe04f98f29d8cef46cf1a4a131}{get\+Next}} () const
+\begin{DoxyCompactList}\small\item\em Returns a new iterator pointing to the next element. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1iterator_a526892095639aa4ece2bca82442f9eaa}{get\+Prev}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns a new iterator pointing to the previous element. \end{DoxyCompactList}\item 
+virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1iterator_a813e40c0ac1f69dab383a74e0dbf36d9}{get}} ()=0
+\begin{DoxyCompactList}\small\item\em Gets the element pointed to by the iterator. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1iterator_ae21ae10d4024ddaa8fae45e1d79b14b3}{get}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets a copy of the element pointed to by the iterator. \end{DoxyCompactList}\item 
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1iterator_aeecf969ca31e4c008ce47b029ba9b363}{get\+Elem}} () const
+\begin{DoxyCompactList}\small\item\em Returns a copy of the element. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator_a4ca097831179d22512cbae55959e69cb}{set}} (const TYPE \&data)=0
+\begin{DoxyCompactList}\small\item\em Sets the element pointed to by the iterator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1iterator_a2765375f6ad5656e2b0543ef27b31e43}{equal}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const
+\begin{DoxyCompactList}\small\item\em Checks if two iterators are equal. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1iterator_abe1ce8e86f3b98c54e7a141616652dba}{equal}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if two iterators are equal. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator_aa0bee5e665374006ce760fd8b7cbae6f}{is\+Valid}} () const =0
+\begin{DoxyCompactList}\small\item\em Checks if the iterator is valid. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1iterator_a533f6b5736d2e99c9115024c5846225a}{class\+Name}} () const override
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the class name of the iterator. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1iterator_a45bd687bfc25784c8d6b61425c066b4d}{to\+String}} (bool enter) const override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns a string representation of the iterator. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1iterator_a23e40571a0b0571ce5e1b7ce30d43d1a}\label{classoriginal_1_1iterator_a23e40571a0b0571ce5e1b7ce30d43d1a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}iterator} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup of derived objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries operator std\+::string} () const
+\mbox{\hyperlink{classoriginal_1_1printable_a25115aca8a3414062cac9d6027c9c525}{operator std\+::string}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion to std\+::string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1printable_ae90d2e1d35c97ccf92c283f1a7158da8}{operator const char \texorpdfstring{$\ast$}{*}}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion to C-\/style string. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{to\+CString}} (bool enter) const
+\begin{DoxyCompactList}\small\item\em Direct C-\/string access with formatting control. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
 \item 
-{\bfseries operator const char \texorpdfstring{$\ast$}{*}} () const
+{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
 \item 
-const char \texorpdfstring{$\ast$}{*} {\bfseries to\+CString} (bool enter) const
+{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
 \item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
+{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1cloneable}{original\+::cloneable}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoriginal_1_1cloneable_a773928dbbe382c8b92f958960abbb73a}{\texorpdfstring{$\sim$}{\string~}cloneable}} () override=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for cloneable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1base_cloneable}{original\+::base\+Cloneable$<$ cloneable $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classoriginal_1_1base_cloneable_a2bb3cf7e20bb9f7bb20e2a2fc351da8b}{\texorpdfstring{$\sim$}{\string~}base\+Cloneable}} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for \doxylink{classoriginal_1_1base_cloneable}{base\+Cloneable}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1comparable}{original\+::comparable$<$ iterator$<$ TYPE $>$ $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a84244853f46e0ba1243e5707bfbf73bb}{operator==}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is equal to another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a1169a9b25fffa972dd5fa367ae7902fa}{operator!=}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is not equal to another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_ad83119b5b12ee88ecaa4036d4eb9739c}{operator$<$}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is less than another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_ad4ab8c29bc8416a3068aac138a821b95}{operator$>$}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is greater than another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a0888fb1bca62c77d10756a177f8e678e}{operator$<$=}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is less than or equal to another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a28e05e7b5ee65cd29f3bb6be336de2c2}{operator$>$=}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is greater than or equal to another. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup of derived objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1iterator_a098c98d026a535a28cf65514fb1e209b}\label{classoriginal_1_1iterator_a098c98d026a535a28cf65514fb1e209b} 
-virtual bool {\bfseries equal\+Ptr} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const =0
-\end{DoxyCompactItemize}
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator_a098c98d026a535a28cf65514fb1e209b}{equal\+Ptr}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*}other) const =0
+\begin{DoxyCompactList}\small\item\em Checks if two iterators point to the same object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1cloneable}{original\+::cloneable}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoriginal_1_1cloneable_ab979c76e6fb5cd0aeb924e7afb1d3aa2}{cloneable}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for cloneable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1base_cloneable}{original\+::base\+Cloneable$<$ cloneable $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoriginal_1_1base_cloneable_a60b88e43115c148ff4e52a53941dc316}{base\+Cloneable}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classoriginal_1_1base_cloneable}{base\+Cloneable}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1iterator_a42f324d510f8b98a8a1708dffd1b3d23}\label{classoriginal_1_1iterator_a42f324d510f8b98a8a1708dffd1b3d23} 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*} {\bfseries operator+} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&it, int64\+\_\+t steps)
-\item 
-\Hypertarget{classoriginal_1_1iterator_aae43bef9169991ee75df8d794665e00e}\label{classoriginal_1_1iterator_aae43bef9169991ee75df8d794665e00e} 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*} {\bfseries operator-\/} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&it, int64\+\_\+t steps)
-\end{DoxyCompactItemize}
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1iterator_a42f324d510f8b98a8a1708dffd1b3d23}{operator+}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&it, int64\+\_\+t steps)
+\begin{DoxyCompactList}\small\item\em Adds a number of steps to the iterator\textquotesingle{}s current position and returns a new iterator. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1iterator_aae43bef9169991ee75df8d794665e00e}{operator-\/}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&it, int64\+\_\+t steps)
+\begin{DoxyCompactList}\small\item\em Subtracts a number of steps from the iterator\textquotesingle{}s current position and returns a new iterator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string {\bfseries format\+String} (const TYPE \&t)
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\static const char \texorpdfstring{$\ast$}{*} {\bfseries format\+CString} (const TYPE \&t)
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string {\bfseries format\+Enum} (const TYPE \&t)
-\item 
+{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Universal value-\/to-\/string conversion. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{format\+String}} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
+\begin{DoxyCompactList}\small\item\em Pointer-\/specific formatting. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE$>$ }\\static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{format\+CString}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em C-\/string cache for temporary usage. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{format\+Enum}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Enum formatting utility. \end{DoxyCompactList}\item 
 template$<$$>$ auto {\bfseries format\+String} (const char \&t) -\/$>$ std\+::string
 \item 
 template$<$$>$ auto {\bfseries format\+String} (const bool \&t) -\/$>$ std\+::string
@@ -170,42 +183,644 @@ template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::iterator$<$ TYPE $>$}
+Base iterator interface that supports common operations for iteration. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & The type of elements the iterator traverses.\\
+\hline
+\end{DoxyTemplParams}
+This class provides common operations for iterators, including dereferencing, moving forward and backward, and comparing iterators. It also supports cloning, and printing elements.
+
+Derived classes are expected to provide specific implementations for methods like {\ttfamily \doxylink{classoriginal_1_1iterator_a0229bb1ce4ce588da14acca494abd153}{next()}}, {\ttfamily \doxylink{classoriginal_1_1iterator_a9aa1c7c6134cfaddbe0ebcd356426ea4}{prev()}}, {\ttfamily \doxylink{classoriginal_1_1iterator_a813e40c0ac1f69dab383a74e0dbf36d9}{get()}}, and {\ttfamily \doxylink{classoriginal_1_1iterator_a4ca097831179d22512cbae55959e69cb}{set()}}. These implementations define the behavior of the iterator in a particular container.
+
+Implements comparison based on a custom {\ttfamily compare\+To} method which compares iterators by the distance between them. 
+
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1iterator_ae74990b588d6825b7f9567b6b173aa0f}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!atNext@{atNext}}
+\index{atNext@{atNext}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{atNext()}{atNext()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_ae74990b588d6825b7f9567b6b173aa0f} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::at\+Next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if this iterator is positioned at the next element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this iterator is at the next position of the other, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_a5ec53e1b4c7c0204a111c17e875eecae}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!atNext@{atNext}}
+\index{atNext@{atNext}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{atNext()}{atNext()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a5ec53e1b4c7c0204a111c17e875eecae} 
+template$<$typename TYPE$>$ \\
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::at\+Next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if this iterator is positioned at the next element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this iterator is at the next position of the other, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1array_1_1_iterator_abafb50c5b5505d92c29aa97fed6e24fc}{original\+::array$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a3e88c92cfff52e7794198d9eafedb0d8}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a6fbfeee995084a44a5a31adfa0c9f7f6}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a5e52931fade7f6c1f020b08624c83a3e}{original\+::chain$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1forward_chain_1_1_iterator_a896cbac6d2a298c905b7f0e7fb5c8ac8}{original\+::forward\+Chain$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a2277ae5caa296094279d4cf809e3dbf1}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aaecc66e3925ea8c2b942613e04665159}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1step_iterator_aa76772042345b62a93c8dc956cebe2f3}{original\+::step\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator_ac83b7433908ce3f64794fff7be3792df}{original\+::vector$<$ TYPE $>$\+::\+Iterator}}.
+
+\Hypertarget{classoriginal_1_1iterator_a13183cb9ff4406bcdfdec0707e5e4ebf}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!atPrev@{atPrev}}
+\index{atPrev@{atPrev}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{atPrev()}{atPrev()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a13183cb9ff4406bcdfdec0707e5e4ebf} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::at\+Prev (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if this iterator is positioned at the previous element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this iterator is at the previous position of the other, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_a65baa49879bb4b29d0201d358874121d}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!atPrev@{atPrev}}
+\index{atPrev@{atPrev}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{atPrev()}{atPrev()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a65baa49879bb4b29d0201d358874121d} 
+template$<$typename TYPE$>$ \\
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::at\+Prev (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks if this iterator is positioned at the previous element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this iterator is at the previous position of the other, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1array_1_1_iterator_afae2fa50fdabc054c076b2bccb3e0671}{original\+::array$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a3daa065895af4d239ccea6da3228e3e7}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_ae94dd0565c6cbf4f36c6900a886552dc}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_af27a3496b236835a82ae8cd7b50ae719}{original\+::chain$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1forward_chain_1_1_iterator_a15155bc7783e7d01e9c370bd7f8d836c}{original\+::forward\+Chain$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_ab4e5029c2655afe63188fea7304792a0}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a863ed371f7d5b7a5f8626ec9f92ba40b}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1step_iterator_af47d21b1a32f0e02531fb663bb9881fb}{original\+::step\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator_a3c29ace0f0fb1b14bd5dc82236ea75ae}{original\+::vector$<$ TYPE $>$\+::\+Iterator}}.
+
 \Hypertarget{classoriginal_1_1iterator_a533f6b5736d2e99c9115024c5846225a}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!className@{className}}
 \index{className@{className}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{className()}{className()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1iterator_a533f6b5736d2e99c9115024c5846225a} 
-template$<$typename TYPE $>$ \\
+template$<$typename TYPE$>$ \\
 auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::class\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Reimplemented from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}.
+Returns the class name of the iterator. 
+
+\begin{DoxyReturn}{Returns}
+A string representing the class name. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classoriginal_1_1printable_a964ede666275c3d0884df1c8a6e9f720}{original\+::printable}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classoriginal_1_1random_access_iterator_af47f6230496e34c7eb7f426b8c83f975}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a6fa4efa340b94b1dcfb1a3f315c54eb0}{original\+::step\+Iterator$<$ TYPE $>$}}.
 
 \Hypertarget{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!clone@{clone}}
 \index{clone@{clone}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{clone()}{clone()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9} 
-template$<$typename TYPE $>$ \\
+template$<$typename TYPE$>$ \\
 \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
 
 
 
-Reimplemented from \mbox{\hyperlink{classoriginal_1_1base_cloneable}{original\+::base\+Cloneable$<$ cloneable $>$}}.
+Creates a clone of the iterator. 
+
+\begin{DoxyReturn}{Returns}
+A new copy of the iterator. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classoriginal_1_1base_cloneable_abe3520c8dc2f0b77219b0ec620412b13}{original\+::base\+Cloneable$<$ cloneable $>$}}.
+
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1array_1_1_iterator_acf01f51d4a7da2073b2a4662837a499f}{original\+::array$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1base_iterator_a054415cd5c2f9b0648b3530250cab383}{original\+::base\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1base_iterator_a054415cd5c2f9b0648b3530250cab383}{original\+::base\+Iterator$<$ bool $>$}}, \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_aba7612848e4a36ba68f58d5b19b3c81e}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a2d54e160dcee79570085e9b0c665c03d}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_ad1557102f5ee624e3e3226fa2dc4db2b}{original\+::chain$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1double_direction_iterator_a2383e4b5fa9ee5ecc0b83118a4c2faea}{original\+::double\+Direction\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1forward_chain_1_1_iterator_a91c27ebcc9b5a33d88f9ca7a676055c2}{original\+::forward\+Chain$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a3180a5d1f11acb2c7ffa2dca62916648}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a0bf6956be1d0216c432cd86b220c1c28}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1single_direction_iterator_a274fd315bab928d5d5bb80cd93473c43}{original\+::single\+Direction\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1step_iterator_a34c74f9915801bdb6bb022317bb7a581}{original\+::step\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1vector_1_1_iterator_a74218f1f2e675f9d1fb6d2ee96c1986c}{original\+::vector$<$ TYPE $>$\+::\+Iterator}}.
+
+\Hypertarget{classoriginal_1_1iterator_a95604290841a1dbe6c15dfb1f15a67a7}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a95604290841a1dbe6c15dfb1f15a67a7} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::compare\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Compares two iterators to determine their relative positions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A negative value if this iterator is before the other, zero if equal, and a positive value if after. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1comparable_ab683f10d33ef5d307d717240af8a385c}{original\+::comparable$<$ iterator$<$ TYPE $>$ $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_abe1ce8e86f3b98c54e7a141616652dba}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!equal@{equal}}
+\index{equal@{equal}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{equal()}{equal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_abe1ce8e86f3b98c54e7a141616652dba} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if two iterators are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the iterators are equal, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_a2765375f6ad5656e2b0543ef27b31e43}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!equal@{equal}}
+\index{equal@{equal}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{equal()}{equal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a2765375f6ad5656e2b0543ef27b31e43} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Checks if two iterators are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the iterators are equal, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_a098c98d026a535a28cf65514fb1e209b}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!equalPtr@{equalPtr}}
+\index{equalPtr@{equalPtr}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{equalPtr()}{equalPtr()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a098c98d026a535a28cf65514fb1e209b} 
+template$<$typename TYPE$>$ \\
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::equal\+Ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \texorpdfstring{$\ast$}{*}}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Checks if two iterators point to the same object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the iterators point to the same object, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a93f2bf296872b133f8e89ea4ac6ac2c0}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a23002c898ad6d0b34b13303c0d19f7b8}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a5d0e1c67b6f6f349765d2b520d864198}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_ae21ae10d4024ddaa8fae45e1d79b14b3}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!get@{get}}
+\index{get@{get}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_ae21ae10d4024ddaa8fae45e1d79b14b3} 
+template$<$typename TYPE$>$ \\
+virtual TYPE \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets a copy of the element pointed to by the iterator. 
+
+\begin{DoxyReturn}{Returns}
+A copy of the element. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_ad669f04b80c0319ff2baa0e04d9a94ab}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a5decf597d985fe9f4a660876bb056df7}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_ae231301bc8658b8010a050db8b391648}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a7e85ecf254414a5321fcdf8499eae2c3}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_ae042dd0cf34f0b64785d88bfb0086375}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a813e40c0ac1f69dab383a74e0dbf36d9}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!get@{get}}
+\index{get@{get}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a813e40c0ac1f69dab383a74e0dbf36d9} 
+template$<$typename TYPE$>$ \\
+virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Gets the element pointed to by the iterator. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the element. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a6404c243f10ec6783012cacb306c0770}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a5dbbc2ea8de840e869b27c14a6e989cf}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a1871539012c808b85aa962c1b87901ea}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_acb971011bf01b412fe0e1a9acc56db28}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a71d613af72e961651ebb0656cae523ee}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_aeecf969ca31e4c008ce47b029ba9b363}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!getElem@{getElem}}
+\index{getElem@{getElem}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{getElem()}{getElem()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_aeecf969ca31e4c008ce47b029ba9b363} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::get\+Elem (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns a copy of the element. 
+
+\begin{DoxyReturn}{Returns}
+A copy of the element. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_aee694bbe04f98f29d8cef46cf1a4a131}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!getNext@{getNext}}
+\index{getNext@{getNext}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{getNext()}{getNext()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_aee694bbe04f98f29d8cef46cf1a4a131} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::get\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns a new iterator pointing to the next element. 
+
+\begin{DoxyReturn}{Returns}
+A new iterator pointing to the next element. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_af5ba6245dc5b9bfcfd26b4dac323855f}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a58a26d885ce1cc733bf05a1d08b9b117}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a919f0c7359ee83653327571a300e6fdd}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aa9cff154c3b75e2316ee118e86cf7f7e}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_ae88b6682d19abe342a0eb64dcf6767a5}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a526892095639aa4ece2bca82442f9eaa}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!getPrev@{getPrev}}
+\index{getPrev@{getPrev}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{getPrev()}{getPrev()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a526892095639aa4ece2bca82442f9eaa} 
+template$<$typename TYPE$>$ \\
+virtual \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::get\+Prev (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns a new iterator pointing to the previous element. 
+
+\begin{DoxyReturn}{Returns}
+A new iterator pointing to the previous element. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a6867623ca7b727b93756aeb7f2099fcd}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_ab2262ad8f48da71078007c7fd2b64010}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a3b77220e74c10213e9c48c6a84ba0ea4}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a90cb9780be0b1427ff6755c423573544}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a0e35b2af2df817297aab12833f480188}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_ab47f344cc4739a4961dbc596bd7ee0cc}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_ab47f344cc4739a4961dbc596bd7ee0cc} 
+template$<$typename TYPE$>$ \\
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::has\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Checks if there is a next element. 
+
+\begin{DoxyReturn}{Returns}
+True if there is a next element, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a29fa817b37026cb69156af07cc9c47e0}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a4565feb7c9721111a4c12d86bd974b5a}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_ac9270676fcb9ef390b2a53620ed22871}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a8c1fe7cd2a3ababdce814f24d83c493c}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_ab605b00b52d30806256cbe3ce6d3bb66}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a116d12b73ab2d049b61156b612f2d412}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!hasPrev@{hasPrev}}
+\index{hasPrev@{hasPrev}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{hasPrev()}{hasPrev()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a116d12b73ab2d049b61156b612f2d412} 
+template$<$typename TYPE$>$ \\
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::has\+Prev (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Checks if there is a previous element. 
+
+\begin{DoxyReturn}{Returns}
+True if there is a previous element, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_ab486633e2f2137bc0238ea81ada84612}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_ab30d48b6f550623a87f71387d2171755}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1double_direction_iterator_a7f4af58a043408005ef847e31ce50da8}{original\+::double\+Direction\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a6878d26b06e7f1a44c8793b4c4f29ae0}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aa0de92674eae2f2864065b995ac36cc0}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a52ee8b8afce8d37d5db12c5cd51048f5}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_aa0bee5e665374006ce760fd8b7cbae6f}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!isValid@{isValid}}
+\index{isValid@{isValid}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_aa0bee5e665374006ce760fd8b7cbae6f} 
+template$<$typename TYPE$>$ \\
+virtual bool \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::is\+Valid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
+
+
+
+Checks if the iterator is valid. 
+
+\begin{DoxyReturn}{Returns}
+True if the iterator is valid, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a22ca49d22d7d14a3af0b03d65f6df9a7}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a62e87442d9a663f1847f00a4ccfb0c25}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_aafb13fdc6f8b1200316796f129b51d51}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a7f28d252d0ca834bfaa17179d80c9ed9}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_adb52e5702ee1bc2589eef25e822f3f50}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a0229bb1ce4ce588da14acca494abd153}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!next@{next}}
+\index{next@{next}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a0229bb1ce4ce588da14acca494abd153} 
+template$<$typename TYPE$>$ \\
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Moves the iterator to the next element. 
+
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a74ac34da7e48525a1f3166d87c4f7888}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_aea468660b035a9b5f5f6fc91054fd6a6}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a962b3db7ea559fa8cfc2ed316cc92958}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_aa94be04858824e8b472d5925574f4624}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a6f0b06b794d805cb8ac68a4f884cdf23}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a462d4431f9aa9abe581e974e997164cc}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a462d4431f9aa9abe581e974e997164cc} 
+template$<$typename TYPE$>$ \\
+\mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator bool (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Checks if the iterator is valid (i.\+e., points to a valid element). 
+
+\begin{DoxyReturn}{Returns}
+True if the iterator is valid, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_a91e4c8dbedaa948f83b75a146480f338}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a91e4c8dbedaa948f83b75a146480f338} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Dereferences the iterator to get the element. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the element pointed to by the iterator. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_a992637e84368b0d7e247a87a25dcfd8a}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a992637e84368b0d7e247a87a25dcfd8a} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Dereferences the iterator to get a copy of the element. 
+
+\begin{DoxyReturn}{Returns}
+A copy of the element pointed to by the iterator. 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1iterator_a0a02ed1fafce72df8ac33eec8c98c86b}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a0a02ed1fafce72df8ac33eec8c98c86b} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{postfix}{}\end{DoxyParamCaption}) const}
+
+
+
+Moves the iterator forward by one position (postfix). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em postfix} & Unused parameter for postfix syntax. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1iterator_a53465d4c0931b1079165b1c35e276a0e}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a53465d4c0931b1079165b1c35e276a0e} 
+template$<$typename TYPE$>$ \\
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator+= (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{steps}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adds a number of steps to the current position of iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em steps} & The number of steps to move forward. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a2aa9ff32c3f77765502b9ccc9c35b2e8}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a032c300ee9c4aaf0aa47ef84ad88d956}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_ac7c9f1226295d179f73fbb0bbeaebf8c}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a659e2542f43635775bf5cba2a453d281}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a35fa5f1f8688971b4102fbea2a1eda31}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a05bb6de3ffb335aeeeb7792466e95a62}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a05bb6de3ffb335aeeeb7792466e95a62} 
+template$<$typename TYPE$>$ \\
+virtual int64\+\_\+t \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns the distance between this iterator and another iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The iterator to compare against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of steps between the two iterators. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a502d4b083b0f903e463c2887b9ddf7f5}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_aa50a36c0ec026c5e99bf054c43f6e50a}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a5856e59f22ccd0c4546f8cb09b672970}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a6cc66c9f36731ad27c508a0d15135f13}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a67329058ad4519df8f10f7156eb407a4}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a36146ec6350b582893921ce93c7924ad}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a36146ec6350b582893921ce93c7924ad} 
+template$<$typename TYPE$>$ \\
+auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{int}]{postfix}{}\end{DoxyParamCaption}) const}
+
+
+
+Moves the iterator backward by one position (postfix). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em postfix} & Unused parameter for postfix syntax. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1iterator_a0c7c1d9fac42134367f926a364174598}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a0c7c1d9fac42134367f926a364174598} 
+template$<$typename TYPE$>$ \\
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{steps}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Subtracts a number of steps from the current position of iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em steps} & The number of steps to move backward. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_aeafb70f717f291b4c62481dcb8dc9fb3}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a7a29aa1d47a2c194cf288e231f92dccf}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a7ca2003b3804016da42797c94ce5aec6}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a24ddb829f3c562049b03457ddf514050}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_ac1d99dd58fd9214ba1d298de07662927}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a9aa1c7c6134cfaddbe0ebcd356426ea4}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!prev@{prev}}
+\index{prev@{prev}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{prev()}{prev()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a9aa1c7c6134cfaddbe0ebcd356426ea4} 
+template$<$typename TYPE$>$ \\
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::prev (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Moves the iterator to the previous element. 
+
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_af34fb2d64f18af2d6e23f819e614bd0f}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_a039b70fcaf377a204af46a3cbf5f52da}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1double_direction_iterator_ad60912351f0ad305e37a7902aa37d78f}{original\+::double\+Direction\+Iterator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a7047c56b1d2b94f71a055b42a6e874e1}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_a51246c7622af53c5a34c8f67f0cecf02}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a7d52e13bc2b2f79b8164e8b0cb5f4efa}{original\+::step\+Iterator$<$ TYPE $>$}}.
+
+\Hypertarget{classoriginal_1_1iterator_a4ca097831179d22512cbae55959e69cb}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!set@{set}}
+\index{set@{set}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a4ca097831179d22512cbae55959e69cb} 
+template$<$typename TYPE$>$ \\
+virtual void \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::set (\begin{DoxyParamCaption}\item[{const TYPE \&}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets the element pointed to by the iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The new value to set. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1bit_set_1_1_iterator_a7a41d805d2f5fecfa459b48411f79759}{original\+::bit\+Set\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1blocks_list_1_1_iterator_ae5833394d34950dc881db3fe9f314610}{original\+::blocks\+List$<$ TYPE $>$\+::\+Iterator}}, \mbox{\hyperlink{classoriginal_1_1iterable_1_1iter_adaptor_a51779d1290a5c0b668c8ccaef9fc363a}{original\+::iterable$<$ TYPE $>$\+::iter\+Adaptor}}, \mbox{\hyperlink{classoriginal_1_1random_access_iterator_adcbd7ae0af63b9c8ab56c4422c8ab2ac}{original\+::random\+Access\+Iterator$<$ TYPE $>$}}, and \mbox{\hyperlink{classoriginal_1_1step_iterator_a545756198391c96f8636ed497b99c25e}{original\+::step\+Iterator$<$ TYPE $>$}}.
 
 \Hypertarget{classoriginal_1_1iterator_a45bd687bfc25784c8d6b61425c066b4d}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!toString@{toString}}
 \index{toString@{toString}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{toString()}{toString()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1iterator_a45bd687bfc25784c8d6b61425c066b4d} 
-template$<$typename TYPE $>$ \\
+template$<$typename TYPE$>$ \\
 auto \mbox{\hyperlink{classoriginal_1_1iterator}{original\+::iterator}}$<$ TYPE $>$\+::to\+String (\begin{DoxyParamCaption}\item[{bool}]{enter}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Reimplemented from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}.
+Returns a string representation of the iterator. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em enter} & If true, adds a newline after the string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string representing the iterator. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{original\+::printable}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classoriginal_1_1iterator_a42f324d510f8b98a8a1708dffd1b3d23}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_a42f324d510f8b98a8a1708dffd1b3d23} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&}]{it}{, }\item[{int64\+\_\+t}]{steps}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Adds a number of steps to the iterator\textquotesingle{}s current position and returns a new iterator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the elements the iterator will traverse. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em it} & The iterator to move. \\
+\hline
+{\em steps} & The number of steps to move forward. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new iterator that is moved forward by the specified steps from the original iterator.
+\end{DoxyReturn}
+This operator does not modify the original iterator, but creates a new one that is advanced by {\ttfamily steps} positions. \Hypertarget{classoriginal_1_1iterator_aae43bef9169991ee75df8d794665e00e}\index{original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!original::iterator$<$ TYPE $>$@{original::iterator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily \label{classoriginal_1_1iterator_aae43bef9169991ee75df8d794665e00e} 
+template$<$typename TYPE$>$ \\
+template$<$typename T$>$ \\
+\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \texorpdfstring{$\ast$}{*} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ T $>$ \&}]{it}{, }\item[{int64\+\_\+t}]{steps}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Subtracts a number of steps from the iterator\textquotesingle{}s current position and returns a new iterator. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the elements the iterator will traverse. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em it} & The iterator to move. \\
+\hline
+{\em steps} & The number of steps to move backward. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new iterator that is moved backward by the specified steps from the original iterator.
+\end{DoxyReturn}
+This operator does not modify the original iterator, but creates a new one that is moved backward by {\ttfamily steps} positions. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/core/iterator.\+h\end{DoxyCompactItemize}
+src/core/\mbox{\hyperlink{iterator_8h}{iterator.\+h}}\end{DoxyCompactItemize}

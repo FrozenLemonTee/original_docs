@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['serial_0',['serial',['../classoriginal_1_1serial.html',1,'original']]],
-  ['serial_3c_20bool_20_3e_1',['serial&lt; bool &gt;',['../classoriginal_1_1serial.html',1,'original']]],
-  ['serial_3c_20opts_20_3e_2',['serial&lt; opts &gt;',['../classoriginal_1_1serial.html',1,'original']]],
-  ['serial_3c_20underlying_5ftype_20_3e_3',['serial&lt; underlying_type &gt;',['../classoriginal_1_1serial.html',1,'original']]],
-  ['singledirectioniterator_4',['singleDirectionIterator',['../classoriginal_1_1single_direction_iterator.html',1,'original']]],
-  ['stack_5',['stack',['../classoriginal_1_1stack.html',1,'original']]],
-  ['stepiterator_6',['stepIterator',['../classoriginal_1_1step_iterator.html',1,'original']]]
+  ['queue_0',['queue',['../classoriginal_1_1queue.html',1,'original::queue&lt; TYPE, SERIAL &gt;'],['../classoriginal_1_1queue.html#a0f0fd4f183c656aa7169ce337705ef1e',1,'original::queue::queue(const SERIAL&lt; TYPE &gt; &amp;serial=SERIAL&lt; TYPE &gt;{})'],['../classoriginal_1_1queue.html#a5d61283a8139b8f5f0b040fba38060e7',1,'original::queue::queue(const std::initializer_list&lt; TYPE &gt; &amp;lst)'],['../classoriginal_1_1queue.html#a7629516fc36740c87c32c97dca498434',1,'original::queue::queue(const queue &amp;other)'],['../classoriginal_1_1queue.html#a5aac343a62ebc78d6889bce34c17bb4f',1,'original::queue::queue(queue &amp;&amp;other) noexcept']]],
+  ['queue_2eh_1',['queue.h',['../queue_8h.html',1,'']]]
 ];

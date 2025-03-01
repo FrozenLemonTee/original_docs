@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wrapper_0',['wrapper',['../classoriginal_1_1wrapper.html',1,'original']]]
+  ['unsupportedmethoderror_0',['unSupportedMethodError',['../classoriginal_1_1un_supported_method_error.html',1,'original']]]
 ];

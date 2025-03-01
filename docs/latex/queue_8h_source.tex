@@ -1,133 +1,105 @@
 \doxysection{queue.\+h}
 \hypertarget{queue_8h_source}{}\label{queue_8h_source}\index{src/core/queue.h@{src/core/queue.h}}
-
+\mbox{\hyperlink{queue_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ QUEUE\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ QUEUE\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}chain.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }original\ \{}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ chain>}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1queue}{queue}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\ \{}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ SERIAL<TYPE>\ serial\_;}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE>\{\});}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst);}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}\&\ other);}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}\&\ other);}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}(\mbox{\hyperlink{classoriginal_1_1queue}{queue}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1queue}{queue}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1queue}{queue}}\&\ other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint32\_t\ size()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ empty()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clear();}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ push(\textcolor{keyword}{const}\ TYPE\&\ e);}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ TYPE\ pop();}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ TYPE\ head()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ TYPE\ tail()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ className()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ toString(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00028\ \ \ \ \ \};}
-\DoxyCodeLine{00029\ \}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::queue}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ serial)\ :\ serial\_\{serial\}\ \{\}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::queue}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\ \&lst)}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ :\ queue(SERIAL<TYPE>(lst))\ \{\}}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::queue}}(\textcolor{keyword}{const}\ queue\&\ other)\ :\ serial\_\{other.serial\_\}\ \{\}}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::operator=}}(\textcolor{keyword}{const}\ queue\&\ other)\ -\/>\ queue\&\ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ serial\_\ =\ other.serial\_;}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{container_adapter_8h}{containerAdapter.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{chain_8h}{chain.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ \mbox{\hyperlink{classoriginal_1_1chain}{chain}}>}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a285786af1e5631a77e3780cbcd92d5a4}{containerAdapter}}<TYPE,\ SERIAL>\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE>\{\});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\ other);}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::operator==}}(\textcolor{keyword}{const}\ queue\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_\ ==\ other.serial\_;}
-\DoxyCodeLine{00051\ \ \ \ \ \}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::queue}}(queue\&\&\ other)\ noexcept\ :\ queue()}
-\DoxyCodeLine{00055\ \ \ \ \ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
-\DoxyCodeLine{00057\ \ \ \ \ \}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::operator=}}(queue\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ queue\&}
-\DoxyCodeLine{00061\ \ \ \ \ \{}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ std::move(other.serial\_);}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ other.serial\_\ =\ SERIAL<TYPE>\{\};}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\ \mbox{\hyperlink{classoriginal_1_1queue_aa322222cdfc69caa96e55ad07c205935}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\ other);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}(\mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\ \mbox{\hyperlink{classoriginal_1_1queue_aa322222cdfc69caa96e55ad07c205935}{operator=}}(\mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::size}}()\ const\ -\/>\ uint32\_t\ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_.size();}
-\DoxyCodeLine{00073\ \ \ \ \ \}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::empty}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_.empty();}
-\DoxyCodeLine{00078\ \ \ \ \ \}}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::clear}}()\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ serial\_.clear();}
-\DoxyCodeLine{00083\ \ \ \ \ \}}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::push}}(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ serial\_.pushEnd(e);}
-\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1queue_a130b1eda18c215f917ea1eced07cda20}{push}}(\textcolor{keyword}{const}\ TYPE\&\ e);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1queue_a8ea095625f19e0594068df0d5fba0152}{pop}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1queue_af502ae822aad3ddb86f5780080e9c96d}{head}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::pop}}()\ -\/>\ TYPE\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_.popBegin();}
-\DoxyCodeLine{00093\ \ \ \ \ \}}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::head}}()\ const\ -\/>\ TYPE\ \{}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_.getBegin();}
-\DoxyCodeLine{00098\ \ \ \ \ \}}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::tail}}()\ const\ -\/>\ TYPE\ \{}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serial\_.getEnd();}
-\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1queue_abc3c81dd4970dca50345c35b04778b2c}{tail}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1queue_aba244d7c47dc9f88490591bf9818a9fb}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00102\ \ \ \ \ \};}
+\DoxyCodeLine{00103\ \}}
 \DoxyCodeLine{00104\ }
 \DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
-\DoxyCodeLine{00106\ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::className}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}queue"{}};}
-\DoxyCodeLine{00108\ \ \ \ \ \}}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue}{original::queue<TYPE,\ SERIAL>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string}
-\DoxyCodeLine{00112\ \ \ \ \ \{}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ ss\ <<\ this-\/>className()\ <<\ \textcolor{stringliteral}{"{}("{}};}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ e\ :\ this-\/>serial\_)}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!first)\ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ printable::formatString(e);}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00125\ \ \ \ \ \}}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//QUEUE\_H}}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{original::queue<TYPE,\ SERIAL>::queue}}(\textcolor{keyword}{const}\ SERIAL<TYPE>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}})}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a285786af1e5631a77e3780cbcd92d5a4}{containerAdapter}}<TYPE,\ SERIAL>(\mbox{\hyperlink{classoriginal_1_1serial}{serial}})\ \{\}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{original::queue<TYPE,\ SERIAL>::queue}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\ \&lst)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}(SERIAL<TYPE>(lst))\ \{\}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{original::queue<TYPE,\ SERIAL>::queue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\ other)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a285786af1e5631a77e3780cbcd92d5a4}{containerAdapter}}<TYPE,\ SERIAL>(other.\mbox{\hyperlink{classoriginal_1_1container_adapter_a6d932111580501f8cb7eacf0db2f46f7}{serial\_}})\ \{\}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue_aa322222cdfc69caa96e55ad07c205935}{original::queue<TYPE,\ SERIAL>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6d932111580501f8cb7eacf0db2f46f7}{serial\_}}\ =\ other.serial\_;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{original::queue<TYPE,\ SERIAL>::queue}}(\mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}()}
+\DoxyCodeLine{00126\ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1queue_aa322222cdfc69caa96e55ad07c205935}{operator=}}(std::move(other));}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }SERIAL>}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue_aa322222cdfc69caa96e55ad07c205935}{original::queue<TYPE,\ SERIAL>::operator=}}(\mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1queue_a0f0fd4f183c656aa7169ce337705ef1e}{queue}}\&}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6d932111580501f8cb7eacf0db2f46f7}{serial\_}}\ =\ std::move(other.serial\_);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ other.serial\_\ =\ SERIAL<TYPE>\{\};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue_a130b1eda18c215f917ea1eced07cda20}{original::queue<TYPE,\ SERIAL>::push}}(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6d932111580501f8cb7eacf0db2f46f7}{serial\_}}.pushEnd(e);}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue_a8ea095625f19e0594068df0d5fba0152}{original::queue<TYPE,\ SERIAL>::pop}}()\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6d932111580501f8cb7eacf0db2f46f7}{serial\_}}.popBegin();}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue_af502ae822aad3ddb86f5780080e9c96d}{original::queue<TYPE,\ SERIAL>::head}}()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6d932111580501f8cb7eacf0db2f46f7}{serial\_}}.getBegin();}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1queue_abc3c81dd4970dca50345c35b04778b2c}{original::queue<TYPE,\ SERIAL>::tail}}()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6d932111580501f8cb7eacf0db2f46f7}{serial\_}}.getEnd();}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL>}
+\DoxyCodeLine{00162\ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1queue_aba244d7c47dc9f88490591bf9818a9fb}{original::queue<TYPE,\ SERIAL>::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}queue"{}};}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//QUEUE\_H}}
 
 \end{DoxyCode}
