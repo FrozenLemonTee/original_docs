@@ -15,137 +15,137 @@
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{check}}();}
 \DoxyCodeLine{00039\ \ \ \ \ \};}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1error}{error}}\ :\ \textcolor{keyword}{public}\ std::exception\{\};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ERR,\ const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_extends_of}{ExtendsOf<error,\ ERR>}}}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{staticError}}}
-\DoxyCodeLine{00046\ \ \ \ \ \{}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION);}
-\DoxyCodeLine{00048\ \ \ \ \ \};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Exception\ Classes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1error}{error}}\ :\ \textcolor{keyword}{public}\ std::exception\{\};}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
-\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00059\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00060\ \ \ \ \ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object."{}};}
-\DoxyCodeLine{00062\ \ \ \ \ \}}
-\DoxyCodeLine{00063\ \};}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00070\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1value_error}{valueError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
-\DoxyCodeLine{00071\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00072\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ERR,\ const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_extends_of}{ExtendsOf<error,\ ERR>}}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{staticError}}}
 \DoxyCodeLine{00073\ \ \ \ \ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Wrong\ value\ given."{}};}
-\DoxyCodeLine{00075\ \ \ \ \ \}}
-\DoxyCodeLine{00076\ \};}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00083\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
-\DoxyCodeLine{00084\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00085\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00086\ \ \ \ \ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer."{}};}
-\DoxyCodeLine{00088\ \ \ \ \ \}}
-\DoxyCodeLine{00089\ \};}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00096\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
-\DoxyCodeLine{00097\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00098\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00099\ \ \ \ \ \{}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class."{}};}
-\DoxyCodeLine{00101\ \ \ \ \ \}}
-\DoxyCodeLine{00102\ \};}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00109\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
-\DoxyCodeLine{00110\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00111\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00112\ \ \ \ \ \{}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}No\ such\ element."{}};}
-\DoxyCodeLine{00114\ \ \ \ \ \}}
-\DoxyCodeLine{00115\ \};}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00122\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1callback_signature_error}{callbackSignatureError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
-\DoxyCodeLine{00123\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00124\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00125\ \ \ \ \ \{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch."{}};}
-\DoxyCodeLine{00127\ \ \ \ \ \}}
-\DoxyCodeLine{00128\ \};}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00135\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1callback_return_type_error}{callbackReturnTypeError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
-\DoxyCodeLine{00136\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00137\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
-\DoxyCodeLine{00138\ \ \ \ \ \{}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch."{}};}
-\DoxyCodeLine{00140\ \ \ \ \ \}}
-\DoxyCodeLine{00141\ \};}
-\DoxyCodeLine{00142\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION);}
+\DoxyCodeLine{00075\ \ \ \ \ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Exception\ Classes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
+\DoxyCodeLine{00085\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00086\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00087\ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object."{}};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1value_error}{valueError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
+\DoxyCodeLine{00098\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00099\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Wrong\ value\ given."{}};}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
+\DoxyCodeLine{00111\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00112\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00113\ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer."{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
+\DoxyCodeLine{00124\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00125\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00126\ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class."{}};}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
+\DoxyCodeLine{00137\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00138\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00139\ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}No\ such\ element."{}};}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \};}
 \DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Definitions\ of\ error.h\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}...\ Args\_TYPE>}
-\DoxyCodeLine{00147\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{original::callBackChecker::check}}()\ \{}
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\ =\ std::is\_invocable\_v<Callback,\ Args\_TYPE...>;}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ !is\_valid)\{}
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callback_signature_error}{callbackSignatureError}}();}
-\DoxyCodeLine{00151\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }result\_type\ =\ std::invoke\_result\_t<Callback,\ Args\_TYPE...>;}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\_return\_type\ =\ std::is\_same\_v<result\_type,\ Ret\_TYPE>;}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ !is\_valid\_return\_type)}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callback_return_type_error}{callbackReturnTypeError}}();}
-\DoxyCodeLine{00156\ \ \ \ \ \}}
-\DoxyCodeLine{00157\ \}}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00160\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1error}{error}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00161\ \{}
-\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}A\ static\ assert\ called"{}});}
-\DoxyCodeLine{00163\ \};}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00166\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00167\ \{}
-\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object"{}});}
-\DoxyCodeLine{00169\ \};}
+\DoxyCodeLine{00149\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1callback_signature_error}{callbackSignatureError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
+\DoxyCodeLine{00150\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00151\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00152\ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch."{}};}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1callback_return_type_error}{callbackReturnTypeError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\ \{}
+\DoxyCodeLine{00163\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00164\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00165\ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch."{}};}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \};}
+\DoxyCodeLine{00169\ \}\ \textcolor{comment}{//\ namespace\ original}}
 \DoxyCodeLine{00170\ }
-\DoxyCodeLine{00171\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00172\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1value_error}{valueError}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00173\ \{}
-\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Wrong\ value\ given"{}});}
-\DoxyCodeLine{00175\ \};}
-\DoxyCodeLine{00176\ }
-\DoxyCodeLine{00177\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00178\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00179\ \{}
-\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer"{}});}
-\DoxyCodeLine{00181\ \};}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00184\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00185\ \{}
-\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class"{}});}
-\DoxyCodeLine{00187\ \};}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00189\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00190\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00191\ \{}
-\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}No\ such\ element"{}});}
-\DoxyCodeLine{00193\ \};}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00195\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00196\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callback_signature_error}{callbackSignatureError}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00197\ \{}
-\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch"{}});}
-\DoxyCodeLine{00199\ \};}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00201\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
-\DoxyCodeLine{00202\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callback_return_type_error}{callbackReturnTypeError}},\ FALSE\_CONDITION>}
-\DoxyCodeLine{00203\ \{}
-\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch"{}});}
-\DoxyCodeLine{00205\ \};}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ERROR\_H}}
+\DoxyCodeLine{00171\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Definitions\ of\ error.h\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}...\ Args\_TYPE>}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{original::callBackChecker::check}}()\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\ =\ std::is\_invocable\_v<Callback,\ Args\_TYPE...>;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ !is\_valid)\{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callback_signature_error}{callbackSignatureError}}();}
+\DoxyCodeLine{00178\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }result\_type\ =\ std::invoke\_result\_t<Callback,\ Args\_TYPE...>;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\_return\_type\ =\ std::is\_same\_v<result\_type,\ Ret\_TYPE>;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ !is\_valid\_return\_type)}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callback_return_type_error}{callbackReturnTypeError}}();}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00187\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1error}{error}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00188\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}A\ static\ assert\ called"{}});}
+\DoxyCodeLine{00190\ \};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00193\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00194\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object"{}});}
+\DoxyCodeLine{00196\ \};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00199\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1value_error}{valueError}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00200\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Wrong\ value\ given"{}});}
+\DoxyCodeLine{00202\ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00205\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00206\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer"{}});}
+\DoxyCodeLine{00208\ \};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00211\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00212\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class"{}});}
+\DoxyCodeLine{00214\ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00217\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00218\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}No\ such\ element"{}});}
+\DoxyCodeLine{00220\ \};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00223\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callback_signature_error}{callbackSignatureError}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00224\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch"{}});}
+\DoxyCodeLine{00226\ \};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ FALSE\_CONDITION>}
+\DoxyCodeLine{00229\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1static_error}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callback_return_type_error}{callbackReturnTypeError}},\ FALSE\_CONDITION>}
+\DoxyCodeLine{00230\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{static\_assert}(!FALSE\_CONDITION,\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch"{}});}
+\DoxyCodeLine{00232\ \};}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ERROR\_H}}
 
 \end{DoxyCode}
