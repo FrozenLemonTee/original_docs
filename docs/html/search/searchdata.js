@@ -6,9 +6,10 @@ var indexSectionsWithContent =
   3: "abcdefimopqrstvw",
   4: "_abcdefghilmnopqrstv~",
   5: "_eps",
-  6: "gmo",
-  7: "aclot",
-  8: "ceos"
+  6: "iu",
+  7: "gmo",
+  8: "aclot",
+  9: "o"
 };
 
 var indexSectionNames =
@@ -19,9 +20,10 @@ var indexSectionNames =
   3: "files",
   4: "functions",
   5: "variables",
-  6: "related",
-  7: "pages",
-  8: "concepts"
+  6: "typedefs",
+  7: "related",
+  8: "pages",
+  9: "concepts"
 };
 
 var indexSectionLabels =
@@ -32,8 +34,9 @@ var indexSectionLabels =
   3: "Files",
   4: "Functions",
   5: "Variables",
-  6: "Friends",
-  7: "Pages",
-  8: "Concepts"
+  6: "Typedefs",
+  7: "Friends",
+  8: "Pages",
+  9: "Concepts"
 };
 
