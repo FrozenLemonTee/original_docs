@@ -12,6 +12,7 @@
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iterator_8h}{iterator.h}}"{}}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
 \DoxyCodeLine{00010\ }
+\DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}}
 \DoxyCodeLine{00019\ \{}
 \DoxyCodeLine{00020\ }
@@ -379,16 +380,16 @@
 \DoxyCodeLine{00865\ \ \ \ \ \}}
 \DoxyCodeLine{00866\ }
 \DoxyCodeLine{00867\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00868\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{original::iterator<TYPE>}}\ *\mbox{\hyperlink{classoriginal_1_1algorithms_aba90c883dbf9a027e6a6108b5896ebe5}{original::algorithms::backOf}}(\textcolor{keyword}{const}\ iterator<TYPE>\ \&it,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \{}
+\DoxyCodeLine{00868\ \ \ \ \ original::iterator<TYPE>\ *\mbox{\hyperlink{classoriginal_1_1algorithms_aba90c883dbf9a027e6a6108b5896ebe5}{original::algorithms::backOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&it,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \{}
 \DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it\ -\/\ steps;}
 \DoxyCodeLine{00870\ \ \ \ \ \}}
 \DoxyCodeLine{00871\ }
 \DoxyCodeLine{00872\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{00873\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition<Callback,\ TYPE>}}}
+\DoxyCodeLine{00873\ \ \ \ \ \textcolor{keyword}{requires}\ original::Condition<Callback,\ TYPE>}
 \DoxyCodeLine{00874\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ada4b03336a6bc356dd58fe52ae2e01b1}{original::algorithms::allOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{00875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ condition)\ \{}
 \DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
-\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ distance(*it,\ end)\ <=\ 0;\ it-\/>next())\{}
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ \mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(*it,\ end)\ <=\ 0;\ it-\/>next())\{}
 \DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!condition(it-\/>get()))\{}
 \DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ it;}
 \DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
@@ -403,7 +404,7 @@
 \DoxyCodeLine{00889\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a1030ec11e298db67275e06a8b4e129a6}{original::algorithms::anyOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ condition)\ \{}
 \DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
-\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ distance(*it,\ end)\ <=\ 0;\ it-\/>next())\{}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ \mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(*it,\ end)\ <=\ 0;\ it-\/>next())\{}
 \DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (condition(it-\/>get()))\{}
 \DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ it;}
 \DoxyCodeLine{00895\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
@@ -418,7 +419,7 @@
 \DoxyCodeLine{00904\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1algorithms_af950ec05916d44c221231e150ce2abdb}{original::algorithms::noneOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{00905\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ condition)\ \{}
 \DoxyCodeLine{00906\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
-\DoxyCodeLine{00907\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ distance(*it,\ end)\ <=\ 0;\ it-\/>next())\{}
+\DoxyCodeLine{00907\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ \mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(*it,\ end)\ <=\ 0;\ it-\/>next())\{}
 \DoxyCodeLine{00908\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (condition(it-\/>get()))\{}
 \DoxyCodeLine{00909\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ it;}
 \DoxyCodeLine{00910\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
@@ -443,7 +444,7 @@
 \DoxyCodeLine{00929\ \ \ \ \ \}}
 \DoxyCodeLine{00930\ }
 \DoxyCodeLine{00931\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00932\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a348b1a2155fc635e8e778bfdddf80574}{original::algorithms::find}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ \textcolor{keyword}{const}\ TYPE\&\ target)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{00932\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a348b1a2155fc635e8e778bfdddf80574}{original::algorithms::find}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ \textcolor{keyword}{const}\ TYPE\&\ target)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{00933\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{00934\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ n;\ i\ +=\ 1,\ it-\/>next())}
 \DoxyCodeLine{00935\ \ \ \ \ \ \ \ \ \{}
@@ -453,9 +454,9 @@
 \DoxyCodeLine{00939\ \ \ \ \ \}}
 \DoxyCodeLine{00940\ }
 \DoxyCodeLine{00941\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{00942\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition<Callback,\ TYPE>}}}
-\DoxyCodeLine{00943\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a348b1a2155fc635e8e778bfdddf80574}{original::algorithms::find}}(\textcolor{keyword}{const}\ iterator<TYPE>\ \&begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\ \&end,}
-\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ condition)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{00942\ \ \ \ \ \textcolor{keyword}{requires}\ original::Condition<Callback,\ TYPE>}
+\DoxyCodeLine{00943\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a348b1a2155fc635e8e778bfdddf80574}{original::algorithms::find}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
+\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ condition)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{00945\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (it-\/>isValid()\ \&\&\ !it-\/>equal(end))\ \{}
 \DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (condition(it-\/>get()))\ \{}
@@ -468,8 +469,8 @@
 \DoxyCodeLine{00954\ \ \ \ \ \}}
 \DoxyCodeLine{00955\ }
 \DoxyCodeLine{00956\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{00957\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition<Callback,\ TYPE>}}}
-\DoxyCodeLine{00958\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a348b1a2155fc635e8e778bfdddf80574}{original::algorithms::find}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ \textcolor{keyword}{const}\ Callback\&\ condition)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{00957\ \ \ \ \ \textcolor{keyword}{requires}\ original::Condition<Callback,\ TYPE>}
+\DoxyCodeLine{00958\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a348b1a2155fc635e8e778bfdddf80574}{original::algorithms::find}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ \textcolor{keyword}{const}\ Callback\&\ condition)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{00960\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ n;\ i\ +=\ 1,\ it-\/>next())}
 \DoxyCodeLine{00961\ \ \ \ \ \ \ \ \ \{}
@@ -479,7 +480,7 @@
 \DoxyCodeLine{00965\ \ \ \ \ \}}
 \DoxyCodeLine{00966\ }
 \DoxyCodeLine{00967\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00968\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aeba6848f109994d22ac0fe53341b841b}{original::algorithms::count}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end,}
+\DoxyCodeLine{00968\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aeba6848f109994d22ac0fe53341b841b}{original::algorithms::count}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end,}
 \DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ TYPE\&\ target)\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}}
 \DoxyCodeLine{00970\ \ \ \ \ \{}
 \DoxyCodeLine{00971\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ cnt\ =\ 0;}
@@ -495,8 +496,8 @@
 \DoxyCodeLine{00981\ \ \ \ \ \}}
 \DoxyCodeLine{00982\ }
 \DoxyCodeLine{00983\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{00984\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition<Callback,\ TYPE>}}}
-\DoxyCodeLine{00985\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aeba6848f109994d22ac0fe53341b841b}{original::algorithms::count}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end,}
+\DoxyCodeLine{00984\ \ \ \ \ \textcolor{keyword}{requires}\ original::Condition<Callback,\ TYPE>}
+\DoxyCodeLine{00985\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aeba6848f109994d22ac0fe53341b841b}{original::algorithms::count}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end,}
 \DoxyCodeLine{00986\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ condition)\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}}
 \DoxyCodeLine{00987\ \ \ \ \ \{}
 \DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ cnt\ =\ 0;}
@@ -512,8 +513,8 @@
 \DoxyCodeLine{00998\ \ \ \ \ \}}
 \DoxyCodeLine{00999\ }
 \DoxyCodeLine{01000\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{01001\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a3ba26a44a05a202c4ae0259b2287b95e}{original::algorithms::equal}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin1,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end1,}
-\DoxyCodeLine{01002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<TYPE>\&\ begin2,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end2)\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{01001\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a3ba26a44a05a202c4ae0259b2287b95e}{original::algorithms::equal}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end1,}
+\DoxyCodeLine{01002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin2,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end2)\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{01003\ \ \ \ \ \{}
 \DoxyCodeLine{01004\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it1\ =\ begin1.clone();}
 \DoxyCodeLine{01005\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it2\ =\ begin2.clone();}
@@ -529,8 +530,8 @@
 \DoxyCodeLine{01015\ \ \ \ \ \}}
 \DoxyCodeLine{01016\ }
 \DoxyCodeLine{01017\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01018\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_operation}{original::Operation<Callback,\ TYPE>}}}
-\DoxyCodeLine{01019\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end,}
+\DoxyCodeLine{01018\ \ \ \ \ \textcolor{keyword}{requires}\ original::Operation<Callback,\ TYPE>}
+\DoxyCodeLine{01019\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end,}
 \DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback\ operation)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{01021\ \ \ \ \ \{}
 \DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
@@ -542,9 +543,9 @@
 \DoxyCodeLine{01028\ \ \ \ \ \}}
 \DoxyCodeLine{01029\ }
 \DoxyCodeLine{01030\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01031\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_operation}{original::Operation<Callback,\ TYPE>}}}
-\DoxyCodeLine{01032\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,}
-\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback\ operation)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{01031\ \ \ \ \ \textcolor{keyword}{requires}\ original::Operation<Callback,\ TYPE>}
+\DoxyCodeLine{01032\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,}
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Callback\ operation)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{01034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ n;\ i\ +=\ 1,\ it-\/>next())}
 \DoxyCodeLine{01036\ \ \ \ \ \ \ \ \ \{}
@@ -554,8 +555,8 @@
 \DoxyCodeLine{01040\ \ \ \ \ \}}
 \DoxyCodeLine{01041\ }
 \DoxyCodeLine{01042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback\_O,\ \textcolor{keyword}{typename}\ Callback\_C>}
-\DoxyCodeLine{01043\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_operation}{original::Operation<Callback\_O,\ TYPE>}}\ \&\&\ \mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition<Callback\_C,\ TYPE>}}}
-\DoxyCodeLine{01044\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ iterator<TYPE>\ \&begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\ \&end,\ Callback\_O\ operation,}
+\DoxyCodeLine{01043\ \ \ \ \ \textcolor{keyword}{requires}\ original::Operation<Callback\_O,\ TYPE>\ \&\&\ original::Condition<Callback\_C,\ TYPE>}
+\DoxyCodeLine{01044\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,\ Callback\_O\ operation,}
 \DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\_C\ \&condition)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
 \DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ !it-\/>equal(end);\ it-\/>next())\ \{}
@@ -567,9 +568,9 @@
 \DoxyCodeLine{01053\ \ \ \ \ \}}
 \DoxyCodeLine{01054\ }
 \DoxyCodeLine{01055\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback\_O,\ \textcolor{keyword}{typename}\ Callback\_C>}
-\DoxyCodeLine{01056\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_operation}{original::Operation<Callback\_O,\ TYPE>}}\ \&\&\ \mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition<Callback\_C,\ TYPE>}}}
-\DoxyCodeLine{01057\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ iterator<TYPE>\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ Callback\_O\ operation,}
-\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\_C\ \&condition)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{01056\ \ \ \ \ \textcolor{keyword}{requires}\ original::Operation<Callback\_O,\ TYPE>\ \&\&\ original::Condition<Callback\_C,\ TYPE>}
+\DoxyCodeLine{01057\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_aa2155ab479e061eb7ae6a4b4586ce970}{original::algorithms::forEach}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ Callback\_O\ operation,}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\_C\ \&condition)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{01059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ n;\ i\ +=\ 1,\ it-\/>next())}
 \DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ \{}
@@ -580,8 +581,8 @@
 \DoxyCodeLine{01066\ \ \ \ \ \}}
 \DoxyCodeLine{01067\ }
 \DoxyCodeLine{01068\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{01069\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a0c73c14858871484fac7fb868430edb3}{original::algorithms::fill}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,}
-\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end,\ \textcolor{keyword}{const}\ TYPE\&\ value)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{01069\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a0c73c14858871484fac7fb868430edb3}{original::algorithms::fill}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,}
+\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end,\ \textcolor{keyword}{const}\ TYPE\&\ value)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{01071\ \ \ \ \ \{}
 \DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!it-\/>equal(end))\{}
@@ -593,8 +594,8 @@
 \DoxyCodeLine{01079\ \ \ \ \ \}}
 \DoxyCodeLine{01080\ }
 \DoxyCodeLine{01081\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{01082\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a0c73c14858871484fac7fb868430edb3}{original::algorithms::fill}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,}
-\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ \textcolor{keyword}{const}\ TYPE\&\ value)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{01082\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a0c73c14858871484fac7fb868430edb3}{original::algorithms::fill}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ n,\ \textcolor{keyword}{const}\ TYPE\&\ value)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ n;\ ++i)\ \{}
 \DoxyCodeLine{01086\ \ \ \ \ \ \ \ \ \ \ \ \ it-\/>set(value);}
@@ -604,7 +605,7 @@
 \DoxyCodeLine{01090\ \ \ \ \ \}}
 \DoxyCodeLine{01091\ }
 \DoxyCodeLine{01092\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{01093\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}{original::algorithms::swap}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ it1,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ it2)\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{01093\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}{original::algorithms::swap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it2)\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{01094\ \ \ \ \ \{}
 \DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_1\ =\ it1.clone();}
 \DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_2\ =\ it2.clone();}
@@ -616,8 +617,8 @@
 \DoxyCodeLine{01102\ \ \ \ \ \}}
 \DoxyCodeLine{01103\ }
 \DoxyCodeLine{01104\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{01105\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ad1d5ad2274fac8b34c48182cfad406e6}{original::algorithms::copy}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin\_src,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end\_src,}
-\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<TYPE>\&\ begin\_tar)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{01105\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ad1d5ad2274fac8b34c48182cfad406e6}{original::algorithms::copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin\_src,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end\_src,}
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin\_tar)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_src\ =\ begin\_src.clone();}
 \DoxyCodeLine{01108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_tar\ =\ begin\_tar.clone();}
 \DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!it\_src-\/>equal(end\_src))\{}
@@ -632,9 +633,9 @@
 \DoxyCodeLine{01118\ \ \ \ \ \}}
 \DoxyCodeLine{01119\ }
 \DoxyCodeLine{01120\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01121\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition<Callback,\ TYPE>}}}
-\DoxyCodeLine{01122\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ad1d5ad2274fac8b34c48182cfad406e6}{original::algorithms::copy}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin\_src,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end\_src,}
-\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<TYPE>\&\ begin\_tar,\ Callback\ condition)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{01121\ \ \ \ \ \textcolor{keyword}{requires}\ original::Condition<Callback,\ TYPE>}
+\DoxyCodeLine{01122\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ad1d5ad2274fac8b34c48182cfad406e6}{original::algorithms::copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin\_src,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end\_src,}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin\_tar,\ Callback\ condition)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_src\ =\ begin\_src.clone();}
 \DoxyCodeLine{01125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\_tar\ =\ begin\_tar.clone();}
 \DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!it\_src-\/>equal(end\_src))\{}
@@ -653,8 +654,8 @@
 \DoxyCodeLine{01139\ \ \ \ \ \}}
 \DoxyCodeLine{01140\ }
 \DoxyCodeLine{01141\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{01142\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a5d6cd7b121c4a3b84e4f7264fdea3295}{original::algorithms::reverse}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,}
-\DoxyCodeLine{01143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end)\ -\/>\ iterator<TYPE>*\ \{}
+\DoxyCodeLine{01142\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a5d6cd7b121c4a3b84e4f7264fdea3295}{original::algorithms::reverse}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,}
+\DoxyCodeLine{01143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ \{}
 \DoxyCodeLine{01144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ left\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ right\ =\ end.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!left-\/>equal(right)\ \&\&\ !left-\/>atNext(right))\{}
@@ -667,17 +668,17 @@
 \DoxyCodeLine{01153\ \ \ \ \ \}}
 \DoxyCodeLine{01154\ }
 \DoxyCodeLine{01155\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01156\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
-\DoxyCodeLine{01157\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ac9d0df0d454e332179deebc2a42f2492}{original::algorithms::compare}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ it1,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ it2,}
+\DoxyCodeLine{01156\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
+\DoxyCodeLine{01157\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ac9d0df0d454e332179deebc2a42f2492}{original::algorithms::compare}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ it2,}
 \DoxyCodeLine{01158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ compares)\ -\/>\ \textcolor{keywordtype}{bool}}
 \DoxyCodeLine{01159\ \ \ \ \ \{}
 \DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ compares(it1.get(),\ it2.get());}
 \DoxyCodeLine{01161\ \ \ \ \ \}}
 \DoxyCodeLine{01162\ }
 \DoxyCodeLine{01163\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01164\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
-\DoxyCodeLine{01165\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ae9a4b125bd1e64db8e2eae368e94b013}{original::algorithms::heapAdjustDown}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ range,}
-\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<TYPE>\&\ current,\ \textcolor{keyword}{const}\ Callback\&\ compares)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{01164\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
+\DoxyCodeLine{01165\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ae9a4b125bd1e64db8e2eae368e94b013}{original::algorithms::heapAdjustDown}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ range,}
+\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ current,\ \textcolor{keyword}{const}\ Callback\&\ compares)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{01167\ \ \ \ \ \{}
 \DoxyCodeLine{01168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance(current,\ begin)\ <\ 0)}
 \DoxyCodeLine{01169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
@@ -700,8 +701,8 @@
 \DoxyCodeLine{01186\ \ \ \ \ \}}
 \DoxyCodeLine{01187\ }
 \DoxyCodeLine{01188\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01189\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
-\DoxyCodeLine{01190\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a7d8ce5945945f02fa1b4095bbff19f0c}{original::algorithms::heapAdjustUp}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ current,}
+\DoxyCodeLine{01189\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
+\DoxyCodeLine{01190\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a7d8ce5945945f02fa1b4095bbff19f0c}{original::algorithms::heapAdjustUp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ current,}
 \DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ compares)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{01192\ \ \ \ \ \{}
 \DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ current.clone();}
@@ -724,8 +725,8 @@
 \DoxyCodeLine{01210\ \ \ \ \ \}}
 \DoxyCodeLine{01211\ }
 \DoxyCodeLine{01212\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01213\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
-\DoxyCodeLine{01214\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a2336bd54f1be8f54d604af00af47bfeb}{original::algorithms::heapInit}}(\textcolor{keyword}{const}\ iterator<TYPE>\&\ begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\&\ end,}
+\DoxyCodeLine{01213\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
+\DoxyCodeLine{01214\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a2336bd54f1be8f54d604af00af47bfeb}{original::algorithms::heapInit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ end,}
 \DoxyCodeLine{01215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ compares)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{01216\ \ \ \ \ \{}
 \DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ frontOf(begin,\ (distance(end,\ begin)\ +\ 1)\ /\ 2\ -\/\ 1);}
@@ -737,20 +738,20 @@
 \DoxyCodeLine{01223\ \ \ \ \ \}}
 \DoxyCodeLine{01224\ }
 \DoxyCodeLine{01225\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01226\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
+\DoxyCodeLine{01226\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
 \DoxyCodeLine{01227\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a622ecf51f023a5b452971c31f4b642be}{original::algorithms::sort}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ isStable)\ \{}
-\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ isStable\ ?\ stableSort(begin,\ end,\ compares)\ :\ introSort(begin,\ end,\ compares);}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ isStable\ ?\ \mbox{\hyperlink{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}{stableSort}}(begin,\ end,\ compares)\ :\ \mbox{\hyperlink{classoriginal_1_1algorithms_a84e21f685076376b3e463d792b3e2c3d}{introSort}}(begin,\ end,\ compares);}
 \DoxyCodeLine{01230\ \ \ \ \ \}}
 \DoxyCodeLine{01231\ }
 \DoxyCodeLine{01232\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
 \DoxyCodeLine{01233\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
 \DoxyCodeLine{01234\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a84e21f685076376b3e463d792b3e2c3d}{original::algorithms::introSort}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares)\ \{}
-\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ dis\ =\ distance(end,\ begin);\ dis\ <=\ 0)}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ dis\ =\ \mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ begin);\ dis\ <=\ 0)}
 \DoxyCodeLine{01237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{01238\ }
-\DoxyCodeLine{01239\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ depth\_limit\ =\ 2\ *\ std::log2(distance(end,\ begin));}
+\DoxyCodeLine{01239\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ depth\_limit\ =\ 2\ *\ std::log2(\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ begin));}
 \DoxyCodeLine{01240\ \ \ \ \ \ \ \ \ \_introSort(begin,\ end,\ compares,\ depth\_limit);}
 \DoxyCodeLine{01241\ \ \ \ \ \}}
 \DoxyCodeLine{01242\ }
@@ -758,22 +759,22 @@
 \DoxyCodeLine{01244\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
 \DoxyCodeLine{01245\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}{original::algorithms::stableSort}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares)\ \{}
-\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ \_stableSort(begin,\ end,\ compares);}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_af28c30a2e8c8c194bce70a1b8b05c78a}{\_stableSort}}(begin,\ end,\ compares);}
 \DoxyCodeLine{01248\ \ \ \ \ \}}
 \DoxyCodeLine{01249\ }
 \DoxyCodeLine{01250\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
 \DoxyCodeLine{01251\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
 \DoxyCodeLine{01252\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1algorithms_a96646cc6ff38bf19c08ada0bfdebf418}{original::algorithms::heapSort}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\&\ compares)\ \{}
-\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance(end,\ begin)\ <=\ 0)}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ begin)\ <=\ 0)}
 \DoxyCodeLine{01255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{01256\ }
-\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ heapInit(begin,\ end,\ std::not\_fn(compares));}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a2336bd54f1be8f54d604af00af47bfeb}{heapInit}}(begin,\ end,\ std::not\_fn(compares));}
 \DoxyCodeLine{01258\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ right\ =\ end.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
-\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (distance(*right,\ begin)\ >\ 0)\{}
-\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \ \ \ \ swap(begin,\ *right);}
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(*right,\ begin)\ >\ 0)\{}
+\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}{swap}}(begin,\ *right);}
 \DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \ \ \ \ right-\/>prev();}
-\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ heapAdjustDown(begin,\ *right,\ begin,\ std::not\_fn(compares));}
+\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_ae9a4b125bd1e64db8e2eae368e94b013}{heapAdjustDown}}(begin,\ *right,\ begin,\ std::not\_fn(compares));}
 \DoxyCodeLine{01263\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01264\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ right;}
 \DoxyCodeLine{01265\ \ \ \ \ \}}
@@ -799,9 +800,9 @@
 \DoxyCodeLine{01285\ \ \ \ \ \}}
 \DoxyCodeLine{01286\ }
 \DoxyCodeLine{01287\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01288\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
-\DoxyCodeLine{01289\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{original::iterator<TYPE>}}*}
-\DoxyCodeLine{01290\ \ \ \ \ original::algorithms::\_introSortGetPivot(\textcolor{keyword}{const}\ iterator<TYPE>\ \&begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\ \&end,}
+\DoxyCodeLine{01288\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
+\DoxyCodeLine{01289\ \ \ \ \ original::iterator<TYPE>*}
+\DoxyCodeLine{01290\ \ \ \ \ original::algorithms::\_introSortGetPivot(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares)\ \{}
 \DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ mid\ =\ frontOf(begin,\ distance(end,\ begin)\ /\ 2);}
 \DoxyCodeLine{01293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((!compare(begin,\ *mid,\ compares)\ \&\&\ !compare(end,\ begin,\ compares))}
@@ -818,9 +819,9 @@
 \DoxyCodeLine{01304\ \ \ \ \ \}}
 \DoxyCodeLine{01305\ }
 \DoxyCodeLine{01306\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01307\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
-\DoxyCodeLine{01308\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterator}{original::iterator<TYPE>}}*}
-\DoxyCodeLine{01309\ \ \ \ \ original::algorithms::\_introSortPartition(\textcolor{keyword}{const}\ iterator<TYPE>\ \&begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\ \&end,}
+\DoxyCodeLine{01307\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
+\DoxyCodeLine{01308\ \ \ \ \ original::iterator<TYPE>*}
+\DoxyCodeLine{01309\ \ \ \ \ original::algorithms::\_introSortPartition(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares)\ \{}
 \DoxyCodeLine{01311\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ left\ =\ begin.clone();}
 \DoxyCodeLine{01312\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ right\ =\ end.clone();}
@@ -852,9 +853,9 @@
 \DoxyCodeLine{01338\ \ \ \ \ \}}
 \DoxyCodeLine{01339\ }
 \DoxyCodeLine{01340\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01341\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
+\DoxyCodeLine{01341\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
 \DoxyCodeLine{01342\ \ \ \ \ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{01343\ \ \ \ \ original::algorithms::\_introSort(\textcolor{keyword}{const}\ iterator<TYPE>\ \&begin,\ \textcolor{keyword}{const}\ iterator<TYPE>\ \&end,}
+\DoxyCodeLine{01343\ \ \ \ \ original::algorithms::\_introSort(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ depth\_limit)\ \{}
 \DoxyCodeLine{01345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance(end,\ begin)\ <=\ 16)\ \{}
 \DoxyCodeLine{01346\ \ \ \ \ \ \ \ \ \ \ \ \ insertionSort(begin,\ end,\ compares);}
@@ -873,18 +874,18 @@
 \DoxyCodeLine{01359\ \ \ \ \ \}}
 \DoxyCodeLine{01360\ }
 \DoxyCodeLine{01361\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{01362\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
+\DoxyCodeLine{01362\ \ \ \ \ \textcolor{keyword}{requires}\ original::Compare<Callback,\ TYPE>}
 \DoxyCodeLine{01363\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1algorithms_ab5fb28d42537222003d54b458ef30a3c}{original::algorithms::insertionSort}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares)\ \{}
-\DoxyCodeLine{01365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (distance(end,\ begin)\ <=\ 0)}
+\DoxyCodeLine{01365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ begin)\ <=\ 0)}
 \DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{01367\ }
-\DoxyCodeLine{01368\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ left\ =\ frontOf(begin,\ 1);}
-\DoxyCodeLine{01369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (distance(end,\ *left)\ >=\ 0)\ \{}
+\DoxyCodeLine{01368\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ left\ =\ \mbox{\hyperlink{classoriginal_1_1algorithms_a8b8276257b8585a0efe09197262d21cd}{frontOf}}(begin,\ 1);}
+\DoxyCodeLine{01369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ *left)\ >=\ 0)\ \{}
 \DoxyCodeLine{01370\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ current\ =\ left-\/>clone();}
-\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ prev\ =\ backOf(current,\ 1);}
-\DoxyCodeLine{01372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (distance(*current,\ begin)\ >\ 0\ \&\&\ compare(current,\ prev,\ compares))\{}
-\DoxyCodeLine{01373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ swap(current,\ prev);}
+\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ prev\ =\ \mbox{\hyperlink{classoriginal_1_1algorithms_aba90c883dbf9a027e6a6108b5896ebe5}{backOf}}(current,\ 1);}
+\DoxyCodeLine{01372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(*current,\ begin)\ >\ 0\ \&\&\ \mbox{\hyperlink{classoriginal_1_1algorithms_ac9d0df0d454e332179deebc2a42f2492}{compare}}(current,\ prev,\ compares))\{}
+\DoxyCodeLine{01373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}{swap}}(current,\ prev);}
 \DoxyCodeLine{01374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current-\/>prev();}
 \DoxyCodeLine{01375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prev-\/>prev();}
 \DoxyCodeLine{01376\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
@@ -903,8 +904,8 @@
 \DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ left\ =\ begin.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01390\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ right\ =\ mid.\mbox{\hyperlink{classoriginal_1_1iterator_ab99a53c6257fdceffe9cd25629e38ca9}{clone}}();}
 \DoxyCodeLine{01391\ }
-\DoxyCodeLine{01392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (distance(mid,\ *left)\ >\ 0\ \&\&\ distance(end,\ *right)\ >\ 0)\{}
-\DoxyCodeLine{01393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (compare(left,\ right,\ compares))\{}
+\DoxyCodeLine{01392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(mid,\ *left)\ >\ 0\ \&\&\ \mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ *right)\ >\ 0)\{}
+\DoxyCodeLine{01393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_ac9d0df0d454e332179deebc2a42f2492}{compare}}(left,\ right,\ compares))\{}
 \DoxyCodeLine{01394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classoriginal_1_1vector_a1959522e4ee9f8a7106a8a7bfbd40edc}{pushEnd}}(left-\/>get());}
 \DoxyCodeLine{01395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ left-\/>next();}
 \DoxyCodeLine{01396\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
@@ -913,17 +914,17 @@
 \DoxyCodeLine{01399\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01400\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01401\ }
-\DoxyCodeLine{01402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (distance(mid,\ *left)\ >\ 0)\{}
+\DoxyCodeLine{01402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(mid,\ *left)\ >\ 0)\{}
 \DoxyCodeLine{01403\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classoriginal_1_1vector_a1959522e4ee9f8a7106a8a7bfbd40edc}{pushEnd}}(left-\/>get());}
 \DoxyCodeLine{01404\ \ \ \ \ \ \ \ \ \ \ \ \ left-\/>next();}
 \DoxyCodeLine{01405\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01406\ }
-\DoxyCodeLine{01407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (distance(end,\ *right)\ >\ 0)\{}
+\DoxyCodeLine{01407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ *right)\ >\ 0)\{}
 \DoxyCodeLine{01408\ \ \ \ \ \ \ \ \ \ \ \ \ tmp.\mbox{\hyperlink{classoriginal_1_1vector_a1959522e4ee9f8a7106a8a7bfbd40edc}{pushEnd}}(right-\/>get());}
 \DoxyCodeLine{01409\ \ \ \ \ \ \ \ \ \ \ \ \ right-\/>next();}
 \DoxyCodeLine{01410\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01411\ }
-\DoxyCodeLine{01412\ \ \ \ \ \ \ \ \ copy(tmp.\mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}(),\ tmp.\mbox{\hyperlink{classoriginal_1_1iterable_ae26473236643fba6b1dc52143498fdb4}{last}}(),\ begin);}
+\DoxyCodeLine{01412\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_ad1d5ad2274fac8b34c48182cfad406e6}{copy}}(tmp.\mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}(),\ tmp.\mbox{\hyperlink{classoriginal_1_1iterable_ae26473236643fba6b1dc52143498fdb4}{last}}(),\ begin);}
 \DoxyCodeLine{01413\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ right;}
 \DoxyCodeLine{01414\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ left;}
 \DoxyCodeLine{01415\ \ \ \ \ \}}
@@ -932,20 +933,20 @@
 \DoxyCodeLine{01418\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback,\ TYPE>}}}
 \DoxyCodeLine{01419\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1algorithms_af28c30a2e8c8c194bce70a1b8b05c78a}{original::algorithms::\_stableSort}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&begin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ \&end,}
 \DoxyCodeLine{01420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback\ \&compares)\ \{}
-\DoxyCodeLine{01421\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ dis\ =\ distance(end,\ begin);}
+\DoxyCodeLine{01421\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ dis\ =\ \mbox{\hyperlink{classoriginal_1_1algorithms_a1d2cb2b3b29415e6b0dfebd8d92f4f54}{distance}}(end,\ begin);}
 \DoxyCodeLine{01422\ }
 \DoxyCodeLine{01423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dis\ <=\ 1)}
 \DoxyCodeLine{01424\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{01425\ }
 \DoxyCodeLine{01426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dis\ <=\ 16)\{}
-\DoxyCodeLine{01427\ \ \ \ \ \ \ \ \ \ \ \ \ insertionSort(begin,\ end,\ compares);}
+\DoxyCodeLine{01427\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_ab5fb28d42537222003d54b458ef30a3c}{insertionSort}}(begin,\ end,\ compares);}
 \DoxyCodeLine{01428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{01429\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{01430\ }
-\DoxyCodeLine{01431\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ mid\ =\ frontOf(begin,\ dis\ /\ 2);}
-\DoxyCodeLine{01432\ \ \ \ \ \ \ \ \ \_stableSort(begin,\ *mid,\ compares);}
-\DoxyCodeLine{01433\ \ \ \ \ \ \ \ \ \_stableSort(*mid,\ end,\ compares);}
-\DoxyCodeLine{01434\ \ \ \ \ \ \ \ \ \_stableSortMerge(begin,\ *mid,\ end,\ compares);}
+\DoxyCodeLine{01431\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ mid\ =\ \mbox{\hyperlink{classoriginal_1_1algorithms_a8b8276257b8585a0efe09197262d21cd}{frontOf}}(begin,\ dis\ /\ 2);}
+\DoxyCodeLine{01432\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_af28c30a2e8c8c194bce70a1b8b05c78a}{\_stableSort}}(begin,\ *mid,\ compares);}
+\DoxyCodeLine{01433\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_af28c30a2e8c8c194bce70a1b8b05c78a}{\_stableSort}}(*mid,\ end,\ compares);}
+\DoxyCodeLine{01434\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a510b5c1bf0b36c6274473e1ee2371f2b}{\_stableSortMerge}}(begin,\ *mid,\ end,\ compares);}
 \DoxyCodeLine{01435\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ mid;}
 \DoxyCodeLine{01436\ \ \ \ \ \}}
 \DoxyCodeLine{01437\ }
