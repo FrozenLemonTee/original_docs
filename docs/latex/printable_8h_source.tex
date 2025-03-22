@@ -135,21 +135,24 @@
 \DoxyCodeLine{00243\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00244\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString}}(TYPE*\ \textcolor{keyword}{const}\&\ ptr)\ -\/>\ std::string}
 \DoxyCodeLine{00245\ \{}
-\DoxyCodeLine{00246\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00247\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}@"{}}\ <<\ ptr;}
-\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00249\ \}}
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00251\ \textcolor{keyword}{template}<>}
-\DoxyCodeLine{00252\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString<const\ char>}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ \&ptr)\ -\/>\ std::string\ \{}
-\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{return}\ formatString<std::string>(ptr);}
-\DoxyCodeLine{00254\ \}}
-\DoxyCodeLine{00255\ }
-\DoxyCodeLine{00256\ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{namespaceoriginal_a6bf3733f8dbb6afdb7c4b4559c262da4}{original::operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\&\ p)\{}
-\DoxyCodeLine{00257\ \ \ \ \ os\ <<\ p.\mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{toString}}(\textcolor{keyword}{false});}
-\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00259\ \}}
-\DoxyCodeLine{00260\ }
-\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRINTABLE\_H}}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ptr)}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}nullptr"{}};}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00250\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}@"{}}\ <<\ ptr;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00252\ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00255\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{original::printable::formatString<const\ char>}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ \&ptr)\ -\/>\ std::string\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{return}\ formatString<std::string>(ptr);}
+\DoxyCodeLine{00257\ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{namespaceoriginal_a6bf3733f8dbb6afdb7c4b4559c262da4}{original::operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\&\ p)\{}
+\DoxyCodeLine{00260\ \ \ \ \ os\ <<\ p.\mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{toString}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00262\ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRINTABLE\_H}}
 
 \end{DoxyCode}

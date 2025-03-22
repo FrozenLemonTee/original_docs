@@ -1,0 +1,110 @@
+\doxysection{owner\+Ptr.\+h}
+\hypertarget{ownerPtr_8h_source}{}\label{ownerPtr_8h_source}\index{src/core/ownerPtr.h@{src/core/ownerPtr.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ OWNERPTR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ OWNERPTR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}autoPtr.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deleter_8h}{deleter.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER\ =\ deleter<TYPE>>}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }ownerPtr\ final\ :\ \textcolor{keyword}{public}\ autoPtr<TYPE,\ ownerPtr<TYPE,\ DELETER>,\ DELETER>\{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ ownerPtr(TYPE*\ p);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ ownerPtr(Args\&\&...\ args);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ ownerPtr(\textcolor{keyword}{const}\ ownerPtr\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ ownerPtr\&\ operator=(\textcolor{keyword}{const}\ ownerPtr\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ ownerPtr(ownerPtr\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ ownerPtr\&\ operator=(ownerPtr\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ TYPE*\ unlock();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1ownerPtr_aee9acbb4f8119129005a98f59e4d76cb}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \string~ownerPtr()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ ownerPtr<T,\ DEL>\ makeOwnerPtr();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ ownerPtr<T,\ DEL>\ makeOwnerPtr(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size);}
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DEL\ =\ deleter<T>>}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr<T,\ DEL>}}\ makeOwnerPtr();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DEL\ =\ deleter<T[]>>}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr<T,\ DEL>}}\ makeOwnerPtr(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00047\ \ \ \ \ ownerPtr<TYPE,\ DELETER>::ownerPtr(TYPE\ *p)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1autoPtr}{autoPtr}}<TYPE,\ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr}},\ DELETER>(p)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ this-\/>addStrongRef();}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ...\ Args>}
+\DoxyCodeLine{00054\ \ \ \ \ ownerPtr<TYPE,\ DELETER>::ownerPtr(Args\&\&\ ...args)\ :\ ownerPtr(static\_cast<TYPE*>(nullptr))\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ this-\/>setPtr(\textcolor{keyword}{new}\ TYPE(std::forward<Args>(args)...));}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00059\ \ \ \ \ ownerPtr<TYPE,\ DELETER>::ownerPtr(\mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr}}\ \&\&other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr}}(\textcolor{keyword}{static\_cast<}TYPE*\textcolor{keyword}{>}(\textcolor{keyword}{nullptr}))\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr<TYPE,\ DELETER>}}\&\ ownerPtr<TYPE,\ DELETER>::operator=(\mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ this-\/>removeStrongRef();}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ this-\/>clean();}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ this-\/>ref\_count\ =\ other.ref\_count;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ other.ref\_count\ =\ autoPtr<TYPE,\ ownerPtr,\ DELETER>::newRefCount();}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ other.addStrongRef();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00077\ \ \ \ \ TYPE*\ ownerPtr<TYPE,\ DELETER>::unlock()\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ TYPE*\ p\ =\ this-\/>getPtr();}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ this-\/>setPtr(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00084\ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1ownerPtr_aee9acbb4f8119129005a98f59e4d76cb}{ownerPtr<TYPE,\ DELETER>::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ownerPtr"{}};}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00089\ \ \ \ \ ownerPtr<TYPE,\ DELETER>::\string~ownerPtr()\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ this-\/>removeStrongRef();}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00094\ \ \ \ \ ownerPtr<T,\ DEL>\ makeOwnerPtr()\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ownerPtr<T,\ DEL>(\textcolor{keyword}{new}\ T\{\});}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr<T,\ DEL>}}\ makeOwnerPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr<T,\ DEL>}}(\textcolor{keyword}{new}\ T[size]);}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//OWNERPTR\_H}}
+
+\end{DoxyCode}

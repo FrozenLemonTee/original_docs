@@ -9,66 +9,69 @@
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comparable_8h}{comparable.h}}"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{printable_8h}{printable.h}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}iterable.h"{}}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }original\ \{}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterable}{iterable}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<iterationStream<TYPE,\ DERIVED>>\ \{}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a4460e332fe161cda6f4f8a540890276a}{elementsString}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ int64\_t\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a5a493fe65e59848653ff3035211a649a}{compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}\ \&other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{className}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterationStream_afdbf5c8276d763a8a7f8c620484b31a7}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00070\ \ \ \ \ \};}
-\DoxyCodeLine{00071\ \}}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00074\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a4460e332fe161cda6f4f8a540890276a}{original::iterationStream<TYPE,\ DERIVED>::elementsString}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}}
-\DoxyCodeLine{00075\ \{}
-\DoxyCodeLine{00076\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00077\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}};}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_abbe2b7be21e8c971b9b548c46d394014}{begin}}();\ it.isValid();\ ++it)\ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}})\ \{}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ ss\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{formatString}}(it.get());}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00085\ \ \ \ \ \}}
-\DoxyCodeLine{00086\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00088\ \}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00091\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a5a493fe65e59848653ff3035211a649a}{original::iterationStream<TYPE,\ DERIVED>::compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}\ \&other)\ \textcolor{keyword}{const}\ -\/>\ int64\_t\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ this\_it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_abbe2b7be21e8c971b9b548c46d394014}{begin}}();}
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ other\_it\ =\ other.begin();}
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ this\_it.isValid()\ \&\&\ other\_it.isValid();\ ++this\_it,\ ++other\_it)\ \{}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*this\_it\ !=\ *other\_it)}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *this\_it\ <\ *other\_it\ ?\ -\/1\ :\ 1;}
-\DoxyCodeLine{00097\ \ \ \ \ \}}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ this\_it.isValid()\ -\/\ other\_it.isValid();}
-\DoxyCodeLine{00099\ \}}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00102\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{original::iterationStream<TYPE,\ DERIVED>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}iterationStream"{}};}
-\DoxyCodeLine{00104\ \}}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00107\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_afdbf5c8276d763a8a7f8c620484b31a7}{original::iterationStream<TYPE,\ DERIVED>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string}
-\DoxyCodeLine{00108\ \{}
-\DoxyCodeLine{00109\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00110\ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{className}}()\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterationStream_a4460e332fe161cda6f4f8a540890276a}{elementsString}}();}
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00113\ \}}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ITERATIONSTREAM\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iterable_8h}{iterable.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterable}{iterable}}<TYPE>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<iterationStream<TYPE,\ DERIVED>>\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a4460e332fe161cda6f4f8a540890276a}{elementsString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a5a493fe65e59848653ff3035211a649a}{compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}\ \&other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1iterationStream_afdbf5c8276d763a8a7f8c620484b31a7}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00071\ \ \ \ \ \};}
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00075\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a4460e332fe161cda6f4f8a540890276a}{original::iterationStream<TYPE,\ DERIVED>::elementsString}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}}
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00078\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_abbe2b7be21e8c971b9b548c46d394014}{begin}}();\ it.isValid();\ ++it)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}})\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ ss\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{formatString}}(it.get());}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00092\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_a5a493fe65e59848653ff3035211a649a}{original::iterationStream<TYPE,\ DERIVED>::compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ this\_it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_abbe2b7be21e8c971b9b548c46d394014}{begin}}();}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ other\_it\ =\ other.begin();}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ this\_it.isValid()\ \&\&\ other\_it.isValid();\ ++this\_it,\ ++other\_it)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{conceptoriginal_1_1Comparable}{Comparable<TYPE>}})\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*this\_it\ !=\ *other\_it)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *this\_it\ <\ *other\_it\ ?\ -\/1\ :\ 1;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ this\_it.isValid()\ -\/\ other\_it.isValid();}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00105\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{original::iterationStream<TYPE,\ DERIVED>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}iterationStream"{}};}
+\DoxyCodeLine{00107\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00110\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1iterationStream_afdbf5c8276d763a8a7f8c620484b31a7}{original::iterationStream<TYPE,\ DERIVED>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const}\ -\/>\ std::string}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00113\ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterationStream_ae85507f0211c0c1d8c10201636c24edb}{className}}()\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterationStream_a4460e332fe161cda6f4f8a540890276a}{elementsString}}();}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)\ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ITERATIONSTREAM\_H}}
 
 \end{DoxyCode}
