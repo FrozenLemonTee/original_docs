@@ -11,5 +11,7 @@ var searchData=
   ['equalptr_8',['equalPtr',['../classoriginal_1_1iterable_1_1iterAdaptor.html#a93f2bf296872b133f8e89ea4ac6ac2c0',1,'original::iterable::iterAdaptor::equalPtr()'],['../classoriginal_1_1iterator.html#a098c98d026a535a28cf65514fb1e209b',1,'original::iterator::equalPtr()'],['../classoriginal_1_1randomAccessIterator.html#a23002c898ad6d0b34b13303c0d19f7b8',1,'original::randomAccessIterator::equalPtr()'],['../classoriginal_1_1stepIterator.html#a5d0e1c67b6f6f349765d2b520d864198',1,'original::stepIterator::equalPtr()']]],
   ['error_9',['error',['../classoriginal_1_1error.html',1,'original']]],
   ['error_2eh_10',['error.h',['../error_8h.html',1,'']]],
-  ['extendsof_11',['ExtendsOf',['../conceptoriginal_1_1ExtendsOf.html',1,'original']]]
+  ['exist_11',['exist',['../classoriginal_1_1autoPtr.html#a5022614b81f2a10940b63ba73937b462',1,'original::autoPtr']]],
+  ['expired_12',['expired',['../classoriginal_1_1autoPtr.html#abddf47f791e1a114a9139f373efa0e06',1,'original::autoPtr']]],
+  ['extendsof_13',['ExtendsOf',['../conceptoriginal_1_1ExtendsOf.html',1,'original']]]
 ];

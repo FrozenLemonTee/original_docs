@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vector_0',['vector',['../classoriginal_1_1vector.html#ad3af7d3568349d3e51888c8aea24f777',1,'original::vector::vector()'],['../classoriginal_1_1vector.html#a806a5df9e86ccddd9c3c881369f9aff1',1,'original::vector::vector(const vector &amp;other)'],['../classoriginal_1_1vector.html#a96cf6407ddf34f8dd321b1a73f0d81d6',1,'original::vector::vector(const std::initializer_list&lt; TYPE &gt; &amp;list)'],['../classoriginal_1_1vector.html#a38efcdd0d85d4b0f15ae16b493d232b7',1,'original::vector::vector(const array&lt; TYPE &gt; &amp;arr)'],['../classoriginal_1_1vector.html#accd0ee5e443f30f86592624a53a682cb',1,'original::vector::vector(vector &amp;&amp;other) noexcept']]]
+  ['unlock_0',['unlock',['../classoriginal_1_1ownerPtr.html#a9f8942a67bf3975838029f3c05269c9d',1,'original::ownerPtr']]]
 ];

@@ -2,7 +2,17 @@
 \hypertarget{classoriginal_1_1strongPtr}{}\label{classoriginal_1_1strongPtr}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
 
 
-Inheritance diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:\nopagebreak
+Shared ownership smart pointer with strong references.  
+
+
+
+
+{\ttfamily \#include $<$ref\+Cnt\+Ptr.\+h$>$}
+
+
+
+Inheritance diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -11,7 +21,8 @@ Inheritance diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DEL
 \end{figure}
 
 
-Collaboration diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,54 +32,55 @@ Collaboration diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, D
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0}\label{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0} 
-{\bfseries strong\+Ptr} (TYPE \texorpdfstring{$\ast$}{*}p)
-\item 
-\Hypertarget{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da}\label{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da} 
-{\footnotesize template$<$typename... Args$>$ }\\{\bfseries strong\+Ptr} (Args \&\&... args)
-\item 
-\Hypertarget{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31}\label{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31} 
-{\bfseries strong\+Ptr} (const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&other)
-\item 
-\Hypertarget{classoriginal_1_1strongPtr_a3fe98ffd47214c16f091a74a3308f1ed}\label{classoriginal_1_1strongPtr_a3fe98ffd47214c16f091a74a3308f1ed} 
-\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&other)
-\item 
-\Hypertarget{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791}\label{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791} 
-{\bfseries strong\+Ptr} (\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&\&other) noexcept
-\item 
-\Hypertarget{classoriginal_1_1strongPtr_ab4f359fc29818c0e6a21bcea826b79c1}\label{classoriginal_1_1strongPtr_ab4f359fc29818c0e6a21bcea826b79c1} 
-\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&\&other) noexcept
-\item 
+\mbox{\hyperlink{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0}{strong\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Construct from raw pointer. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da}{strong\+Ptr}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em In-\/place construction with arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31}{strong\+Ptr}} (const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor shares ownership. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \& \mbox{\hyperlink{classoriginal_1_1strongPtr_a3fe98ffd47214c16f091a74a3308f1ed}{operator=}} (const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment shares ownership. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791}{strong\+Ptr}} (\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor transfers ownership. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \& \mbox{\hyperlink{classoriginal_1_1strongPtr_ab4f359fc29818c0e6a21bcea826b79c1}{operator=}} (\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment transfers ownership. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1strongPtr_a19276911dc3c7bd96d401126976b0f69}{class\+Name}} () const override
-\begin{DoxyCompactList}\small\item\em Gets the class name for type identification. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get class identifier. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1strongPtr_aa8dfe63e2e432cf1e53770a578cfd5fe}\label{classoriginal_1_1strongPtr_aa8dfe63e2e432cf1e53770a578cfd5fe} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}strong\+Ptr} () override
+\begin{DoxyCompactList}\small\item\em Destructor decreases strong references count. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1refCntPtr}{original\+::ref\+Cnt\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1refCntPtr_a2b6187e87b8d807c0049a0c415e07adc}{to\+String}} (bool enter) const override
-\begin{DoxyCompactList}\small\item\em Generates formatted string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Formatted string with reference info. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}ref\+Cnt\+Ptr} () override=default
+\begin{DoxyCompactList}\small\item\em Default destructor of \doxylink{classoriginal_1_1refCntPtr}{ref\+Cnt\+Ptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-bool {\bfseries exist} () const
-\item 
-bool {\bfseries expired} () const
-\item 
-{\bfseries operator bool} () const
-\item 
-virtual const TYPE \& {\bfseries operator\texorpdfstring{$\ast$}{*}} () const
-\item 
-virtual TYPE \& {\bfseries operator\texorpdfstring{$\ast$}{*}} ()
-\item 
-virtual const TYPE \texorpdfstring{$\ast$}{*} {\bfseries operator-\/$>$} () const
-\item 
-virtual TYPE \texorpdfstring{$\ast$}{*} {\bfseries operator-\/$>$} ()
-\item 
-virtual const TYPE \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} index) const
-\item 
-virtual TYPE \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} index)
-\item 
-\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}} {\bfseries compare\+To} (const \mbox{\hyperlink{classoriginal_1_1autoPtr}{auto\+Ptr}} \&other) const override
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classoriginal_1_1autoPtr_a5022614b81f2a10940b63ba73937b462}{exist}} () const
+\begin{DoxyCompactList}\small\item\em Check active ownership. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1autoPtr_abddf47f791e1a114a9139f373efa0e06}{expired}} () const
+\begin{DoxyCompactList}\small\item\em Check resource validity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1autoPtr_a1848178701127008797f8f1b32928317}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em Boolean conversion operator. \end{DoxyCompactList}\item 
+virtual const TYPE \& \mbox{\hyperlink{classoriginal_1_1autoPtr_ae06798fcf045511ae151f943251b22b0}{operator\texorpdfstring{$\ast$}{*}}} () const
+\begin{DoxyCompactList}\small\item\em Const dereference operator. \end{DoxyCompactList}\item 
+virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1autoPtr_a263449799f15ef6b1fd36fdb32bac007}{operator\texorpdfstring{$\ast$}{*}}} ()
+\begin{DoxyCompactList}\small\item\em Mutable dereference operator. \end{DoxyCompactList}\item 
+virtual const TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr_af1ff5222bff5917e8017ced782e479e4}{operator-\/$>$}} () const
+\begin{DoxyCompactList}\small\item\em Const member access operator. \end{DoxyCompactList}\item 
+virtual TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr_a3a54913b40cb3dd10ee15a6aee85e72a}{operator-\/$>$}} ()
+\begin{DoxyCompactList}\small\item\em Mutable member access operator. \end{DoxyCompactList}\item 
+virtual const TYPE \& \mbox{\hyperlink{classoriginal_1_1autoPtr_a208faaa7f2b7ba88dadbb840d83d4f25}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} index) const
+\begin{DoxyCompactList}\small\item\em Const array access operator. \end{DoxyCompactList}\item 
+virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1autoPtr_a047d8a8e17cb82ec6228ceeb5cc60996}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} index)
+\begin{DoxyCompactList}\small\item\em Mutable array access operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_a09a53ffb0c71517c96a6e26c7e73e137}{compare\+To}} (const \mbox{\hyperlink{classoriginal_1_1autoPtr}{auto\+Ptr}} \&other) const override
+\begin{DoxyCompactList}\small\item\em \doxylink{conceptoriginal_1_1Compare}{Compare} reference counters. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}auto\+Ptr} () override
+\begin{DoxyCompactList}\small\item\em Destructor triggers reference cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -111,12 +123,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
 \Hypertarget{classoriginal_1_1strongPtr_acc54f8f5ed5d27123674d81722d40c97}\label{classoriginal_1_1strongPtr_acc54f8f5ed5d27123674d81722d40c97} 
 class {\bfseries weak\+Ptr$<$ TYPE, DELETER $>$}
 \item 
-\Hypertarget{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd}\label{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd} 
-{\footnotesize template$<$typename T, typename DEL$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ {\bfseries make\+Strong\+Ptr} ()
-\item 
-\Hypertarget{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7}\label{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7} 
-{\footnotesize template$<$typename T, typename DEL$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ {\bfseries make\+Strong\+Ptr} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
-\end{DoxyCompactItemize}
+{\footnotesize template$<$typename T, typename DEL$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd}{make\+Strong\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Factory for default-\/constructed \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename DEL$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7}{make\+Strong\+Ptr}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
+\begin{DoxyCompactList}\small\item\em Factory for array-\/allocated \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -138,43 +148,142 @@ template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1refCntPtr}{original\+::ref\+Cnt\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries ref\+Cnt\+Ptr} (TYPE \texorpdfstring{$\ast$}{*}p)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classoriginal_1_1refCntPtr_af6dcf44ea5829187f10bab1efb89f2c4}{ref\+Cnt\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Construct from raw pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries auto\+Ptr} (TYPE \texorpdfstring{$\ast$}{*}p)
-\item 
-TYPE \texorpdfstring{$\ast$}{*} {\bfseries get\+Ptr} () const
-\item 
-void {\bfseries set\+Ptr} (TYPE \texorpdfstring{$\ast$}{*}p)
-\item 
-\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} {\bfseries strong\+Refs} () const
-\item 
-\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} {\bfseries weak\+Refs} () const
-\item 
+\mbox{\hyperlink{classoriginal_1_1autoPtr_acb37ac59f5784a779b22dda3d44aaa4f}{auto\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Construct from raw pointer. \end{DoxyCompactList}\item 
+TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr_a5278ad116443c77923e32e8ca9d0c65c}{get\+Ptr}} () const
+\begin{DoxyCompactList}\small\item\em Get managed pointer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1autoPtr_a736f8fd08d71e4493d21ed26f5a1a94f}{set\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Replace managed pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_a308b395bd56c69c84cb6d2f5f661dbe1}{strong\+Refs}} () const
+\begin{DoxyCompactList}\small\item\em Get strong reference count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_ac49b1da32d59049a6e64493746f512d6}{weak\+Refs}} () const
+\begin{DoxyCompactList}\small\item\em Get weak reference count. \end{DoxyCompactList}\item 
 void {\bfseries add\+Strong\+Ref} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Increment strong reference count. \end{DoxyCompactList}\item 
 void {\bfseries add\+Weak\+Ref} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Increment weak reference count. \end{DoxyCompactList}\item 
 void {\bfseries remove\+Strong\+Ref} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Decrement strong reference count. \end{DoxyCompactList}\item 
 void {\bfseries remove\+Weak\+Ref} ()
-\item 
-void {\bfseries destroy\+Ref\+Cnt} () noexcept
-\item 
+\begin{DoxyCompactList}\small\item\em Decrement weak reference count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1autoPtr_a14ff6c65daf21f01876ec6da122dd1bb}{destroy\+Ref\+Cnt}} () noexcept
+\begin{DoxyCompactList}\small\item\em Destroy reference counter. \end{DoxyCompactList}\item 
 void {\bfseries clean} () noexcept
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Cleanup resources when expired. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{classoriginal_1_1refCount}{ref\+Count}}$<$ TYPE, DELETER $>$ \texorpdfstring{$\ast$}{*} {\bfseries new\+Ref\+Count} (TYPE \texorpdfstring{$\ast$}{*}p=nullptr)
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{classoriginal_1_1refCount}{ref\+Count}}$<$ TYPE, DELETER $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr_a04785976b408ebd132d025b479496670}{new\+Ref\+Count}} (TYPE \texorpdfstring{$\ast$}{*}p=nullptr)
+\begin{DoxyCompactList}\small\item\em Create new reference counter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classoriginal_1_1refCount}{ref\+Count}}$<$ TYPE, DELETER $>$ \texorpdfstring{$\ast$}{*} {\bfseries ref\+\_\+count}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Reference counter object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE, typename DELETER$>$\newline
+class original\+::strong\+Ptr$<$ TYPE, DELETER $>$}
+Shared ownership smart pointer with strong references. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Managed object type \\
+\hline
+{\em DELETER} & Deletion policy type (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+TYPE$>$})\\
+\hline
+\end{DoxyTemplParams}
+Maintains object lifetime through reference counting\+:
+\begin{DoxyItemize}
+\item Increases strong count on copy
+\item Decreases strong count on destruction
+\item Destroys object when strong count reaches zero
+\item Supports copy/move semantics for shared ownership 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
+\index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0} 
+template$<$typename TYPE, typename DELETER$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{TYPE \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct from raw pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to manage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Shares ownership of existing resource 
+\end{DoxyWarning}
+\Hypertarget{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
+\index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da} 
+template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename ... Args$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+In-\/place construction with arguments. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Constructor argument types \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to forward to TYPE constructor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
+\index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31} 
+template$<$typename TYPE, typename DELETER$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor shares ownership. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Source \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
+\index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791} 
+template$<$typename TYPE, typename DELETER$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move constructor transfers ownership. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Source \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} to move from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+other becomes empty 
+\end{DoxyPostcond}
 
 
 \doxysubsection{Member Function Documentation}
@@ -187,26 +296,110 @@ std\+::string \mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+P
 
 
 
-Gets the class name for type identification. 
+Get class identifier. 
 
 \begin{DoxyReturn}{Returns}
-Class name as string.
+std\+::string "{}strong\+Ptr"{} 
 \end{DoxyReturn}
-Override in derived classes to provide accurate type names.
 
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{class\ }MyClass\ :\ \textcolor{keyword}{public}\ printable\ \{}
-\DoxyCodeLine{\ \ \ \ std::string\ className()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}MyClass"{}};\ \}}
-\DoxyCodeLine{\};}
-
-\end{DoxyCode}
- 
 
 Reimplemented from \mbox{\hyperlink{classoriginal_1_1refCntPtr_a062a5a1b9488f4de5927ebecb9eb49e3}{original\+::ref\+Cnt\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}.
 
+\Hypertarget{classoriginal_1_1strongPtr_a3fe98ffd47214c16f091a74a3308f1ed}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a3fe98ffd47214c16f091a74a3308f1ed} 
+template$<$typename TYPE, typename DELETER$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \& \mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment shares ownership. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Source \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} to copy from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1strongPtr_ab4f359fc29818c0e6a21bcea826b79c1}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_ab4f359fc29818c0e6a21bcea826b79c1} 
+template$<$typename TYPE, typename DELETER$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \& \mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Move assignment transfers ownership. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Source \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} to move from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+other becomes empty 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!makeStrongPtr@{makeStrongPtr}}
+\index{makeStrongPtr@{makeStrongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{makeStrongPtr}{makeStrongPtr}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd} 
+template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename T, typename DEL$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ make\+Strong\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Factory for default-\/constructed \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Object type \\
+\hline
+{\em DEL} & Deletion policy (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T$>$}) \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+New shared ownership instance 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!makeStrongPtr@{makeStrongPtr}}
+\index{makeStrongPtr@{makeStrongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{makeStrongPtr}{makeStrongPtr}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7} 
+template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename T, typename DEL$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ make\+Strong\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Factory for array-\/allocated \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Array element type \\
+\hline
+{\em DEL} & Array deletion policy (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$}) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Number of elements \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared array ownership 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/core/ref\+Cnt\+Ptr.\+h\end{DoxyCompactItemize}
+src/core/\mbox{\hyperlink{refCntPtr_8h}{ref\+Cnt\+Ptr.\+h}}\end{DoxyCompactItemize}

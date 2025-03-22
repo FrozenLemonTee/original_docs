@@ -19,7 +19,7 @@ class \mbox{\hyperlink{classoriginal_1_1array}{array}}
 class \mbox{\hyperlink{classoriginal_1_1assignOptTransform}{assign\+Opt\+Transform}}
 \begin{DoxyCompactList}\small\item\em Transformation that assigns a specified value to an element. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1autoPtr}{auto\+Ptr}}
-\item 
+\begin{DoxyCompactList}\small\item\em Base smart pointer with reference counting. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1baseArray}{base\+Array}}
 \begin{DoxyCompactList}\small\item\em Base class for fixed-\/size serial containers. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1baseCloneable}{base\+Cloneable}}
@@ -109,7 +109,7 @@ class \mbox{\hyperlink{classoriginal_1_1nullPointerError}{null\+Pointer\+Error}}
 class \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{out\+Of\+Bound\+Error}}
 \begin{DoxyCompactList}\small\item\em Exception for container index out-\/of-\/range errors. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1ownerPtr}{owner\+Ptr}}
-\item 
+\begin{DoxyCompactList}\small\item\em Unique ownership smart pointer with move semantics. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1printable}{printable}}
 \begin{DoxyCompactList}\small\item\em Base class providing polymorphic string conversion capabilities. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1prique}{prique}}
@@ -121,9 +121,9 @@ class \mbox{\hyperlink{classoriginal_1_1randomAccessIterator}{random\+Access\+It
 class \mbox{\hyperlink{classoriginal_1_1rangeFilter}{range\+Filter}}
 \begin{DoxyCompactList}\small\item\em A filter that checks if an element lies within a specified range. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1refCntPtr}{ref\+Cnt\+Ptr}}
-\item 
+\begin{DoxyCompactList}\small\item\em Base class for reference-\/counted pointers. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1refCount}{ref\+Count}}
-\item 
+\begin{DoxyCompactList}\small\item\em Reference counting metadata container. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1serial}{serial}}
 \begin{DoxyCompactList}\small\item\em Abstract base class for sequential containers with index-\/based access. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1singleDirectionIterator}{single\+Direction\+Iterator}}
@@ -151,7 +151,7 @@ class \mbox{\hyperlink{classoriginal_1_1staticError_3_01original_1_1valueError_0
 class \mbox{\hyperlink{classoriginal_1_1stepIterator}{step\+Iterator}}
 \begin{DoxyCompactList}\small\item\em Abstract base class for step iterators. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}
-\item 
+\begin{DoxyCompactList}\small\item\em Shared ownership smart pointer with strong references. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1transform}{transform}}
 \begin{DoxyCompactList}\small\item\em Base class for transformation operations. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1transformStream}{transform\+Stream}}
@@ -165,7 +165,7 @@ class \mbox{\hyperlink{classoriginal_1_1valueError}{value\+Error}}
 class \mbox{\hyperlink{classoriginal_1_1vector}{vector}}
 \begin{DoxyCompactList}\small\item\em Dynamic array container with amortized constant time operations. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1weakPtr}{weak\+Ptr}}
-\item 
+\begin{DoxyCompactList}\small\item\em Non-\/owning reference to shared resource. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}
 \begin{DoxyCompactList}\small\item\em Base class for linked value containers with formatted output. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Concepts}
@@ -239,20 +239,16 @@ using {\bfseries u\+\_\+integer} = std\+::uint32\+\_\+t
 \begin{DoxyCompactList}\small\item\em Returns the smaller of two given values. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{namespaceoriginal_a890841da21078177655d939bcec43f3f}{pow}} (double base, int exp)
 \begin{DoxyCompactList}\small\item\em Returns the result of raising a base to an exponent. \end{DoxyCompactList}\item 
-\Hypertarget{namespaceoriginal_a91b8576682192aaf07dd3b3439c508fd}\label{namespaceoriginal_a91b8576682192aaf07dd3b3439c508fd} 
-{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1ownerPtr}{owner\+Ptr}}$<$ T, DEL $>$ {\bfseries make\+Owner\+Ptr} ()
-\item 
-\Hypertarget{namespaceoriginal_aa7bdaa22f6da3ab3ebc6b56b0c28c0a8}\label{namespaceoriginal_aa7bdaa22f6da3ab3ebc6b56b0c28c0a8} 
-{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1ownerPtr}{owner\+Ptr}}$<$ T, DEL $>$ {\bfseries make\+Owner\+Ptr} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
-\item 
+{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1ownerPtr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a91b8576682192aaf07dd3b3439c508fd}{make\+Owner\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Factory function for single object ownership. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1ownerPtr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_aa7bdaa22f6da3ab3ebc6b56b0c28c0a8}{make\+Owner\+Ptr}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
+\begin{DoxyCompactList}\small\item\em Create \doxylink{classoriginal_1_1ownerPtr}{owner\+Ptr} with array allocation. \end{DoxyCompactList}\item 
 std\+::ostream \& \mbox{\hyperlink{namespaceoriginal_a6bf3733f8dbb6afdb7c4b4559c262da4}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classoriginal_1_1printable}{printable}} \&p)
 \begin{DoxyCompactList}\small\item\em Stream insertion operator for printable objects. \end{DoxyCompactList}\item 
-\Hypertarget{namespaceoriginal_a86b9fe32311d06a6dd40492e27fa7223}\label{namespaceoriginal_a86b9fe32311d06a6dd40492e27fa7223} 
-{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ {\bfseries make\+Strong\+Ptr} ()
-\item 
-\Hypertarget{namespaceoriginal_a96332e36b627767d23da2eddef5795ba}\label{namespaceoriginal_a96332e36b627767d23da2eddef5795ba} 
-{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ {\bfseries make\+Strong\+Ptr} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
-\item 
+{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a86b9fe32311d06a6dd40492e27fa7223}{make\+Strong\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Factory for default-\/constructed \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a96332e36b627767d23da2eddef5795ba}{make\+Strong\+Ptr}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
+\begin{DoxyCompactList}\small\item\em Factory for array-\/allocated \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1transformStream}{transform\+Stream}}$<$ T $>$ \mbox{\hyperlink{namespaceoriginal_a38a26f512ed3d73721da23b1f19437f6}{operator+}} (const \mbox{\hyperlink{classoriginal_1_1transform}{transform}}$<$ T $>$ \&t1, const \mbox{\hyperlink{classoriginal_1_1transform}{transform}}$<$ T $>$ \&t2)
 \begin{DoxyCompactList}\small\item\em Creates new transformation stream from two transforms. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{classoriginal_1_1transformStream}{transform\+Stream}}$<$ T $>$ \mbox{\hyperlink{namespaceoriginal_ae47ef543dcb851270ddb7b59ae4ae103}{operator+}} (const \mbox{\hyperlink{classoriginal_1_1transform}{transform}}$<$ T $>$ \&t, const \mbox{\hyperlink{classoriginal_1_1transformStream}{transform\+Stream}}$<$ T $>$ \&ots)
@@ -357,7 +353,104 @@ Create grouped \doxylink{classoriginal_1_1filterStream}{filter\+Stream} from exi
 \begin{DoxyReturn}{Returns}
 New grouped \doxylink{classoriginal_1_1filterStream}{filter\+Stream}
 \end{DoxyReturn}
-Use instead of parentheses for explicit precedence control \Hypertarget{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}\index{original@{original}!makeTuple@{makeTuple}}
+Use instead of parentheses for explicit precedence control \Hypertarget{namespaceoriginal_a91b8576682192aaf07dd3b3439c508fd}\index{original@{original}!makeOwnerPtr@{makeOwnerPtr}}
+\index{makeOwnerPtr@{makeOwnerPtr}!original@{original}}
+\doxysubsubsection{\texorpdfstring{makeOwnerPtr()}{makeOwnerPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceoriginal_a91b8576682192aaf07dd3b3439c508fd} 
+template$<$typename T, typename DEL = deleter$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classoriginal_1_1ownerPtr}{owner\+Ptr}}$<$ T, DEL $>$ original\+::make\+Owner\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Factory function for single object ownership. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Object type to create \\
+\hline
+{\em DEL} & Deletion policy type (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T$>$}) \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classoriginal_1_1ownerPtr}{owner\+Ptr} Owning pointer to new instance 
+\end{DoxyReturn}
+\Hypertarget{namespaceoriginal_aa7bdaa22f6da3ab3ebc6b56b0c28c0a8}\index{original@{original}!makeOwnerPtr@{makeOwnerPtr}}
+\index{makeOwnerPtr@{makeOwnerPtr}!original@{original}}
+\doxysubsubsection{\texorpdfstring{makeOwnerPtr()}{makeOwnerPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceoriginal_aa7bdaa22f6da3ab3ebc6b56b0c28c0a8} 
+template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$$>$ \\
+\mbox{\hyperlink{classoriginal_1_1ownerPtr}{owner\+Ptr}}$<$ T, DEL $>$ original\+::make\+Owner\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Create \doxylink{classoriginal_1_1ownerPtr}{owner\+Ptr} with array allocation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Array element type \\
+\hline
+{\em DEL} & Array deletion policy type (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$}) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Number of elements to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly created array \doxylink{classoriginal_1_1ownerPtr}{owner\+Ptr} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Uses array new for allocation 
+\end{DoxyNote}
+\Hypertarget{namespaceoriginal_a86b9fe32311d06a6dd40492e27fa7223}\index{original@{original}!makeStrongPtr@{makeStrongPtr}}
+\index{makeStrongPtr@{makeStrongPtr}!original@{original}}
+\doxysubsubsection{\texorpdfstring{makeStrongPtr()}{makeStrongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespaceoriginal_a86b9fe32311d06a6dd40492e27fa7223} 
+template$<$typename T, typename DEL = deleter$<$\+T$>$$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ original\+::make\+Strong\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Factory for default-\/constructed \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Object type \\
+\hline
+{\em DEL} & Deletion policy (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T$>$}) \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+New shared ownership instance 
+\end{DoxyReturn}
+\Hypertarget{namespaceoriginal_a96332e36b627767d23da2eddef5795ba}\index{original@{original}!makeStrongPtr@{makeStrongPtr}}
+\index{makeStrongPtr@{makeStrongPtr}!original@{original}}
+\doxysubsubsection{\texorpdfstring{makeStrongPtr()}{makeStrongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespaceoriginal_a96332e36b627767d23da2eddef5795ba} 
+template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ original\+::make\+Strong\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Factory for array-\/allocated \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Array element type \\
+\hline
+{\em DEL} & Array deletion policy (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$}) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Number of elements \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shared array ownership 
+\end{DoxyReturn}
+\Hypertarget{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}\index{original@{original}!makeTuple@{makeTuple}}
 \index{makeTuple@{makeTuple}!original@{original}}
 \doxysubsubsection{\texorpdfstring{makeTuple()}{makeTuple()}}
 {\footnotesize\ttfamily \label{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8} 
