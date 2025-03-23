@@ -11,7 +11,8 @@ Shared ownership smart pointer with strong references.
 
 
 
-Inheritance diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:\nopagebreak
+Inheritance diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DEL
 \end{figure}
 
 
-Collaboration diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -40,6 +42,8 @@ Collaboration diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, D
 \begin{DoxyCompactList}\small\item\em Copy assignment shares ownership. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791}{strong\+Ptr}} (\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&\&other) noexcept
 \begin{DoxyCompactList}\small\item\em Move constructor transfers ownership. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1strongPtr_a1456e1be587f98ee0abe8bdf118e1bb9}{reset}} () noexcept
+\begin{DoxyCompactList}\small\item\em Resets the smart pointer and releases the managed object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \& \mbox{\hyperlink{classoriginal_1_1strongPtr_ab4f359fc29818c0e6a21bcea826b79c1}{operator=}} (\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&\&other) noexcept
 \begin{DoxyCompactList}\small\item\em Move assignment transfers ownership. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1strongPtr_a19276911dc3c7bd96d401126976b0f69}{class\+Name}} () const override
@@ -61,6 +65,10 @@ std\+::string \mbox{\hyperlink{classoriginal_1_1refCntPtr_a2b6187e87b8d807c0049a
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_a308b395bd56c69c84cb6d2f5f661dbe1}{strong\+Refs}} () const
+\begin{DoxyCompactList}\small\item\em Get strong reference count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_ac49b1da32d59049a6e64493746f512d6}{weak\+Refs}} () const
+\begin{DoxyCompactList}\small\item\em Get weak reference count. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1autoPtr_a5022614b81f2a10940b63ba73937b462}{exist}} () const
 \begin{DoxyCompactList}\small\item\em Check active ownership. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1autoPtr_abddf47f791e1a114a9139f373efa0e06}{expired}} () const
@@ -161,10 +169,6 @@ template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast
 \begin{DoxyCompactList}\small\item\em Construct from raw pointer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1autoPtr_a736f8fd08d71e4493d21ed26f5a1a94f}{set\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p)
 \begin{DoxyCompactList}\small\item\em Replace managed pointer. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_a308b395bd56c69c84cb6d2f5f661dbe1}{strong\+Refs}} () const
-\begin{DoxyCompactList}\small\item\em Get strong reference count. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_ac49b1da32d59049a6e64493746f512d6}{weak\+Refs}} () const
-\begin{DoxyCompactList}\small\item\em Get weak reference count. \end{DoxyCompactList}\item 
 void {\bfseries add\+Strong\+Ref} ()
 \begin{DoxyCompactList}\small\item\em Increment strong reference count. \end{DoxyCompactList}\item 
 void {\bfseries add\+Weak\+Ref} ()
@@ -348,7 +352,26 @@ Reference to this \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}
 \begin{DoxyPostcond}{Postcondition}
 other becomes empty 
 \end{DoxyPostcond}
+\Hypertarget{classoriginal_1_1strongPtr_a1456e1be587f98ee0abe8bdf118e1bb9}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!reset@{reset}}
+\index{reset@{reset}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a1456e1be587f98ee0abe8bdf118e1bb9} 
+template$<$typename TYPE, typename DELETER$>$ \\
+void \mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
+
+
+Resets the smart pointer and releases the managed object. 
+
+Performs the following sequence of operations\+:
+\begin{DoxyEnumerate}
+\item Decrements the current strong reference count
+\item Cleans up the managed pointer and reference counter
+\item Creates a new reference counter and initializes strong references \begin{DoxyPostcond}{Postcondition}
+Equivalent to replacing the current \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} with a newly constructed empty pointer 
+\end{DoxyPostcond}
+
+\end{DoxyEnumerate}
 
 \doxysubsection{Friends And Related Symbol Documentation}
 \Hypertarget{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!makeStrongPtr@{makeStrongPtr}}

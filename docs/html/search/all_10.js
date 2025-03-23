@@ -13,6 +13,7 @@ var searchData=
   ['remove_10',['remove',['../classoriginal_1_1baseList.html#a0b178dfc8f5315530671534ee8dcacf0',1,'original::baseList']]],
   ['removestrongref_11',['removeStrongRef',['../classoriginal_1_1autoPtr.html#a1f5ba411195f2dd2705c8f43febc4aec',1,'original::autoPtr']]],
   ['removeweakref_12',['removeWeakRef',['../classoriginal_1_1autoPtr.html#a7915f1567de441c25bdc6bc6c1bdc660',1,'original::autoPtr']]],
-  ['resize_13',['resize',['../classoriginal_1_1bitSet.html#ae1cbf751c78398066859a37ddf39f60d',1,'original::bitSet']]],
-  ['reverse_14',['reverse',['../classoriginal_1_1algorithms.html#a5d6cd7b121c4a3b84e4f7264fdea3295',1,'original::algorithms::reverse(const iterator&lt; TYPE &gt; &amp;begin, const iterator&lt; TYPE &gt; &amp;end)'],['../classoriginal_1_1algorithms.html#ab946814272f2fc5c9650fbc4c8cc069a',1,'original::algorithms::reverse(const iterator&lt; TYPE &gt; *begin, const iterator&lt; TYPE &gt; *end) -&gt; iterator&lt; TYPE &gt; *']]]
+  ['reset_13',['reset',['../classoriginal_1_1strongPtr.html#a1456e1be587f98ee0abe8bdf118e1bb9',1,'original::strongPtr']]],
+  ['resize_14',['resize',['../classoriginal_1_1bitSet.html#ae1cbf751c78398066859a37ddf39f60d',1,'original::bitSet']]],
+  ['reverse_15',['reverse',['../classoriginal_1_1algorithms.html#a5d6cd7b121c4a3b84e4f7264fdea3295',1,'original::algorithms::reverse(const iterator&lt; TYPE &gt; &amp;begin, const iterator&lt; TYPE &gt; &amp;end)'],['../classoriginal_1_1algorithms.html#ab946814272f2fc5c9650fbc4c8cc069a',1,'original::algorithms::reverse(const iterator&lt; TYPE &gt; *begin, const iterator&lt; TYPE &gt; *end) -&gt; iterator&lt; TYPE &gt; *']]]
 ];
