@@ -78,7 +78,7 @@
 \DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
 \DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ IDX>}
 \DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1couple_a6c87285b36f85adfc86ab1c9579b98fa}{original::couple<F\_TYPE,\ S\_TYPE>::get}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1staticError}{staticError}}<\mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}},\ (IDX\ >\ 1)>\{\};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1static_error}{staticError}}<\mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}},\ (IDX\ >\ 1)>\{\};}
 \DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (IDX\ ==\ 0)\{}
 \DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>first\_;}
 \DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
@@ -89,12 +89,12 @@
 \DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
 \DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ IDX,\ \textcolor{keyword}{typename}\ T>}
 \DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1couple_a6d321cd7fdb4046dee21c8d1bd9e83b7}{original::couple<F\_TYPE,\ S\_TYPE>::set}}(\textcolor{keyword}{const}\ T\ \&e)\ \{}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1staticError}{staticError}}<\mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}},\ (IDX\ >\ 1)>\{\};}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1static_error}{staticError}}<\mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}},\ (IDX\ >\ 1)>\{\};}
 \DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (IDX\ ==\ 0)\{}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1staticError}{staticError<valueError,\ !std::is\_convertible\_v<T,\ F\_TYPE>}}>\{\};}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1static_error}{staticError<valueError,\ !std::is\_convertible\_v<T,\ F\_TYPE>}}>\{\};}
 \DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>first\_\ =\ \textcolor{keyword}{static\_cast<}F\_TYPE\textcolor{keyword}{>}(e);}
 \DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1staticError}{staticError<valueError,\ !std::is\_convertible\_v<T,\ S\_TYPE>}}>\{\};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1static_error}{staticError<valueError,\ !std::is\_convertible\_v<T,\ S\_TYPE>}}>\{\};}
 \DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>second\_\ =\ \textcolor{keyword}{static\_cast<}S\_TYPE\textcolor{keyword}{>}(e);}
 \DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00174\ \ \ \ \ \}}
@@ -102,13 +102,13 @@
 \DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
 \DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1couple_adf35c85a3c96288ee0d6e8f54585316c}{original::couple<F\_TYPE,\ S\_TYPE>::compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple_ab8f1ba30028e79b9c7178c6886e213d7}{couple}}\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
 \DoxyCodeLine{00178\ \ \ \ \ \{}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{conceptoriginal_1_1Comparable}{Comparable<F\_TYPE>}})\{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{conceptoriginal_1_1_comparable}{Comparable<F\_TYPE>}})\{}
 \DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>first\_\ <\ other.first\_)}
 \DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
 \DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>first\_\ >\ other.first\_)}
 \DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
 \DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{conceptoriginal_1_1Comparable}{Comparable<S\_TYPE>}})\{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{conceptoriginal_1_1_comparable}{Comparable<S\_TYPE>}})\{}
 \DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>second\_\ <\ other.second\_)}
 \DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
 \DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>second\_\ >\ other.second\_)}
