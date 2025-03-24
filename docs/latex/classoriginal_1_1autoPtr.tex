@@ -42,7 +42,9 @@ bool \mbox{\hyperlink{classoriginal_1_1autoPtr_abddf47f791e1a114a9139f373efa0e06
 \begin{DoxyCompactList}\small\item\em Check resource validity. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1autoPtr_a1848178701127008797f8f1b32928317}{operator bool}} () const
 \begin{DoxyCompactList}\small\item\em Boolean conversion operator. \end{DoxyCompactList}\item 
-TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr_a4bf90c963949edebb3cfbbe739092c60}{get}} () const
+const TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr_af019410de78661d25c19d3f2c2d9eac6}{get}} () const
+\begin{DoxyCompactList}\small\item\em Get managed pointer const version. \end{DoxyCompactList}\item 
+TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr_a42d56a0d89b162c9883d0cb49dfc82a5}{get}} ()
 \begin{DoxyCompactList}\small\item\em Get managed pointer. \end{DoxyCompactList}\item 
 virtual const TYPE \& \mbox{\hyperlink{classoriginal_1_1autoPtr_ae06798fcf045511ae151f943251b22b0}{operator\texorpdfstring{$\ast$}{*}}} () const
 \begin{DoxyCompactList}\small\item\em Const dereference operator. \end{DoxyCompactList}\item 
@@ -56,6 +58,8 @@ virtual TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPt
 \begin{DoxyCompactList}\small\item\em Mutable member access operator. \end{DoxyCompactList}\item 
 virtual TYPE \& \mbox{\hyperlink{classoriginal_1_1autoPtr_a047d8a8e17cb82ec6228ceeb5cc60996}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} index)
 \begin{DoxyCompactList}\small\item\em Mutable array access operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1autoPtr_ab57e2635661b24a1dae97887a3c4c11a}{swap}} (\mbox{\hyperlink{classoriginal_1_1autoPtr}{auto\+Ptr}} \&other) noexcept
+\begin{DoxyCompactList}\small\item\em Swaps the reference counters between two \doxylink{classoriginal_1_1autoPtr}{auto\+Ptr} instances. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}} \mbox{\hyperlink{classoriginal_1_1autoPtr_a09a53ffb0c71517c96a6e26c7e73e137}{compare\+To}} (const \mbox{\hyperlink{classoriginal_1_1autoPtr}{auto\+Ptr}} \&other) const override
 \begin{DoxyCompactList}\small\item\em \doxylink{conceptoriginal_1_1Compare}{Compare} reference counters. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classoriginal_1_1autoPtr_a92e53d3f6bbaedcac69930f46b45ee94}{class\+Name}} () const override
@@ -283,16 +287,35 @@ Check resource validity.
 \begin{DoxyReturn}{Returns}
 True if strong references == 0 
 \end{DoxyReturn}
-\Hypertarget{classoriginal_1_1autoPtr_a4bf90c963949edebb3cfbbe739092c60}\index{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}!get@{get}}
+\Hypertarget{classoriginal_1_1autoPtr_a42d56a0d89b162c9883d0cb49dfc82a5}\index{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}!get@{get}}
 \index{get@{get}!original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}}
-\doxysubsubsection{\texorpdfstring{get()}{get()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1autoPtr_a4bf90c963949edebb3cfbbe739092c60} 
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1autoPtr_a42d56a0d89b162c9883d0cb49dfc82a5} 
 template$<$typename TYPE, typename DERIVED, typename DELETER$>$ \\
-TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr}}$<$ TYPE, DERIVED, DELETER $>$\+::get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr}}$<$ TYPE, DERIVED, DELETER $>$\+::get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Get managed pointer. 
+
+\begin{DoxyReturn}{Returns}
+Raw pointer to managed object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1nullPointerError}{null\+Pointer\+Error}} & if no active references \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classoriginal_1_1autoPtr_af019410de78661d25c19d3f2c2d9eac6}\index{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}!get@{get}}
+\index{get@{get}!original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1autoPtr_af019410de78661d25c19d3f2c2d9eac6} 
+template$<$typename TYPE, typename DERIVED, typename DELETER$>$ \\
+const TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr}}$<$ TYPE, DERIVED, DELETER $>$\+::get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get managed pointer const version. 
 
 \begin{DoxyReturn}{Returns}
 Raw pointer to managed object 
@@ -518,6 +541,30 @@ Get strong reference count.
 \begin{DoxyReturn}{Returns}
 Current number of strong references 
 \end{DoxyReturn}
+\Hypertarget{classoriginal_1_1autoPtr_ab57e2635661b24a1dae97887a3c4c11a}\index{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}!swap@{swap}}
+\index{swap@{swap}!original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1autoPtr_ab57e2635661b24a1dae97887a3c4c11a} 
+template$<$typename TYPE, typename DERIVED, typename DELETER$>$ \\
+void \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr}}$<$ TYPE, DERIVED, DELETER $>$\+::swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1autoPtr}{auto\+Ptr}}$<$ TYPE, DERIVED, DELETER $>$ \&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Swaps the reference counters between two \doxylink{classoriginal_1_1autoPtr}{auto\+Ptr} instances. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \doxylink{classoriginal_1_1autoPtr}{auto\+Ptr} instance to swap with\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+After swapping\+:
+\begin{DoxyItemize}
+\item Current object acquires other\textquotesingle{}s reference counter
+\item Other object acquires current object\textquotesingle{}s reference counter
+\item Managed object ownership transfers implicitly 
+\end{DoxyItemize}
+\end{DoxyPostcond}
 \Hypertarget{classoriginal_1_1autoPtr_ae425525928c1ce696a19debecf32189a}\index{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}!toString@{toString}}
 \index{toString@{toString}!original::autoPtr$<$ TYPE, DERIVED, DELETER $>$@{original::autoPtr$<$ TYPE, DERIVED, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{toString()}{toString()}}
