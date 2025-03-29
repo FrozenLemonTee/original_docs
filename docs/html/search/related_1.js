@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['makeownerptr_0',['makeOwnerPtr',['../classoriginal_1_1owner_ptr.html#afad88e7fa0e30df19ba0b844d74976a2',1,'original::ownerPtr::makeOwnerPtr()'],['../classoriginal_1_1owner_ptr.html#a468b27bd723a66f2018bf1b28f4be25d',1,'original::ownerPtr::makeOwnerPtr(u_integer size)']]],
-  ['makestrongptr_1',['makeStrongPtr',['../classoriginal_1_1strong_ptr.html#ac0e6b70e86b7518c3f47657c73047abd',1,'original::strongPtr::makeStrongPtr()'],['../classoriginal_1_1strong_ptr.html#ad2d643f7fcc0cdc55d2762ede404e9b7',1,'original::strongPtr::makeStrongPtr(u_integer size)']]],
-  ['maketuple_2',['makeTuple',['../classoriginal_1_1tuple.html#acf49e19bc49952eaf947d5a5fd5f599f',1,'original::tuple']]]
+  ['makeownerptr_0',['makeOwnerPtr',['../classoriginal_1_1ownerPtr.html#a566773f5a4c9261e105187e6b8cd4fd8',1,'original::ownerPtr']]],
+  ['makeownerptrarray_1',['makeOwnerPtrArray',['../classoriginal_1_1ownerPtr.html#a37fb5ad95ce215fd43eab6a5d739e9bc',1,'original::ownerPtr']]],
+  ['makestrongptr_2',['makeStrongPtr',['../classoriginal_1_1strongPtr.html#a2e9bdd3e95d8cd898186c4df1f410b80',1,'original::strongPtr']]],
+  ['makestrongptrarray_3',['makeStrongPtrArray',['../classoriginal_1_1strongPtr.html#aa5ec4bf36bc1fde22f5f6a493133674a',1,'original::strongPtr']]],
+  ['maketuple_4',['makeTuple',['../classoriginal_1_1tuple.html#acf49e19bc49952eaf947d5a5fd5f599f',1,'original::tuple']]]
 ];

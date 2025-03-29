@@ -7,35 +7,61 @@
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }deleter\{}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ deleter()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~deleter()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_a7351b34defe3fc712303708efaeca979}{operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00031\ \ \ \ \ \};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{class\ }deleter<TYPE[]>\{}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ deleter()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~deleter()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_a7351b34defe3fc712303708efaeca979}{operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00052\ \ \ \ \ \};}
-\DoxyCodeLine{00053\ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_a7351b34defe3fc712303708efaeca979}{original::deleter<TYPE>::operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{delete}\ ptr;}
-\DoxyCodeLine{00058\ \}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_a7351b34defe3fc712303708efaeca979}{original::deleter<TYPE[]>::operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{delete}[]\ ptr;}
-\DoxyCodeLine{00063\ \}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DELETER\_H}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1deleterBase_af1b9d0e1938d0fba7c38b77fa6438d77}{deleterBase}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classoriginal_1_1deleterBase_af1b9d0e1938d0fba7c38b77fa6438d77}{deleterBase}}()\ noexcept\ =\ default;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ virtual\ \string~\mbox{\hyperlink{classoriginal_1_1deleterBase_af1b9d0e1938d0fba7c38b77fa6438d77}{deleterBase}}()\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ operator()(const\ TYPE*\ ptr)\ const\ noexcept\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ template<typename\ TYPE>}
+\DoxyCodeLine{00050\ \ \ \ \ class\ \mbox{\hyperlink{classoriginal_1_1deleterBase_3_01TYPE_0f_0e_4_a0059c741f0fb278a2bd4c80f318e6e1b}{deleterBase}}<TYPE[]>\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classoriginal_1_1deleterBase_3_01TYPE_0f_0e_4_a0059c741f0fb278a2bd4c80f318e6e1b}{deleterBase}}()\ noexcept\ =\ default;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ virtual\ \string~\mbox{\hyperlink{classoriginal_1_1deleterBase_3_01TYPE_0f_0e_4_a0059c741f0fb278a2bd4c80f318e6e1b}{deleterBase}}()\ =\ 0;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ operator()(const\ TYPE*\ ptr)\ const\ noexcept\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \ \ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \ \ \ \ template<typename\ TYPE>}
+\DoxyCodeLine{00079\ \ \ \ \ class\ deleter\ final\ :\ public\ \mbox{\hyperlink{classoriginal_1_1deleterBase_af1b9d0e1938d0fba7c38b77fa6438d77}{deleterBase}}<TYPE>\{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ deleter()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \string~deleter()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_aa82fd2d3e47b9b068725142ef7c3cdc7}{operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00090\ \ \ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{class\ }deleter<TYPE[]>\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1deleterBase_af1b9d0e1938d0fba7c38b77fa6438d77}{deleterBase}}<TYPE[]>\{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ deleter()\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \string~deleter()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_3_01TYPE_0f_0e_4_a97a5008a36bdbf48110e8922fafba4de}{operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00111\ \ \ \ \ \};}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00115\ \mbox{\hyperlink{classoriginal_1_1deleterBase_a8a60c5e2af38f3ccab457d283c9c72fe}{original::deleterBase<TYPE>::\string~deleterBase}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00118\ \mbox{\hyperlink{classoriginal_1_1deleterBase_a8a60c5e2af38f3ccab457d283c9c72fe}{original::deleterBase<TYPE[]>::\string~deleterBase}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_aa82fd2d3e47b9b068725142ef7c3cdc7}{original::deleter<TYPE>::operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{delete}\ ptr;}
+\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1deleter_aa82fd2d3e47b9b068725142ef7c3cdc7}{original::deleter<TYPE[]>::operator()}}(\textcolor{keyword}{const}\ TYPE*\ ptr)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{delete}[]\ ptr;}
+\DoxyCodeLine{00128\ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//DELETER\_H}}
 
 \end{DoxyCode}

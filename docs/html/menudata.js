@@ -36,7 +36,12 @@ var menudata={children:[
 {text:"o",url:"namespacemembers.html#index_o"},
 {text:"p",url:"namespacemembers.html#index_p"},
 {text:"u",url:"namespacemembers.html#index_u"}]},
-{text:"Functions",url:"namespacemembers_func.html"},
+{text:"Functions",url:"namespacemembers_func.html",children:[
+{text:"a",url:"namespacemembers_func.html#index_a"},
+{text:"g",url:"namespacemembers_func.html#index_g"},
+{text:"m",url:"namespacemembers_func.html#index_m"},
+{text:"o",url:"namespacemembers_func.html#index_o"},
+{text:"p",url:"namespacemembers_func.html#index_p"}]},
 {text:"Variables",url:"namespacemembers_vars.html"},
 {text:"Typedefs",url:"namespacemembers_type.html"}]}]},
 {text:"Concepts",url:"concepts.html"},
@@ -94,6 +99,7 @@ var menudata={children:[
 {text:"w",url:"functions_func_w.html#index_w"},
 {text:"~",url:"functions_func_~.html#index__7E"}]},
 {text:"Variables",url:"functions_vars.html"},
+{text:"Typedefs",url:"functions_type.html"},
 {text:"Related Symbols",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"}]}]}

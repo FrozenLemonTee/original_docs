@@ -32,10 +32,8 @@ Collaboration diagram for original\+::strong\+Ptr\texorpdfstring{$<$}{<} TYPE, D
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0}{strong\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p)
+\mbox{\hyperlink{classoriginal_1_1strongPtr_a4f7960c025a6f7b92516a94c1874a093}{strong\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p=std\+::nullptr\+\_\+t\{\})
 \begin{DoxyCompactList}\small\item\em Construct from raw pointer. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da}{strong\+Ptr}} (Args \&\&... args)
-\begin{DoxyCompactList}\small\item\em In-\/place construction with arguments. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31}{strong\+Ptr}} (const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&other)
 \begin{DoxyCompactList}\small\item\em Copy constructor shares ownership. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \& \mbox{\hyperlink{classoriginal_1_1strongPtr_a3fe98ffd47214c16f091a74a3308f1ed}{operator=}} (const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}} \&other)
@@ -139,10 +137,10 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
 \Hypertarget{classoriginal_1_1strongPtr_acc54f8f5ed5d27123674d81722d40c97}\label{classoriginal_1_1strongPtr_acc54f8f5ed5d27123674d81722d40c97} 
 class {\bfseries weak\+Ptr$<$ TYPE, DELETER $>$}
 \item 
-{\footnotesize template$<$typename T, typename DEL$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd}{make\+Strong\+Ptr}} ()
-\begin{DoxyCompactList}\small\item\em Factory for default-\/constructed \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T, typename DEL$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7}{make\+Strong\+Ptr}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
-\begin{DoxyCompactList}\small\item\em Factory for array-\/allocated \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+{\footnotesize template$<$typename T, typename DEL, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1strongPtr_a2e9bdd3e95d8cd898186c4df1f410b80}{make\+Strong\+Ptr}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} managing a shared object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename DEL, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1strongPtr_aa5ec4bf36bc1fde22f5f6a493133674a}{make\+Strong\+Ptr\+Array}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} managing a shared array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
@@ -164,7 +162,7 @@ template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1refCntPtr}{original\+::ref\+Cnt\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classoriginal_1_1refCntPtr_af6dcf44ea5829187f10bab1efb89f2c4}{ref\+Cnt\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p)
+\mbox{\hyperlink{classoriginal_1_1refCntPtr_afc9a8651898a4a889ae0f2a1ecdbdcb0}{ref\+Cnt\+Ptr}} (TYPE \texorpdfstring{$\ast$}{*}p=std\+::nullptr\+\_\+t\{\})
 \begin{DoxyCompactList}\small\item\em Construct from raw pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1autoPtr}{original\+::auto\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}}
 \begin{DoxyCompactItemize}
@@ -218,12 +216,12 @@ Maintains object lifetime through reference counting\+:
 \end{DoxyItemize}
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
+\Hypertarget{classoriginal_1_1strongPtr_a4f7960c025a6f7b92516a94c1874a093}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
 \index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
-\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
-{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_af2b65d1cc2e0fe0b31f067e5f95fe3c0} 
+\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a4f7960c025a6f7b92516a94c1874a093} 
 template$<$typename TYPE, typename DELETER$>$ \\
-\mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{TYPE \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{TYPE \texorpdfstring{$\ast$}{*}}]{p}{ = {\ttfamily std\+:\+:nullptr\+\_\+t\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
@@ -237,31 +235,9 @@ Construct from raw pointer.
 \begin{DoxyWarning}{Warning}
 Shares ownership of existing resource 
 \end{DoxyWarning}
-\Hypertarget{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
-\index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
-\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a708874677f77b6c6af6dcfb43011c3da} 
-template$<$typename TYPE, typename DELETER$>$ \\
-template$<$typename ... Args$>$ \\
-\mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
-
-
-
-In-\/place construction with arguments. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em Args} & Constructor argument types \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em args} & Arguments to forward to TYPE constructor \\
-\hline
-\end{DoxyParams}
 \Hypertarget{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
 \index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
-\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_afa6afbe74214c581ef1078bf20c41b31} 
 template$<$typename TYPE, typename DELETER$>$ \\
 \mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \&}]{other}{}\end{DoxyParamCaption})}
@@ -277,7 +253,7 @@ Copy constructor shares ownership.
 \end{DoxyParams}
 \Hypertarget{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!strongPtr@{strongPtr}}
 \index{strongPtr@{strongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
-\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+\doxysubsubsection{\texorpdfstring{strongPtr()}{strongPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a03ad1cff0a8ff9ca657845061167e791} 
 template$<$typename TYPE, typename DELETER$>$ \\
 \mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr}}$<$ TYPE, DELETER $>$\+::strong\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ TYPE, DELETER $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
@@ -378,56 +354,89 @@ Equivalent to replacing the current \doxylink{classoriginal_1_1strongPtr}{strong
 \end{DoxyEnumerate}
 
 \doxysubsection{Friends And Related Symbol Documentation}
-\Hypertarget{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!makeStrongPtr@{makeStrongPtr}}
+\Hypertarget{classoriginal_1_1strongPtr_a2e9bdd3e95d8cd898186c4df1f410b80}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!makeStrongPtr@{makeStrongPtr}}
 \index{makeStrongPtr@{makeStrongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
-\doxysubsubsection{\texorpdfstring{makeStrongPtr}{makeStrongPtr}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_ac0e6b70e86b7518c3f47657c73047abd} 
+\doxysubsubsection{\texorpdfstring{makeStrongPtr}{makeStrongPtr}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_a2e9bdd3e95d8cd898186c4df1f410b80} 
 template$<$typename TYPE, typename DELETER$>$ \\
-template$<$typename T, typename DEL$>$ \\
-\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ make\+Strong\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+template$<$typename T, typename DEL, typename... Args$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ make\+Strong\+Ptr (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 
-Factory for default-\/constructed \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. 
+Creates a new \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} managing a shared object. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Object type \\
+{\em T} & Type of object to create and manage \\
 \hline
-{\em DEL} & Deletion policy (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T$>$}) \\
+{\em DEL} & Deleter policy type (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T$>$}) \\
 \hline
-\end{DoxyTemplParams}
-\begin{DoxyReturn}{Returns}
-New shared ownership instance 
-\end{DoxyReturn}
-\Hypertarget{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!makeStrongPtr@{makeStrongPtr}}
-\index{makeStrongPtr@{makeStrongPtr}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
-\doxysubsubsection{\texorpdfstring{makeStrongPtr}{makeStrongPtr}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_ad2d643f7fcc0cdc55d2762ede404e9b7} 
-template$<$typename TYPE, typename DELETER$>$ \\
-template$<$typename T, typename DEL$>$ \\
-\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ make\+Strong\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
-
-
-
-Factory for array-\/allocated \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr}. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Array element type \\
-\hline
-{\em DEL} & Array deletion policy (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$}) \\
+{\em Args} & Argument types for object construction \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em size} & Number of elements \\
+{\em args} & Arguments to forward to T\textquotesingle{}s constructor \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Shared array ownership 
+strong\+Ptr$<$\+T, DEL$>$ sharing ownership of the new object 
 \end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Provides exception-\/safe object creation with shared ownership
+\end{DoxyNote}
+The object will be destroyed when all strong references are released
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ strongPtr\ managing\ a\ new\ MyClass\ constructed\ with\ args}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ ptr\ =\ \mbox{\hyperlink{classoriginal_1_1strongPtr_a2e9bdd3e95d8cd898186c4df1f410b80}{makeStrongPtr<MyClass>}}(arg1,\ arg2);}
+
+\end{DoxyCode}
+ \Hypertarget{classoriginal_1_1strongPtr_aa5ec4bf36bc1fde22f5f6a493133674a}\index{original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}!makeStrongPtrArray@{makeStrongPtrArray}}
+\index{makeStrongPtrArray@{makeStrongPtrArray}!original::strongPtr$<$ TYPE, DELETER $>$@{original::strongPtr$<$ TYPE, DELETER $>$}}
+\doxysubsubsection{\texorpdfstring{makeStrongPtrArray}{makeStrongPtrArray}}
+{\footnotesize\ttfamily \label{classoriginal_1_1strongPtr_aa5ec4bf36bc1fde22f5f6a493133674a} 
+template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename T, typename DEL, typename... Args$>$ \\
+\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ make\+Strong\+Ptr\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Creates a new \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} managing a shared array. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of array elements to create \\
+\hline
+{\em DEL} & Deleter policy type (default\+: \doxylink{classoriginal_1_1deleter}{deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$}) \\
+\hline
+{\em Args} & Argument types for array element initialization \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Number of elements in the array \\
+\hline
+{\em args} & Arguments to forward to each element\textquotesingle{}s constructor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+strong\+Ptr$<$\+T, DEL$>$ sharing ownership of the new array 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Provides exception-\/safe array creation with shared ownership
+\end{DoxyNote}
+The array will be destroyed when all strong references are released
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ strongPtr\ managing\ a\ new\ MyClass[10]\ array}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ arr\ =\ \mbox{\hyperlink{classoriginal_1_1strongPtr_aa5ec4bf36bc1fde22f5f6a493133674a}{makeStrongPtrArray<MyClass>}}(10);}
+
+\end{DoxyCode}
+ 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['e_0',['E',['../namespaceoriginal.html#ad9f68a800f874a16bc6a433ddcf06ed5',1,'original']]]
+  ['allocator_0',['allocator',['../classoriginal_1_1container.html#a4ba0e1d146df2af6d85d7da63a2b5787',1,'original::container']]]
 ];

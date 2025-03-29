@@ -11,490 +11,567 @@
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseArray}{baseArray}}<bool>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}<bool,\ bitSet>\{}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }underlying\_type\ =\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ BLOCK\_MAX\_SIZE\ =\ \textcolor{keyword}{sizeof}(underlying\_type)\ *\ 8;\ }
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1array}{array<underlying\_type>}}\ map;\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_;\ }
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bitsetInit(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}});}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ getBitFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ underlying\_type\ setBitFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ underlying\_type\ clearBitFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ underlying\_type\ clearHigherBitsFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clearRedundantBits();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\ =\ allocator<\textcolor{keywordtype}{bool}>>}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseArray}{baseArray}}<bool,\ ALLOC>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterationStream}{iterationStream}}<bool,\ bitSet<ALLOC>>\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }underlying\_type\ =\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_underlying\ =\ \textcolor{keyword}{typename}\ ALLOC::template\ rebind\_alloc<underlying\_type>;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ BLOCK\_MAX\_SIZE\ =\ \textcolor{keyword}{sizeof}(underlying\_type)\ *\ 8;\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1array}{array<underlying\_type,\ rebind\_alloc\_underlying>}}\ map;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_;\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bitsetInit(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{size}});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ getBitFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ underlying\_type\ setBitFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ getBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ underlying\_type\ clearBitFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
 \DoxyCodeLine{00083\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clearBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block,\ \textcolor{keywordtype}{bool}\ value);}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<u\_integer,\ integer>}}\ toInnerIdx(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ toOuterIdx(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ cur\_block,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ cur\_bit);}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}<bool>\ \{}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ cur\_bit;\ }
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ cur\_block;\ }
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ underlying\_type*\ block\_;\ }
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ bitSet*\ container\_;\ }
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Iterator(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block,\ underlying\_type*\ block\_p,\ \textcolor{keyword}{const}\ bitSet*\ \mbox{\hyperlink{classoriginal_1_1container}{container}});}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }bitSet;}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aba7612848e4a36ba68f58d5b19b3c81e}{clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a29fa817b37026cb69156af07cc9c47e0}{hasNext}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ab486633e2f2137bc0238ea81ada84612}{hasPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ underlying\_type\ clearHigherBitsFromBlock(underlying\_type\ block\_value,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clearRedundantBits();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ getBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ clearBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ writeBit(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<u\_integer,\ integer>}}\ toInnerIdx(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ toOuterIdx(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ cur\_block,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ cur\_bit);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}<bool>\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ cur\_bit;\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ cur\_block;\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ underlying\_type*\ block\_;\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ bitSet*\ container\_;\ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Iterator(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ bit,\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ block,\ underlying\_type*\ block\_p,\ \textcolor{keyword}{const}\ bitSet*\ \mbox{\hyperlink{classoriginal_1_1container}{container}});}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00172\ }
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a3daa065895af4d239ccea6da3228e3e7}{atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a3e88c92cfff52e7794198d9eafedb0d8}{atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00186\ }
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a74ac34da7e48525a1f3166d87c4f7888}{next}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_af34fb2d64f18af2d6e23f819e614bd0f}{prev}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00196\ }
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a6867623ca7b727b93756aeb7f2099fcd}{getPrev}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00202\ }
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_af5ba6245dc5b9bfcfd26b4dac323855f}{getNext}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aeb80b7572d066567db8319c2a4d82a93}{operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a4d5d0fe497ecfbb6e817ebab7163922c}{operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00220\ }
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a502d4b083b0f903e463c2887b9ddf7f5}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00227\ }
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a6404c243f10ec6783012cacb306c0770}{get}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a7f37378e85e0221d99a5ed8c6f1d512f}{className}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00239\ }
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a6404c243f10ec6783012cacb306c0770}{get}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00245\ }
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a7a41d805d2f5fecfa459b48411f79759}{set}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&data)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ca49d22d7d14a3af0b03d65f6df9a7}{isValid}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00258\ }
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}});}
-\DoxyCodeLine{00264\ }
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(\textcolor{keyword}{const}\ std::initializer\_list<bool>\&\ lst);}
-\DoxyCodeLine{00270\ }
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ other);}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a3aba6b50049b2deab9edd31cf98310a8}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ other);}
-\DoxyCodeLine{00283\ }
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(\mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00289\ }
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a3aba6b50049b2deab9edd31cf98310a8}{operator=}}(\mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00296\ }
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a95aeeb4486e54729b93a3c7e79211187}{count}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }bitSet;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a641910c8d9da7759d68801e67527d585}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22353359ca6b6516229100964e909ccb}{hasNext}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a00dbebdfb317fed5b70b1d2bd9341f66}{hasPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a78f6222369a6500704176c39d6363db2}{atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a40514cae5a87b90755a59e4eabe67714}{atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a62ba6bb25d0cb0d7beb9918f8df83f77}{next}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad81e1177bbd4a9b1e88ac98d568b03b1}{prev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ddf22684f8b0290d261eb41b7427ce}{getPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_adcd0f865c7f55e177d35c39978b0479f}{getNext}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a8d9847fcaba4c8838787ecafb1de91e2}{operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aa4b60fcfda7af19c1b4d33d4e3acc8b9}{operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a9cce30910ad2b1fcccb7316cba3cb3db}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a5beced1655cfd9f74383de8b9fff0387}{get}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a869bedf766925a6f5cd34f70d288c494}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a5beced1655cfd9f74383de8b9fff0387}{get}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ace3e81c346d4de141a08589577c6fe5b}{set}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&data)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad9eaa5a4f4f8c7075515131182dcefc6}{isValid}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{size}},\ \textcolor{keyword}{const}\ ALLOC\&\ \mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ ALLOC\{\});}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(\textcolor{keyword}{const}\ std::initializer\_list<bool>\&\ lst);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ other);}
 \DoxyCodeLine{00302\ }
-\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ae1cbf751c78398066859a37ddf39f60d}{resize}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ new\_size)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00315\ }
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1bitSet_a78003368972abd019d7ce951be0ae278}{begins}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00321\ }
-\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac2f2fa2fc88703985fc14b430fc1ddf8}{ends}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00327\ }
-\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a438ef5f8f55609317ea9a022fc8a4591}{get}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00334\ }
-\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_acecdbc67c2bfa0e4c2d3da7b29664dca}{operator[]}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00341\ }
-\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a3530d709078f8255c26d078590051b09}{set}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00348\ }
-\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac6602cbe1a0f218f588cf32a027e02cd}{indexOf}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_aef16e9b1d06831e25594ac82ea336738}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ other);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(\mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_aef16e9b1d06831e25594ac82ea336738}{operator=}}(\mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac94f387e7deb6e12197d63a90df2dbf5}{count}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ab3987c78453d5ffefd6b429b41b0d55d}{resize}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ new\_size)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{size}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_a03c6b422644cd09ed8b4157916c5015d}{begins}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00355\ }
-\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a23687728356dbbc1339f69834e9be8ab}{operator\&=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ other);}
-\DoxyCodeLine{00362\ }
-\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a6facbdeb8b3c7b6049961a283e05d423}{operator|=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ other);}
-\DoxyCodeLine{00369\ }
-\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a088b9d8d271eb599ad69811f27d09c78}{operator\string^=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ other);}
-\DoxyCodeLine{00376\ }
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1bitSet_a99509cffd5a2176d8435e5165ef313d0}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ Iterator*\ \mbox{\hyperlink{classoriginal_1_1bitSet_a5bcb09c91ebb66749f2137e89b025a1c}{ends}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aba1d84468c2c7986cf40c360ff70eb36}{get}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a6b084e41141e823a22cb397a1590b268}{operator[]}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a76ed5f725e7d0b9797c7da434efe85bd}{set}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00382\ }
-\DoxyCodeLine{00383\ }
-\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback\ =\ transform<\textcolor{keywordtype}{bool}>>}
-\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ forEach(Callback\ operation\ =\ Callback\{\})\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00386\ }
-\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aa4a076f4ab16df86366d16b10a6e1ee5}{operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ rbs);}
-\DoxyCodeLine{00394\ }
-\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a5922154e930b9dfc23c4ec1d03ed938a}{operator|}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ rbs);}
-\DoxyCodeLine{00402\ }
-\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a96df1a2cc153dd8464eea3999525a0f3}{operator\string^}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ rbs);}
-\DoxyCodeLine{00410\ }
-\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a1295989bdc0bcd5ec14b0901f146cdab}{operator\string~}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ bs);}
-\DoxyCodeLine{00417\ \ \ \ \ \};}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a4229a79b17614a28d7e2a937b90a8b14}{indexOf}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{\string~bitSet}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a476bdca71e6865053c3b23534972a37a}{operator\&=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ other);}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a42117385d7f3036a64673584d30eef61}{operator|=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ other);}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ \mbox{\hyperlink{classoriginal_1_1bitSet_a784f8220e597fd5b58a248ca43aff1a8}{operator\string^=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ other);}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1bitSet_adf7dc5157c83a01aee1c8b75f6edfb45}{className}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00418\ }
-\DoxyCodeLine{00419\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \mbox{\hyperlink{namespaceoriginal_a7c5b3d42d34f2805e5354f52e9b5217a}{operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ rbs);}
-\DoxyCodeLine{00420\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \mbox{\hyperlink{namespaceoriginal_ae2026680ff087de161f09a8ee8651a96}{operator|}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ rbs);}
-\DoxyCodeLine{00421\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \mbox{\hyperlink{namespaceoriginal_a1403544d2a1aff7b3024ad96a7c774f6}{operator\string^}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ rbs);}
-\DoxyCodeLine{00422\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \mbox{\hyperlink{namespaceoriginal_a1d72b49c4ce518f5421f3317ed60f9b6}{operator\string~}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\&\ bs);}
-\DoxyCodeLine{00423\ \}}
-\DoxyCodeLine{00424\ }
-\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::bitsetInit(\textcolor{keyword}{const}\ u\_integer\ size)\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00426\ \ \ \ \ \{}
-\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ this-\/>map\ =\ array<underlying\_type>((size\ +\ BLOCK\_MAX\_SIZE\ -\/\ 1)\ /\ BLOCK\_MAX\_SIZE);}
-\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ size;}
-\DoxyCodeLine{00429\ \ \ \ \ \}}
-\DoxyCodeLine{00430\ }
-\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::getBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ bit;}
-\DoxyCodeLine{00433\ \ \ \ \ \}}
-\DoxyCodeLine{00434\ }
-\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::setBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ underlying\_type\ \{}
-\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ |\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ bit;}
-\DoxyCodeLine{00437\ \ \ \ \ \}}
-\DoxyCodeLine{00438\ }
-\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::clearBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ underlying\_type\ \{}
-\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ \string~(\textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ bit);}
-\DoxyCodeLine{00441\ \ \ \ \ \}}
-\DoxyCodeLine{00442\ }
-\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::clearHigherBitsFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ underlying\_type}
-\DoxyCodeLine{00444\ \ \ \ \ \{}
-\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ (\textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ bit\ +\ 1)\ -\/\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1);}
-\DoxyCodeLine{00446\ \ \ \ \ \}}
-\DoxyCodeLine{00447\ }
-\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::clearRedundantBits()\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00449\ \ \ \ \ \{}
-\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ this-\/>map.set(-\/1,\ clearHigherBitsFromBlock(this-\/>map.get(-\/1),\ toInnerIdx(this-\/>size()\ -\/\ 1).second()));}
-\DoxyCodeLine{00451\ \ \ \ \ \}}
-\DoxyCodeLine{00452\ }
-\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::getBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getBitFromBlock(this-\/>map.get(block),\ bit);}
-\DoxyCodeLine{00455\ \ \ \ \ \}}
-\DoxyCodeLine{00456\ }
-\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::setBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ this-\/>map.set(block,\ setBitFromBlock(this-\/>map.get(block),\ bit));}
-\DoxyCodeLine{00459\ \ \ \ \ \}}
-\DoxyCodeLine{00460\ }
-\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::clearBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ this-\/>map.set(block,\ clearBitFromBlock(this-\/>map.get(block),\ bit));}
-\DoxyCodeLine{00463\ \ \ \ \ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback\ =\ transform<\textcolor{keywordtype}{bool}>>}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ forEach(Callback\ operation\ =\ Callback\{\})\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac38832b94ec3da99e33195b88b32173a}{operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\&\ rbs);}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ad7ccba6c94829bf459aaef4fed815b36}{operator|}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\&\ rbs);}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0b6298896fc4c1e840fc7e1ae6334b78}{operator\string^}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\&\ rbs);}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ad1a189f7589793174558e3fc8b4f15b9}{operator\string~}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet<ALLOC\_>}}\&\ bs);}
+\DoxyCodeLine{00457\ \ \ \ \ \};}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00460\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{namespaceoriginal_aab2fc6dcf8fe5e54dd7bafdb775e2398}{operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\&\ rbs);}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00463\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{namespaceoriginal_ab4af4e6831bcb96b1bfa50c9680e1459}{operator|}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\&\ rbs);}
 \DoxyCodeLine{00464\ }
-\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::writeBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ value)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ value\ ?\ this-\/>setBit(bit,\ block)\ :\ this-\/>clearBit(bit,\ block);}
-\DoxyCodeLine{00467\ \ \ \ \ \}}
-\DoxyCodeLine{00468\ }
-\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::toInnerIdx(\textcolor{keyword}{const}\ integer\ index)\ -\/>\ couple<u\_integer,\ integer>\ \{}
-\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(index\ /\ BLOCK\_MAX\_SIZE),\ index\ \%\ BLOCK\_MAX\_SIZE\};}
-\DoxyCodeLine{00471\ \ \ \ \ \}}
-\DoxyCodeLine{00472\ }
-\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::toOuterIdx(\textcolor{keyword}{const}\ u\_integer\ cur\_block,\ \textcolor{keyword}{const}\ integer\ cur\_bit)\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00466\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{namespaceoriginal_a696ec502e77d87595609396f9bae2a62}{operator\string^}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\&\ lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\&\ rbs);}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00469\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \mbox{\hyperlink{namespaceoriginal_a7c9d181a8e2dbc5b413f5484c4cf44da}{operator\string~}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\&\ bs);}
+\DoxyCodeLine{00470\ \}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::bitsetInit(\textcolor{keyword}{const}\ u\_integer\ size)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00474\ \ \ \ \ \{}
-\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_block\ *\ \ BLOCK\_MAX\_SIZE\ +\ cur\_bit;}
-\DoxyCodeLine{00476\ \ \ \ \ \}}
-\DoxyCodeLine{00477\ }
-\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keyword}{inline}\ original::bitSet::Iterator::Iterator(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block,\ underlying\_type*\ block\_p,\ \textcolor{keyword}{const}\ bitSet*\ container)}
-\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ :\ cur\_bit(bit),\ cur\_block(block),\ block\_(block\_p),\ container\_(container)\ \{\}}
-\DoxyCodeLine{00480\ }
-\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ original::bitSet::Iterator::equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}}
-\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_bit\ ==\ other\_it-\/>cur\_bit}
-\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_block\ ==\ other\_it-\/>cur\_block;}
-\DoxyCodeLine{00486\ \ \ \ \ \}}
-\DoxyCodeLine{00487\ }
-\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aba7612848e4a36ba68f58d5b19b3c81e}{original::bitSet::Iterator::clone}}()\ const\ -\/>\ Iterator*\ \{}
-\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ Iterator(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00490\ \ \ \ \ \}}
-\DoxyCodeLine{00491\ }
-\DoxyCodeLine{00492\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a29fa817b37026cb69156af07cc9c47e0}{original::bitSet::Iterator::hasNext}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ <\ this-\/>container\_-\/>size()\ -\/\ 1;}
-\DoxyCodeLine{00494\ \ \ \ \ \}}
-\DoxyCodeLine{00495\ }
-\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ab486633e2f2137bc0238ea81ada84612}{original::bitSet::Iterator::hasPrev}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ >\ 0;}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ this-\/>map\ =\ array<underlying\_type,\ rebind\_alloc\_underlying>((size\ +\ BLOCK\_MAX\_SIZE\ -\/\ 1)\ /\ BLOCK\_MAX\_SIZE,\ rebind\_alloc\_underlying\{\});}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ size;}
+\DoxyCodeLine{00477\ \ \ \ \ \}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::getBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ bit;}
+\DoxyCodeLine{00482\ \ \ \ \ \}}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::setBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ underlying\_type\ \{}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ |\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ bit;}
+\DoxyCodeLine{00487\ \ \ \ \ \}}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::clearBitFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ underlying\_type\ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ \string~(\textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ bit);}
+\DoxyCodeLine{00492\ \ \ \ \ \}}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::clearHigherBitsFromBlock(\textcolor{keyword}{const}\ underlying\_type\ block\_value,\ \textcolor{keyword}{const}\ integer\ bit)\ -\/>\ underlying\_type}
+\DoxyCodeLine{00496\ \ \ \ \ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ block\_value\ \&\ (\textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1)\ <<\ (bit\ +\ 1))\ -\/\ \textcolor{keyword}{static\_cast<}underlying\_type\textcolor{keyword}{>}(1);}
 \DoxyCodeLine{00498\ \ \ \ \ \}}
 \DoxyCodeLine{00499\ }
-\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a3daa065895af4d239ccea6da3228e3e7}{original::bitSet::Iterator::atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{namespaceoriginal_a2e78d5e4c7f280f178b3812298ef44b3}{operator-\/}}(*other\_it)\ ==\ -\/1;}
-\DoxyCodeLine{00505\ \ \ \ \ \}}
-\DoxyCodeLine{00506\ }
-\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a3e88c92cfff52e7794198d9eafedb0d8}{original::bitSet::Iterator::atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{namespaceoriginal_a2e78d5e4c7f280f178b3812298ef44b3}{operator-\/}}(*other\_it)\ ==\ 1;}
-\DoxyCodeLine{00512\ \ \ \ \ \}}
-\DoxyCodeLine{00513\ }
-\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a74ac34da7e48525a1f3166d87c4f7888}{original::bitSet::Iterator::next}}()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aeb80b7572d066567db8319c2a4d82a93}{operator+=}}(1);}
-\DoxyCodeLine{00516\ \ \ \ \ \}}
-\DoxyCodeLine{00517\ }
-\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_af34fb2d64f18af2d6e23f819e614bd0f}{original::bitSet::Iterator::prev}}()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a4d5d0fe497ecfbb6e817ebab7163922c}{operator-\/=}}(1);}
-\DoxyCodeLine{00520\ \ \ \ \ \}}
-\DoxyCodeLine{00521\ }
-\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a6867623ca7b727b93756aeb7f2099fcd}{original::bitSet::Iterator::getPrev}}()\ const\ -\/>\ Iterator*\ \{}
-\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ca49d22d7d14a3af0b03d65f6df9a7}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
-\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aba7612848e4a36ba68f58d5b19b3c81e}{clone}}();}
-\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ it-\/>prev();}
-\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
-\DoxyCodeLine{00527\ \ \ \ \ \}}
-\DoxyCodeLine{00528\ }
-\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_af5ba6245dc5b9bfcfd26b4dac323855f}{original::bitSet::Iterator::getNext}}()\ const\ -\/>\ Iterator*\ \{}
-\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ca49d22d7d14a3af0b03d65f6df9a7}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
-\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aba7612848e4a36ba68f58d5b19b3c81e}{clone}}();}
-\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ it-\/>next();}
-\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
-\DoxyCodeLine{00534\ \ \ \ \ \}}
-\DoxyCodeLine{00535\ }
-\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aeb80b7572d066567db8319c2a4d82a93}{original::bitSet::Iterator::operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00537\ \ \ \ \ \{}
-\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ toInnerIdx(toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ +\ steps);}
-\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ this-\/>cur\_bit\ =\ new\_idx.second();}
-\DoxyCodeLine{00541\ \ \ \ \ \}}
-\DoxyCodeLine{00542\ }
-\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a4d5d0fe497ecfbb6e817ebab7163922c}{original::bitSet::Iterator::operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{00544\ \ \ \ \ \{}
-\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ toInnerIdx(toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ -\/\ steps);}
-\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
-\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ this-\/>cur\_bit\ =\ new\_idx.second();}
-\DoxyCodeLine{00548\ \ \ \ \ \}}
-\DoxyCodeLine{00549\ }
-\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a502d4b083b0f903e463c2887b9ddf7f5}{original::bitSet::Iterator::operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \{}
-\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(\&other);}
-\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ >\ \&other\ ?}
-\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::max()\ :}
-\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::min();}
-\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>container\_\ !=\ other\_it-\/>container\_)}
-\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>container\_\ >\ other\_it-\/>container\_\ ?}
-\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::max()\ :}
-\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::min();}
-\DoxyCodeLine{00560\ }
-\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ -\/\ toOuterIdx(other\_it-\/>cur\_block,\ other\_it-\/>cur\_bit);}
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00501\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::clearRedundantBits()\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00502\ \ \ \ \ \{}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(-\/1,\ clearHigherBitsFromBlock(this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(-\/1),\ toInnerIdx(this-\/>size()\ -\/\ 1).second()));}
+\DoxyCodeLine{00504\ \ \ \ \ \}}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::getBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getBitFromBlock(this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(block),\ bit);}
+\DoxyCodeLine{00509\ \ \ \ \ \}}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::setBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(block,\ setBitFromBlock(this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(block),\ bit));}
+\DoxyCodeLine{00514\ \ \ \ \ \}}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00517\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::clearBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(block,\ clearBitFromBlock(this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(block),\ bit));}
+\DoxyCodeLine{00519\ \ \ \ \ \}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::writeBit(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ value)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ value\ ?\ this-\/>setBit(bit,\ block)\ :\ this-\/>clearBit(bit,\ block);}
+\DoxyCodeLine{00524\ \ \ \ \ \}}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::toInnerIdx(\textcolor{keyword}{const}\ integer\ index)\ -\/>\ couple<u\_integer,\ integer>\ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(index\ /\ BLOCK\_MAX\_SIZE),\ index\ \%\ BLOCK\_MAX\_SIZE\};}
+\DoxyCodeLine{00529\ \ \ \ \ \}}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::toOuterIdx(\textcolor{keyword}{const}\ u\_integer\ cur\_block,\ \textcolor{keyword}{const}\ integer\ cur\_bit)\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
+\DoxyCodeLine{00533\ \ \ \ \ \{}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_block\ *\ \ BLOCK\_MAX\_SIZE\ +\ cur\_bit;}
+\DoxyCodeLine{00535\ \ \ \ \ \}}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00538\ \ \ \ \ original::bitSet<ALLOC>::Iterator::Iterator(\textcolor{keyword}{const}\ integer\ bit,\ \textcolor{keyword}{const}\ integer\ block,\ underlying\_type*\ block\_p,\ \textcolor{keyword}{const}\ bitSet*\ container)}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ :\ cur\_bit(bit),\ cur\_block(block),\ block\_(block\_p),\ container\_(container)\ \{\}}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00541\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keyword}{auto}\ original::bitSet<ALLOC>::Iterator::equalPtr(\textcolor{keyword}{const}\ iterator\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_bit\ ==\ other\_it-\/>cur\_bit}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ this-\/>cur\_block\ ==\ other\_it-\/>cur\_block;}
+\DoxyCodeLine{00547\ \ \ \ \ \}}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a641910c8d9da7759d68801e67527d585}{original::bitSet<ALLOC>::Iterator::clone}}()\ const\ -\/>\ Iterator*\ \{}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ Iterator(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00552\ \ \ \ \ \}}
+\DoxyCodeLine{00553\ }
+\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22353359ca6b6516229100964e909ccb}{original::bitSet<ALLOC>::Iterator::hasNext}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ <\ this-\/>container\_-\/>size()\ -\/\ 1;}
+\DoxyCodeLine{00557\ \ \ \ \ \}}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a00dbebdfb317fed5b70b1d2bd9341f66}{original::bitSet<ALLOC>::Iterator::hasPrev}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ >\ 0;}
 \DoxyCodeLine{00562\ \ \ \ \ \}}
 \DoxyCodeLine{00563\ }
-\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a6404c243f10ec6783012cacb306c0770}{original::bitSet::Iterator::get}}()\ -\/>\ \textcolor{keywordtype}{bool}\ \&\ \{}
-\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}();}
-\DoxyCodeLine{00566\ \ \ \ \ \}}
-\DoxyCodeLine{00567\ }
-\DoxyCodeLine{00568\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a7f37378e85e0221d99a5ed8c6f1d512f}{original::bitSet::Iterator::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
-\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}bitSet::Iterator"{}};}
+\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a78f6222369a6500704176c39d6363db2}{original::bitSet<ALLOC>::Iterator::atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{namespaceoriginal_a2e78d5e4c7f280f178b3812298ef44b3}{operator-\/}}(*other\_it)\ ==\ -\/1;}
 \DoxyCodeLine{00570\ \ \ \ \ \}}
 \DoxyCodeLine{00571\ }
-\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a6404c243f10ec6783012cacb306c0770}{original::bitSet::Iterator::get}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00573\ \ \ \ \ \{}
-\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ca49d22d7d14a3af0b03d65f6df9a7}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
-\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit);}
-\DoxyCodeLine{00576\ \ \ \ \ \}}
-\DoxyCodeLine{00577\ }
-\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a7a41d805d2f5fecfa459b48411f79759}{original::bitSet::Iterator::set}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&data)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ca49d22d7d14a3af0b03d65f6df9a7}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
-\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ *this-\/>block\_\ =\ data\ ?}
-\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ setBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit)\ :\ clearBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit);}
-\DoxyCodeLine{00582\ \ \ \ \ \}}
-\DoxyCodeLine{00583\ }
-\DoxyCodeLine{00584\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ca49d22d7d14a3af0b03d65f6df9a7}{original::bitSet::Iterator::isValid}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ outer\ =\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit);}
-\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ outer\ >=\ 0\ \&\&\ outer\ <\ this-\/>container\_-\/>size();}
-\DoxyCodeLine{00587\ \ \ \ \ \}}
-\DoxyCodeLine{00588\ }
-\DoxyCodeLine{00589\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{original::bitSet::bitSet}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}})}
-\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ :\ size\_()}
-\DoxyCodeLine{00591\ \ \ \ \ \{}
-\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ this-\/>bitsetInit(\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}});}
-\DoxyCodeLine{00593\ \ \ \ \ \}}
-\DoxyCodeLine{00594\ }
-\DoxyCodeLine{00595\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{original::bitSet::bitSet}}(\textcolor{keyword}{const}\ std::initializer\_list<bool>\&\ lst)\ :\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(lst.\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}())\ \{}
-\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;}
-\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ lst)\ \{}
-\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(i);}
-\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>writeBit(idx.second(),\ idx.first(),\ e);}
-\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ 1;}
-\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00602\ \ \ \ \ \}}
-\DoxyCodeLine{00603\ }
-\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{original::bitSet::bitSet}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(other.\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}())\ \{}
-\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_a3aba6b50049b2deab9edd31cf98310a8}{operator=}}(other);}
-\DoxyCodeLine{00606\ \ \ \ \ \}}
-\DoxyCodeLine{00607\ }
-\DoxyCodeLine{00608\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a3aba6b50049b2deab9edd31cf98310a8}{original::bitSet::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \{}
-\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ this-\/>map\ =\ other.map;}
-\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
-\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00613\ \ \ \ \ \}}
-\DoxyCodeLine{00614\ }
-\DoxyCodeLine{00615\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{original::bitSet::bitSet}}(\mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\&\ other)\ \ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(0)}
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00573\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a40514cae5a87b90755a59e4eabe67714}{original::bitSet<ALLOC>::Iterator::atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{namespaceoriginal_a2e78d5e4c7f280f178b3812298ef44b3}{operator-\/}}(*other\_it)\ ==\ 1;}
+\DoxyCodeLine{00578\ \ \ \ \ \}}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00581\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a62ba6bb25d0cb0d7beb9918f8df83f77}{original::bitSet<ALLOC>::Iterator::next}}()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a8d9847fcaba4c8838787ecafb1de91e2}{operator+=}}(1);}
+\DoxyCodeLine{00583\ \ \ \ \ \}}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00586\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad81e1177bbd4a9b1e88ac98d568b03b1}{original::bitSet<ALLOC>::Iterator::prev}}()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aa4b60fcfda7af19c1b4d33d4e3acc8b9}{operator-\/=}}(1);}
+\DoxyCodeLine{00588\ \ \ \ \ \}}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a22ddf22684f8b0290d261eb41b7427ce}{original::bitSet<ALLOC>::Iterator::getPrev}}()\ const\ -\/>\ Iterator*\ \{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad9eaa5a4f4f8c7075515131182dcefc6}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a641910c8d9da7759d68801e67527d585}{clone}}();}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ it-\/>prev();}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00596\ \ \ \ \ \}}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00599\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_adcd0f865c7f55e177d35c39978b0479f}{original::bitSet<ALLOC>::Iterator::getNext}}()\ const\ -\/>\ Iterator*\ \{}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad9eaa5a4f4f8c7075515131182dcefc6}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a641910c8d9da7759d68801e67527d585}{clone}}();}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ it-\/>next();}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00604\ \ \ \ \ \}}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00607\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a8d9847fcaba4c8838787ecafb1de91e2}{original::bitSet<ALLOC>::Iterator::operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00608\ \ \ \ \ \{}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ toInnerIdx(toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ +\ steps);}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ this-\/>cur\_bit\ =\ new\_idx.second();}
+\DoxyCodeLine{00612\ \ \ \ \ \}}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00615\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_aa4b60fcfda7af19c1b4d33d4e3acc8b9}{original::bitSet<ALLOC>::Iterator::operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00616\ \ \ \ \ \{}
-\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_a3aba6b50049b2deab9edd31cf98310a8}{operator=}}(std::move(other));}
-\DoxyCodeLine{00618\ \ \ \ \ \}}
-\DoxyCodeLine{00619\ }
-\DoxyCodeLine{00620\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a3aba6b50049b2deab9edd31cf98310a8}{original::bitSet::operator=}}(\mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\&\ other)\ \ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&}
-\DoxyCodeLine{00621\ \ \ \ \ \{}
-\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00624\ }
-\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ this-\/>map\ =\ std::move(other.map);}
-\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
-\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ other.bitsetInit(0);}
-\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00629\ \ \ \ \ \}}
-\DoxyCodeLine{00630\ }
-\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a95aeeb4486e54729b93a3c7e79211187}{original::bitSet::count}}()\ const\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \{}
-\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a95aeeb4486e54729b93a3c7e79211187}{count}}\ =\ 0;}
-\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ this-\/>map)\ \{}
-\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ n\ =\ e;}
-\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n)\ \{}
-\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ \&=\ n\ -\/\ 1;}
-\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a95aeeb4486e54729b93a3c7e79211187}{count}}\ +=\ 1;}
-\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a95aeeb4486e54729b93a3c7e79211187}{count}};}
-\DoxyCodeLine{00641\ \ \ \ \ \}}
-\DoxyCodeLine{00642\ }
-\DoxyCodeLine{00643\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ae1cbf751c78398066859a37ddf39f60d}{original::bitSet::resize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ new\_size)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \{}
-\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}()\ ==\ new\_size)\ \{}
-\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00647\ }
-\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ nb\ =\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}(new\_size);}
-\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ blocks\_min\ =\ \mbox{\hyperlink{namespaceoriginal_a0d69e120da2a56a2e72fc9834edfb0ec}{min}}(nb.map.size(),}
-\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.size());}
-\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ blocks\_min;\ i++)\ \{}
-\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ nb.map.set(i,\ this-\/>map.get(i));}
-\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ nb.clearRedundantBits();}
-\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nb;}
-\DoxyCodeLine{00656\ \ \ \ \ \}}
-\DoxyCodeLine{00657\ }
-\DoxyCodeLine{00658\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{original::bitSet::size}}()\ const\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}}
-\DoxyCodeLine{00659\ \ \ \ \ \{}
-\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
-\DoxyCodeLine{00661\ \ \ \ \ \}}
-\DoxyCodeLine{00662\ }
-\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a78003368972abd019d7ce951be0ae278}{original::bitSet::begins}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}*\ \{}
-\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}(0,\ 0,\ \&this-\/>map.data(),\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_idx\ =\ toInnerIdx(toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ -\/\ steps);}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ this-\/>cur\_block\ =\ new\_idx.first();}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ this-\/>cur\_bit\ =\ new\_idx.second();}
+\DoxyCodeLine{00620\ \ \ \ \ \}}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00623\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a9cce30910ad2b1fcccb7316cba3cb3db}{original::bitSet<ALLOC>::Iterator::operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}\ \&other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \{}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(\&other);}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ >\ \&other\ ?}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::max()\ :}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::min();}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>container\_\ !=\ other\_it-\/>container\_)}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>container\_\ >\ other\_it-\/>container\_\ ?}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::max()\ :}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::min();}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit)\ -\/\ toOuterIdx(other\_it-\/>cur\_block,\ other\_it-\/>cur\_bit);}
+\DoxyCodeLine{00635\ \ \ \ \ \}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a5beced1655cfd9f74383de8b9fff0387}{original::bitSet<ALLOC>::Iterator::get}}()\ -\/>\ \textcolor{keywordtype}{bool}\ \&\ \{}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}();}
+\DoxyCodeLine{00640\ \ \ \ \ \}}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00642\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00643\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a869bedf766925a6f5cd34f70d288c494}{original::bitSet<ALLOC>::Iterator::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}bitSet::Iterator"{}};}
+\DoxyCodeLine{00645\ \ \ \ \ \}}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00648\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_a5beced1655cfd9f74383de8b9fff0387}{original::bitSet<ALLOC>::Iterator::get}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00649\ \ \ \ \ \{}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad9eaa5a4f4f8c7075515131182dcefc6}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit);}
+\DoxyCodeLine{00652\ \ \ \ \ \}}
+\DoxyCodeLine{00653\ }
+\DoxyCodeLine{00654\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00655\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ace3e81c346d4de141a08589577c6fe5b}{original::bitSet<ALLOC>::Iterator::set}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&data)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad9eaa5a4f4f8c7075515131182dcefc6}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ *this-\/>block\_\ =\ data\ ?}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ setBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit)\ :\ clearBitFromBlock(*this-\/>block\_,\ this-\/>cur\_bit);}
+\DoxyCodeLine{00659\ \ \ \ \ \}}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00661\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00662\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator_ad9eaa5a4f4f8c7075515131182dcefc6}{original::bitSet<ALLOC>::Iterator::isValid}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ outer\ =\ toOuterIdx(this-\/>cur\_block,\ this-\/>cur\_bit);}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ outer\ >=\ 0\ \&\&\ outer\ <\ this-\/>container\_-\/>size();}
 \DoxyCodeLine{00665\ \ \ \ \ \}}
 \DoxyCodeLine{00666\ }
-\DoxyCodeLine{00667\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac2f2fa2fc88703985fc14b430fc1ddf8}{original::bitSet::ends}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}*\ \{}
-\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}(toInnerIdx(this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}()\ -\/\ 1).second(),\ this-\/>map.size()\ -\/\ 1,}
-\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&this-\/>map.data()\ +\ this-\/>map.size()\ -\/\ 1,\ \textcolor{keyword}{this});}
-\DoxyCodeLine{00670\ \ \ \ \ \}}
-\DoxyCodeLine{00671\ }
-\DoxyCodeLine{00672\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a438ef5f8f55609317ea9a022fc8a4591}{original::bitSet::get}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a733fce66c075bb955a1807340ae0a481}{indexOutOfBound}}(index))\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
-\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ index\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a686e7457677d16928d5421e418903b05}{parseNegIndex}}(index);}
-\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(index);}
-\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>getBit(idx.second(),\ idx.first());}
-\DoxyCodeLine{00677\ \ \ \ \ \}}
-\DoxyCodeLine{00678\ }
-\DoxyCodeLine{00679\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_acecdbc67c2bfa0e4c2d3da7b29664dca}{original::bitSet::operator[]}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ -\/>\ \textcolor{keywordtype}{bool}\&\ \{}
-\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}();}
+\DoxyCodeLine{00667\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00668\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{original::bitSet<ALLOC>::bitSet}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{size}},\ \textcolor{keyword}{const}\ ALLOC\&\ \mbox{\hyperlink{classoriginal_1_1allocator}{allocator}})}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1baseArray}{baseArray}}<bool,\ ALLOC>(\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}),\ size\_()\ \{}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>bitsetInit(\mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{size}});}
+\DoxyCodeLine{00671\ \ \ \ \ \}}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00674\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{original::bitSet<ALLOC>::bitSet}}(\textcolor{keyword}{const}\ std::initializer\_list<bool>\&\ lst)\ :\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(lst.\mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{size}}())\ \{}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ lst)\ \{}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(i);}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>writeBit(idx.second(),\ idx.first(),\ e);}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ 1;}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00681\ \ \ \ \ \}}
 \DoxyCodeLine{00682\ }
-\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a3530d709078f8255c26d078590051b09}{original::bitSet::set}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
-\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a733fce66c075bb955a1807340ae0a481}{indexOutOfBound}}(index))\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
-\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ index\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a686e7457677d16928d5421e418903b05}{parseNegIndex}}(index);}
-\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(index);}
-\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ this-\/>writeBit(idx.second(),\ idx.first(),\ e);}
-\DoxyCodeLine{00688\ \ \ \ \ \}}
-\DoxyCodeLine{00689\ }
-\DoxyCodeLine{00690\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac6602cbe1a0f218f588cf32a027e02cd}{original::bitSet::indexOf}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \{}
-\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}();\ i++)\ \{}
-\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(i);}
-\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\ ==\ this-\/>getBit(idx.second(),\ idx.first()))\ \{}
-\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
-\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size();}
-\DoxyCodeLine{00698\ \ \ \ \ \}}
-\DoxyCodeLine{00699\ }
-\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a23687728356dbbc1339f69834e9be8ab}{original::bitSet::operator\&=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \{}
-\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}()\ !=\ other.size())\ \{}
-\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}());}
-\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
-\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \&\ resized.map.get(i));}
-\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
-\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \&\ other.map.get(i));}
-\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00712\ \ \ \ \ \}}
-\DoxyCodeLine{00713\ }
-\DoxyCodeLine{00714\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a6facbdeb8b3c7b6049961a283e05d423}{original::bitSet::operator|=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \{}
-\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}()\ !=\ other.size())\ \{}
-\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}());}
-\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
-\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ |\ resized.map.get(i));}
-\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
-\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ |\ other.map.get(i));}
-\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00726\ \ \ \ \ \}}
-\DoxyCodeLine{00727\ }
-\DoxyCodeLine{00728\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a088b9d8d271eb599ad69811f27d09c78}{original::bitSet::operator\string^=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a0839f302d1b8eec5e655f77ca8300cbe}{bitSet}}\&\ \{}
-\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}()\ !=\ other.size())\ \{}
-\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aeeaf35e49d068e13698ee6f6923d282e}{size}}());}
-\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
-\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \string^\ resized.map.get(i));}
-\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.size();\ i++)\ \{}
-\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.set(i,\ this-\/>map.get(i)\ \string^\ other.map.get(i));}
-\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00740\ \ \ \ \ \}}
-\DoxyCodeLine{00741\ }
-\DoxyCodeLine{00742\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a99509cffd5a2176d8435e5165ef313d0}{original::bitSet::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
-\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}bitSet"{}};}
-\DoxyCodeLine{00744\ \ \ \ \ \}}
-\DoxyCodeLine{00745\ }
-\DoxyCodeLine{00746\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_a7c5b3d42d34f2805e5354f52e9b5217a}{original::operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \&lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \&rbs)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \{}
-\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ bs(lbs);}
-\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ \&=\ rbs;}
-\DoxyCodeLine{00749\ \ \ \ \ \}}
-\DoxyCodeLine{00750\ }
-\DoxyCodeLine{00751\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_ae2026680ff087de161f09a8ee8651a96}{original::operator|}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \&lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \&rbs)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \{}
-\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ bs(lbs);}
-\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ |=\ rbs;}
-\DoxyCodeLine{00754\ \ \ \ \ \}}
-\DoxyCodeLine{00755\ }
-\DoxyCodeLine{00756\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_a1403544d2a1aff7b3024ad96a7c774f6}{original::operator\string^}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \&lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \&rbs)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \{}
-\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ bs(lbs);}
-\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ \string^=\ rbs;}
-\DoxyCodeLine{00759\ \ \ \ \ \}}
-\DoxyCodeLine{00760\ }
-\DoxyCodeLine{00761\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_a1d72b49c4ce518f5421f3317ed60f9b6}{original::operator\string~}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \&bs)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ \{}
-\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ nbs(bs);}
-\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ nbs.map.\mbox{\hyperlink{classoriginal_1_1array_aa19f6e9662eb7bbe8e3815ce21716cfe}{size}}();\ i++)\ \{}
-\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ nbs.map.\mbox{\hyperlink{classoriginal_1_1array_af6d1d7792ae372301a9b3e5bc56fcec9}{set}}(i,\ \string~nbs.map.\mbox{\hyperlink{classoriginal_1_1array_ac5c78fd7c432a3865b241252f98bf390}{get}}(i));}
-\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ nbs.clearRedundantBits();}
-\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nbs;}
-\DoxyCodeLine{00768\ \ \ \ \ \}}
-\DoxyCodeLine{00769\ }
-\DoxyCodeLine{00770\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BITSET\_H}}
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00684\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{original::bitSet<ALLOC>::bitSet}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(other.\mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{size}}())\ \{}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aef16e9b1d06831e25594ac82ea336738}{operator=}}(other);}
+\DoxyCodeLine{00686\ \ \ \ \ \}}
+\DoxyCodeLine{00687\ }
+\DoxyCodeLine{00688\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00689\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aef16e9b1d06831e25594ac82ea336738}{original::bitSet<ALLOC>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\&\ \{}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ this-\/>map\ =\ other.map;}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (ALLOC::propagate\_on\_container\_copy\_assignment::value)\{}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ other.allocator;}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00697\ \ \ \ \ \}}
+\DoxyCodeLine{00698\ }
+\DoxyCodeLine{00699\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00700\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{original::bitSet<ALLOC>::bitSet}}(\mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\&\&\ other)\ \ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(0)}
+\DoxyCodeLine{00701\ \ \ \ \ \{}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1bitSet_aef16e9b1d06831e25594ac82ea336738}{operator=}}(std::move(other));}
+\DoxyCodeLine{00703\ \ \ \ \ \}}
+\DoxyCodeLine{00704\ }
+\DoxyCodeLine{00705\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00706\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aef16e9b1d06831e25594ac82ea336738}{original::bitSet<ALLOC>::operator=}}(\mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\&\&\ other)\ \ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\&}
+\DoxyCodeLine{00707\ \ \ \ \ \{}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ this-\/>map\ =\ std::move(other.map);}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ other.bitsetInit(0);}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (ALLOC::propagate\_on\_container\_move\_assignment::value)\{}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ other.allocator;}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00718\ \ \ \ \ \}}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00721\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac94f387e7deb6e12197d63a90df2dbf5}{original::bitSet<ALLOC>::count}}()\ const\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \{}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac94f387e7deb6e12197d63a90df2dbf5}{count}}\ =\ 0;}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ this-\/>map)\ \{}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ n\ =\ e;}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n)\ \{}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ \&=\ n\ -\/\ 1;}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet_ac94f387e7deb6e12197d63a90df2dbf5}{count}}\ +=\ 1;}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ac94f387e7deb6e12197d63a90df2dbf5}{count}};}
+\DoxyCodeLine{00731\ \ \ \ \ \}}
+\DoxyCodeLine{00732\ }
+\DoxyCodeLine{00733\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00734\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_ab3987c78453d5ffefd6b429b41b0d55d}{original::bitSet<ALLOC>::resize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ new\_size)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\ \{}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ ==\ new\_size)\ \{}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00738\ }
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ nb\ =\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}(new\_size);}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ blocks\_min\ =\ \mbox{\hyperlink{namespaceoriginal_a0d69e120da2a56a2e72fc9834edfb0ec}{min}}(nb.map.size(),}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.size());}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ blocks\_min;\ i++)\ \{}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ nb.map.set(i,\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i));}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ nb.clearRedundantBits();}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nb;}
+\DoxyCodeLine{00747\ \ \ \ \ \}}
+\DoxyCodeLine{00748\ }
+\DoxyCodeLine{00749\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00750\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a9527615caf5bf5a231016879c8db1a8f}{original::bitSet<ALLOC>::size}}()\ const\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}}
+\DoxyCodeLine{00751\ \ \ \ \ \{}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
+\DoxyCodeLine{00753\ \ \ \ \ \}}
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00755\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00756\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a03c6b422644cd09ed8b4157916c5015d}{original::bitSet<ALLOC>::begins}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}(0,\ 0,\ \&this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a9b9ab603adf91dd0a1968cff1eab87ab}{data}}(),\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00758\ \ \ \ \ \}}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00760\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00761\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a5bcb09c91ebb66749f2137e89b025a1c}{original::bitSet<ALLOC>::ends}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1bitSet_1_1Iterator}{Iterator}}(toInnerIdx(this-\/>size()\ -\/\ 1).second(),\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}()\ -\/\ 1,}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&this-\/>map.data()\ +\ this-\/>map.size()\ -\/\ 1,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00764\ \ \ \ \ \}}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00766\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00767\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_aba1d84468c2c7986cf40c360ff70eb36}{original::bitSet<ALLOC>::get}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a1586c597c18356ec9deb63922884e331}{indexOutOfBound}}(index))\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ index\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a6737f4c0771867e94461187a9de24977}{parseNegIndex}}(index);}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(index);}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>getBit(idx.second(),\ idx.first());}
+\DoxyCodeLine{00772\ \ \ \ \ \}}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00775\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a6b084e41141e823a22cb397a1590b268}{original::bitSet<ALLOC>::operator[]}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}})\ -\/>\ \textcolor{keywordtype}{bool}\&\ \{}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}();}
+\DoxyCodeLine{00777\ \ \ \ \ \}}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00779\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00780\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a76ed5f725e7d0b9797c7da434efe85bd}{original::bitSet<ALLOC>::set}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a1586c597c18356ec9deb63922884e331}{indexOutOfBound}}(index))\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ index\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a6737f4c0771867e94461187a9de24977}{parseNegIndex}}(index);}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(index);}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ this-\/>writeBit(idx.second(),\ idx.first(),\ e);}
+\DoxyCodeLine{00785\ \ \ \ \ \}}
+\DoxyCodeLine{00786\ }
+\DoxyCodeLine{00787\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00788\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a4229a79b17614a28d7e2a937b90a8b14}{original::bitSet<ALLOC>::indexOf}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&e)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \{}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>size();\ i++)\ \{}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}\ idx\ =\ toInnerIdx(i);}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ e\ ==\ this-\/>getBit(idx.second(),\ idx.first()))\ \{}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size();}
+\DoxyCodeLine{00796\ \ \ \ \ \}}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00799\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a476bdca71e6865053c3b23534972a37a}{original::bitSet<ALLOC>::operator\&=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\&\ \{}
+\DoxyCodeLine{00800\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ !=\ other.size())\ \{}
+\DoxyCodeLine{00801\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>size());}
+\DoxyCodeLine{00802\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(i,\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i)\ \&\ resized.map.get(i));}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(i,\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i)\ \&\ other.map.get(i));}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00811\ \ \ \ \ \}}
+\DoxyCodeLine{00812\ }
+\DoxyCodeLine{00813\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00814\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a42117385d7f3036a64673584d30eef61}{original::bitSet<ALLOC>::operator|=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\&\ \{}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ !=\ other.size())\ \{}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>size());}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(i,\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i)\ |\ resized.map.get(i));}
+\DoxyCodeLine{00819\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(i,\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i)\ |\ other.map.get(i));}
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00826\ \ \ \ \ \}}
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00829\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a784f8220e597fd5b58a248ca43aff1a8}{original::bitSet<ALLOC>::operator\string^=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet_a568c8265e528f44066ec846aba7be197}{bitSet}}\&\ \{}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>size()\ !=\ other.size())\ \{}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ resized\ =\ other.resize(this-\/>size());}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(i,\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i)\ \string^\ resized.map.get(i));}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00836\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a2df100a24d2087cea2be9460c6dd3bb0}{set}}(i,\ this-\/>map.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i)\ \string^\ other.map.get(i));}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00841\ \ \ \ \ \}}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00844\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1bitSet_adf7dc5157c83a01aee1c8b75f6edfb45}{original::bitSet<ALLOC>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}bitSet"{}};}
+\DoxyCodeLine{00846\ \ \ \ \ \}}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00848\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00849\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_aab2fc6dcf8fe5e54dd7bafdb775e2398}{original::operator\&}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \&lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \&rbs)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \{}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ bs(lbs);}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ \&=\ rbs;}
+\DoxyCodeLine{00852\ \ \ \ \ \}}
+\DoxyCodeLine{00853\ }
+\DoxyCodeLine{00854\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00855\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_ab4af4e6831bcb96b1bfa50c9680e1459}{original::operator|}}(\textcolor{keyword}{const}\ bitSet<ALLOC\_>\ \&lbs,\ \textcolor{keyword}{const}\ bitSet<ALLOC\_>\ \&rbs)\ -\/>\ bitSet<ALLOC\_>\ \{}
+\DoxyCodeLine{00856\ \ \ \ \ \ \ \ \ bitSet\ bs(lbs);}
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ |=\ rbs;}
+\DoxyCodeLine{00858\ \ \ \ \ \}}
+\DoxyCodeLine{00859\ }
+\DoxyCodeLine{00860\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00861\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_a696ec502e77d87595609396f9bae2a62}{original::operator\string^}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \&lbs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \&rbs)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \{}
+\DoxyCodeLine{00862\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ bs(lbs);}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bs\ \string^=\ rbs;}
+\DoxyCodeLine{00864\ \ \ \ \ \}}
+\DoxyCodeLine{00865\ }
+\DoxyCodeLine{00866\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ALLOC\_>}
+\DoxyCodeLine{00867\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceoriginal_a7c9d181a8e2dbc5b413f5484c4cf44da}{original::operator\string~}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \&bs)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet<ALLOC\_>}}\ \{}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1bitSet}{bitSet}}\ nbs(bs);}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ nbs.map.size();\ i++)\ \{}
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ \ \ \ \ nbs.map.set(i,\ \string~nbs.map.get(i));}
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ nbs.clearRedundantBits();}
+\DoxyCodeLine{00873\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nbs;}
+\DoxyCodeLine{00874\ \ \ \ \ \}}
+\DoxyCodeLine{00875\ }
+\DoxyCodeLine{00876\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BITSET\_H}}
 
 \end{DoxyCode}
