@@ -10,14 +10,13 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comparable_8h}{comparable.h}}"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
 \DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Forward\ declaration\ for\ friend\ class}}
 \DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1ref_count}{refCount}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }refCount;}
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{autoPtr}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<autoPtr<TYPE,\ DERIVED,\ DELETER>>\{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<autoPtr<TYPE,\ DERIVED,\ DELETER>>\{}
 \DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1ref_count}{refCount<TYPE,\ DELETER>}}*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}};\ }
 \DoxyCodeLine{00039\ }
@@ -51,255 +50,285 @@
 \DoxyCodeLine{00122\ }
 \DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ explicit\ operator\ \textcolor{keywordtype}{bool}()\ const;}
 \DoxyCodeLine{00128\ }
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ std::nullptr\_t\&\ null)\ const;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ const\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}()\ const;}
 \DoxyCodeLine{00135\ }
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ std::nullptr\_t\&\ null)\ const;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}();}
 \DoxyCodeLine{00142\ }
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ const\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}()\ const;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ virtual\ const\ TYPE\&\ operator*()\ const;}
 \DoxyCodeLine{00149\ }
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}();}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ virtual\ const\ TYPE*\ operator-\/>()\ const;}
 \DoxyCodeLine{00156\ }
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ virtual\ const\ TYPE\&\ operator*()\ const;}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ virtual\ const\ TYPE*\ operator-\/>()\ const;}
-\DoxyCodeLine{00170\ }
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ virtual\ const\ TYPE\&\ operator[](\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)\ const;}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mutable\ accessors}}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ virtual\ TYPE\&\ operator*();}
-\DoxyCodeLine{00186\ }
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ virtual\ TYPE*\ operator-\/>();}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ virtual\ TYPE\&\ operator[](\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index);}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab57e2635661b24a1dae97887a3c4c11a}{swap}}(\mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{autoPtr}}\&\ other)\ noexcept;}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a09a53ffb0c71517c96a6e26c7e73e137}{compareTo}}(const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{autoPtr}}\&\ other)\ const\ override;}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ std::\textcolor{keywordtype}{string}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a92e53d3f6bbaedcac69930f46b45ee94}{className}}()\ const\ override;}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ std::\textcolor{keywordtype}{string}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ae425525928c1ce696a19debecf32189a}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ const\ override;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ virtual\ const\ TYPE\&\ operator[](\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)\ const;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Mutable\ accessors}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ virtual\ TYPE\&\ operator*();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ virtual\ TYPE*\ operator-\/>();}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ virtual\ TYPE\&\ operator[](\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab57e2635661b24a1dae97887a3c4c11a}{swap}}(\mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}\&\ other)\ noexcept;}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a09a53ffb0c71517c96a6e26c7e73e137}{compareTo}}(const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}\&\ other)\ const\ override;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ std::\textcolor{keywordtype}{string}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a92e53d3f6bbaedcac69930f46b45ee94}{className}}()\ const\ override;}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ std::\textcolor{keywordtype}{string}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ae425525928c1ce696a19debecf32189a}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ const\ override;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \string~\mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}()\ override;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ friend\ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr,\ const\ std::nullptr\_t\&\ null);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ friend\ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr,\ const\ std::nullptr\_t\&\ null);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ friend\ \textcolor{keywordtype}{bool}\ operator==(const\ std::nullptr\_t\&\ null,\ const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr);}
 \DoxyCodeLine{00232\ }
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \string~\mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{autoPtr}}()\ override;}
-\DoxyCodeLine{00237\ \ \ \ \ \};}
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00249\ \ \ \ \ template<typename\ TYPE,\ typename\ DELETER>}
-\DoxyCodeLine{00250\ \ \ \ \ class\ refCount\ \{}
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }autoPtr;}
-\DoxyCodeLine{00253\ }
-\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ TYPE*\ ptr;\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ strong\_refs;\ }
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ weak\_refs;\ \ \ }
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ DELETER\ deleter;\ \ \ \ \ \ \ }
-\DoxyCodeLine{00258\ }
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ refCount(TYPE*\ p\ =\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00264\ }
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ destroyPtr()\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00269\ }
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \string~refCount();}
-\DoxyCodeLine{00274\ \ \ \ \ \};}
-\DoxyCodeLine{00275\ \}}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00277\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00278\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::autoPtr}}(TYPE*\ p)}
-\DoxyCodeLine{00279\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}(\mbox{\hyperlink{classoriginal_1_1auto_ptr_a04785976b408ebd132d025b479496670}{newRefCount}}(p))\ \{\}}
-\DoxyCodeLine{00280\ }
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00282\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00283\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a736f8fd08d71e4493d21ed26f5a1a94f}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::setPtr}}(TYPE*\ p)\ \{}
-\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a5022614b81f2a10940b63ba73937b462}{exist}}())\{}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00286\ \ \ \ \ \}}
-\DoxyCodeLine{00287\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>ptr\ =\ p;}
-\DoxyCodeLine{00288\ \}}
-\DoxyCodeLine{00289\ }
-\DoxyCodeLine{00290\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00291\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a3f1d14741180a02696f137df5753f919}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::addStrongRef}}()\ \{}
-\DoxyCodeLine{00292\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>strong\_refs\ +=\ 1;}
-\DoxyCodeLine{00293\ \}}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00295\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00296\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a7bff6967c72f27dd177486180fc46aef}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::addWeakRef}}()\ \{}
-\DoxyCodeLine{00297\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>weak\_refs\ +=\ 1;}
-\DoxyCodeLine{00298\ \}}
-\DoxyCodeLine{00299\ }
-\DoxyCodeLine{00300\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00301\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a1f5ba411195f2dd2705c8f43febc4aec}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::removeStrongRef}}()\ \{}
-\DoxyCodeLine{00302\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>strong\_refs\ -\/=\ 1;}
-\DoxyCodeLine{00303\ \}}
-\DoxyCodeLine{00304\ }
-\DoxyCodeLine{00305\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00306\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a7915f1567de441c25bdc6bc6c1bdc660}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::removeWeakRef}}()\ \{}
-\DoxyCodeLine{00307\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>weak\_refs\ -\/=\ 1;}
-\DoxyCodeLine{00308\ \}}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00310\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00311\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a14ff6c65daf21f01876ec6da122dd1bb}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::destroyRefCnt}}()\ noexcept\ \{}
-\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{delete}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}};}
-\DoxyCodeLine{00313\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00314\ \}}
-\DoxyCodeLine{00315\ }
-\DoxyCodeLine{00316\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00317\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_abf734660606e07b37eb4c8d444ff033d}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::clean}}()\ noexcept\ \{}
-\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a5022614b81f2a10940b63ba73937b462}{exist}}())\{}
-\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a14ff6c65daf21f01876ec6da122dd1bb}{destroyRefCnt}}();}
-\DoxyCodeLine{00320\ \ \ \ \ \}}
-\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_abddf47f791e1a114a9139f373efa0e06}{expired}}())\{}
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>destroyPtr();}
-\DoxyCodeLine{00323\ \ \ \ \ \}}
-\DoxyCodeLine{00324\ \}}
-\DoxyCodeLine{00325\ }
-\DoxyCodeLine{00326\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00327\ \mbox{\hyperlink{classoriginal_1_1ref_count}{original::refCount<TYPE,\ DELETER>}}*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a04785976b408ebd132d025b479496670}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::newRefCount}}(TYPE*\ p)}
-\DoxyCodeLine{00328\ \{}
-\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1ref_count}{refCount<TYPE,\ DELETER>}}(p);}
-\DoxyCodeLine{00330\ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ friend\ \textcolor{keywordtype}{bool}\ operator!=(const\ std::nullptr\_t\&\ null,\ const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr);}
+\DoxyCodeLine{00235\ \ \ \ \ \};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00247\ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr,\ const\ std::nullptr\_t\&\ null);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00260\ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr,\ const\ std::nullptr\_t\&\ null);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00273\ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(const\ std::nullptr\_t\&\ null,\ const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00286\ \ \ \ \ template<typename\ T,\ typename\ DER,\ typename\ DEL>}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(const\ std::nullptr\_t\&\ null,\ const\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}<T,\ DER,\ DEL>\&\ ptr);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00299\ \ \ \ \ template<typename\ TYPE,\ typename\ DELETER>}
+\DoxyCodeLine{00300\ \ \ \ \ class\ \mbox{\hyperlink{classoriginal_1_1ref_count}{refCount}}\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}};}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ TYPE*\ ptr;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ strong\_refs;\ }
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ weak\_refs;\ \ \ }
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ DELETER\ \mbox{\hyperlink{classoriginal_1_1deleter}{deleter}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1ref_count}{refCount}}(TYPE*\ p\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ destroyPtr()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1ref_count}{\string~refCount}}();}
+\DoxyCodeLine{00324\ \ \ \ \ \};}
+\DoxyCodeLine{00325\ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00328\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::autoPtr}}(TYPE*\ p)}
+\DoxyCodeLine{00329\ \ \ \ \ :\ ref\_count(newRefCount(p))\ \{\}}
+\DoxyCodeLine{00330\ }
 \DoxyCodeLine{00331\ }
 \DoxyCodeLine{00332\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00333\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a308b395bd56c69c84cb6d2f5f661dbe1}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::strongRefs}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>strong\_refs;}
-\DoxyCodeLine{00335\ \}}
-\DoxyCodeLine{00336\ }
-\DoxyCodeLine{00337\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00338\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ac49b1da32d59049a6e64493746f512d6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::weakRefs}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>weak\_refs;}
-\DoxyCodeLine{00340\ \}}
-\DoxyCodeLine{00341\ }
-\DoxyCodeLine{00342\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00343\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a5022614b81f2a10940b63ba73937b462}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::exist}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}\ \&\&\ (this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a308b395bd56c69c84cb6d2f5f661dbe1}{strongRefs}}()\ >\ 0\ ||\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ac49b1da32d59049a6e64493746f512d6}{weakRefs}}()\ >\ 0);}
-\DoxyCodeLine{00345\ \}}
-\DoxyCodeLine{00346\ }
-\DoxyCodeLine{00347\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00348\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_abddf47f791e1a114a9139f373efa0e06}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::expired}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}\ \&\&\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a308b395bd56c69c84cb6d2f5f661dbe1}{strongRefs}}()\ ==\ 0;}
-\DoxyCodeLine{00350\ \}}
-\DoxyCodeLine{00351\ }
-\DoxyCodeLine{00352\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00353\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator}}\ bool()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a5022614b81f2a10940b63ba73937b462}{exist}}()\ \&\&\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}();}
-\DoxyCodeLine{00355\ \}}
-\DoxyCodeLine{00356\ }
-\DoxyCodeLine{00357\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00358\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a4f162b9347b48de97ab1539eb66caf65}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator==}}(\textcolor{keyword}{const}\ std::nullptr\_t\&)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>\textcolor{keyword}{operator}\ bool();}
-\DoxyCodeLine{00360\ \}}
-\DoxyCodeLine{00361\ }
-\DoxyCodeLine{00362\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00363\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a75565984ac70d3aa40f91303830eaf7f}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator!=}}(\textcolor{keyword}{const}\ std::nullptr\_t\&)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\textcolor{keyword}{operator}\ bool();}
-\DoxyCodeLine{00365\ \}}
-\DoxyCodeLine{00366\ }
-\DoxyCodeLine{00367\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00368\ \textcolor{keyword}{const}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::get}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a5022614b81f2a10940b63ba73937b462}{exist}}())\{}
-\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00371\ \ \ \ \ \}}
-\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>ptr;}
-\DoxyCodeLine{00373\ \}}
-\DoxyCodeLine{00374\ }
-\DoxyCodeLine{00375\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00376\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::get}}()\ \{}
-\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a5022614b81f2a10940b63ba73937b462}{exist}}())\{}
-\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00379\ \ \ \ \ \}}
-\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}-\/>ptr;}
-\DoxyCodeLine{00381\ \}}
-\DoxyCodeLine{00382\ }
-\DoxyCodeLine{00383\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00384\ \textcolor{keyword}{const}\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ae06798fcf045511ae151f943251b22b0}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator*}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}())}
-\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}();}
-\DoxyCodeLine{00388\ \}}
-\DoxyCodeLine{00389\ }
-\DoxyCodeLine{00390\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00391\ \textcolor{keyword}{const}\ TYPE*}
-\DoxyCodeLine{00392\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af1ff5222bff5917e8017ced782e479e4}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator-\/>}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}())}
-\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}();}
-\DoxyCodeLine{00396\ \}}
-\DoxyCodeLine{00397\ }
-\DoxyCodeLine{00398\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00399\ \textcolor{keyword}{const}\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a208faaa7f2b7ba88dadbb840d83d4f25}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator[]}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}())}
-\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}()[index];}
-\DoxyCodeLine{00403\ \}}
-\DoxyCodeLine{00404\ }
-\DoxyCodeLine{00405\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00406\ TYPE\ \&\mbox{\hyperlink{classoriginal_1_1auto_ptr_ae06798fcf045511ae151f943251b22b0}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator*}}()\ \{}
-\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}())}
-\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}();}
-\DoxyCodeLine{00410\ \}}
-\DoxyCodeLine{00411\ }
-\DoxyCodeLine{00412\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00413\ TYPE*}
-\DoxyCodeLine{00414\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af1ff5222bff5917e8017ced782e479e4}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator-\/>}}()\ \{}
-\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}())}
-\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}();}
-\DoxyCodeLine{00418\ \}}
-\DoxyCodeLine{00419\ }
-\DoxyCodeLine{00420\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00421\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a208faaa7f2b7ba88dadbb840d83d4f25}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator[]}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)\ \{}
-\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}())}
-\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
-\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}()[index];}
-\DoxyCodeLine{00425\ \}}
-\DoxyCodeLine{00426\ }
-\DoxyCodeLine{00427\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00428\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab57e2635661b24a1dae97887a3c4c11a}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::swap}}(\mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{autoPtr}}\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keyword}{auto}\ other\_ref\_count\ =\ other.ref\_count;}
-\DoxyCodeLine{00430\ \ \ \ \ other.ref\_count\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}};}
-\DoxyCodeLine{00431\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}\ =\ other\_ref\_count;}
-\DoxyCodeLine{00432\ \}}
-\DoxyCodeLine{00433\ }
-\DoxyCodeLine{00434\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00435\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a09a53ffb0c71517c96a6e26c7e73e137}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_acb37ac59f5784a779b22dda3d44aaa4f}{autoPtr}}\&\ other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}}\ -\/\ other.\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}};}
-\DoxyCodeLine{00437\ \}}
-\DoxyCodeLine{00438\ }
-\DoxyCodeLine{00439\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00440\ std::string\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a92e53d3f6bbaedcac69930f46b45ee94}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::className}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}autoPtr"{}};}
-\DoxyCodeLine{00442\ \}}
-\DoxyCodeLine{00443\ }
-\DoxyCodeLine{00444\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00445\ std::string\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ae425525928c1ce696a19debecf32189a}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00446\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00447\ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_a92e53d3f6bbaedcac69930f46b45ee94}{className}}()\ <<\ \textcolor{stringliteral}{"{}("{}};}
-\DoxyCodeLine{00448\ \ \ \ \ ss\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{formatString}}(this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{get}}());}
-\DoxyCodeLine{00449\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)}
-\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00453\ \}}
-\DoxyCodeLine{00454\ }
-\DoxyCodeLine{00455\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00456\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a35e9dc5c91e844446cebb92804faffc6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::\string~autoPtr}}()\ \{}
-\DoxyCodeLine{00457\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1auto_ptr_abf734660606e07b37eb4c8d444ff033d}{clean}}();}
+\DoxyCodeLine{00333\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a736f8fd08d71e4493d21ed26f5a1a94f}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::setPtr}}(TYPE*\ p)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>exist())\{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00336\ \ \ \ \ \}}
+\DoxyCodeLine{00337\ \ \ \ \ this-\/>ref\_count-\/>ptr\ =\ p;}
+\DoxyCodeLine{00338\ \}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00341\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a3f1d14741180a02696f137df5753f919}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::addStrongRef}}()\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ this-\/>ref\_count-\/>strong\_refs\ +=\ 1;}
+\DoxyCodeLine{00343\ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00346\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a7bff6967c72f27dd177486180fc46aef}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::addWeakRef}}()\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ this-\/>ref\_count-\/>weak\_refs\ +=\ 1;}
+\DoxyCodeLine{00348\ \}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00351\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a1f5ba411195f2dd2705c8f43febc4aec}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::removeStrongRef}}()\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ this-\/>ref\_count-\/>strong\_refs\ -\/=\ 1;}
+\DoxyCodeLine{00353\ \}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00356\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a7915f1567de441c25bdc6bc6c1bdc660}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::removeWeakRef}}()\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ this-\/>ref\_count-\/>weak\_refs\ -\/=\ 1;}
+\DoxyCodeLine{00358\ \}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00361\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a14ff6c65daf21f01876ec6da122dd1bb}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::destroyRefCnt}}()\ noexcept\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keyword}{delete}\ this-\/>ref\_count;}
+\DoxyCodeLine{00363\ \ \ \ \ this-\/>ref\_count\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00364\ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00367\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_abf734660606e07b37eb4c8d444ff033d}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::clean}}()\ noexcept\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>exist())\{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ this-\/>destroyRefCnt();}
+\DoxyCodeLine{00370\ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>expired())\{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ this-\/>ref\_count-\/>destroyPtr();}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00377\ \mbox{\hyperlink{classoriginal_1_1ref_count}{original::refCount<TYPE,\ DELETER>}}*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a04785976b408ebd132d025b479496670}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::newRefCount}}(TYPE*\ p)}
+\DoxyCodeLine{00378\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1ref_count}{refCount<TYPE,\ DELETER>}}(p);}
+\DoxyCodeLine{00380\ \}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00383\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a308b395bd56c69c84cb6d2f5f661dbe1}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::strongRefs}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_count-\/>strong\_refs;}
+\DoxyCodeLine{00385\ \}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00388\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ac49b1da32d59049a6e64493746f512d6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::weakRefs}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_count-\/>weak\_refs;}
+\DoxyCodeLine{00390\ \}}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00393\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a5022614b81f2a10940b63ba73937b462}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::exist}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_count\ \&\&\ (this-\/>strongRefs()\ >\ 0\ ||\ this-\/>weakRefs()\ >\ 0);}
+\DoxyCodeLine{00395\ \}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00398\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_abddf47f791e1a114a9139f373efa0e06}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::expired}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_count\ \&\&\ this-\/>strongRefs()\ ==\ 0;}
+\DoxyCodeLine{00400\ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00403\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator}}\ bool()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>exist()\ \&\&\ this-\/>get();}
+\DoxyCodeLine{00405\ \}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00408\ \textcolor{keyword}{const}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>exist())\{}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00411\ \ \ \ \ \}}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_count-\/>ptr;}
+\DoxyCodeLine{00413\ \}}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00416\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af019410de78661d25c19d3f2c2d9eac6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::get}}()\ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>exist())\{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00419\ \ \ \ \ \}}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_count-\/>ptr;}
+\DoxyCodeLine{00421\ \}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00424\ \textcolor{keyword}{const}\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ae06798fcf045511ae151f943251b22b0}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator*}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>get())}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>get();}
+\DoxyCodeLine{00428\ \}}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00431\ \textcolor{keyword}{const}\ TYPE*}
+\DoxyCodeLine{00432\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af1ff5222bff5917e8017ced782e479e4}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator-\/>}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>get())}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
+\DoxyCodeLine{00436\ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00439\ \textcolor{keyword}{const}\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a208faaa7f2b7ba88dadbb840d83d4f25}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator[]}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>get())}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get()[index];}
+\DoxyCodeLine{00443\ \}}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00446\ TYPE\ \&\mbox{\hyperlink{classoriginal_1_1auto_ptr_ae06798fcf045511ae151f943251b22b0}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator*}}()\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>get())}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>get();}
+\DoxyCodeLine{00450\ \}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00453\ TYPE*}
+\DoxyCodeLine{00454\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_af1ff5222bff5917e8017ced782e479e4}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator-\/>}}()\ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>get())}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get();}
 \DoxyCodeLine{00458\ \}}
 \DoxyCodeLine{00459\ }
-\DoxyCodeLine{00460\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00461\ original::refCount<TYPE,\ DELETER>::refCount(TYPE\ *p)}
-\DoxyCodeLine{00462\ \ \ \ \ :\ ptr(p),\ strong\_refs(0),\ weak\_refs(0)\ \{\}}
-\DoxyCodeLine{00463\ }
-\DoxyCodeLine{00464\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00465\ \textcolor{keywordtype}{void}\ original::refCount<TYPE,\ DELETER>::destroyPtr()\ noexcept\ \{}
-\DoxyCodeLine{00466\ \ \ \ \ TYPE*\ tmp\ =\ this-\/>ptr;}
-\DoxyCodeLine{00467\ \ \ \ \ this-\/>ptr\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00468\ \ \ \ \ this-\/>deleter(tmp);}
-\DoxyCodeLine{00469\ \}}
-\DoxyCodeLine{00470\ }
-\DoxyCodeLine{00471\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
-\DoxyCodeLine{00472\ original::refCount<TYPE,\ DELETER>::\string~refCount()\ \{}
-\DoxyCodeLine{00473\ \ \ \ \ this-\/>destroyPtr();}
-\DoxyCodeLine{00474\ \}}
-\DoxyCodeLine{00475\ }
-\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//AUTOPTR\_H}}
+\DoxyCodeLine{00460\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00461\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a208faaa7f2b7ba88dadbb840d83d4f25}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::operator[]}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)\ \{}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>get())}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}();}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>get()[index];}
+\DoxyCodeLine{00465\ \}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00468\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab57e2635661b24a1dae97887a3c4c11a}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::swap}}(\mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keyword}{auto}\ other\_ref\_count\ =\ other.ref\_count;}
+\DoxyCodeLine{00470\ \ \ \ \ other.ref\_count\ =\ this-\/>ref\_count;}
+\DoxyCodeLine{00471\ \ \ \ \ this-\/>ref\_count\ =\ other\_ref\_count;}
+\DoxyCodeLine{00472\ \}}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00475\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a09a53ffb0c71517c96a6e26c7e73e137}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>ref\_count\ -\/\ other.\mbox{\hyperlink{classoriginal_1_1auto_ptr_ad4c1ff9af4fc5e3a120e01256ff5898b}{ref\_count}};}
+\DoxyCodeLine{00477\ \}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00480\ std::string\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a92e53d3f6bbaedcac69930f46b45ee94}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}autoPtr"{}};}
+\DoxyCodeLine{00482\ \}}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00485\ std::string\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_ae425525928c1ce696a19debecf32189a}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00486\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00487\ \ \ \ \ ss\ <<\ this-\/>className()\ <<\ \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{00488\ \ \ \ \ ss\ <<\ formatString(this-\/>get());}
+\DoxyCodeLine{00489\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00492\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00493\ \}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DERIVED,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00496\ \mbox{\hyperlink{classoriginal_1_1auto_ptr_a35e9dc5c91e844446cebb92804faffc6}{original::autoPtr<TYPE,\ DERIVED,\ DELETER>::\string~autoPtr}}()\ \{}
+\DoxyCodeLine{00497\ \ \ \ \ this-\/>clean();}
+\DoxyCodeLine{00498\ \}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DER,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00501\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceoriginal_a8dc21f8c884d90b6204bcd6890033aa6}{original::operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr<T,\ DER,\ DEL>}}\&\ ptr,\ \textcolor{keyword}{const}\ std::nullptr\_t\&)\ \{}
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keywordflow}{return}\ !ptr.operator\ bool();}
+\DoxyCodeLine{00503\ \}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DER,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00506\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceoriginal_a6abd88507c603855fa51d10a83c73dbb}{original::operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr<T,\ DER,\ DEL>}}\&\ ptr,\ \textcolor{keyword}{const}\ std::nullptr\_t\&)\ \{}
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keywordflow}{return}\ ptr.operator\ bool();}
+\DoxyCodeLine{00508\ \}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DER,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00511\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceoriginal_a8dc21f8c884d90b6204bcd6890033aa6}{original::operator==}}(\textcolor{keyword}{const}\ std::nullptr\_t\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr<T,\ DER,\ DEL>}}\&\ ptr)\ \{}
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordflow}{return}\ !ptr.operator\ bool();}
+\DoxyCodeLine{00513\ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DER,\ \textcolor{keyword}{typename}\ DEL>}
+\DoxyCodeLine{00516\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceoriginal_a6abd88507c603855fa51d10a83c73dbb}{original::operator!=}}(\textcolor{keyword}{const}\ std::nullptr\_t\&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1auto_ptr}{autoPtr<T,\ DER,\ DEL>}}\&\ ptr)\ \{}
+\DoxyCodeLine{00517\ \ \ \ \ \textcolor{keywordflow}{return}\ ptr.operator\ bool();}
+\DoxyCodeLine{00518\ \}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00521\ \mbox{\hyperlink{classoriginal_1_1ref_count}{original::refCount<TYPE,\ DELETER>::refCount}}(TYPE\ *p)}
+\DoxyCodeLine{00522\ \ \ \ \ :\ ptr(p),\ strong\_refs(0),\ weak\_refs(0)\ \{\}}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00524\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00525\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1ref_count}{original::refCount<TYPE,\ DELETER>::destroyPtr}}()\ noexcept\ \{}
+\DoxyCodeLine{00526\ \ \ \ \ TYPE*\ tmp\ =\ this-\/>ptr;}
+\DoxyCodeLine{00527\ \ \ \ \ this-\/>ptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00528\ \ \ \ \ this-\/>deleter(tmp);}
+\DoxyCodeLine{00529\ \}}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ DELETER>}
+\DoxyCodeLine{00532\ \mbox{\hyperlink{classoriginal_1_1ref_count}{original::refCount<TYPE,\ DELETER>::\string~refCount}}()\ \{}
+\DoxyCodeLine{00533\ \ \ \ \ this-\/>destroyPtr();}
+\DoxyCodeLine{00534\ \}}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//AUTOPTR\_H}}
 
 \end{DoxyCode}

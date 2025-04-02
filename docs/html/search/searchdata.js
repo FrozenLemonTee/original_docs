@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "ipru",
   7: "gmo",
   8: "aclot",
-  9: "ceos"
+  9: "o"
 };
 
 var indexSectionNames =
