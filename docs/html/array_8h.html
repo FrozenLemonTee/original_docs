@@ -98,6 +98,7 @@ $(function(){ initResizable(false); });
 <p>Provides the <code>array</code> class for a fixed-size container with random access.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;initializer_list&gt;</code><br />
+<code>#include &quot;<a class="el" href="allocator_8h_source.html">allocator.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="baseArray_8h_source.html">baseArray.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="iterationStream_8h_source.html">iterationStream.h</a>&quot;</code><br />
@@ -108,76 +109,81 @@ Include dependency graph for array.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="array_8h__incl.png" border="0" usemap="#asrc_2core_2array_8h" alt=""/></div>
 <map name="asrc_2core_2array_8h" id="asrc_2core_2array_8h">
-<area shape="rect" title="Provides the array class for a fixed&#45;size container with random access." alt="" coords="609,5,721,32"/>
-<area shape="rect" title=" " alt="" coords="146,80,242,107"/>
-<area shape="poly" title=" " alt="" coords="609,30,455,51,258,82,257,77,454,46,608,25"/>
-<area shape="rect" href="config_8h.html" title="Platform&#45;independent integer type definitions." alt="" coords="578,528,645,555"/>
-<area shape="poly" title=" " alt="" coords="721,19,799,29,842,38,884,52,921,71,952,96,972,128,980,166,980,394,977,407,970,420,943,443,904,464,857,483,752,513,661,534,660,528,751,508,855,478,902,459,940,438,965,416,972,405,974,393,974,167,967,130,948,100,918,76,882,57,841,44,799,34,721,24"/>
-<area shape="rect" href="baseArray_8h.html" title="Provides a base class for fixed&#45;size serial containers." alt="" coords="541,155,631,181"/>
-<area shape="poly" title=" " alt="" coords="661,34,602,142,598,140,656,31"/>
-<area shape="rect" href="iterationStream_8h.html" title="Provides functionality for an iteration stream." alt="" coords="266,80,386,107"/>
-<area shape="poly" title=" " alt="" coords="609,35,401,79,400,74,608,29"/>
-<area shape="rect" href="error_8h.html" title="Custom exception classes and callback validation utilities." alt="" coords="724,379,782,405"/>
-<area shape="poly" title=" " alt="" coords="694,30,744,58,805,101,835,128,863,158,886,192,904,229,908,252,904,275,893,296,877,316,838,349,796,374,793,369,835,344,874,312,888,293,899,273,902,252,898,230,882,194,859,162,831,132,802,105,741,63,691,35"/>
-<area shape="rect" href="randomAccessIterator_8h.html" title="Base class for random&#45;access iterators." alt="" coords="667,155,828,181"/>
-<area shape="poly" title=" " alt="" coords="674,31,735,140,731,142,670,34"/>
-<area shape="rect" title=" " alt="" coords="581,603,642,629"/>
-<area shape="poly" title=" " alt="" coords="614,555,614,587,609,587,609,555"/>
-<area shape="rect" href="serial_8h.html" title="Defines an abstract base class for sequential containers with index&#45;based access." alt="" coords="580,379,643,405"/>
-<area shape="poly" title=" " alt="" coords="590,182,605,330,610,363,604,364,600,331,585,182"/>
-<area shape="rect" href="container_8h.html" title="Abstract base class for container types." alt="" coords="569,453,654,480"/>
-<area shape="poly" title=" " alt="" coords="614,406,614,438,609,438,609,406"/>
-<area shape="poly" title=" " alt="" coords="614,481,614,512,609,512,609,481"/>
-<area shape="rect" href="allocator_8h.html" title="Memory allocation interface and default implementation." alt="" coords="459,528,540,555"/>
-<area shape="poly" title=" " alt="" coords="594,483,533,522,530,517,591,478"/>
-<area shape="rect" title=" " alt="" coords="325,603,407,629"/>
-<area shape="poly" title=" " alt="" coords="478,558,404,597,401,593,475,553"/>
-<area shape="rect" title=" " alt="" coords="473,603,526,629"/>
-<area shape="poly" title=" " alt="" coords="502,555,502,587,497,587,497,555"/>
-<area shape="rect" title=" " alt="" coords="44,379,112,405"/>
-<area shape="poly" title=" " alt="" coords="310,109,268,140,214,185,158,241,110,305,96,335,87,364,82,363,91,333,105,303,154,238,211,181,265,135,306,105"/>
-<area shape="rect" href="comparable_8h.html" title="Interface for objects that can be compared." alt="" coords="277,304,376,331"/>
-<area shape="poly" title=" " alt="" coords="329,107,329,289,324,289,324,107"/>
-<area shape="rect" href="printable_8h.html" title="Interface for polymorphic string formatting and output." alt="" coords="120,304,202,331"/>
-<area shape="poly" title=" " alt="" coords="318,109,223,231,180,293,176,289,219,228,314,105"/>
-<area shape="rect" href="iterable_8h.html" title="Base interface for iterable container types." alt="" coords="369,155,443,181"/>
-<area shape="poly" title=" " alt="" coords="342,105,383,142,380,146,338,109"/>
-<area shape="rect" href="types_8h.html" title="Type system foundations and concept definitions." alt="" coords="265,453,329,480"/>
-<area shape="poly" title=" " alt="" coords="274,110,194,132,107,164,68,182,37,201,16,221,9,242,9,319,11,366,18,384,33,403,48,413,70,423,127,438,249,458,249,463,126,443,68,428,46,418,30,407,13,387,5,367,4,319,4,241,12,218,34,197,66,177,105,159,193,127,273,105"/>
-<area shape="poly" title=" " alt="" coords="344,329,585,516,582,520,341,333"/>
-<area shape="rect" title=" " alt="" coords="291,379,362,405"/>
-<area shape="poly" title=" " alt="" coords="329,331,329,363,324,363,324,331"/>
-<area shape="poly" title=" " alt="" coords="148,333,106,370,102,366,145,329"/>
-<area shape="rect" title=" " alt="" coords="136,379,204,405"/>
-<area shape="poly" title=" " alt="" coords="165,331,169,363,164,364,160,332"/>
-<area shape="rect" href="transform_8h.html" title="Transformation classes for various operations on elements." alt="" coords="613,229,701,256"/>
-<area shape="poly" title=" " alt="" coords="445,178,600,222,598,227,443,183"/>
-<area shape="poly" title=" " alt="" coords="386,184,357,204,324,231,292,265,267,305,260,340,263,376,273,410,285,438,280,440,268,411,258,377,255,339,262,303,287,262,320,227,354,199,383,179"/>
-<area shape="rect" href="iterator_8h.html" title="Defines the iterator class for traversing and manipulating container elements." alt="" coords="373,229,445,256"/>
-<area shape="poly" title=" " alt="" coords="409,182,411,214,405,214,404,182"/>
-<area shape="rect" href="baseList_8h.html" title="Provides a base class for variable&#45;size serial containers." alt="" coords="614,304,695,331"/>
-<area shape="poly" title=" " alt="" coords="659,257,658,288,653,288,654,256"/>
-<area shape="rect" href="cloneable_8h.html" title="Abstract base class for cloneable objects." alt="" coords="451,304,538,331"/>
-<area shape="poly" title=" " alt="" coords="630,259,538,300,536,295,628,254"/>
-<area shape="rect" href="maths_8h.html" title="Mathematical utilities and constants." alt="" coords="719,304,787,331"/>
-<area shape="poly" title=" " alt="" coords="675,254,726,292,723,297,672,259"/>
-<area shape="poly" title=" " alt="" coords="649,333,629,367,624,364,645,330"/>
-<area shape="poly" title=" " alt="" coords="756,331,756,363,750,363,750,331"/>
-<area shape="rect" title=" " alt="" coords="714,453,792,480"/>
-<area shape="poly" title=" " alt="" coords="756,406,756,438,750,438,750,406"/>
-<area shape="poly" title=" " alt="" coords="724,401,344,461,344,455,723,395"/>
-<area shape="poly" title=" " alt="" coords="302,480,310,514,325,553,348,589,343,592,320,556,305,515,297,481"/>
-<area shape="rect" title=" " alt="" coords="334,528,409,555"/>
-<area shape="poly" title=" " alt="" coords="312,479,350,515,346,519,308,482"/>
-<area shape="poly" title=" " alt="" coords="396,259,354,296,350,292,393,255"/>
-<area shape="poly" title=" " alt="" coords="373,257,218,302,216,297,372,252"/>
-<area shape="poly" title=" " alt="" coords="426,255,470,292,467,296,422,259"/>
-<area shape="poly" title=" " alt="" coords="412,256,419,293,427,312,440,329,478,342,551,357,709,382,708,387,550,363,477,347,437,333,422,315,414,294,407,257"/>
-<area shape="poly" title=" " alt="" coords="759,180,792,232,809,266,822,303,828,334,826,360,816,383,796,407,768,429,735,445,670,462,669,457,733,440,765,425,792,403,812,381,821,359,822,334,817,305,805,269,788,234,755,183"/>
-<area shape="poly" title=" " alt="" coords="755,181,782,255,794,279,802,303,805,317,802,331,792,352,779,369,775,366,788,349,797,330,799,317,797,305,789,281,777,257,750,183"/>
-<area shape="poly" title=" " alt="" coords="689,185,461,233,460,228,688,179"/>
-<area shape="rect" title=" " alt="" coords="836,229,888,256"/>
-<area shape="poly" title=" " alt="" coords="769,180,831,218,828,223,766,184"/>
+<area shape="rect" title="Provides the array class for a fixed&#45;size container with random access." alt="" coords="643,5,754,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,102,107"/>
+<area shape="poly" title=" " alt="" coords="643,27,415,48,121,83,117,83,116,78,120,77,414,43,643,22"/>
+<area shape="rect" href="allocator_8h.html" title="Memory allocation interface and default implementation." alt="" coords="177,304,258,331"/>
+<area shape="poly" title=" " alt="" coords="666,35,552,84,483,118,415,157,365,192,317,229,243,295,240,291,314,225,362,187,412,152,480,113,550,79,664,30"/>
+<area shape="rect" href="error_8h.html" title="Custom exception classes and callback validation utilities." alt="" coords="464,453,523,480"/>
+<area shape="poly" title=" " alt="" coords="643,25,504,37,421,47,338,62,262,81,199,104,175,118,157,133,145,149,141,167,141,319,144,342,151,362,161,380,176,396,213,421,259,440,309,452,360,459,449,464,448,469,360,465,308,457,257,445,210,426,172,400,157,383,146,364,139,343,136,319,136,166,140,147,153,129,172,114,196,99,260,75,337,57,420,42,504,32,642,20"/>
+<area shape="rect" href="config_8h.html" title="Platform&#45;independent integer type definitions." alt="" coords="1089,528,1156,555"/>
+<area shape="poly" title=" " alt="" coords="755,20,891,32,973,43,1055,57,1131,76,1193,100,1217,114,1236,130,1248,147,1252,166,1252,393,1250,414,1243,434,1220,470,1190,499,1160,521,1157,517,1187,495,1216,466,1238,432,1245,413,1247,393,1247,167,1243,149,1232,133,1214,119,1191,105,1129,81,1054,63,972,48,891,38,754,26"/>
+<area shape="rect" href="baseArray_8h.html" title="Provides a base class for fixed&#45;size serial containers." alt="" coords="1122,155,1212,181"/>
+<area shape="poly" title=" " alt="" coords="740,30,1113,147,1111,152,738,35"/>
+<area shape="rect" href="iterationStream_8h.html" title="Provides functionality for an iteration stream." alt="" coords="639,80,759,107"/>
+<area shape="poly" title=" " alt="" coords="702,33,702,64,696,64,696,33"/>
+<area shape="rect" href="randomAccessIterator_8h.html" title="Base class for random&#45;access iterators." alt="" coords="937,155,1098,181"/>
+<area shape="poly" title=" " alt="" coords="727,30,978,145,975,150,725,35"/>
+<area shape="rect" title=" " alt="" coords="227,379,298,405"/>
+<area shape="poly" title=" " alt="" coords="228,330,249,364,245,367,223,333"/>
+<area shape="poly" title=" " alt="" coords="215,331,208,367,209,387,217,404,232,416,254,426,317,442,387,453,449,460,449,465,386,459,315,448,253,431,229,420,213,407,204,388,202,367,210,330"/>
+<area shape="rect" title=" " alt="" coords="398,603,480,629"/>
+<area shape="poly" title=" " alt="" coords="213,332,200,366,198,385,203,404,221,437,243,467,296,521,353,563,402,593,399,597,350,567,293,525,239,471,216,440,198,406,193,386,195,365,208,330"/>
+<area shape="rect" href="maths_8h.html" title="Mathematical utilities and constants." alt="" coords="398,379,466,405"/>
+<area shape="poly" title=" " alt="" coords="256,329,384,372,382,377,254,334"/>
+<area shape="rect" title=" " alt="" coords="322,379,374,405"/>
+<area shape="poly" title=" " alt="" coords="242,329,313,368,311,373,239,334"/>
+<area shape="rect" title=" " alt="" coords="455,528,532,555"/>
+<area shape="poly" title=" " alt="" coords="496,481,496,512,491,512,491,481"/>
+<area shape="rect" href="types_8h.html" title="Type system foundations and concept definitions." alt="" coords="677,528,742,555"/>
+<area shape="poly" title=" " alt="" coords="524,475,663,522,662,527,522,480"/>
+<area shape="poly" title=" " alt="" coords="678,554,496,602,495,597,676,549"/>
+<area shape="rect" title=" " alt="" coords="672,603,747,629"/>
+<area shape="poly" title=" " alt="" coords="712,555,712,587,707,587,707,555"/>
+<area shape="poly" title=" " alt="" coords="445,404,475,440,471,443,441,408"/>
+<area shape="rect" title=" " alt="" coords="1093,603,1153,629"/>
+<area shape="poly" title=" " alt="" coords="1126,555,1126,587,1120,587,1120,555"/>
+<area shape="rect" href="serial_8h.html" title="Defines an abstract base class for sequential containers with index&#45;based access." alt="" coords="1056,379,1120,405"/>
+<area shape="poly" title=" " alt="" coords="1165,183,1100,365,1095,363,1160,181"/>
+<area shape="rect" href="container_8h.html" title="Abstract base class for container types." alt="" coords="1080,453,1166,480"/>
+<area shape="poly" title=" " alt="" coords="1097,405,1113,438,1108,440,1092,407"/>
+<area shape="poly" title=" " alt="" coords="1126,481,1126,512,1120,512,1120,481"/>
+<area shape="poly" title=" " alt="" coords="722,105,753,126,786,157,813,196,821,218,824,241,824,393,822,414,816,433,796,468,769,498,743,520,739,516,766,494,791,465,811,431,817,412,819,393,819,242,816,219,808,198,782,161,749,131,719,109"/>
+<area shape="rect" title=" " alt="" coords="503,379,572,405"/>
+<area shape="poly" title=" " alt="" coords="639,103,573,115,499,138,463,154,430,175,399,201,374,231,367,247,362,272,363,300,376,329,393,343,421,355,489,377,488,382,419,360,390,347,371,332,358,302,356,271,362,246,370,228,396,197,426,171,461,150,498,133,572,109,638,97"/>
+<area shape="rect" href="comparable_8h.html" title="Interface for objects that can be compared." alt="" coords="858,304,958,331"/>
+<area shape="poly" title=" " alt="" coords="755,105,800,123,822,136,842,153,867,185,885,222,906,288,901,290,880,224,862,188,838,157,819,141,798,128,753,110"/>
+<area shape="rect" href="printable_8h.html" title="Interface for polymorphic string formatting and output." alt="" coords="601,304,682,331"/>
+<area shape="poly" title=" " alt="" coords="686,109,667,130,652,156,643,190,639,226,640,289,635,289,633,226,637,189,647,154,663,127,682,106"/>
+<area shape="rect" href="iterable_8h.html" title="Base interface for iterable container types." alt="" coords="662,155,736,181"/>
+<area shape="poly" title=" " alt="" coords="702,107,702,139,696,139,696,107"/>
+<area shape="poly" title=" " alt="" coords="922,329,1103,515,1099,519,918,333"/>
+<area shape="rect" title=" " alt="" coords="859,379,930,405"/>
+<area shape="poly" title=" " alt="" coords="908,332,903,364,897,363,903,331"/>
+<area shape="poly" title=" " alt="" coords="625,333,569,372,566,367,622,329"/>
+<area shape="rect" title=" " alt="" coords="607,379,676,405"/>
+<area shape="poly" title=" " alt="" coords="644,331,644,363,639,363,639,331"/>
+<area shape="poly" title=" " alt="" coords="713,180,731,201,748,228,768,270,773,316,773,393,769,428,758,462,730,516,725,514,753,460,764,427,768,393,768,316,762,272,743,231,726,205,709,183"/>
+<area shape="rect" href="transform_8h.html" title="Transformation classes for various operations on elements." alt="" coords="384,229,472,256"/>
+<area shape="poly" title=" " alt="" coords="662,182,487,228,486,223,661,177"/>
+<area shape="rect" href="iterator_8h.html" title="Defines the iterator class for traversing and manipulating container elements." alt="" coords="661,229,734,256"/>
+<area shape="poly" title=" " alt="" coords="701,182,701,214,695,214,696,182"/>
+<area shape="poly" title=" " alt="" coords="392,259,270,301,268,296,391,254"/>
+<area shape="poly" title=" " alt="" coords="413,258,397,273,383,290,374,310,376,330,388,350,404,367,401,371,384,353,371,331,369,309,378,288,393,269,409,254"/>
+<area shape="rect" href="baseList_8h.html" title="Provides a base class for variable&#45;size serial containers." alt="" coords="385,304,466,331"/>
+<area shape="poly" title=" " alt="" coords="430,257,429,288,424,288,425,256"/>
+<area shape="rect" href="cloneable_8h.html" title="Abstract base class for cloneable objects." alt="" coords="490,304,577,331"/>
+<area shape="poly" title=" " alt="" coords="448,254,504,293,501,297,445,259"/>
+<area shape="poly" title=" " alt="" coords="467,326,478,328,594,343,754,359,1041,384,1041,389,753,364,594,348,477,333,466,331"/>
+<area shape="poly" title=" " alt="" coords="704,256,710,286,714,326,709,368,702,389,690,407,657,435,617,453,576,463,538,468,538,462,575,458,616,448,654,431,686,404,697,386,704,367,708,326,705,287,699,257"/>
+<area shape="poly" title=" " alt="" coords="735,254,858,296,856,301,733,259"/>
+<area shape="poly" title=" " alt="" coords="690,258,662,293,658,290,686,255"/>
+<area shape="poly" title=" " alt="" coords="670,259,577,300,575,295,668,254"/>
+<area shape="poly" title=" " alt="" coords="1021,182,1019,225,1010,287,1001,321,987,353,969,382,944,407,913,425,868,438,755,456,635,465,538,468,538,462,635,460,755,451,867,433,911,420,941,403,965,379,982,350,996,319,1005,286,1014,225,1015,182"/>
+<area shape="poly" title=" " alt="" coords="1059,180,1094,198,1111,212,1124,228,1137,254,1145,283,1149,341,1143,396,1134,439,1129,438,1138,395,1144,341,1139,284,1132,256,1119,231,1107,215,1091,203,1057,184"/>
+<area shape="poly" title=" " alt="" coords="962,185,749,232,748,227,961,179"/>
+<area shape="rect" title=" " alt="" coords="1057,229,1109,256"/>
+<area shape="poly" title=" " alt="" coords="1031,180,1064,216,1060,220,1027,184"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">

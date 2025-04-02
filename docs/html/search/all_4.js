@@ -1,7 +1,7 @@
 var searchData=
 [
   ['data_0',['data',['../classoriginal_1_1array.html#a9b9ab603adf91dd0a1968cff1eab87ab',1,'original::array::data()'],['../classoriginal_1_1vector.html#a2111193781c198b5f0cb17aaa579cb6f',1,'original::vector::data()']]],
-  ['deallocate_1',['deallocate',['../classoriginal_1_1allocatorBase.html#ae39301cebacf88133d4804150be02f7e',1,'original::allocatorBase::deallocate()'],['../classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2',1,'original::allocator::deallocate()'],['../classoriginal_1_1container.html#a98e12c7923696e99b937fb1e937a196c',1,'original::container::deallocate()']]],
+  ['deallocate_1',['deallocate',['../classoriginal_1_1allocatorBase.html#ae39301cebacf88133d4804150be02f7e',1,'original::allocatorBase::deallocate()'],['../classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2',1,'original::allocator::deallocate()'],['../classoriginal_1_1objPoolAllocator.html#a58da1525d35c2d24511216fafe70ab13',1,'original::objPoolAllocator::deallocate()'],['../classoriginal_1_1container.html#a98e12c7923696e99b937fb1e937a196c',1,'original::container::deallocate()']]],
   ['decreasecomparator_2',['decreaseComparator',['../classoriginal_1_1decreaseComparator.html',1,'original']]],
   ['decreasenotstrictcomparator_3',['decreaseNotStrictComparator',['../classoriginal_1_1decreaseNotStrictComparator.html',1,'original']]],
   ['deleter_4',['deleter',['../classoriginal_1_1deleter.html',1,'original']]],

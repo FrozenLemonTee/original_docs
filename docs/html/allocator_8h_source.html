@@ -94,106 +94,357 @@ $(function(){ initResizable(false); });
 <a href="allocator_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ALLOCATOR_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ALLOCATOR_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;type_traits&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;utility&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceoriginal.html">original</a> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
-<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html">   27</a></span>    <span class="keyword">class </span><a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ab2910c34c92dd194e23913db2259f689">allocatorBase</a>{</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">   29</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">propagate_on_container_copy_assignment</a> = std::false_type; </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">   30</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">propagate_on_container_move_assignment</a> = std::false_type; </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> O_TYPE&gt;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a635799ad6edd53836205d0bd051669af">   37</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a635799ad6edd53836205d0bd051669af">rebind_alloc</a> = DERIVED&lt;O_TYPE&gt;;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ab2910c34c92dd194e23913db2259f689">   39</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ab2910c34c92dd194e23913db2259f689">allocatorBase</a>() = <span class="keywordflow">default</span>; </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ae5c50e61f8ac4bd512f9cf944b212fa2">   46</a></span>        <span class="keyword">virtual</span> TYPE* <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ae5c50e61f8ac4bd512f9cf944b212fa2">allocate</a>(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) = 0;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ae39301cebacf88133d4804150be02f7e">   53</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ae39301cebacf88133d4804150be02f7e">deallocate</a>(TYPE* ptr, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) = 0;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">   63</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">construct</a>(O_TYPE* o_ptr, Args&amp;&amp;... args);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE&gt;</div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">   71</a></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">destroy</a>(O_TYPE* o_ptr);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a6c7074617a3b5fbacecbc0df1913120b">   73</a></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#a6c7074617a3b5fbacecbc0df1913120b">~allocatorBase</a>() = 0; </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
-<div class="foldopen" id="foldopen00088" data-start="{" data-end="};">
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html">   88</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classoriginal_1_1allocator.html">allocator</a> : <span class="keyword">public</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ab2910c34c92dd194e23913db2259f689">allocatorBase</a>&lt;TYPE, allocator&gt; {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keyword">using </span>typename <a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">allocatorBase&lt;TYPE, allocator&gt;::propagate_on_container_copy_assignment</a>;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">using </span>typename <a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">allocatorBase&lt;TYPE, allocator&gt;::propagate_on_container_move_assignment</a>;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
-<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">   98</a></span>        TYPE* <a class="code hl_function" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">allocate</a>(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
-<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">  105</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">deallocate</a>(TYPE* ptr, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    };</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><a class="code hl_function" href="classoriginal_1_1allocatorBase.html#a6c7074617a3b5fbacecbc0df1913120b">original::allocatorBase&lt;TYPE, DERIVED&gt;::~allocatorBase</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">  114</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">original::allocatorBase&lt;TYPE, DERIVED&gt;::construct</a>(O_TYPE *o_ptr, Args &amp;&amp;... args) {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">new</span> (o_ptr) O_TYPE{std::forward&lt;Args&gt;(args)...};</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="error_8h.html">error.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="maths_8h.html">maths.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;type_traits&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;utility&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceoriginal.html">original</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html">   32</a></span>    <span class="keyword">class </span><a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">allocatorBase</a>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">   34</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">propagate_on_container_copy_assignment</a> = std::false_type; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">   35</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">propagate_on_container_move_assignment</a> = std::false_type; </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> O_TYPE&gt;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a635799ad6edd53836205d0bd051669af">   42</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a635799ad6edd53836205d0bd051669af">rebind_alloc</a> = DERIVED&lt;O_TYPE&gt;;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">   55</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">allocatorBase</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ae5c50e61f8ac4bd512f9cf944b212fa2">   62</a></span>        <span class="keyword">virtual</span> TYPE* <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ae5c50e61f8ac4bd512f9cf944b212fa2">allocate</a>(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) = 0;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ae39301cebacf88133d4804150be02f7e">   69</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ae39301cebacf88133d4804150be02f7e">deallocate</a>(TYPE* ptr, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) = 0;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">   79</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">construct</a>(O_TYPE* o_ptr, Args&amp;&amp;... args);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE&gt;</div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">   87</a></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">destroy</a>(O_TYPE* o_ptr);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#a6c7074617a3b5fbacecbc0df1913120b">   89</a></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#a6c7074617a3b5fbacecbc0df1913120b">~allocatorBase</a>() = 0; </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    };</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="};">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html">  104</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classoriginal_1_1allocator.html">allocator</a> : <span class="keyword">public</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">allocatorBase</a>&lt;TYPE, allocator&gt; {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keyword">using </span>typename <a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">allocatorBase&lt;TYPE, allocator&gt;::propagate_on_container_copy_assignment</a>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">using </span>typename <a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">allocatorBase&lt;TYPE, allocator&gt;::propagate_on_container_move_assignment</a>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span></div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">  116</a></span>        TYPE* <a class="code hl_function" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">allocate</a>(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">  123</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">deallocate</a>(TYPE* ptr, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    };</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00155" data-start="{" data-end="};">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html">  155</a></span>    <span class="keyword">class </span><a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a> final : <span class="keyword">public</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">allocatorBase</a>&lt;TYPE, objPoolAllocator&gt;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keyword">class </span>freeChunk</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            freeChunk* next = <span class="keyword">nullptr</span>; </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        };</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keyword">class </span>allocatedChunks {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="keywordtype">void</span>* chunks = <span class="keyword">nullptr</span>;       </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            allocatedChunks* next = <span class="keyword">nullptr</span>; </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        };</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> CHUNK_SIZE =  <span class="keyword">sizeof</span>(TYPE) &gt; <span class="keyword">sizeof</span>(freeChunk*) ? <span class="keyword">sizeof</span>(TYPE) : <span class="keyword">sizeof</span>(freeChunk*);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size_index_max;         </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a>* chunk_count;          </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        freeChunk** free_list_head;      </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        allocatedChunks* allocated_list_head; </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a>* chunks_available;     </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> getChunkIndex(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordtype">void</span> chunkAllocate(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> num_element, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> index);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="keywordtype">void</span> reset() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keyword">using </span>typename <a class="code hl_typedef" href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">allocatorBase&lt;TYPE, objPoolAllocator&gt;::propagate_on_container_copy_assignment</a>;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#a5e66fe52eddc58fdc5e37764d94b84d9">  216</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classoriginal_1_1objPoolAllocator.html#a5e66fe52eddc58fdc5e37764d94b84d9">propagate_on_container_move_assignment</a> = std::true_type; </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> index_max = 8, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> count = 4);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#a2299292face14bf0c8974e9b163872b0">  225</a></span>        <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a2299292face14bf0c8974e9b163872b0">objPoolAllocator</a>(<span class="keyword">const</span> <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp;) = <span class="keyword">delete</span>; </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#af3aab0bb746ec7674e4ec45f071b7189">  226</a></span>        <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp; <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#af3aab0bb746ec7674e4ec45f071b7189">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp;) = <span class="keyword">delete</span>; </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>(<a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp;&amp; other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp; <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#af3aab0bb746ec7674e4ec45f071b7189">operator=</a>(<a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp;&amp; other) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        TYPE* <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a289ae6049e797b342039507875444788">allocate</a>(<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a58da1525d35c2d24511216fafe70ab13">deallocate</a>(TYPE* ptr, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#aed6aa25ed40e3070da523d321fa88225">~objPoolAllocator</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    };</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE&gt;</div>
-<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">  120</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">original::allocatorBase&lt;TYPE, DERIVED&gt;::destroy</a>(O_TYPE *o_ptr) {</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    o_ptr-&gt;~O_TYPE();</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>}</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class </span>DERIVED&gt;</div>
+<div class="foldopen" id="foldopen00266" data-start="{" data-end="}">
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">  266</a></span><span class="keyword">constexpr</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">original::allocatorBase&lt;TYPE, DERIVED&gt;::allocatorBase</a>()</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>{</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <a class="code hl_class" href="classoriginal_1_1staticError.html">staticError</a>&lt;<a class="code hl_class" href="classoriginal_1_1allocateError.html">allocateError</a>, <span class="keyword">sizeof</span>(TYPE) == 0 || std::is_void_v&lt;TYPE&gt;&gt;{};</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>}</div>
 </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
-<div class="foldopen" id="foldopen00125" data-start="{" data-end="}">
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">  125</a></span>TYPE* <a class="code hl_function" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt;TYPE&gt;::allocate</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) {</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>TYPE*<span class="keyword">&gt;</span>(<span class="keyword">operator</span> <span class="keyword">new</span>(size * <span class="keyword">sizeof</span>(TYPE)));</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="keyword">constexpr</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">original::u_integer</a> original::objPoolAllocator&lt;TYPE&gt;::getChunkIndex(<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) {</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> index = 0;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">while</span> (<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a><span class="keyword">&gt;</span>(1) &lt;&lt; index &lt; size) {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        index += 1;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keywordflow">return</span> index;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>}</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><a class="code hl_function" href="classoriginal_1_1allocatorBase.html#a6c7074617a3b5fbacecbc0df1913120b">original::allocatorBase&lt;TYPE, DERIVED&gt;::~allocatorBase</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="foldopen" id="foldopen00285" data-start="{" data-end="}">
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">  285</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">original::allocatorBase&lt;TYPE, DERIVED&gt;::construct</a>(O_TYPE *o_ptr, Args &amp;&amp;... args) {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <span class="keyword">new</span> (o_ptr) O_TYPE{std::forward&lt;Args&gt;(args)...};</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>}</div>
 </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
-<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">  130</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt;TYPE&gt;::deallocate</a>(TYPE *ptr, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a>) {</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    ::operator <span class="keyword">delete</span>(ptr);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">typename</span> DERIVED&gt;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> O_TYPE&gt;</div>
+<div class="foldopen" id="foldopen00291" data-start="{" data-end="}">
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">  291</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">original::allocatorBase&lt;TYPE, DERIVED&gt;::destroy</a>(O_TYPE *o_ptr) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    o_ptr-&gt;~O_TYPE();</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>}</div>
+</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00296" data-start="{" data-end="}">
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">  296</a></span>TYPE* <a class="code hl_function" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt;TYPE&gt;::allocate</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size) {</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keywordflow">if</span> (size == 0) {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>TYPE*<span class="keyword">&gt;</span>(<span class="keyword">operator</span> <span class="keyword">new</span>(size * <span class="keyword">sizeof</span>(TYPE)));</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::bad_alloc&amp;) {</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classoriginal_1_1allocateError.html">allocateError</a>();</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>}</div>
+</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00309" data-start="{" data-end="}">
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">  309</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt;TYPE&gt;::deallocate</a>(TYPE *ptr, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a>) {</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    ::operator <span class="keyword">delete</span>(ptr);</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>}</div>
 </div>
 </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#endif </span><span class="comment">//ALLOCATOR_H</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="keywordtype">void</span> original::objPoolAllocator&lt;TYPE&gt;::chunkAllocate(<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> num_element, <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> index)</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>{</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> block_size = (1 &lt;&lt; index) * CHUNK_SIZE;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keywordtype">char</span>* new_free_chunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    allocatedChunks* new_allocated_chunk = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordflow">try</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    {</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        new_free_chunk = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<span class="keyword">operator</span> <span class="keyword">new</span>(num_element * block_size));</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        new_allocated_chunk = <span class="keyword">static_cast&lt;</span>allocatedChunks*<span class="keyword">&gt;</span>(<span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(allocatedChunks)));</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    }</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::bad_alloc&amp;)</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    {</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        <span class="keywordflow">throw</span> allocateError();</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    }</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    new_allocated_chunk-&gt;chunks = new_free_chunk;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    new_allocated_chunk-&gt;next = this-&gt;allocated_list_head;</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    this-&gt;allocated_list_head = new_allocated_chunk;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="keywordflow">for</span> (u_integer i = 0; i &lt; num_element; i++)</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    {</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keyword">auto</span> cur_ptr = <span class="keyword">reinterpret_cast&lt;</span>freeChunk*<span class="keyword">&gt;</span>(new_free_chunk + i * block_size);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        cur_ptr-&gt;next = this-&gt;free_list_head[index];</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        this-&gt;free_list_head[index] = cur_ptr;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    }</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    this-&gt;chunks_available[index] += num_element;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    this-&gt;chunk_count[index] = this-&gt;chunk_count[index] + (this-&gt;chunk_count[index] &gt;&gt; 1);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>}</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="keywordtype">void</span> original::objPoolAllocator&lt;TYPE&gt;::reset() noexcept {</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <span class="keywordflow">while</span> (this-&gt;allocated_list_head) {</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keyword">auto</span> next_chunk = this-&gt;allocated_list_head-&gt;next;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        ::operator <span class="keyword">delete</span>(this-&gt;allocated_list_head-&gt;chunks);</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        ::operator <span class="keyword">delete</span>(this-&gt;allocated_list_head);</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        this-&gt;allocated_list_head = next_chunk;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    }</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordflow">if</span> (this-&gt;chunk_count) {</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        <span class="keyword">delete</span>[] this-&gt;chunk_count;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        this-&gt;chunk_count = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    }</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <span class="keywordflow">if</span> (this-&gt;free_list_head) {</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        <span class="keyword">delete</span>[] this-&gt;free_list_head;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        this-&gt;free_list_head = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    }</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keywordflow">if</span> (this-&gt;chunks_available) {</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keyword">delete</span>[] this-&gt;chunks_available;</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        this-&gt;chunks_available = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    }</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>}</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00368" data-start="{" data-end="}">
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">  368</a></span><a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">original::objPoolAllocator&lt;TYPE&gt;::objPoolAllocator</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> index_max, <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> count)</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>    : size_index_max(index_max), chunk_count(new <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a>[this-&gt;size_index_max]),</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>      free_list_head(new freeChunk*[this-&gt;size_index_max]), allocated_list_head(nullptr),</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>      chunks_available(new <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a>[this-&gt;size_index_max]) {</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> i = 0; i &lt; this-&gt;size_index_max; i++) {</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        this-&gt;chunk_count[i] = count;</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        this-&gt;free_list_head[i] = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        this-&gt;chunks_available[i] = 0;</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    }</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>}</div>
+</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00380" data-start="{" data-end="}">
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#a687a7e99a88e472cbd4c228761178535">  380</a></span><a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">original::objPoolAllocator&lt;TYPE&gt;::objPoolAllocator</a>(<a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp;&amp; other)  noexcept : <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>() {</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    this-&gt;<a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#af3aab0bb746ec7674e4ec45f071b7189">operator=</a>(std::move(other));</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>}</div>
+</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00385" data-start="{" data-end="}">
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#aa2ae066abbc55171ae4da86acfed51c4">  385</a></span><a class="code hl_class" href="classoriginal_1_1objPoolAllocator.html">original::objPoolAllocator&lt;TYPE&gt;</a>&amp; <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#af3aab0bb746ec7674e4ec45f071b7189">original::objPoolAllocator&lt;TYPE&gt;::operator=</a>(<a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">objPoolAllocator</a>&amp;&amp; other) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;other)</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    this-&gt;reset();</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    this-&gt;size_index_max = other.size_index_max;</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    this-&gt;chunk_count = other.chunk_count;</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    this-&gt;free_list_head = other.free_list_head;</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    this-&gt;allocated_list_head = other.allocated_list_head;</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    this-&gt;chunks_available = other.chunks_available;</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    other.chunk_count = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    other.free_list_head = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    other.allocated_list_head = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    other.chunks_available = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>}</div>
+</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00405" data-start="{" data-end="}">
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#a289ae6049e797b342039507875444788">  405</a></span>TYPE* <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a289ae6049e797b342039507875444788">original::objPoolAllocator&lt;TYPE&gt;::allocate</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size)</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>{</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    <span class="keywordflow">if</span> (size == 0) {</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    }</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> index = getChunkIndex(size);</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span> </div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    <span class="keywordflow">if</span> (index &gt;= size_index_max) {</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>TYPE*<span class="keyword">&gt;</span>(<span class="keyword">operator</span> <span class="keyword">new</span>(size * <span class="keyword">sizeof</span>(TYPE)));</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::bad_alloc&amp;) {</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <span class="keywordflow">throw</span> <a class="code hl_class" href="classoriginal_1_1allocateError.html">allocateError</a>();</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>        }</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    }</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span> </div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    <span class="keywordflow">if</span> (!this-&gt;free_list_head[index] || this-&gt;chunks_available[index] * (<span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a><span class="keyword">&gt;</span>(1) &lt;&lt; index) &lt; size) {</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        this-&gt;chunkAllocate(<a class="code hl_function" href="namespaceoriginal.html#a0f42f26b6aa61acc458a6bfd9c49581f">max&lt;u_integer&gt;</a>(1, this-&gt;chunk_count[index]), index);</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    }</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keyword">auto</span> cur_ptr = this-&gt;free_list_head[index];</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    this-&gt;free_list_head[index] = this-&gt;free_list_head[index]-&gt;next;</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    this-&gt;chunks_available[index] -= 1;</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>TYPE*<span class="keyword">&gt;</span>(cur_ptr);</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>}</div>
+</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00432" data-start="{" data-end="}">
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#a58da1525d35c2d24511216fafe70ab13">  432</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#a58da1525d35c2d24511216fafe70ab13">original::objPoolAllocator&lt;TYPE&gt;::deallocate</a>(TYPE* ptr, <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size)</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>{</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    <span class="keywordflow">if</span> (size == 0) {</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    }</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    <a class="code hl_typedef" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> index = getChunkIndex(size);</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span> </div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    <span class="keywordflow">if</span> (index &gt;= size_index_max) {</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>        ::operator <span class="keyword">delete</span>(ptr);</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    }</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span> </div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    <span class="keyword">auto</span> p = <span class="keyword">reinterpret_cast&lt;</span>freeChunk*<span class="keyword">&gt;</span>(ptr);</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    p-&gt;next = this-&gt;free_list_head[index];</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    this-&gt;free_list_head[index] = p;</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    this-&gt;chunks_available[index] += 1;</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>}</div>
+</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE&gt;</div>
+<div class="foldopen" id="foldopen00452" data-start="{" data-end="}">
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno"><a class="line" href="classoriginal_1_1objPoolAllocator.html#aed6aa25ed40e3070da523d321fa88225">  452</a></span><a class="code hl_function" href="classoriginal_1_1objPoolAllocator.html#aed6aa25ed40e3070da523d321fa88225">original::objPoolAllocator&lt;TYPE&gt;::~objPoolAllocator</a>() {</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    this-&gt;reset();</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>}</div>
+</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span><span class="preprocessor">#endif </span><span class="comment">//ALLOCATOR_H</span></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_a4482f11b43c56841b92c540bf7cb1c1f"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">original::allocatorBase::propagate_on_container_copy_assignment</a></div><div class="ttdeci">std::false_type propagate_on_container_copy_assignment</div><div class="ttdoc">No propagation on copy.</div><div class="ttdef"><b>Definition</b> allocator.h:29</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_a635799ad6edd53836205d0bd051669af"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#a635799ad6edd53836205d0bd051669af">original::allocatorBase::rebind_alloc</a></div><div class="ttdeci">DERIVED&lt; O_TYPE &gt; rebind_alloc</div><div class="ttdoc">Rebinds allocator to different type.</div><div class="ttdef"><b>Definition</b> allocator.h:37</div></div>
+</div>
+<div class="ttc" id="aclassoriginal_1_1allocateError_html"><div class="ttname"><a href="classoriginal_1_1allocateError.html">original::allocateError</a></div><div class="ttdoc">Exception for memory allocation failures.</div><div class="ttdef"><b>Definition</b> error.h:184</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_a4482f11b43c56841b92c540bf7cb1c1f"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#a4482f11b43c56841b92c540bf7cb1c1f">original::allocatorBase::propagate_on_container_copy_assignment</a></div><div class="ttdeci">std::false_type propagate_on_container_copy_assignment</div><div class="ttdoc">No propagation on copy.</div><div class="ttdef"><b>Definition</b> allocator.h:34</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_a635799ad6edd53836205d0bd051669af"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#a635799ad6edd53836205d0bd051669af">original::allocatorBase::rebind_alloc</a></div><div class="ttdeci">DERIVED&lt; O_TYPE &gt; rebind_alloc</div><div class="ttdoc">Rebinds allocator to different type.</div><div class="ttdef"><b>Definition</b> allocator.h:42</div></div>
 <div class="ttc" id="aclassoriginal_1_1allocatorBase_html_a6c7074617a3b5fbacecbc0df1913120b"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#a6c7074617a3b5fbacecbc0df1913120b">original::allocatorBase::~allocatorBase</a></div><div class="ttdeci">virtual ~allocatorBase()=0</div><div class="ttdoc">Virtual destructor.</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_a7c7dfeface4ec23346f30205a27c4dda"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">original::allocatorBase::propagate_on_container_move_assignment</a></div><div class="ttdeci">std::false_type propagate_on_container_move_assignment</div><div class="ttdoc">No propagation on move.</div><div class="ttdef"><b>Definition</b> allocator.h:30</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_ab2910c34c92dd194e23913db2259f689"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#ab2910c34c92dd194e23913db2259f689">original::allocatorBase::allocatorBase</a></div><div class="ttdeci">constexpr allocatorBase()=default</div><div class="ttdoc">Default constructor.</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_abb38e5b205a147709e9357af4fd87c6d"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">original::allocatorBase::construct</a></div><div class="ttdeci">void construct(O_TYPE *o_ptr, Args &amp;&amp;... args)</div><div class="ttdoc">Constructs an object in allocated memory.</div><div class="ttdef"><b>Definition</b> allocator.h:114</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_ad7e8d4f7922526e52f176325dfc1996f"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">original::allocatorBase::destroy</a></div><div class="ttdeci">static void destroy(O_TYPE *o_ptr)</div><div class="ttdoc">Destroys an object without deallocating.</div><div class="ttdef"><b>Definition</b> allocator.h:120</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_a7c7dfeface4ec23346f30205a27c4dda"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#a7c7dfeface4ec23346f30205a27c4dda">original::allocatorBase::propagate_on_container_move_assignment</a></div><div class="ttdeci">std::false_type propagate_on_container_move_assignment</div><div class="ttdoc">No propagation on move.</div><div class="ttdef"><b>Definition</b> allocator.h:35</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_abb38e5b205a147709e9357af4fd87c6d"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#abb38e5b205a147709e9357af4fd87c6d">original::allocatorBase::construct</a></div><div class="ttdeci">void construct(O_TYPE *o_ptr, Args &amp;&amp;... args)</div><div class="ttdoc">Constructs an object in allocated memory.</div><div class="ttdef"><b>Definition</b> allocator.h:285</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_abf970ff9b43924e472a000db704109a3"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#abf970ff9b43924e472a000db704109a3">original::allocatorBase::allocatorBase</a></div><div class="ttdeci">constexpr allocatorBase()</div><div class="ttdoc">Constructs a new allocatorBase instance.</div><div class="ttdef"><b>Definition</b> allocator.h:266</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_ad7e8d4f7922526e52f176325dfc1996f"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#ad7e8d4f7922526e52f176325dfc1996f">original::allocatorBase::destroy</a></div><div class="ttdeci">static void destroy(O_TYPE *o_ptr)</div><div class="ttdoc">Destroys an object without deallocating.</div><div class="ttdef"><b>Definition</b> allocator.h:291</div></div>
 <div class="ttc" id="aclassoriginal_1_1allocatorBase_html_ae39301cebacf88133d4804150be02f7e"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#ae39301cebacf88133d4804150be02f7e">original::allocatorBase::deallocate</a></div><div class="ttdeci">virtual void deallocate(TYPE *ptr, u_integer size)=0</div><div class="ttdoc">Deallocates memory.</div></div>
 <div class="ttc" id="aclassoriginal_1_1allocatorBase_html_ae5c50e61f8ac4bd512f9cf944b212fa2"><div class="ttname"><a href="classoriginal_1_1allocatorBase.html#ae5c50e61f8ac4bd512f9cf944b212fa2">original::allocatorBase::allocate</a></div><div class="ttdeci">virtual TYPE * allocate(u_integer size)=0</div><div class="ttdoc">Allocates raw memory.</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocator_html"><div class="ttname"><a href="classoriginal_1_1allocator.html">original::allocator</a></div><div class="ttdoc">Default memory allocator using global new/delete.</div><div class="ttdef"><b>Definition</b> allocator.h:88</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocator_html_a095663b72755dad1749f0fbf3938f2f2"><div class="ttname"><a href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator::deallocate</a></div><div class="ttdeci">void deallocate(TYPE *ptr, u_integer size) override</div><div class="ttdoc">Deallocates memory using global operator delete.</div><div class="ttdef"><b>Definition</b> allocator.h:130</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocator_html_a153716d80bc5812ee0f117c62ce9c5b6"><div class="ttname"><a href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator::allocate</a></div><div class="ttdeci">TYPE * allocate(u_integer size) override</div><div class="ttdoc">Allocates memory using global operator new.</div><div class="ttdef"><b>Definition</b> allocator.h:125</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocator_html"><div class="ttname"><a href="classoriginal_1_1allocator.html">original::allocator</a></div><div class="ttdoc">Default memory allocator using global new/delete.</div><div class="ttdef"><b>Definition</b> allocator.h:104</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocator_html_a095663b72755dad1749f0fbf3938f2f2"><div class="ttname"><a href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator::deallocate</a></div><div class="ttdeci">void deallocate(TYPE *ptr, u_integer size) override</div><div class="ttdoc">Deallocates memory using global operator delete.</div><div class="ttdef"><b>Definition</b> allocator.h:309</div></div>
+<div class="ttc" id="aclassoriginal_1_1allocator_html_a153716d80bc5812ee0f117c62ce9c5b6"><div class="ttname"><a href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator::allocate</a></div><div class="ttdeci">TYPE * allocate(u_integer size) override</div><div class="ttdoc">Allocates memory using global operator new.</div><div class="ttdef"><b>Definition</b> allocator.h:296</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html">original::objPoolAllocator</a></div><div class="ttdoc">Object pool allocator for efficient fixed-size memory management.</div><div class="ttdef"><b>Definition</b> allocator.h:156</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html_a2299292face14bf0c8974e9b163872b0"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html#a2299292face14bf0c8974e9b163872b0">original::objPoolAllocator::objPoolAllocator</a></div><div class="ttdeci">objPoolAllocator(const objPoolAllocator &amp;)=delete</div><div class="ttdoc">Copy construction disabled.</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html_a289ae6049e797b342039507875444788"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html#a289ae6049e797b342039507875444788">original::objPoolAllocator::allocate</a></div><div class="ttdeci">TYPE * allocate(u_integer size) override</div><div class="ttdoc">Allocates memory from the pool.</div><div class="ttdef"><b>Definition</b> allocator.h:405</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html_a3932667d8ea66a74453817de306bac53"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html#a3932667d8ea66a74453817de306bac53">original::objPoolAllocator::objPoolAllocator</a></div><div class="ttdeci">objPoolAllocator(u_integer index_max=8, u_integer count=4)</div><div class="ttdoc">Constructs a new object pool allocator.</div><div class="ttdef"><b>Definition</b> allocator.h:368</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html_a58da1525d35c2d24511216fafe70ab13"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html#a58da1525d35c2d24511216fafe70ab13">original::objPoolAllocator::deallocate</a></div><div class="ttdeci">void deallocate(TYPE *ptr, u_integer size) override</div><div class="ttdoc">Returns memory to the pool.</div><div class="ttdef"><b>Definition</b> allocator.h:432</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html_a5e66fe52eddc58fdc5e37764d94b84d9"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html#a5e66fe52eddc58fdc5e37764d94b84d9">original::objPoolAllocator::propagate_on_container_move_assignment</a></div><div class="ttdeci">std::true_type propagate_on_container_move_assignment</div><div class="ttdoc">Allows propagation on move.</div><div class="ttdef"><b>Definition</b> allocator.h:216</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html_aed6aa25ed40e3070da523d321fa88225"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html#aed6aa25ed40e3070da523d321fa88225">original::objPoolAllocator::~objPoolAllocator</a></div><div class="ttdeci">~objPoolAllocator() override</div><div class="ttdoc">Destructor - releases all allocated memory.</div><div class="ttdef"><b>Definition</b> allocator.h:452</div></div>
+<div class="ttc" id="aclassoriginal_1_1objPoolAllocator_html_af3aab0bb746ec7674e4ec45f071b7189"><div class="ttname"><a href="classoriginal_1_1objPoolAllocator.html#af3aab0bb746ec7674e4ec45f071b7189">original::objPoolAllocator::operator=</a></div><div class="ttdeci">objPoolAllocator &amp; operator=(const objPoolAllocator &amp;)=delete</div><div class="ttdoc">Copy assignment disabled.</div></div>
+<div class="ttc" id="aclassoriginal_1_1staticError_html"><div class="ttname"><a href="classoriginal_1_1staticError.html">original::staticError</a></div><div class="ttdoc">Compile-time error assertion utility.</div><div class="ttdef"><b>Definition</b> error.h:73</div></div>
+<div class="ttc" id="aerror_8h_html"><div class="ttname"><a href="error_8h.html">error.h</a></div><div class="ttdoc">Custom exception classes and callback validation utilities.</div></div>
+<div class="ttc" id="amaths_8h_html"><div class="ttname"><a href="maths_8h.html">maths.h</a></div><div class="ttdoc">Mathematical utilities and constants.</div></div>
 <div class="ttc" id="anamespaceoriginal_html"><div class="ttname"><a href="namespaceoriginal.html">original</a></div><div class="ttdoc">Main namespace for the project Original.</div><div class="ttdef"><b>Definition</b> algorithms.h:21</div></div>
+<div class="ttc" id="anamespaceoriginal_html_a0f42f26b6aa61acc458a6bfd9c49581f"><div class="ttname"><a href="namespaceoriginal.html#a0f42f26b6aa61acc458a6bfd9c49581f">original::max</a></div><div class="ttdeci">TYPE max(TYPE a, TYPE b)</div><div class="ttdoc">Returns the larger of two given values.</div></div>
 <div class="ttc" id="anamespaceoriginal_html_a2d678ae654034cea391c946ada41bd2e"><div class="ttname"><a href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">original::u_integer</a></div><div class="ttdeci">std::uint32_t u_integer</div><div class="ttdoc">32-bit unsigned integer type for sizes/indexes</div><div class="ttdef"><b>Definition</b> config.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

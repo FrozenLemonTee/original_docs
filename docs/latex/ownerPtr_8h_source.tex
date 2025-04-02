@@ -95,10 +95,15 @@
 \DoxyCodeLine{00170\ }
 \DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ DEL,\ \textcolor{keyword}{typename}\ ...\ Args>}
 \DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1ownerPtr_a82cf35fe794d2b63b2123322fdaa0f6c}{ownerPtr<T,\ DEL>}}\ \mbox{\hyperlink{namespaceoriginal_a84c2ad6f571fb457b96abd1ab2dd660f}{makeOwnerPtrArray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size,\ Args\&\&\ ...args)\ \{}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1ownerPtr_a82cf35fe794d2b63b2123322fdaa0f6c}{ownerPtr<T,\ DEL>}}(\textcolor{keyword}{new}\ T[size]\{std::forward<Args>(args)...\});}
-\DoxyCodeLine{00174\ \ \ \ \ \}}
-\DoxyCodeLine{00175\ \}}
-\DoxyCodeLine{00176\ }
-\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//OWNERPTR\_H}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ owner\_ptr\ =\ \mbox{\hyperlink{classoriginal_1_1ownerPtr_a82cf35fe794d2b63b2123322fdaa0f6c}{ownerPtr<T,\ DEL>}}(\textcolor{keyword}{new}\ T[size]);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ owner\_ptr[i]\ =\ T(std::forward<Args>(args)...);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ owner\_ptr;}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//OWNERPTR\_H}}
 
 \end{DoxyCode}

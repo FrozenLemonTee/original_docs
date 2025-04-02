@@ -127,10 +127,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>propagate_on_contain
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab2910c34c92dd194e23913db2259f689" id="r_ab2910c34c92dd194e23913db2259f689"><td class="memItemLeft" align="right" valign="top"><a id="ab2910c34c92dd194e23913db2259f689" name="ab2910c34c92dd194e23913db2259f689"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>allocatorBase</b> ()=default</td></tr>
-<tr class="memdesc:ab2910c34c92dd194e23913db2259f689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. <br /></td></tr>
-<tr class="separator:ab2910c34c92dd194e23913db2259f689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf970ff9b43924e472a000db704109a3" id="r_abf970ff9b43924e472a000db704109a3"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf970ff9b43924e472a000db704109a3">allocatorBase</a> ()</td></tr>
+<tr class="memdesc:abf970ff9b43924e472a000db704109a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classoriginal_1_1allocatorBase.html" title="Interface for other memory allocator implements.">allocatorBase</a> instance.  <br /></td></tr>
+<tr class="separator:abf970ff9b43924e472a000db704109a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5c50e61f8ac4bd512f9cf944b212fa2" id="r_ae5c50e61f8ac4bd512f9cf944b212fa2"><td class="memItemLeft" align="right" valign="top">virtual TYPE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5c50e61f8ac4bd512f9cf944b212fa2">allocate</a> (<a class="el" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a> size)=0</td></tr>
 <tr class="memdesc:ae5c50e61f8ac4bd512f9cf944b212fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates raw memory.  <br /></td></tr>
 <tr class="separator:ae5c50e61f8ac4bd512f9cf944b212fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,6 +195,43 @@ template&lt;typename O_TYPE&gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abf970ff9b43924e472a000db704109a3" name="abf970ff9b43924e472a000db704109a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf970ff9b43924e472a000db704109a3">&#9670;&#160;</a></span>allocatorBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TYPE, template&lt; typename &gt; class DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classoriginal_1_1allocatorBase.html">original::allocatorBase</a>&lt; TYPE, DERIVED &gt;::allocatorBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a new <a class="el" href="classoriginal_1_1allocatorBase.html" title="Interface for other memory allocator implements.">allocatorBase</a> instance. </p>
+<p>Performs compile-time validation of the allocated type:</p><ul>
+<li>Ensures TYPE is not void</li>
+<li>Ensures TYPE is a complete type (size &gt; 0)</li>
+</ul>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#abf970ff9b43924e472a000db704109a3">allocatorBase&lt;int, allocator&gt;</a> a;  <span class="comment">// Valid</span></div>
+<div class="line"><a class="code hl_function" href="#abf970ff9b43924e472a000db704109a3">allocatorBase&lt;void, allocator&gt;</a> b; <span class="comment">// Compile-time error</span></div>
+<div class="ttc" id="aclassoriginal_1_1allocatorBase_html_abf970ff9b43924e472a000db704109a3"><div class="ttname"><a href="#abf970ff9b43924e472a000db704109a3">original::allocatorBase::allocatorBase</a></div><div class="ttdeci">constexpr allocatorBase()</div><div class="ttdoc">Constructs a new allocatorBase instance.</div><div class="ttdef"><b>Definition</b> allocator.h:266</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae5c50e61f8ac4bd512f9cf944b212fa2" name="ae5c50e61f8ac4bd512f9cf944b212fa2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5c50e61f8ac4bd512f9cf944b212fa2">&#9670;&#160;</a></span>allocate()</h2>
@@ -231,7 +267,7 @@ template&lt;typename TYPE, template&lt; typename &gt; typename DERIVED&gt; </div
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to allocated memory </dd></dl>
 
-<p>Implemented in <a class="el" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt; TYPE &gt;</a>, <a class="el" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt; bool &gt;</a>, and <a class="el" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt; opts &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt; TYPE &gt;</a>, <a class="el" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt; bool &gt;</a>, <a class="el" href="classoriginal_1_1allocator.html#a153716d80bc5812ee0f117c62ce9c5b6">original::allocator&lt; opts &gt;</a>, and <a class="el" href="classoriginal_1_1objPoolAllocator.html#a289ae6049e797b342039507875444788">original::objPoolAllocator&lt; TYPE &gt;</a>.</p>
 
 </div>
 </div>
@@ -314,7 +350,7 @@ template&lt;typename TYPE, template&lt; typename &gt; typename DERIVED&gt; </div
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt; TYPE &gt;</a>, <a class="el" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt; bool &gt;</a>, and <a class="el" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt; opts &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt; TYPE &gt;</a>, <a class="el" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt; bool &gt;</a>, <a class="el" href="classoriginal_1_1allocator.html#a095663b72755dad1749f0fbf3938f2f2">original::allocator&lt; opts &gt;</a>, and <a class="el" href="classoriginal_1_1objPoolAllocator.html#a58da1525d35c2d24511216fafe70ab13">original::objPoolAllocator&lt; TYPE &gt;</a>.</p>
 
 </div>
 </div>

@@ -18,12 +18,13 @@ var searchData=
   ['_7eforwardchain_15',['~forwardChain',['../classoriginal_1_1forwardChain.html#ab1722580598440c50e41fdefe53dc109',1,'original::forwardChain']]],
   ['_7eiteradaptor_16',['~iterAdaptor',['../classoriginal_1_1iterable_1_1iterAdaptor.html#aa2fa11e88b5565bb2229a664a64b2008',1,'original::iterable::iterAdaptor']]],
   ['_7eiterator_17',['~iterator',['../classoriginal_1_1iterator.html#a23e40571a0b0571ce5e1b7ce30d43d1a',1,'original::iterator']]],
-  ['_7eownerptr_18',['~ownerPtr',['../classoriginal_1_1ownerPtr.html#a54e8ca9527464f5bc306b4793b1a35d6',1,'original::ownerPtr']]],
-  ['_7erefcntptr_19',['~refCntPtr',['../classoriginal_1_1refCntPtr.html#af5056ba146aebe34b53bcf9ef7f4eb0b',1,'original::refCntPtr']]],
-  ['_7estrongptr_20',['~strongPtr',['../classoriginal_1_1strongPtr.html#aa8dfe63e2e432cf1e53770a578cfd5fe',1,'original::strongPtr']]],
-  ['_7etransform_21',['~transform',['../classoriginal_1_1transform.html#af17ef1266984c64a3e8df32956b789a6',1,'original::transform']]],
-  ['_7etransformstream_22',['~transformStream',['../classoriginal_1_1transformStream.html#a37b75cefb91f49c831dcaef3ce620ccd',1,'original::transformStream']]],
-  ['_7evector_23',['~vector',['../classoriginal_1_1vector.html#a4e89c129eb07d015c1910adb44997391',1,'original::vector']]],
-  ['_7eweakptr_24',['~weakPtr',['../classoriginal_1_1weakPtr.html#abcac0839d75e940f707e8e0b7b599c81',1,'original::weakPtr']]],
-  ['_7ewrapper_25',['~wrapper',['../classoriginal_1_1wrapper.html#abec84dba555368b9fa61c9fb1fca5a82',1,'original::wrapper']]]
+  ['_7eobjpoolallocator_18',['~objPoolAllocator',['../classoriginal_1_1objPoolAllocator.html#aed6aa25ed40e3070da523d321fa88225',1,'original::objPoolAllocator']]],
+  ['_7eownerptr_19',['~ownerPtr',['../classoriginal_1_1ownerPtr.html#a54e8ca9527464f5bc306b4793b1a35d6',1,'original::ownerPtr']]],
+  ['_7erefcntptr_20',['~refCntPtr',['../classoriginal_1_1refCntPtr.html#af5056ba146aebe34b53bcf9ef7f4eb0b',1,'original::refCntPtr']]],
+  ['_7estrongptr_21',['~strongPtr',['../classoriginal_1_1strongPtr.html#aa8dfe63e2e432cf1e53770a578cfd5fe',1,'original::strongPtr']]],
+  ['_7etransform_22',['~transform',['../classoriginal_1_1transform.html#af17ef1266984c64a3e8df32956b789a6',1,'original::transform']]],
+  ['_7etransformstream_23',['~transformStream',['../classoriginal_1_1transformStream.html#a37b75cefb91f49c831dcaef3ce620ccd',1,'original::transformStream']]],
+  ['_7evector_24',['~vector',['../classoriginal_1_1vector.html#a4e89c129eb07d015c1910adb44997391',1,'original::vector']]],
+  ['_7eweakptr_25',['~weakPtr',['../classoriginal_1_1weakPtr.html#abcac0839d75e940f707e8e0b7b599c81',1,'original::weakPtr']]],
+  ['_7ewrapper_26',['~wrapper',['../classoriginal_1_1wrapper.html#abec84dba555368b9fa61c9fb1fca5a82',1,'original::wrapper']]]
 ];

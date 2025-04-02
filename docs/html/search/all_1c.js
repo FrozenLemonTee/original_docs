@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['模块进度_0',['模块进度',['../index.html#autotoc_md3',1,'']]]
+  ['算法库：_0',['算法库：',['../index.html#autotoc_md7',1,'']]],
+  ['算法适配器：_1',['算法适配器：',['../index.html#autotoc_md9',1,'']]]
 ];
