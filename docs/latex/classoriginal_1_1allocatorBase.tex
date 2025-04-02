@@ -57,7 +57,7 @@ Interface for other memory allocator implements.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em TYPE} & Type of objects to allocate \\
+{\em TYPE} & The type of objects to allocate \\
 \hline
 {\em DERIVED} & CRTP template parameter for derived allocators\\
 \hline
@@ -107,16 +107,8 @@ Constructs a new \doxylink{classoriginal_1_1allocatorBase}{allocator\+Base} inst
 Performs compile-\/time validation of the allocated type\+:
 \begin{DoxyItemize}
 \item Ensures TYPE is not void
-\item Ensures TYPE is a complete type (size \texorpdfstring{$>$}{>} 0)
+\item Ensures TYPE is a complete type (size \texorpdfstring{$>$}{>} 0) 
 \end{DoxyItemize}
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase<int,\ allocator>}}\ a;\ \ \textcolor{comment}{//\ Valid}}
-\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase<void,\ allocator>}}\ b;\ \textcolor{comment}{//\ Compile-\/time\ error}}
-
-\end{DoxyCode}
- 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classoriginal_1_1allocatorBase_ae5c50e61f8ac4bd512f9cf944b212fa2}\index{original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}!allocate@{allocate}}

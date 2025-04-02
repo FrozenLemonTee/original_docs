@@ -11,8 +11,7 @@ Object pool allocator for efficient fixed-\/size memory management.
 
 
 
-Inheritance diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
-\nopagebreak
+Inheritance diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} 
 \end{figure}
 
 
-Collaboration diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
-\nopagebreak
+Collaboration diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -98,7 +96,7 @@ Implements a memory allocator using an object pool pattern with these characteri
 \item Organizes memory into power-\/of-\/two sized chunks (1, 2, 4, 8, 16, 32, ... bytes)
 \item Maintains separate free lists for each chunk size
 \item Allocates memory in blocks (chunks) to reduce fragmentation
-\item Falls back to global new/delete for allocations too large for the pool
+\item Falls back to \doxylink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators\+::malloc}/allocators\+::free for allocations too large for the pool
 \end{DoxyItemize}
 
 Memory Management Approach\+:
@@ -118,14 +116,12 @@ Memory Management Approach\+:
 \end{DoxyEnumerate}
 
 \begin{DoxyNote}{Note}
-This allocator is particularly efficient for scenarios with\+:
-\begin{DoxyItemize}
-\item Frequent allocations/de-\/allocations of small objects
-\item Objects of similar sizes
-\item Need for reduced memory fragmentation
-\end{DoxyItemize}
+For large allocations, uses \doxylink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators\+::malloc}/allocators\+::free
 \end{DoxyNote}
-\doxylink{classoriginal_1_1allocator}{allocator} For the default allocator using global new/delete 
+\begin{DoxySeeAlso}{See also}
+\doxylink{classoriginal_1_1allocator}{allocator} For the default \doxylink{classoriginal_1_1allocator}{allocator} implementation 
+\end{DoxySeeAlso}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}\index{original::objPoolAllocator$<$ TYPE $>$@{original::objPoolAllocator$<$ TYPE $>$}!objPoolAllocator@{objPoolAllocator}}

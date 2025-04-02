@@ -201,7 +201,7 @@ class original::objPoolAllocator&lt; TYPE &gt;</div><p>Object pool allocator for
 <li>Organizes memory into power-of-two sized chunks (1, 2, 4, 8, 16, 32, ... bytes)</li>
 <li>Maintains separate free lists for each chunk size</li>
 <li>Allocates memory in blocks (chunks) to reduce fragmentation</li>
-<li>Falls back to global new/delete for allocations too large for the pool</li>
+<li>Falls back to <a class="el" href="classoriginal_1_1allocators.html#a1e3e80d6f4395ad311500c3e2a532017" title="Allocates raw memory using global operator new.">allocators::malloc</a>/allocators::free for allocations too large for the pool</li>
 </ul>
 <p>Memory Management Approach:</p><ol type="1">
 <li>The allocator maintains multiple free lists, one for each size class (power-of-two)</li>
@@ -217,13 +217,8 @@ class original::objPoolAllocator&lt; TYPE &gt;</div><p>Object pool allocator for
 </ul>
 </li>
 </ol>
-<dl class="section note"><dt>Note</dt><dd>This allocator is particularly efficient for scenarios with:<ul>
-<li>Frequent allocations/de-allocations of small objects</li>
-<li>Objects of similar sizes</li>
-<li>Need for reduced memory fragmentation</li>
-</ul>
-</dd></dl>
-<p><a class="el" href="classoriginal_1_1allocator.html">allocator</a> For the default allocator using global new/delete </p>
+<dl class="section note"><dt>Note</dt><dd>For large allocations, uses <a class="el" href="classoriginal_1_1allocators.html#a1e3e80d6f4395ad311500c3e2a532017" title="Allocates raw memory using global operator new.">allocators::malloc</a>/allocators::free</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classoriginal_1_1allocator.html" title="Default memory allocator using allocators utilities.">allocator</a> For the default <a class="el" href="classoriginal_1_1allocator.html" title="Default memory allocator using allocators utilities.">allocator</a> implementation </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3932667d8ea66a74453817de306bac53" name="a3932667d8ea66a74453817de306bac53"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3932667d8ea66a74453817de306bac53">&#9670;&#160;</a></span>objPoolAllocator() <span class="overload">[1/2]</span></h2>
