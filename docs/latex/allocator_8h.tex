@@ -2,7 +2,7 @@
 \hypertarget{allocator_8h}{}\label{allocator_8h}\index{src/core/allocator.h@{src/core/allocator.h}}
 
 
-Memory allocation interface and default implementation.  
+Memory allocation interface and implementations.  
 
 
 {\ttfamily \#include "{}error.\+h"{}}\newline
@@ -17,7 +17,8 @@ Include dependency graph for allocator.\+h\+:
 \includegraphics[width=312pt]{allocator_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -43,6 +44,39 @@ namespace \mbox{\hyperlink{namespaceoriginal}{original}}
 
 
 \doxysubsection{Detailed Description}
-Memory allocation interface and default implementation. 
+Memory allocation interface and implementations. 
 
-Provides base allocator interface with CRTP support and a default memory allocator implementation using global operator new/delete. 
+Provides\+:
+\begin{DoxyItemize}
+\item Base allocator interface with CRTP support (allocator\+Base)
+\item Utility functions for raw memory operations (allocators class)
+\item Default memory allocator implementation (allocator)
+\item Object pool allocator implementation (obj\+Pool\+Allocator)
+\end{DoxyItemize}
+
+Memory Management Hierarchy\+:
+\begin{DoxyEnumerate}
+\item Fundamental operations (allocators class)\+:
+\begin{DoxyItemize}
+\item malloc/free\+: Raw memory operations using global new/delete
+\end{DoxyItemize}
+\item Base interface (allocator\+Base)\+:
+\begin{DoxyItemize}
+\item Type-\/safe allocation interface
+\item Object construction/destruction utilities
+\end{DoxyItemize}
+\item Implementations\+:
+\begin{DoxyItemize}
+\item allocator\+: Simple wrapper around allocators utilities
+\item obj\+Pool\+Allocator\+: Advanced pool-\/based allocator with fallback to allocators
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+All allocators maintain the following guarantees\+:
+\begin{DoxyItemize}
+\item Type safety through templated interfaces
+\item Exception safety (throws allocate\+Error on failure)
+\item Nullptr handling for zero-\/size allocations 
+\end{DoxyItemize}
+\end{DoxyNote}

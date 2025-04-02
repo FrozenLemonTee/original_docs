@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Memory allocation interface and default implementation.  
+<p>Memory allocation interface and implementations.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="error_8h_source.html">error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="maths_8h_source.html">maths.h</a>&quot;</code><br />
@@ -106,7 +106,7 @@ Include dependency graph for allocator.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="allocator_8h__incl.png" border="0" usemap="#asrc_2core_2allocator_8h" alt=""/></div>
 <map name="asrc_2core_2allocator_8h" id="asrc_2core_2allocator_8h">
-<area shape="rect" title="Memory allocation interface and default implementation." alt="" coords="122,5,254,32"/>
+<area shape="rect" title="Memory allocation interface and implementations." alt="" coords="122,5,254,32"/>
 <area shape="rect" href="error_8h.html" title="Custom exception classes and callback validation utilities." alt="" coords="87,155,145,181"/>
 <area shape="poly" title=" " alt="" coords="160,35,131,54,118,66,108,81,103,95,102,110,108,140,103,141,97,111,98,94,103,79,114,63,127,50,157,30"/>
 <area shape="rect" title=" " alt="" coords="183,304,265,331"/>
@@ -130,7 +130,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="allocator_8h__dep__incl.png" border="0" usemap="#asrc_2core_2allocator_8hdep" alt=""/></div>
 <map name="asrc_2core_2allocator_8hdep" id="asrc_2core_2allocator_8hdep">
-<area shape="rect" title="Memory allocation interface and default implementation." alt="" coords="439,5,572,32"/>
+<area shape="rect" title="Memory allocation interface and implementations." alt="" coords="439,5,572,32"/>
 <area shape="rect" href="array_8h.html" title="Provides the array class for a fixed&#45;size container with random access." alt="" coords="879,304,990,331"/>
 <area shape="poly" title=" " alt="" coords="576,34,656,60,747,99,794,125,838,154,880,189,915,228,926,246,933,267,937,303,932,304,928,268,921,249,911,231,876,193,835,159,791,129,745,104,654,65,574,39"/>
 <area shape="rect" href="core_8h.html" title="Core module header file." alt="" coords="447,603,556,629"/>
@@ -218,8 +218,35 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Memory allocation interface and default implementation. </p>
-<p>Provides base allocator interface with CRTP support and a default memory allocator implementation using global operator new/delete. </p>
+<div class="textblock"><p>Memory allocation interface and implementations. </p>
+<p>Provides:</p><ul>
+<li>Base allocator interface with CRTP support (allocatorBase)</li>
+<li>Utility functions for raw memory operations (allocators class)</li>
+<li>Default memory allocator implementation (allocator)</li>
+<li>Object pool allocator implementation (objPoolAllocator)</li>
+</ul>
+<p>Memory Management Hierarchy:</p><ol type="1">
+<li>Fundamental operations (allocators class):<ul>
+<li>malloc/free: Raw memory operations using global new/delete</li>
+</ul>
+</li>
+<li>Base interface (allocatorBase):<ul>
+<li>Type-safe allocation interface</li>
+<li>Object construction/destruction utilities</li>
+</ul>
+</li>
+<li>Implementations:<ul>
+<li>allocator: Simple wrapper around allocators utilities</li>
+<li>objPoolAllocator: Advanced pool-based allocator with fallback to allocators</li>
+</ul>
+</li>
+</ol>
+<dl class="section note"><dt>Note</dt><dd>All allocators maintain the following guarantees:<ul>
+<li>Type safety through templated interfaces</li>
+<li>Exception safety (throws allocateError on failure)</li>
+<li>Nullptr handling for zero-size allocations </li>
+</ul>
+</dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
