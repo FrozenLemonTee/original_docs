@@ -6,304 +6,309 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ALLOCATOR\_H}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{maths_8h}{maths.h}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}type\_traits"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}utility"{}}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1allocators}{allocators}}\ final\ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{malloc}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{free}}(TYPE*\ ptr);}
-\DoxyCodeLine{00064\ \ \ \ \ \};}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}\{}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_a4482f11b43c56841b92c540bf7cb1c1f}{propagate\_on\_container\_copy\_assignment}}\ =\ std::false\_type;\ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_a7c7dfeface4ec23346f30205a27c4dda}{propagate\_on\_container\_move\_assignment}}\ =\ std::false\_type;\ }
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ O\_TYPE>}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_a635799ad6edd53836205d0bd051669af}{rebind\_alloc}}\ =\ DERIVED<O\_TYPE>;}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}();}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ae5c50e61f8ac4bd512f9cf944b212fa2}{allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ =\ 0;}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ae39301cebacf88133d4804150be02f7e}{deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ =\ 0;}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abb38e5b205a147709e9357af4fd87c6d}{construct}}(O\_TYPE*\ o\_ptr,\ Args\&\&...\ args);}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE>}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ad7e8d4f7922526e52f176325dfc1996f}{destroy}}(O\_TYPE*\ o\_ptr);}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a6c7074617a3b5fbacecbc0df1913120b}{\string~allocatorBase}}()\ =\ 0;\ }
-\DoxyCodeLine{00131\ \ \ \ \ \};}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}<TYPE,\ allocator>\ \{}
-\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a4482f11b43c56841b92c540bf7cb1c1f}{allocatorBase<TYPE,\ allocator>::propagate\_on\_container\_copy\_assignment}};}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a7c7dfeface4ec23346f30205a27c4dda}{allocatorBase<TYPE,\ allocator>::propagate\_on\_container\_move\_assignment}};}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00165\ \ \ \ \ \};}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}<TYPE,\ objPoolAllocator>}
-\DoxyCodeLine{00193\ \ \ \ \ \{}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }freeChunk}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ freeChunk*\ next\ =\ \textcolor{keyword}{nullptr};\ }
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00204\ }
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }allocatedChunks\ \{}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ chunks\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ allocatedChunks*\ next\ =\ \textcolor{keyword}{nullptr};\ }
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ CHUNK\_SIZE\ =\ \ \textcolor{keyword}{sizeof}(TYPE)\ >\ \textcolor{keyword}{sizeof}(freeChunk*)\ ?\ \textcolor{keyword}{sizeof}(TYPE)\ :\ \textcolor{keyword}{sizeof}(freeChunk*);}
-\DoxyCodeLine{00223\ }
-\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_index\_max;\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}*\ chunk\_count;\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ freeChunk**\ free\_list\_head;\ \ \ \ \ \ }
-\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ allocatedChunks*\ allocated\_list\_head;\ }
-\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}*\ chunks\_available;\ \ \ \ \ }
-\DoxyCodeLine{00229\ }
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ getChunkIndex(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size);}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ chunkAllocate(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ num\_element,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index);}
-\DoxyCodeLine{00244\ }
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ reset()\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a4482f11b43c56841b92c540bf7cb1c1f}{allocatorBase<TYPE,\ objPoolAllocator>::propagate\_on\_container\_copy\_assignment}};}
-\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a5e66fe52eddc58fdc5e37764d94b84d9}{propagate\_on\_container\_move\_assignment}}\ =\ std::true\_type;\ }
-\DoxyCodeLine{00254\ }
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\_max\ =\ 8,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ count\ =\ 4);}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a2299292face14bf0c8974e9b163872b0}{objPoolAllocator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&)\ =\ \textcolor{keyword}{delete};\ }
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&)\ =\ \textcolor{keyword}{delete};\ }
-\DoxyCodeLine{00264\ }
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{maths_8h}{maths.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}type\_traits"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}utility"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1allocators}{allocators}}\ final\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{malloc}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{free}}(TYPE*\ ptr);}
+\DoxyCodeLine{00065\ \ \ \ \ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}\{}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_a4482f11b43c56841b92c540bf7cb1c1f}{propagate\_on\_container\_copy\_assignment}}\ =\ std::false\_type;\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_a7c7dfeface4ec23346f30205a27c4dda}{propagate\_on\_container\_move\_assignment}}\ =\ std::false\_type;\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_a1a901efeff0b73b8505b9d53b9d92cd8}{propagate\_on\_container\_swap}}\ =\ std::false\_type;\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ O\_TYPE>}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1allocatorBase_a635799ad6edd53836205d0bd051669af}{rebind\_alloc}}\ =\ DERIVED<O\_TYPE>;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ae5c50e61f8ac4bd512f9cf944b212fa2}{allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ =\ 0;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ae39301cebacf88133d4804150be02f7e}{deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ =\ 0;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abb38e5b205a147709e9357af4fd87c6d}{construct}}(O\_TYPE*\ o\_ptr,\ Args\&\&...\ args);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE>}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ad7e8d4f7922526e52f176325dfc1996f}{destroy}}(O\_TYPE*\ o\_ptr);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a6c7074617a3b5fbacecbc0df1913120b}{\string~allocatorBase}}()\ =\ 0;\ }
+\DoxyCodeLine{00133\ \ \ \ \ \};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}<TYPE,\ allocator>\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a4482f11b43c56841b92c540bf7cb1c1f}{allocatorBase<TYPE,\ allocator>::propagate\_on\_container\_copy\_assignment}};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a7c7dfeface4ec23346f30205a27c4dda}{allocatorBase<TYPE,\ allocator>::propagate\_on\_container\_move\_assignment}};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a1a901efeff0b73b8505b9d53b9d92cd8}{allocatorBase<TYPE,\ allocator>::propagate\_on\_container\_swap}};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00168\ \ \ \ \ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{allocatorBase}}<TYPE,\ objPoolAllocator>}
+\DoxyCodeLine{00196\ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }freeChunk}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ freeChunk*\ next\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }allocatedChunks\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ chunks\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ allocatedChunks*\ next\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ CHUNK\_SIZE\ =\ \ \textcolor{keyword}{sizeof}(TYPE)\ >\ \textcolor{keyword}{sizeof}(freeChunk*)\ ?\ \textcolor{keyword}{sizeof}(TYPE)\ :\ \textcolor{keyword}{sizeof}(freeChunk*);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_class\_count;\ \ \ \ \ \ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ chunk\_count\_init;\ \ \ \ \ \ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}*\ chunk\_count;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ freeChunk**\ free\_list\_head;\ \ \ \ \ \ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ allocatedChunks*\ allocated\_list\_head;\ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}*\ chunks\_available;\ \ \ \ \ }
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ poolInit();}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ getChunkIndex(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ chunkAllocate(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ num\_element,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ release()\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00270\ }
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{operator=}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00277\ }
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ TYPE*\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a289ae6049e797b342039507875444788}{allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00286\ }
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a58da1525d35c2d24511216fafe70ab13}{deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_aed6aa25ed40e3070da523d321fa88225}{\string~objPoolAllocator}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00299\ \ \ \ \ \};}
-\DoxyCodeLine{00300\ \}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }typename\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a4482f11b43c56841b92c540bf7cb1c1f}{allocatorBase<TYPE,\ objPoolAllocator>::propagate\_on\_container\_copy\_assignment}};}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a5e66fe52eddc58fdc5e37764d94b84d9}{propagate\_on\_container\_move\_assignment}}\ =\ std::true\_type;\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a52f7225d3389a0d6bc21b5338f1046c2}{propagate\_on\_container\_swap}}\ =\ std::true\_type;\ }
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_class\_count\ =\ 8,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ count\ =\ 4);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a2299292face14bf0c8974e9b163872b0}{objPoolAllocator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&)\ =\ \textcolor{keyword}{delete};\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&)\ =\ \textcolor{keyword}{delete};\ }
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{operator=}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00301\ }
-\DoxyCodeLine{00302\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00303\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{original::allocators::malloc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \{}
-\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00306\ \ \ \ \ \}}
-\DoxyCodeLine{00307\ }
-\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}TYPE*\textcolor{keyword}{>}(\textcolor{keyword}{operator}\ \textcolor{keyword}{new}(size\ *\ \textcolor{keyword}{sizeof}(TYPE)));}
-\DoxyCodeLine{00310\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::bad\_alloc\&)\ \{}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1allocateError}{allocateError}}();}
-\DoxyCodeLine{00312\ \ \ \ \ \}}
-\DoxyCodeLine{00313\ \}}
-\DoxyCodeLine{00314\ }
-\DoxyCodeLine{00315\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00316\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{original::allocators::free}}(TYPE*\ ptr)\ \{}
-\DoxyCodeLine{00317\ \ \ \ \ ::operator\ \textcolor{keyword}{delete}(ptr);}
-\DoxyCodeLine{00318\ \}}
-\DoxyCodeLine{00319\ }
-\DoxyCodeLine{00320\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }DERIVED>}
-\DoxyCodeLine{00321\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{original::allocatorBase<TYPE,\ DERIVED>::allocatorBase}}()}
-\DoxyCodeLine{00322\ \{}
-\DoxyCodeLine{00323\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1staticError}{staticError}}<\mbox{\hyperlink{classoriginal_1_1allocateError}{allocateError}},\ \textcolor{keyword}{sizeof}(TYPE)\ ==\ 0\ ||\ std::is\_void\_v<TYPE>>\{\};}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ TYPE*\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a289ae6049e797b342039507875444788}{allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a58da1525d35c2d24511216fafe70ab13}{deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_aed6aa25ed40e3070da523d321fa88225}{\string~objPoolAllocator}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00323\ \ \ \ \ \};}
 \DoxyCodeLine{00324\ \}}
 \DoxyCodeLine{00325\ }
-\DoxyCodeLine{00326\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00327\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a6c7074617a3b5fbacecbc0df1913120b}{original::allocatorBase<TYPE,\ DERIVED>::\string~allocatorBase}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00328\ }
-\DoxyCodeLine{00329\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00330\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00331\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abb38e5b205a147709e9357af4fd87c6d}{original::allocatorBase<TYPE,\ DERIVED>::construct}}(O\_TYPE\ *o\_ptr,\ Args\ \&\&...\ args)\ \{}
-\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keyword}{new}\ (o\_ptr)\ O\_TYPE\{std::forward<Args>(args)...\};}
-\DoxyCodeLine{00333\ \}}
-\DoxyCodeLine{00334\ }
-\DoxyCodeLine{00335\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00336\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE>}
-\DoxyCodeLine{00337\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ad7e8d4f7922526e52f176325dfc1996f}{original::allocatorBase<TYPE,\ DERIVED>::destroy}}(O\_TYPE\ *o\_ptr)\ \{}
-\DoxyCodeLine{00338\ \ \ \ \ o\_ptr-\/>\string~O\_TYPE();}
-\DoxyCodeLine{00339\ \}}
-\DoxyCodeLine{00340\ }
-\DoxyCodeLine{00341\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00342\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original::allocator<TYPE>::allocate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \{}
-\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<TYPE>}}(size);}
-\DoxyCodeLine{00344\ \}}
-\DoxyCodeLine{00345\ }
-\DoxyCodeLine{00346\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00347\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original::allocator<TYPE>::deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}})\ \{}
-\DoxyCodeLine{00348\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(ptr);}
-\DoxyCodeLine{00349\ \}}
-\DoxyCodeLine{00350\ }
-\DoxyCodeLine{00351\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00352\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ original::objPoolAllocator<TYPE>::getChunkIndex(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \{}
-\DoxyCodeLine{00353\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\ =\ 0;}
-\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(1)\ <<\ index\ <\ size)\ \{}
-\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ index\ +=\ 1;}
-\DoxyCodeLine{00356\ \ \ \ \ \}}
-\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
-\DoxyCodeLine{00358\ \}}
-\DoxyCodeLine{00359\ }
-\DoxyCodeLine{00360\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00361\ \textcolor{keywordtype}{void}\ original::objPoolAllocator<TYPE>::chunkAllocate(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ num\_element,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)}
-\DoxyCodeLine{00362\ \{}
-\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ block\_size\ =\ (1\ <<\ index)\ *\ CHUNK\_SIZE;}
-\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{char}*\ new\_free\_chunk\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00365\ \ \ \ \ allocatedChunks*\ new\_allocated\_chunk\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00366\ }
-\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{try}}
-\DoxyCodeLine{00368\ \ \ \ \ \{}
-\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ new\_free\_chunk\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\textcolor{keyword}{operator}\ \textcolor{keyword}{new}(num\_element\ *\ block\_size));}
-\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ new\_allocated\_chunk\ =\ \textcolor{keyword}{static\_cast<}allocatedChunks*\textcolor{keyword}{>}(\textcolor{keyword}{operator}\ \textcolor{keyword}{new}(\textcolor{keyword}{sizeof}(allocatedChunks)));}
-\DoxyCodeLine{00371\ \ \ \ \ \}}
-\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::bad\_alloc\&)}
-\DoxyCodeLine{00373\ \ \ \ \ \{}
-\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1allocateError}{allocateError}}();}
-\DoxyCodeLine{00375\ \ \ \ \ \}}
-\DoxyCodeLine{00376\ }
-\DoxyCodeLine{00377\ \ \ \ \ new\_allocated\_chunk-\/>chunks\ =\ new\_free\_chunk;}
-\DoxyCodeLine{00378\ \ \ \ \ new\_allocated\_chunk-\/>next\ =\ this-\/>allocated\_list\_head;}
-\DoxyCodeLine{00379\ \ \ \ \ this-\/>allocated\_list\_head\ =\ new\_allocated\_chunk;}
-\DoxyCodeLine{00380\ }
-\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ num\_element;\ i++)}
-\DoxyCodeLine{00382\ \ \ \ \ \{}
-\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cur\_ptr\ =\ \textcolor{keyword}{reinterpret\_cast<}freeChunk*\textcolor{keyword}{>}(new\_free\_chunk\ +\ i\ *\ block\_size);}
-\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ cur\_ptr-\/>next\ =\ this-\/>free\_list\_head[index];}
-\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ this-\/>free\_list\_head[index]\ =\ cur\_ptr;}
-\DoxyCodeLine{00386\ \ \ \ \ \}}
-\DoxyCodeLine{00387\ \ \ \ \ this-\/>chunks\_available[index]\ +=\ num\_element;}
-\DoxyCodeLine{00388\ \ \ \ \ this-\/>chunk\_count[index]\ =\ this-\/>chunk\_count[index]\ +\ (this-\/>chunk\_count[index]\ >>\ 1);}
-\DoxyCodeLine{00389\ \}}
+\DoxyCodeLine{00326\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00327\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{original::allocators::malloc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00330\ \ \ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}TYPE*\textcolor{keyword}{>}(\textcolor{keyword}{operator}\ \textcolor{keyword}{new}(size\ *\ \textcolor{keyword}{sizeof}(TYPE)));}
+\DoxyCodeLine{00334\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::bad\_alloc\&)\ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1allocateError}{allocateError}}();}
+\DoxyCodeLine{00336\ \ \ \ \ \}}
+\DoxyCodeLine{00337\ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00340\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{original::allocators::free}}(TYPE*\ ptr)\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ ::operator\ \textcolor{keyword}{delete}(ptr);}
+\DoxyCodeLine{00342\ \}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{class\ }DERIVED>}
+\DoxyCodeLine{00345\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abf970ff9b43924e472a000db704109a3}{original::allocatorBase<TYPE,\ DERIVED>::allocatorBase}}()}
+\DoxyCodeLine{00346\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1staticError}{staticError}}<\mbox{\hyperlink{classoriginal_1_1allocateError}{allocateError}},\ \textcolor{keyword}{sizeof}(TYPE)\ ==\ 0\ ||\ std::is\_void\_v<TYPE>>\{\};}
+\DoxyCodeLine{00348\ \}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00351\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_a6c7074617a3b5fbacecbc0df1913120b}{original::allocatorBase<TYPE,\ DERIVED>::\string~allocatorBase}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00354\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00355\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_abb38e5b205a147709e9357af4fd87c6d}{original::allocatorBase<TYPE,\ DERIVED>::construct}}(O\_TYPE\ *o\_ptr,\ Args\ \&\&...\ args)\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keyword}{new}\ (o\_ptr)\ O\_TYPE\{std::forward<Args>(args)...\};}
+\DoxyCodeLine{00357\ \}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ DERIVED>}
+\DoxyCodeLine{00360\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE>}
+\DoxyCodeLine{00361\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocatorBase_ad7e8d4f7922526e52f176325dfc1996f}{original::allocatorBase<TYPE,\ DERIVED>::destroy}}(O\_TYPE\ *o\_ptr)\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ o\_ptr-\/>\string~O\_TYPE();}
+\DoxyCodeLine{00363\ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00366\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original::allocator<TYPE>::allocate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<TYPE>}}(size);}
+\DoxyCodeLine{00368\ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00371\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original::allocator<TYPE>::deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}})\ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(ptr);}
+\DoxyCodeLine{00373\ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00376\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ original::objPoolAllocator<TYPE>::getChunkIndex(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\ =\ 0;}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(1)\ <<\ index\ <\ size)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ index\ +=\ 1;}
+\DoxyCodeLine{00380\ \ \ \ \ \}}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keywordflow}{return}\ index;}
+\DoxyCodeLine{00382\ \}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00385\ \textcolor{keywordtype}{void}\ original::objPoolAllocator<TYPE>::poolInit()\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ this-\/>chunk\_count\ =\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<u\_integer>}}(this-\/>size\_class\_count);}
+\DoxyCodeLine{00387\ \ \ \ \ this-\/>free\_list\_head\ =\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<freeChunk*>}}(this-\/>size\_class\_count);}
+\DoxyCodeLine{00388\ \ \ \ \ this-\/>chunks\_available\ =\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<u\_integer>}}(this-\/>size\_class\_count);}
+\DoxyCodeLine{00389\ \ \ \ \ this-\/>allocated\_list\_head\ =\ \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{00390\ }
-\DoxyCodeLine{00391\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00392\ \textcolor{keywordtype}{void}\ original::objPoolAllocator<TYPE>::reset()\ noexcept\ \{}
-\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{while}\ (this-\/>allocated\_list\_head)\ \{}
-\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ next\_chunk\ =\ this-\/>allocated\_list\_head-\/>next;}
-\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(this-\/>allocated\_list\_head-\/>chunks);}
-\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(this-\/>allocated\_list\_head);}
-\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ this-\/>allocated\_list\_head\ =\ next\_chunk;}
-\DoxyCodeLine{00398\ \ \ \ \ \}}
-\DoxyCodeLine{00399\ }
-\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>chunk\_count)\ \{}
-\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ this-\/>chunk\_count;}
-\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ this-\/>chunk\_count\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00403\ \ \ \ \ \}}
-\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>free\_list\_head)\ \{}
-\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ this-\/>free\_list\_head;}
-\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ this-\/>free\_list\_head\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00407\ \ \ \ \ \}}
-\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>chunks\_available)\ \{}
-\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ this-\/>chunks\_available;}
-\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ this-\/>chunks\_available\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00411\ \ \ \ \ \}}
-\DoxyCodeLine{00412\ \}}
-\DoxyCodeLine{00413\ }
-\DoxyCodeLine{00414\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00415\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{original::objPoolAllocator<TYPE>::objPoolAllocator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\_max,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ count)}
-\DoxyCodeLine{00416\ \ \ \ \ :\ size\_index\_max(index\_max),\ chunk\_count(new\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}[this-\/>size\_index\_max]),}
-\DoxyCodeLine{00417\ \ \ \ \ \ \ free\_list\_head(new\ freeChunk*[this-\/>size\_index\_max]),\ allocated\_list\_head(nullptr),}
-\DoxyCodeLine{00418\ \ \ \ \ \ \ chunks\_available(new\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}[this-\/>size\_index\_max])\ \{}
-\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>size\_index\_max;\ i++)\ \{}
-\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ this-\/>chunk\_count[i]\ =\ count;}
-\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ this-\/>free\_list\_head[i]\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ this-\/>chunks\_available[i]\ =\ 0;}
-\DoxyCodeLine{00423\ \ \ \ \ \}}
-\DoxyCodeLine{00424\ \}}
-\DoxyCodeLine{00425\ }
-\DoxyCodeLine{00426\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00427\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{original::objPoolAllocator<TYPE>::objPoolAllocator}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&\&\ other)\ \ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}()\ \{}
-\DoxyCodeLine{00428\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{operator=}}(std::move(other));}
-\DoxyCodeLine{00429\ \}}
-\DoxyCodeLine{00430\ }
-\DoxyCodeLine{00431\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00432\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{original::objPoolAllocator<TYPE>}}\&\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{original::objPoolAllocator<TYPE>::operator=}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a3932667d8ea66a74453817de306bac53}{objPoolAllocator}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00435\ }
-\DoxyCodeLine{00436\ \ \ \ \ this-\/>reset();}
-\DoxyCodeLine{00437\ }
-\DoxyCodeLine{00438\ \ \ \ \ this-\/>size\_index\_max\ =\ other.size\_index\_max;}
-\DoxyCodeLine{00439\ \ \ \ \ this-\/>chunk\_count\ =\ other.chunk\_count;}
-\DoxyCodeLine{00440\ \ \ \ \ this-\/>free\_list\_head\ =\ other.free\_list\_head;}
-\DoxyCodeLine{00441\ \ \ \ \ this-\/>allocated\_list\_head\ =\ other.allocated\_list\_head;}
-\DoxyCodeLine{00442\ \ \ \ \ this-\/>chunks\_available\ =\ other.chunks\_available;}
-\DoxyCodeLine{00443\ }
-\DoxyCodeLine{00444\ \ \ \ \ other.chunk\_count\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00445\ \ \ \ \ other.free\_list\_head\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00446\ \ \ \ \ other.allocated\_list\_head\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00447\ \ \ \ \ other.chunks\_available\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00449\ \}}
-\DoxyCodeLine{00450\ }
-\DoxyCodeLine{00451\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00452\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a289ae6049e797b342039507875444788}{original::objPoolAllocator<TYPE>::allocate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)}
-\DoxyCodeLine{00453\ \{}
-\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
-\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00456\ \ \ \ \ \}}
-\DoxyCodeLine{00457\ }
-\DoxyCodeLine{00458\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\ =\ getChunkIndex(size);}
-\DoxyCodeLine{00459\ }
-\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>size\_index\_max)\ \{}
-\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<TYPE>}}(size);}
-\DoxyCodeLine{00462\ \ \ \ \ \}}
-\DoxyCodeLine{00463\ }
-\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>free\_list\_head[index]\ ||\ this-\/>chunks\_available[index]\ *\ (\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(1)\ <<\ index)\ <\ size)\ \{}
-\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ this-\/>chunkAllocate(\mbox{\hyperlink{namespaceoriginal_a0f42f26b6aa61acc458a6bfd9c49581f}{max<u\_integer>}}(1,\ this-\/>chunk\_count[index]),\ index);}
-\DoxyCodeLine{00466\ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ this-\/>size\_class\_count;\ i++)\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ this-\/>chunk\_count[i]\ =\ this-\/>chunk\_count\_init;}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ this-\/>free\_list\_head[i]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ this-\/>chunks\_available[i]\ =\ 0;}
+\DoxyCodeLine{00395\ \ \ \ \ \}}
+\DoxyCodeLine{00396\ \}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00399\ \textcolor{keywordtype}{void}\ original::objPoolAllocator<TYPE>::chunkAllocate(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ num\_element,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index)}
+\DoxyCodeLine{00400\ \{}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ block\_size\ =\ (1\ <<\ index)\ *\ CHUNK\_SIZE;}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keyword}{auto}\ new\_free\_chunk\ =\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<char>}}(num\_element\ *\ block\_size);}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keyword}{auto}\ new\_allocated\_chunk\ =\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<allocatedChunks>}}(1);}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ new\_allocated\_chunk-\/>chunks\ =\ new\_free\_chunk;}
+\DoxyCodeLine{00406\ \ \ \ \ new\_allocated\_chunk-\/>next\ =\ this-\/>allocated\_list\_head;}
+\DoxyCodeLine{00407\ \ \ \ \ this-\/>allocated\_list\_head\ =\ new\_allocated\_chunk;}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ num\_element;\ i++)}
+\DoxyCodeLine{00410\ \ \ \ \ \{}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cur\_ptr\ =\ \textcolor{keyword}{reinterpret\_cast<}freeChunk*\textcolor{keyword}{>}(new\_free\_chunk\ +\ i\ *\ block\_size);}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ cur\_ptr-\/>next\ =\ this-\/>free\_list\_head[index];}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ this-\/>free\_list\_head[index]\ =\ cur\_ptr;}
+\DoxyCodeLine{00414\ \ \ \ \ \}}
+\DoxyCodeLine{00415\ \ \ \ \ this-\/>chunks\_available[index]\ +=\ num\_element;}
+\DoxyCodeLine{00416\ \ \ \ \ this-\/>chunk\_count[index]\ =\ this-\/>chunk\_count[index]\ +\ (this-\/>chunk\_count[index]\ >>\ 1);}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00420\ \textcolor{keywordtype}{void}\ original::objPoolAllocator<TYPE>::release()\ noexcept\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordflow}{while}\ (this-\/>allocated\_list\_head)\ \{}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ next\_chunk\ =\ this-\/>allocated\_list\_head-\/>next;}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(this-\/>allocated\_list\_head-\/>chunks);}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(this-\/>allocated\_list\_head);}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ this-\/>allocated\_list\_head\ =\ next\_chunk;}
+\DoxyCodeLine{00426\ \ \ \ \ \}}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>chunk\_count)\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(this-\/>chunk\_count);}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ this-\/>chunk\_count\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>free\_list\_head)\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(this-\/>free\_list\_head);}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ this-\/>free\_list\_head\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00435\ \ \ \ \ \}}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>chunks\_available)\ \{}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(this-\/>chunks\_available);}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ this-\/>chunks\_available\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00439\ \ \ \ \ \}}
+\DoxyCodeLine{00440\ \}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00443\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{original::objPoolAllocator<TYPE>::objPoolAllocator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_class\_count,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ count)}
+\DoxyCodeLine{00444\ \ \ \ \ :\ size\_class\_count(size\_class\_count),\ chunk\_count\_init(count),\ chunk\_count(nullptr),}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ free\_list\_head(nullptr),\ allocated\_list\_head(nullptr),\ chunks\_available(nullptr)\ \{}
+\DoxyCodeLine{00446\ \ \ \ \ this-\/>poolInit();}
+\DoxyCodeLine{00447\ \}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00450\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{original::objPoolAllocator<TYPE>::objPoolAllocator}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&\&\ other)\ \ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}()\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{operator=}}(std::move(other));}
+\DoxyCodeLine{00452\ \}}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00455\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{original::objPoolAllocator<TYPE>}}\&\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}{original::objPoolAllocator<TYPE>::operator=}}(\mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a657215b567e8924cccd287661d0ba774}{objPoolAllocator}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ this-\/>release();}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ this-\/>size\_class\_count\ =\ other.size\_class\_count;}
+\DoxyCodeLine{00462\ \ \ \ \ this-\/>chunk\_count\_init\ =\ other.chunk\_count\_init;}
+\DoxyCodeLine{00463\ \ \ \ \ this-\/>chunk\_count\ =\ other.chunk\_count;}
+\DoxyCodeLine{00464\ \ \ \ \ this-\/>free\_list\_head\ =\ other.free\_list\_head;}
+\DoxyCodeLine{00465\ \ \ \ \ this-\/>allocated\_list\_head\ =\ other.allocated\_list\_head;}
+\DoxyCodeLine{00466\ \ \ \ \ this-\/>chunks\_available\ =\ other.chunks\_available;}
 \DoxyCodeLine{00467\ }
-\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keyword}{auto}\ cur\_ptr\ =\ this-\/>free\_list\_head[index];}
-\DoxyCodeLine{00469\ \ \ \ \ this-\/>free\_list\_head[index]\ =\ this-\/>free\_list\_head[index]-\/>next;}
-\DoxyCodeLine{00470\ \ \ \ \ this-\/>chunks\_available[index]\ -\/=\ 1;}
-\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(cur\_ptr);}
-\DoxyCodeLine{00472\ \}}
-\DoxyCodeLine{00473\ }
-\DoxyCodeLine{00474\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00475\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a58da1525d35c2d24511216fafe70ab13}{original::objPoolAllocator<TYPE>::deallocate}}(TYPE*\ ptr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)}
-\DoxyCodeLine{00476\ \{}
-\DoxyCodeLine{00477\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
-\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00479\ \ \ \ \ \}}
+\DoxyCodeLine{00468\ \ \ \ \ other.poolInit();}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00470\ \}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00473\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a289ae6049e797b342039507875444788}{original::objPoolAllocator<TYPE>::allocate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)}
+\DoxyCodeLine{00474\ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00477\ \ \ \ \ \}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\ =\ getChunkIndex(size);}
 \DoxyCodeLine{00480\ }
-\DoxyCodeLine{00481\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\ =\ getChunkIndex(size);}
-\DoxyCodeLine{00482\ }
-\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>size\_index\_max)\ \{}
-\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(ptr);}
-\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00486\ \ \ \ \ \}}
-\DoxyCodeLine{00487\ }
-\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keyword}{auto}\ p\ =\ \textcolor{keyword}{reinterpret\_cast<}freeChunk*\textcolor{keyword}{>}(ptr);}
-\DoxyCodeLine{00489\ \ \ \ \ p-\/>next\ =\ this-\/>free\_list\_head[index];}
-\DoxyCodeLine{00490\ \ \ \ \ this-\/>free\_list\_head[index]\ =\ p;}
-\DoxyCodeLine{00491\ \ \ \ \ this-\/>chunks\_available[index]\ +=\ 1;}
-\DoxyCodeLine{00492\ \}}
-\DoxyCodeLine{00493\ }
-\DoxyCodeLine{00494\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00495\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_aed6aa25ed40e3070da523d321fa88225}{original::objPoolAllocator<TYPE>::\string~objPoolAllocator}}()\ \{}
-\DoxyCodeLine{00496\ \ \ \ \ this-\/>reset();}
-\DoxyCodeLine{00497\ \}}
-\DoxyCodeLine{00498\ }
-\DoxyCodeLine{00499\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ALLOCATOR\_H}}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>size\_class\_count)\ \{}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{allocators::malloc<TYPE>}}(size);}
+\DoxyCodeLine{00483\ \ \ \ \ \}}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>free\_list\_head[index]\ ||\ this-\/>chunks\_available[index]\ *\ (\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(1)\ <<\ index)\ <\ size)\ \{}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ this-\/>chunkAllocate(\mbox{\hyperlink{namespaceoriginal_a0f42f26b6aa61acc458a6bfd9c49581f}{max<u\_integer>}}(1,\ this-\/>chunk\_count[index]),\ index);}
+\DoxyCodeLine{00487\ \ \ \ \ \}}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keyword}{auto}\ cur\_ptr\ =\ this-\/>free\_list\_head[index];}
+\DoxyCodeLine{00490\ \ \ \ \ this-\/>free\_list\_head[index]\ =\ this-\/>free\_list\_head[index]-\/>next;}
+\DoxyCodeLine{00491\ \ \ \ \ this-\/>chunks\_available[index]\ -\/=\ 1;}
+\DoxyCodeLine{00492\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(cur\_ptr);}
+\DoxyCodeLine{00493\ \}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00496\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a58da1525d35c2d24511216fafe70ab13}{original::objPoolAllocator<TYPE>::deallocate}}(TYPE*\ ptr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)}
+\DoxyCodeLine{00497\ \{}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)\ \{}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00500\ \ \ \ \ \}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ index\ =\ getChunkIndex(size);}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ this-\/>size\_class\_count)\ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{allocators::free}}(ptr);}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00507\ \ \ \ \ \}}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keyword}{auto}\ p\ =\ \textcolor{keyword}{reinterpret\_cast<}freeChunk*\textcolor{keyword}{>}(ptr);}
+\DoxyCodeLine{00510\ \ \ \ \ p-\/>next\ =\ this-\/>free\_list\_head[index];}
+\DoxyCodeLine{00511\ \ \ \ \ this-\/>free\_list\_head[index]\ =\ p;}
+\DoxyCodeLine{00512\ \ \ \ \ this-\/>chunks\_available[index]\ +=\ 1;}
+\DoxyCodeLine{00513\ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00516\ \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_aed6aa25ed40e3070da523d321fa88225}{original::objPoolAllocator<TYPE>::\string~objPoolAllocator}}()\ \{}
+\DoxyCodeLine{00517\ \ \ \ \ this-\/>release();}
+\DoxyCodeLine{00518\ \}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ALLOCATOR\_H}}
 
 \end{DoxyCode}
