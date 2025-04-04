@@ -39,6 +39,7 @@ Core module header file.
 {\ttfamily \#include "{}random\+Access\+Iterator.\+h"{}}\newline
 {\ttfamily \#include "{}ref\+Cnt\+Ptr.\+h"{}}\newline
 {\ttfamily \#include "{}serial.\+h"{}}\newline
+{\ttfamily \#include "{}set.\+h"{}}\newline
 {\ttfamily \#include "{}single\+Direction\+Iterator.\+h"{}}\newline
 {\ttfamily \#include "{}stack.\+h"{}}\newline
 {\ttfamily \#include "{}step\+Iterator.\+h"{}}\newline
@@ -48,7 +49,8 @@ Core module header file.
 {\ttfamily \#include "{}types.\+h"{}}\newline
 {\ttfamily \#include "{}vector.\+h"{}}\newline
 {\ttfamily \#include "{}wrapper.\+h"{}}\newline
-Include dependency graph for core.\+h\+:\nopagebreak
+Include dependency graph for core.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -67,6 +69,45 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \doxysubsection{Detailed Description}
 Core module header file. 
 
-This header file includes all the essential modules and components that form the core of the library. It aggregates the most important header files into a single point of access for ease of use, ensuring that all the necessary components for the library’s core functionality are included.
+Contains all fundamental components that form the core of the Original project. Integrates the following main functional modules\+:\hypertarget{core_8h_Main_Features}{}\doxysubsection{\texorpdfstring{Main Features}{Main Features}}\label{core_8h_Main_Features}
+\hypertarget{core_8h_Containers}{}\doxysubsubsection{\texorpdfstring{Containers}{Containers}}\label{core_8h_Containers}
 
-The included modules cover a wide range of functionalities such as containers, algorithms, iterators, and utilities, making this file the central hub for accessing core components of the library. 
+\begin{DoxyItemize}
+\item Fixed-\/size containers\+: array, bit\+Set
+\item Variable-\/size containers\+: vector, forward\+Chain, chain, blocks\+List
+\end{DoxyItemize}\hypertarget{core_8h_Memory_Management}{}\doxysubsubsection{\texorpdfstring{Memory\+\_\+\+Management}{Memory\+\_\+\+Management}}\label{core_8h_Memory_Management}
+
+\begin{DoxyItemize}
+\item Smart pointers\+: owner\+Ptr, strong\+Ptr, weak\+Ptr
+\item Allocators\+: allocator\+Base, allocator, obj\+Pool\+Allocator
+\item Deleters\+: deleter\+Base, deleter
+\end{DoxyItemize}\hypertarget{core_8h_Algorithms_Iterators}{}\doxysubsubsection{\texorpdfstring{Algorithms\+\_\+\+Iterators}{Algorithms\+\_\+\+Iterators}}\label{core_8h_Algorithms_Iterators}
+
+\begin{DoxyItemize}
+\item Algorithms\+: all\+Of/any\+Of, find/count, sort/stable\+Sort etc.
+\item Iterators\+: iterator, iter\+Adaptor, directional iterators
+\item Algorithm adapters\+: transform, filter, comparator
+\end{DoxyItemize}\hypertarget{core_8h_Utilities}{}\doxysubsubsection{\texorpdfstring{Utilities}{Utilities}}\label{core_8h_Utilities}
+
+\begin{DoxyItemize}
+\item Interfaces\+: printable, comparable, cloneable
+\item Tuples\+: couple, tuple
+\item Others\+: error handling, maths utilities, config
+\end{DoxyItemize}\hypertarget{core_8h_Usage}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{core_8h_Usage}
+Include this single header to access all core functionality\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}original/core.h"{}}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Full documentation available at\+: \href{https://documents-original.vercel.app/}{\texttt{ https\+://documents-\/original.\+vercel.\+app/}} 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+README.\+md for project overview and build instructions 
+
+\doxylink{allocator_8h}{allocator.\+h} For detailed memory management documentation 
+
+\doxylink{chain_8h}{chain.\+h} For linked list implementation details 
+\end{DoxySeeAlso}

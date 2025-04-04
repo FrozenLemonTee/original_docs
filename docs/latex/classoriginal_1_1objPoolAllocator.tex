@@ -11,7 +11,8 @@ Object pool allocator for efficient fixed-\/size memory management.
 
 
 
-Inheritance diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Inheritance diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} 
 \end{figure}
 
 
-Collaboration diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::obj\+Pool\+Allocator\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -35,7 +37,10 @@ using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+move\+\_\+assignment} = s
 \begin{DoxyCompactList}\small\item\em Allows propagation on move. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1objPoolAllocator_a52f7225d3389a0d6bc21b5338f1046c2}\label{classoriginal_1_1objPoolAllocator_a52f7225d3389a0d6bc21b5338f1046c2} 
 using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+swap} = std\+::true\+\_\+type
-\begin{DoxyCompactList}\small\item\em Allows propagation on swap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Allows propagation on swap. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1objPoolAllocator_abd57f8bd76a9ecdb923c10e2d00c35ce}\label{classoriginal_1_1objPoolAllocator_abd57f8bd76a9ecdb923c10e2d00c35ce} 
+using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+merge} = std\+::true\+\_\+type
+\begin{DoxyCompactList}\small\item\em Allows propagation on merge. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Types inherited from \mbox{\hyperlink{classoriginal_1_1allocatorBase}{original\+::allocator\+Base$<$ TYPE, obj\+Pool\+Allocator $>$}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,6 +50,8 @@ using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+move\+\_\+assignment}
 \begin{DoxyCompactList}\small\item\em No propagation on move. \end{DoxyCompactList}\item 
 using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+swap}
 \begin{DoxyCompactList}\small\item\em No propagation on swap. \end{DoxyCompactList}\item 
+using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+merge}
+\begin{DoxyCompactList}\small\item\em No propagation on merge. \end{DoxyCompactList}\item 
 using \mbox{\hyperlink{classoriginal_1_1allocatorBase_a635799ad6edd53836205d0bd051669af}{rebind\+\_\+alloc}}
 \begin{DoxyCompactList}\small\item\em Rebinds allocator to different type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
@@ -58,6 +65,8 @@ using \mbox{\hyperlink{classoriginal_1_1allocatorBase_a635799ad6edd53836205d0bd0
 \Hypertarget{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189}\label{classoriginal_1_1objPoolAllocator_af3aab0bb746ec7674e4ec45f071b7189} 
 \mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}} \&)=delete
 \begin{DoxyCompactList}\small\item\em Copy assignment disabled. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}} \& \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a22941246ca061e8e5b6decfaeb025f72}{operator+=}} (\mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}} \&other)
+\begin{DoxyCompactList}\small\item\em Merges another pool allocator into this one. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a687a7e99a88e472cbd4c228761178535}{obj\+Pool\+Allocator}} (\mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}} \&\&other) noexcept
 \begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}} \& \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_aa2ae066abbc55171ae4da86acfed51c4}{operator=}} (\mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}} \&\&other) noexcept
@@ -225,7 +234,32 @@ For large allocations, uses global operator delete
 
 Implements \mbox{\hyperlink{classoriginal_1_1allocatorBase_ae39301cebacf88133d4804150be02f7e}{original\+::allocator\+Base$<$ TYPE, obj\+Pool\+Allocator $>$}}.
 
-\Hypertarget{classoriginal_1_1objPoolAllocator_aa2ae066abbc55171ae4da86acfed51c4}\index{original::objPoolAllocator$<$ TYPE $>$@{original::objPoolAllocator$<$ TYPE $>$}!operator=@{operator=}}
+\Hypertarget{classoriginal_1_1objPoolAllocator_a22941246ca061e8e5b6decfaeb025f72}\index{original::objPoolAllocator$<$ TYPE $>$@{original::objPoolAllocator$<$ TYPE $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!original::objPoolAllocator$<$ TYPE $>$@{original::objPoolAllocator$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1objPoolAllocator_a22941246ca061e8e5b6decfaeb025f72} 
+template$<$typename TYPE$>$ \\
+\mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{original\+::obj\+Pool\+Allocator}}$<$ TYPE $>$ \& \mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{original\+::obj\+Pool\+Allocator}}$<$ TYPE $>$\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1objPoolAllocator}{obj\+Pool\+Allocator}}$<$ TYPE $>$ \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Merges another pool allocator into this one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The allocator to merge \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this allocator
+\end{DoxyReturn}
+Merges\+:
+\begin{DoxyItemize}
+\item Size class configurations (takes maximum)
+\item Free lists (concatenates)
+\item Allocated blocks (combines)
+\item Allocator resources (since \doxylink{classoriginal_1_1objPoolAllocator_abd57f8bd76a9ecdb923c10e2d00c35ce}{propagate\+\_\+on\+\_\+container\+\_\+merge} is true) 
+\end{DoxyItemize}\Hypertarget{classoriginal_1_1objPoolAllocator_aa2ae066abbc55171ae4da86acfed51c4}\index{original::objPoolAllocator$<$ TYPE $>$@{original::objPoolAllocator$<$ TYPE $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!original::objPoolAllocator$<$ TYPE $>$@{original::objPoolAllocator$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1objPoolAllocator_aa2ae066abbc55171ae4da86acfed51c4} 

@@ -2,7 +2,7 @@
 \hypertarget{classoriginal_1_1allocatorBase}{}\label{classoriginal_1_1allocatorBase}\index{original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
 
 
-Interface for other memory allocator implements.  
+Interface for other memory allocator implementations.  
 
 
 
@@ -11,7 +11,8 @@ Interface for other memory allocator implements.
 
 
 
-Collaboration diagram for original\+::allocator\+Base\texorpdfstring{$<$}{<} TYPE, DERIVED \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::allocator\+Base\texorpdfstring{$<$}{<} TYPE, DERIVED \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,6 +31,9 @@ using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+move\+\_\+assignment} = s
 \Hypertarget{classoriginal_1_1allocatorBase_a1a901efeff0b73b8505b9d53b9d92cd8}\label{classoriginal_1_1allocatorBase_a1a901efeff0b73b8505b9d53b9d92cd8} 
 using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+swap} = std\+::false\+\_\+type
 \begin{DoxyCompactList}\small\item\em No propagation on swap. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1allocatorBase_aea9d03adfb2a4fe2801795fa91623f03}\label{classoriginal_1_1allocatorBase_aea9d03adfb2a4fe2801795fa91623f03} 
+using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+merge} = std\+::false\+\_\+type
+\begin{DoxyCompactList}\small\item\em No propagation on merge. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename O\+\_\+\+TYPE$>$ }\\using \mbox{\hyperlink{classoriginal_1_1allocatorBase_a635799ad6edd53836205d0bd051669af}{rebind\+\_\+alloc}} = DERIVED$<$O\+\_\+\+TYPE$>$
 \begin{DoxyCompactList}\small\item\em Rebinds allocator to different type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
@@ -56,7 +60,7 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}allocator\+Base} ()=0
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename TYPE, template$<$ typename $>$ typename DERIVED$>$\newline
 class original\+::allocator\+Base$<$ TYPE, DERIVED $>$}
-Interface for other memory allocator implements. 
+Interface for other memory allocator implementations. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -69,10 +73,16 @@ Provides common interface and utilities for memory management\+:
 \begin{DoxyItemize}
 \item Type-\/safe allocation/de-\/allocation
 \item Object construction/destruction
-\item Rebinding support for container needs \begin{DoxyNote}{Note}
-Derived classes must implement allocate/deallocate 
-\end{DoxyNote}
+\item Rebinding support for container needs
+\item Propagation control for container operations
+\end{DoxyItemize}
 
+Propagation traits\+:
+\begin{DoxyItemize}
+\item \doxylink{classoriginal_1_1allocatorBase_a4482f11b43c56841b92c540bf7cb1c1f}{propagate\+\_\+on\+\_\+container\+\_\+copy\+\_\+assignment}
+\item \doxylink{classoriginal_1_1allocatorBase_a7c7dfeface4ec23346f30205a27c4dda}{propagate\+\_\+on\+\_\+container\+\_\+move\+\_\+assignment}
+\item \doxylink{classoriginal_1_1allocatorBase_a1a901efeff0b73b8505b9d53b9d92cd8}{propagate\+\_\+on\+\_\+container\+\_\+swap}
+\item \doxylink{classoriginal_1_1allocatorBase_aea9d03adfb2a4fe2801795fa91623f03}{propagate\+\_\+on\+\_\+container\+\_\+merge} 
 \end{DoxyItemize}
 
 \doxysubsection{Member Typedef Documentation}
@@ -135,7 +145,7 @@ Pointer to allocated memory
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original\+::allocator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original\+::allocator$<$ bool $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original\+::allocator$<$ opts $>$}}, and \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a289ae6049e797b342039507875444788}{original\+::obj\+Pool\+Allocator$<$ TYPE $>$}}.
+Implemented in \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original\+::allocator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original\+::allocator$<$ bool $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original\+::allocator$<$ K\+\_\+\+TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f117c62ce9c5b6}{original\+::allocator$<$ opts $>$}}, and \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a289ae6049e797b342039507875444788}{original\+::obj\+Pool\+Allocator$<$ TYPE $>$}}.
 
 \Hypertarget{classoriginal_1_1allocatorBase_abb38e5b205a147709e9357af4fd87c6d}\index{original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}!construct@{construct}}
 \index{construct@{construct}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
@@ -183,7 +193,7 @@ Deallocates memory.
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original\+::allocator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original\+::allocator$<$ bool $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original\+::allocator$<$ opts $>$}}, and \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a58da1525d35c2d24511216fafe70ab13}{original\+::obj\+Pool\+Allocator$<$ TYPE $>$}}.
+Implemented in \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original\+::allocator$<$ TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original\+::allocator$<$ bool $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original\+::allocator$<$ K\+\_\+\+TYPE $>$}}, \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f0fbf3938f2f2}{original\+::allocator$<$ opts $>$}}, and \mbox{\hyperlink{classoriginal_1_1objPoolAllocator_a58da1525d35c2d24511216fafe70ab13}{original\+::obj\+Pool\+Allocator$<$ TYPE $>$}}.
 
 \Hypertarget{classoriginal_1_1allocatorBase_ad7e8d4f7922526e52f176325dfc1996f}\index{original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}!destroy@{destroy}}
 \index{destroy@{destroy}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
