@@ -1,0 +1,619 @@
+\doxysection{chain.\+h}
+\hypertarget{chain_8h_source}{}\label{chain_8h_source}\index{src/core/chain.h@{src/core/chain.h}}
+\mbox{\hyperlink{chain_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CHAIN\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CHAIN\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{double_direction_iterator_8h}{doubleDirectionIterator.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{array_8h}{array.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{base_list_8h}{baseList.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iteration_stream_8h}{iterationStream.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC\ =\ allocator<TYPE>>}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1base_list}{baseList}}<TYPE,\ ALLOC>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iteration_stream}{iterationStream}}<TYPE,\ chain<TYPE,\ ALLOC>>\{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }chainNode\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1wrapper}{wrapper}}<TYPE>\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<TYPE>;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ chainNode(\textcolor{keyword}{const}\ TYPE\&\ data\ =\ TYPE\{\},\ chainNode*\ prev\ =\ \textcolor{keyword}{nullptr},\ chainNode*\ next\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\ data\_;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode*\ prev;\ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode*\ next;\ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode(\textcolor{keyword}{const}\ chainNode\&\ other);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode\&\ \mbox{\hyperlink{classoriginal_1_1chain_ac959f05c58e1a896fa24e03b095f2088}{operator=}}(\textcolor{keyword}{const}\ chainNode\&\ other);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TYPE\&\ getVal()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ TYPE\&\ getVal()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setVal(TYPE\ data)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode*\ getPPrev()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode*\ getPNext()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPPrev(chainNode*\ new\_prev);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPNext(chainNode*\ new\_next);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ connect(chainNode*\ prev,\ chainNode*\ next);}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_node\ =\ \textcolor{keyword}{typename}\ ALLOC::template\ rebind\_alloc<chainNode>;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ chainNode*\ begin\_;\ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ chainNode*\ end\_;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ rebind\_alloc\_node\ rebind\_alloc\{\};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ chainNode*\ findNode(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ chainNode*\ createNode(\textcolor{keyword}{const}\ TYPE\&\ value\ =\ TYPE\{\},\ chainNode*\ prev\ =\ \textcolor{keyword}{nullptr},\ chainNode*\ next\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ destroyNode(chainNode*\ node)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ chainInit();}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ firstAdd(chainNode*\ node);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ chainNode*\ lastDelete();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ chainDestruction();}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1double_direction_iterator_a27b7807f6554c83ecd8b8f510a331799}{doubleDirectionIterator}}<TYPE>}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Iterator(chainNode*\ ptr);}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ chain;}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ Iterator(\textcolor{keyword}{const}\ Iterator\&\ other);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ Iterator\&\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a2495a57ff37b4d8262bbd6f003b2e67f}{operator=}}(\textcolor{keyword}{const}\ Iterator\&\ other);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a898141c68cf477ecd2b4ad6cfa9c4950}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_ac4625f7235412b7df21932780281a227}{atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a5c48f11855d7d7387c05f916f7a8cb07}{atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a2eee212540edb8f1e537cf52f10ddbe4}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}(ALLOC\ alloc\ =\ ALLOC\{\});}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a9b0a42abb72ef412d25c8073fa660448}{chain}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ other);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_ad45dcb12768b24007766fd495caad6f6}{chain}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ list);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1chain_a7544eb613121a35765316e5ffc535a2b}{chain}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1array}{array<TYPE>}}\&\ arr);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ \mbox{\hyperlink{classoriginal_1_1chain_ac959f05c58e1a896fa24e03b095f2088}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ other);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a340efc00a37f0bf9a10912ce034b0a0e}{chain}}(\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ \mbox{\hyperlink{classoriginal_1_1chain_a6d868e65a0f12ed508e883472e54a8c1}{operator=}}(\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ \mbox{\hyperlink{classoriginal_1_1chain_afa6cace96265b41e65006652f56858d1}{operator+=}}(\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ other);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1chain_a7b0329be9098d5c10dbee1c0a07c006a}{get}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1chain_a82296626763426c832aa87b48e185120}{operator[]}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1chain_adeb193f2319c16c45f6d1cae4898ad8d}{set}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1chain_a255ef2ca32daf0ba0f96d9272a59bad5}{indexOf}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1chain_ab0af82dc608453ba73006c63342af78f}{pushBegin}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1chain_a8b66f3a35cece4e252a9342ae1bc03c9}{push}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1chain_aa35f354403b8f435c6db454f5183eed2}{pushEnd}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1chain_a6fcca0b1fe29efb1f01371924c154985}{popBegin}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1chain_a30c28df06c361b2d66c8387fd1669030}{pop}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1chain_a264d35214cdb75ecff71aa423a0ddc3b}{popEnd}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1chain_a60e9c1fdc9c6ee5781b7ba095826ef5b}{begins}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1chain_a3498bf57e69457bd093d8831033dbdb4}{ends}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1chain_a7166d9c98b2d629afa201dc8102959ff}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a7f3f0cc621595d31febf9662e2396be7}{\string~chain}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00394\ \ \ \ \ \};}
+\DoxyCodeLine{00395\ \}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00398\ \ \ \ \ original::chain<TYPE,\ ALLOC>::chainNode::chainNode(\textcolor{keyword}{const}\ TYPE\&\ data,\ chainNode*\ prev,\ chainNode*\ next)}
+\DoxyCodeLine{00399\ \ \ \ \ :\ data\_(data),\ prev(prev),\ next(next)\ \{\}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00402\ \ \ \ \ original::chain<TYPE,\ ALLOC>::chainNode::chainNode(\textcolor{keyword}{const}\ chainNode\&\ other)}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ :\ data\_(other.data\_),\ prev(other.prev),\ next(other.next)\ \{\}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::operator=(\textcolor{keyword}{const}\ chainNode\&\ other)\ -\/>\ chainNode\&\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ data\_\ =\ other.data\_;}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ other.prev;}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ next\ =\ other.next;}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00413\ \ \ \ \ \}}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::getVal()\ -\/>\ TYPE\&}
+\DoxyCodeLine{00417\ \ \ \ \ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_;}
+\DoxyCodeLine{00419\ \ \ \ \ \}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::getVal()\ const\ -\/>\ const\ TYPE\&}
+\DoxyCodeLine{00423\ \ \ \ \ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_;}
+\DoxyCodeLine{00425\ \ \ \ \ \}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::setVal(TYPE\ data)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00429\ \ \ \ \ \{}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ this-\/>data\_\ =\ data;}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::getPPrev()\ const\ -\/>\ chainNode*\ \{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>prev;}
+\DoxyCodeLine{00436\ \ \ \ \ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::getPNext()\ const\ -\/>\ chainNode*\ \{}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>next;}
+\DoxyCodeLine{00441\ \ \ \ \ \}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::setPPrev(chainNode*\ new\_prev)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ this-\/>prev\ =\ new\_prev;}
+\DoxyCodeLine{00446\ \ \ \ \ \}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::setPNext(chainNode*\ new\_next)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ this-\/>next\ =\ new\_next;}
+\DoxyCodeLine{00451\ \ \ \ \ \}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00454\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainNode::connect(chainNode*\ prev,\ chainNode*\ next)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00455\ \ \ \ \ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev\ !=\ \textcolor{keyword}{nullptr})\ prev-\/>setPNext(next);}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (next\ !=\ \textcolor{keyword}{nullptr})\ next-\/>setPPrev(prev);}
+\DoxyCodeLine{00458\ \ \ \ \ \}}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::findNode(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const}\ -\/>\ chainNode*\ \{}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ reverse\_visit\ =\ index\ <=\ this-\/>size()\ /\ 2\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ chainNode*\ cur;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!reverse\_visit)\{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ this-\/>begin\_;}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ index;\ i++)}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>getPNext();}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ this-\/>end\_;}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ this-\/>size()\ -\/\ 1;\ i\ >\ index;\ i\ -\/=\ 1)}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ cur-\/>getPPrev();}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur;}
+\DoxyCodeLine{00478\ \ \ \ \ \}}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::createNode(\textcolor{keyword}{const}\ TYPE\ \&value,\ chainNode*\ prev,\ chainNode*\ next)\ -\/>\ chainNode*\ \{}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>rebind\_alloc.allocate(1);}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc.construct(node,\ value,\ prev,\ next);}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ node;}
+\DoxyCodeLine{00485\ \ \ \ \ \}}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordtype}{void}\ original::chain<TYPE,\ ALLOC>::destroyNode(chainNode\ *node)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc.destroy(node);}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc.deallocate(node,\ 1);}
+\DoxyCodeLine{00491\ \ \ \ \ \}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainInit()\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00495\ \ \ \ \ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pivot\ =\ this-\/>createNode();}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ 0;}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ this-\/>begin\_\ =\ pivot-\/>getPNext();}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ pivot;}
+\DoxyCodeLine{00500\ \ \ \ \ \}}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::firstAdd(chainNode*\ node)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00504\ \ \ \ \ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ chainNode::connect(this-\/>end\_,\ node);}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ this-\/>begin\_\ =\ node;}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ node;}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00509\ \ \ \ \ \}}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::lastDelete()\ -\/>\ chainNode*}
+\DoxyCodeLine{00513\ \ \ \ \ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ last\ =\ this-\/>end\_;}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ this-\/>destroyNode(last-\/>getPPrev());}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ chainNode::connect(\textcolor{keyword}{nullptr},\ last);}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ this-\/>chainInit();}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ last;}
+\DoxyCodeLine{00519\ \ \ \ \ \}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keyword}{auto}\ original::chain<TYPE,\ ALLOC>::chainDestruction()\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00523\ \ \ \ \ \{}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ current\ =\ this-\/>end\_;}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current)\ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ prev\ =\ current-\/>getPPrev();}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>destroyNode(current);}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ prev;}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00530\ \ \ \ \ \}}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00533\ \ \ \ \ original::chain<TYPE,\ ALLOC>::Iterator::Iterator(chainNode*\ ptr)}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1double_direction_iterator}{doubleDirectionIterator}}<TYPE>::\mbox{\hyperlink{classoriginal_1_1double_direction_iterator}{doubleDirectionIterator}}(ptr)\ \{\}}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00537\ \ \ \ \ original::chain<TYPE,\ ALLOC>::Iterator::Iterator(\textcolor{keyword}{const}\ Iterator\&\ other)}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1double_direction_iterator_a27b7807f6554c83ecd8b8f510a331799}{doubleDirectionIterator}}<TYPE>::\mbox{\hyperlink{classoriginal_1_1double_direction_iterator_a27b7807f6554c83ecd8b8f510a331799}{doubleDirectionIterator}}(nullptr)\ \{}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a2495a57ff37b4d8262bbd6f003b2e67f}{operator=}}(other);}
+\DoxyCodeLine{00540\ \ \ \ \ \}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a2495a57ff37b4d8262bbd6f003b2e67f}{original::chain<TYPE,\ ALLOC>::Iterator::operator=}}(\textcolor{keyword}{const}\ Iterator\&\ other)\ -\/>\ Iterator\&\ \{}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1double_direction_iterator_a199dff1fe01c57bec84de3d443c0022f}{doubleDirectionIterator<TYPE>::operator=}}(other);}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00547\ \ \ \ \ \}}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a898141c68cf477ecd2b4ad6cfa9c4950}{original::chain<TYPE,\ ALLOC>::Iterator::clone}}()\ const\ -\/>\ Iterator*\ \{}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ Iterator(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00552\ \ \ \ \ \}}
+\DoxyCodeLine{00553\ }
+\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_ac4625f7235412b7df21932780281a227}{original::chain<TYPE,\ ALLOC>::Iterator::atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ this-\/>\mbox{\hyperlink{classoriginal_1_1step_iterator_a17b96b2840275abe720ead12f78b05f2}{\_ptr}}-\/>getPNext()\ ==\ other\_it-\/>\_ptr;}
+\DoxyCodeLine{00558\ \ \ \ \ \}}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a5c48f11855d7d7387c05f916f7a8cb07}{original::chain<TYPE,\ ALLOC>::Iterator::atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ other\_it-\/>\_ptr-\/>getPNext()\ ==\ this-\/>\mbox{\hyperlink{classoriginal_1_1step_iterator_a17b96b2840275abe720ead12f78b05f2}{\_ptr}};}
+\DoxyCodeLine{00564\ \ \ \ \ \}}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator_a2eee212540edb8f1e537cf52f10ddbe4}{original::chain<TYPE,\ ALLOC>::Iterator::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}chain::Iterator"{}};}
+\DoxyCodeLine{00569\ \ \ \ \ \}}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00572\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{original::chain<TYPE,\ ALLOC>::chain}}(ALLOC\ alloc)\ :\ \mbox{\hyperlink{classoriginal_1_1base_list}{baseList}}<TYPE,\ ALLOC>(std::move(alloc)),\ size\_(0),\ rebind\_alloc(std::move(rebind\_alloc\_node\{\}))}
+\DoxyCodeLine{00573\ \ \ \ \ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ chainInit();}
+\DoxyCodeLine{00575\ \ \ \ \ \}}
+\DoxyCodeLine{00576\ }
+\DoxyCodeLine{00577\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00578\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{original::chain<TYPE,\ ALLOC>::chain}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ other)\ :\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}()\{}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_ac959f05c58e1a896fa24e03b095f2088}{operator=}}(other);}
+\DoxyCodeLine{00580\ \ \ \ \ \}}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00583\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{original::chain<TYPE,\ ALLOC>::chain}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ list)}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}()\ \{}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ e\ :\ list)\ \{}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cur\_node\ =\ this-\/>createNode(e);}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 0)}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>firstAdd(cur\_node);}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(this-\/>end\_,\ cur\_node);}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ cur\_node;}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ +=\ 1;}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00597\ \ \ \ \ \}}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00600\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{original::chain<TYPE,\ ALLOC>::chain}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1array}{array<TYPE>}}\&\ arr)}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}()\ \{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ arr.\mbox{\hyperlink{classoriginal_1_1array_af23d4e89fb5819c390c656ffb6cfc8ef}{size}}();\ i++)\ \{}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cur\_node\ =\ this-\/>createNode(arr.\mbox{\hyperlink{classoriginal_1_1array_a4482bf344525efe04d8f07a8a66e473e}{get}}(i));}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 0)}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>firstAdd(cur\_node);}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(this-\/>end\_,\ cur\_node);}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ cur\_node;}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ +=\ 1;}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00614\ \ \ \ \ \}}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00617\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain}{original::chain<TYPE,\ ALLOC>}}\&\ \mbox{\hyperlink{classoriginal_1_1chain_ac959f05c58e1a896fa24e03b095f2088}{original::chain<TYPE,\ ALLOC>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ other)\{}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ this-\/>chainDestruction();}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ !=\ 0)\{}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ other\_\ =\ other.begin\_-\/>getPPrev();}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pivot\ =\ this-\/>createNode(other\_-\/>getVal());}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ other\_\ =\ other\_-\/>getPNext();}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(pivot,\ this-\/>createNode(other\_-\/>getVal()));}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>begin\_\ =\ pivot-\/>getPNext();}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ this\_\ =\ this-\/>begin\_;}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (other\_\ !=\ other.end\_)\{}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_\ =\ other\_-\/>getPNext();}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(this\_,\ this-\/>createNode(other\_-\/>getVal()));}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this\_\ =\ this\_-\/>getPNext();}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ this\_;}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>chainInit();}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (ALLOC::propagate\_on\_container\_copy\_assignment::value)\{}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ other.\mbox{\hyperlink{classoriginal_1_1container_a4ba0e1d146df2af6d85d7da63a2b5787}{allocator}};}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ other.rebind\_alloc;}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00642\ \ \ \ \ \}}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00645\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{original::chain<TYPE,\ ALLOC>::chain}}(\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}()}
+\DoxyCodeLine{00646\ \ \ \ \ \{}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_ac959f05c58e1a896fa24e03b095f2088}{operator=}}(std::move(other));}
+\DoxyCodeLine{00648\ \ \ \ \ \}}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00650\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_ac959f05c58e1a896fa24e03b095f2088}{original::chain<TYPE,\ ALLOC>::operator=}}(\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&}
+\DoxyCodeLine{00652\ \ \ \ \ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ this-\/>chainDestruction();}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ this-\/>begin\_\ =\ other.begin\_;}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ other.end\_;}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (ALLOC::propagate\_on\_container\_move\_assignment::value)\{}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ std::move(other.allocator);}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ std::move(other.rebind\_alloc);}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ other.chainInit();}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00666\ \ \ \ \ \}}
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_afa6cace96265b41e65006652f56858d1}{original::chain<TYPE,\ ALLOC>::operator+=}}(\mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1chain_a8cdd36289090b99e7e4120c619d53daa}{chain}}\&}
+\DoxyCodeLine{00670\ \ \ \ \ \{}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other\ ||\ other.empty())\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ other.size\_;}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ other.destroyNode(other.begin\_-\/>getPPrev());}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ chainNode::connect(this-\/>end\_,\ other.begin\_);}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ other.end\_;}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (ALLOC::propagate\_on\_container\_merge::value)\ \{}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ +=\ other.allocator;}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ +=\ other.\mbox{\hyperlink{classoriginal_1_1allocator_base_a635799ad6edd53836205d0bd051669af}{rebind\_alloc}};}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ other.chainInit();}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00683\ \ \ \ \ \}}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00685\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00686\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{original::chain<TYPE,\ ALLOC>::size}}()\ const\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}}
+\DoxyCodeLine{00687\ \ \ \ \ \{}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
+\DoxyCodeLine{00689\ \ \ \ \ \}}
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00691\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00692\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a7166d9c98b2d629afa201dc8102959ff}{original::chain<TYPE,\ ALLOC>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}}
+\DoxyCodeLine{00693\ \ \ \ \ \{}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}chain"{}};}
+\DoxyCodeLine{00695\ \ \ \ \ \}}
+\DoxyCodeLine{00696\ }
+\DoxyCodeLine{00697\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00698\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a7b0329be9098d5c10dbee1c0a07c006a}{original::chain<TYPE,\ ALLOC>::get}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ \textcolor{keyword}{const}\ -\/>\ TYPE}
+\DoxyCodeLine{00699\ \ \ \ \ \{}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a1586c597c18356ec9deb63922884e331}{indexOutOfBound}}(index))\{}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}}();}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ chainNode*\ cur\ =\ this-\/>findNode(this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a6737f4c0771867e94461187a9de24977}{parseNegIndex}}(index));}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur-\/>getVal();}
+\DoxyCodeLine{00705\ \ \ \ \ \}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00708\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a82296626763426c832aa87b48e185120}{original::chain<TYPE,\ ALLOC>::operator[]}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ -\/>\ TYPE\&}
+\DoxyCodeLine{00709\ \ \ \ \ \{}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a1586c597c18356ec9deb63922884e331}{indexOutOfBound}}(index))\{}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}}();}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ chainNode*\ cur\ =\ this-\/>findNode(this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a6737f4c0771867e94461187a9de24977}{parseNegIndex}}(index));}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur-\/>getVal();}
+\DoxyCodeLine{00715\ \ \ \ \ \}}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00717\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00718\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_adeb193f2319c16c45f6d1cae4898ad8d}{original::chain<TYPE,\ ALLOC>::set}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00719\ \ \ \ \ \{}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a1586c597c18356ec9deb63922884e331}{indexOutOfBound}}(index))\{}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}}();}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cur\ =\ this-\/>findNode(this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a6737f4c0771867e94461187a9de24977}{parseNegIndex}}(index));}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ cur-\/>setVal(e);}
+\DoxyCodeLine{00725\ \ \ \ \ \}}
+\DoxyCodeLine{00726\ }
+\DoxyCodeLine{00727\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00728\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a255ef2ca32daf0ba0f96d9272a59bad5}{original::chain<TYPE,\ ALLOC>::indexOf}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \{}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (chainNode*\ current\ =\ this-\/>begin\_;\ current\ !=\ \textcolor{keyword}{nullptr};\ current\ =\ current-\/>getPNext())\ \{}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current-\/>getVal()\ ==\ e)\ \{}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ 1;}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}();}
+\DoxyCodeLine{00737\ \ \ \ \ \}}
+\DoxyCodeLine{00738\ }
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00740\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_ab0af82dc608453ba73006c63342af78f}{original::chain<TYPE,\ ALLOC>::pushBegin}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00741\ \ \ \ \ \{}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_node\ =\ this-\/>createNode(e);}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 0)\{}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>firstAdd(new\_node);}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pivot\ =\ this-\/>begin\_-\/>getPPrev();}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(new\_node,\ this-\/>begin\_);}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(pivot,\ new\_node);}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>begin\_\ =\ new\_node;}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00752\ \ \ \ \ \}}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00754\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00755\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a8b66f3a35cece4e252a9342ae1bc03c9}{original::chain<TYPE,\ ALLOC>::push}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index,\ \textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00756\ \ \ \ \ \{}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ index\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a6737f4c0771867e94461187a9de24977}{parseNegIndex}}(index);}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ 0)\{}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_ab0af82dc608453ba73006c63342af78f}{pushBegin}}(e);}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (index\ ==\ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}())\{}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_aa35f354403b8f435c6db454f5183eed2}{pushEnd}}(e);}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a1586c597c18356ec9deb63922884e331}{indexOutOfBound}}(index))\{}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}}();}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_node\ =\ this-\/>createNode(e);}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ cur\ =\ this-\/>findNode(index);}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ prev\ =\ cur-\/>getPPrev();}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(prev,\ new\_node);}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(new\_node,\ cur);}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00773\ \ \ \ \ \}}
+\DoxyCodeLine{00774\ }
+\DoxyCodeLine{00775\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00776\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_aa35f354403b8f435c6db454f5183eed2}{original::chain<TYPE,\ ALLOC>::pushEnd}}(\textcolor{keyword}{const}\ TYPE\ \&e)\ -\/>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00777\ \ \ \ \ \{}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_node\ =\ this-\/>createNode(e);}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 0)\{}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>firstAdd(new\_node);}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(this-\/>end\_,\ new\_node);}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ new\_node;}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ +=\ 1;}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00786\ \ \ \ \ \}}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00789\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a6fcca0b1fe29efb1f01371924c154985}{original::chain<TYPE,\ ALLOC>::popBegin}}()\ -\/>\ TYPE}
+\DoxyCodeLine{00790\ \ \ \ \ \{}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ TYPE\ res;}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 0)\{}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 1)\{}
+\DoxyCodeLine{00796\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ del\ =\ this-\/>lastDelete();}
+\DoxyCodeLine{00797\ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ del-\/>getVal();}
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>destroyNode(del);}
+\DoxyCodeLine{00799\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00800\ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ this-\/>begin\_-\/>getVal();}
+\DoxyCodeLine{00801\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_begin\ =\ this-\/>begin\_-\/>getPNext();}
+\DoxyCodeLine{00802\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pivot\ =\ this-\/>begin\_-\/>getPPrev();}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>destroyNode(this-\/>begin\_);}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>begin\_\ =\ new\_begin;}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(pivot,\ this-\/>begin\_);}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00809\ \ \ \ \ \}}
+\DoxyCodeLine{00810\ }
+\DoxyCodeLine{00811\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a30c28df06c361b2d66c8387fd1669030}{original::chain<TYPE,\ ALLOC>::pop}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ index)\ -\/>\ TYPE}
+\DoxyCodeLine{00813\ \ \ \ \ \{}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ index\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a6737f4c0771867e94461187a9de24977}{parseNegIndex}}(index);}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ 0)\{}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a6fcca0b1fe29efb1f01371924c154985}{popBegin}}();}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ -\/\ 1)\{}
+\DoxyCodeLine{00819\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a264d35214cdb75ecff71aa423a0ddc3b}{popEnd}}();}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1serial_a1586c597c18356ec9deb63922884e331}{indexOutOfBound}}(index))\{}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{outOfBoundError}}();}
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \ \ TYPE\ res;}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ chainNode*\ cur\ =\ this-\/>findNode(index);}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ res\ =\ cur-\/>getVal();}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ prev\ =\ cur-\/>getPPrev();}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ next\ =\ cur-\/>getPNext();}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ chainNode::connect(prev,\ next);}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ this-\/>destroyNode(cur);}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00833\ \ \ \ \ \}}
+\DoxyCodeLine{00834\ }
+\DoxyCodeLine{00835\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00836\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a264d35214cdb75ecff71aa423a0ddc3b}{original::chain<TYPE,\ ALLOC>::popEnd}}()\ -\/>\ TYPE}
+\DoxyCodeLine{00837\ \ \ \ \ \{}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ TYPE\ res;}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 0)\{}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1chain_a45448d8ab239cf89a668ce1312bcc93f}{size}}()\ ==\ 1)\{}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ del\ =\ this-\/>lastDelete();}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ del-\/>getVal();}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>destroyNode(del);}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \ \ \ \ res\ =\ this-\/>end\_-\/>getVal();}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_end\ =\ this-\/>end\_-\/>getPPrev();}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>destroyNode(this-\/>end\_);}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>end\_\ =\ new\_end;}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \ \ \ \ chainNode::connect(this-\/>end\_,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00852\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>size\_\ -\/=\ 1;}
+\DoxyCodeLine{00853\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00854\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00855\ \ \ \ \ \}}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00858\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a60e9c1fdc9c6ee5781b7ba095826ef5b}{original::chain<TYPE,\ ALLOC>::begins}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}(this-\/>begin\_);}
+\DoxyCodeLine{00860\ \ \ \ \ \}}
+\DoxyCodeLine{00861\ }
+\DoxyCodeLine{00862\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00863\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1chain_a3498bf57e69457bd093d8831033dbdb4}{original::chain<TYPE,\ ALLOC>::ends}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}*\ \{}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1chain_1_1_iterator}{Iterator}}(this-\/>end\_);}
+\DoxyCodeLine{00865\ \ \ \ \ \}}
+\DoxyCodeLine{00866\ }
+\DoxyCodeLine{00867\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00868\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1chain_a7f3f0cc621595d31febf9662e2396be7}{original::chain<TYPE,\ ALLOC>::\string~chain}}()\ \{}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ this-\/>chainDestruction();}
+\DoxyCodeLine{00870\ \ \ \ \ \}}
+\DoxyCodeLine{00871\ }
+\DoxyCodeLine{00872\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CHAIN\_H}}
+
+\end{DoxyCode}

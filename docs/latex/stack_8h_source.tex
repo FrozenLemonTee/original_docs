@@ -1,0 +1,120 @@
+\doxysection{stack.\+h}
+\hypertarget{stack_8h_source}{}\label{stack_8h_source}\index{src/core/stack.h@{src/core/stack.h}}
+\mbox{\hyperlink{stack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STACK\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STACK\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{chain_8h}{chain.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{container_adapter_8h}{containerAdapter.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ \mbox{\hyperlink{classoriginal_1_1chain}{chain}},}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC\ =\ \mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}>}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a79dcd4a72002ecf42ab5eb8ac4e86822}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}(\textcolor{keyword}{const}\ SERIAL<TYPE,\ ALLOC<TYPE>>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE,\ ALLOC<TYPE>>\{\});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\ other);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\ \mbox{\hyperlink{classoriginal_1_1stack_a7f88787fe57aabfc87743f393ee1fa7c}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\ other);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}(\mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\ \mbox{\hyperlink{classoriginal_1_1stack_a7f88787fe57aabfc87743f393ee1fa7c}{operator=}}(\mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1stack_a908d83606acfdfcfec7844d1279036a8}{push}}(\textcolor{keyword}{const}\ TYPE\&\ e);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1stack_a99c4c10013bf546bd2b9cf2ec9fb177c}{pop}}();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1stack_a1173a87776420fe4550feff0c808b1f8}{top}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1stack_af76abaf0ddca65caabf97bf47a2a8995}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00124\ \ \ \ \ \};}
+\DoxyCodeLine{00125\ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{original::stack<TYPE,\ SERIAL,\ ALLOC>::stack}}(\textcolor{keyword}{const}\ SERIAL<TYPE,\ ALLOC<TYPE>>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}})}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a79dcd4a72002ecf42ab5eb8ac4e86822}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>(\mbox{\hyperlink{classoriginal_1_1serial}{serial}})\ \{\}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{original::stack<TYPE,\ SERIAL,\ ALLOC>::stack}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\ \&lst)}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}(SERIAL<TYPE,\ ALLOC<TYPE>>(lst))\ \{\}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{original::stack<TYPE,\ SERIAL,\ ALLOC>::stack}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\ other)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a79dcd4a72002ecf42ab5eb8ac4e86822}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>(other.\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}})\ \{\}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1stack_a7f88787fe57aabfc87743f393ee1fa7c}{original::stack<TYPE,\ SERIAL,\ ALLOC>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}\ =\ other.serial\_;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00157\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{original::stack<TYPE,\ SERIAL,\ ALLOC>::stack}}(\mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}()}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1stack_a7f88787fe57aabfc87743f393ee1fa7c}{operator=}}(std::move(other));}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1stack_a7f88787fe57aabfc87743f393ee1fa7c}{original::stack<TYPE,\ SERIAL,\ ALLOC>::operator=}}(\mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1stack_ab201dbd5df1b18b574a767ddc2f5bc56}{stack}}\&}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}\ =\ std::move(other.serial\_);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ other.serial\_\ =\ SERIAL<TYPE,\ ALLOC<TYPE>>\{\};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1stack_a908d83606acfdfcfec7844d1279036a8}{original::stack<TYPE,\ SERIAL,\ ALLOC>::push}}(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.pushEnd(e);}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1stack_a99c4c10013bf546bd2b9cf2ec9fb177c}{original::stack<TYPE,\ SERIAL,\ ALLOC>::pop}}()\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.popEnd();}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1stack_a1173a87776420fe4550feff0c808b1f8}{original::stack<TYPE,\ SERIAL,\ ALLOC>::top}}()\ const\ -\/>\ TYPE\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.getEnd();}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00199\ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1stack_af76abaf0ddca65caabf97bf47a2a8995}{original::stack<TYPE,\ SERIAL,\ ALLOC>::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}stack"{}};}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ STACK\_H}}
+
+\end{DoxyCode}

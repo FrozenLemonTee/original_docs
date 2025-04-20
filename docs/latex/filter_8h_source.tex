@@ -1,0 +1,235 @@
+\doxysection{filter.\+h}
+\hypertarget{filter_8h_source}{}\label{filter_8h_source}\index{src/core/filter.h@{src/core/filter.h}}
+\mbox{\hyperlink{filter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FILTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FILTER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cloneable_8h}{cloneable.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1filter}{filter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1cloneable_ab979c76e6fb5cd0aeb924e7afb1d3aa2}{cloneable}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1filter_af58a7cd882df0ce6e65a4dd01568dc5e}{match}}(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1filter_a246471d03f897299492e7700a491e891}{\string~filter}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}*\ \mbox{\hyperlink{classoriginal_1_1filter_a6a0e91830daa1ac7817a9e2a45d6fc2d}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1filter_a0c6f2e103a41ea62771b5c3b6c3b6316}{operator()}}(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1equal_filter_a52292b0b32c820e3dbd1cba12ed3f477}{equalFilter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}<TYPE>\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ TYPE\ target;\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1equal_filter_a52292b0b32c820e3dbd1cba12ed3f477}{equalFilter}}(\textcolor{keyword}{const}\ TYPE\&\ target);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1equal_filter_a52292b0b32c820e3dbd1cba12ed3f477}{equalFilter}}*\ \mbox{\hyperlink{classoriginal_1_1equal_filter_aecbc21df2962c8b2baf313d62e56080f}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00090\ \ \ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1not_equal_filter_a7aadeaec487bff6203b0e743e129ebfe}{notEqualFilter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}<TYPE>\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ TYPE\ target;\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1not_equal_filter_a7aadeaec487bff6203b0e743e129ebfe}{notEqualFilter}}(\textcolor{keyword}{const}\ TYPE\&\ target);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1not_equal_filter_a7aadeaec487bff6203b0e743e129ebfe}{notEqualFilter}}*\ \mbox{\hyperlink{classoriginal_1_1not_equal_filter_a375332eeb73735ad43ffe1977aa1dc21}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00122\ \ \ \ \ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1less_filter_a73aefc932427b3931e9d54c052f8ef34}{lessFilter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}<TYPE>\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ TYPE\ low;\ }
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1less_filter_a73aefc932427b3931e9d54c052f8ef34}{lessFilter}}(\textcolor{keyword}{const}\ TYPE\&\ low);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1less_filter_a73aefc932427b3931e9d54c052f8ef34}{lessFilter}}*\ \mbox{\hyperlink{classoriginal_1_1less_filter_a58d7ea82b2aae99120da094f9ccb23a3}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00154\ \ \ \ \ \};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1greater_filter_adc855b01742e3e7a62c785c130675716}{greaterFilter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}<TYPE>\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ TYPE\ high;\ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1greater_filter_adc855b01742e3e7a62c785c130675716}{greaterFilter}}(\textcolor{keyword}{const}\ TYPE\&\ high);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1greater_filter_adc855b01742e3e7a62c785c130675716}{greaterFilter}}*\ \mbox{\hyperlink{classoriginal_1_1greater_filter_a3f24edb9c8dd77fbc2a3568d407a0b14}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00186\ \ \ \ \ \};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1not_less_filter_aa05c9c78c121ac4d9d370ecc5a28c987}{notLessFilter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}<TYPE>\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ TYPE\ high;\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1not_less_filter_aa05c9c78c121ac4d9d370ecc5a28c987}{notLessFilter}}(\textcolor{keyword}{const}\ TYPE\&\ high);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1not_less_filter_aa05c9c78c121ac4d9d370ecc5a28c987}{notLessFilter}}*\ \mbox{\hyperlink{classoriginal_1_1not_less_filter_abd2509c191cb47112ed201b50851eb1f}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00218\ \ \ \ \ \};}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1not_greater_filter_ae3bc29a2e7ed95ad4d371b580ea076ea}{notGreaterFilter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}<TYPE>\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ TYPE\ low;\ }
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1not_greater_filter_ae3bc29a2e7ed95ad4d371b580ea076ea}{notGreaterFilter}}(\textcolor{keyword}{const}\ TYPE\&\ low);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1not_greater_filter_ae3bc29a2e7ed95ad4d371b580ea076ea}{notGreaterFilter}}*\ \mbox{\hyperlink{classoriginal_1_1not_greater_filter_a8b96834a5d85c817174bc4a7be6d2f80}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00250\ \ \ \ \ \};}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1range_filter_ab98a2d0c5fe817b8a0a8837765dbb442}{rangeFilter}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}<TYPE>\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ TYPE\ low;\ \ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ TYPE\ high;\ }
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ match(\textcolor{keyword}{const}\ TYPE\&\ t)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1range_filter_ab98a2d0c5fe817b8a0a8837765dbb442}{rangeFilter}}(\textcolor{keyword}{const}\ TYPE\&\ low,\ \textcolor{keyword}{const}\ TYPE\&\ high);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1range_filter_ab98a2d0c5fe817b8a0a8837765dbb442}{rangeFilter}}*\ \mbox{\hyperlink{classoriginal_1_1range_filter_ad44c704dd890a73f736e65fc6ae58a65}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00284\ \ \ \ \ \};}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1filter_af58a7cd882df0ce6e65a4dd01568dc5e}{original::filter<TYPE>::match}}(\textcolor{keyword}{const}\ TYPE\&)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00291\ \ \ \ \ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1filter_a6a0e91830daa1ac7817a9e2a45d6fc2d}{original::filter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}*}
+\DoxyCodeLine{00295\ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1filter}{filter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00297\ \ \ \ \ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1filter_a0c6f2e103a41ea62771b5c3b6c3b6316}{original::filter<TYPE>::operator()}}(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1filter_af58a7cd882df0ce6e65a4dd01568dc5e}{match}}(t);}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::equalFilter<TYPE>::match(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ ==\ target;}
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00310\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1equal_filter_a52292b0b32c820e3dbd1cba12ed3f477}{original::equalFilter<TYPE>::equalFilter}}(\textcolor{keyword}{const}\ TYPE\&\ target)}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ :\ target(target)\ \{\}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1equal_filter_aecbc21df2962c8b2baf313d62e56080f}{original::equalFilter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1equal_filter_a52292b0b32c820e3dbd1cba12ed3f477}{equalFilter}}*}
+\DoxyCodeLine{00315\ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1equal_filter_a52292b0b32c820e3dbd1cba12ed3f477}{equalFilter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::notEqualFilter<TYPE>::match(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ !=\ target;}
+\DoxyCodeLine{00322\ \ \ \ \ \}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00325\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1not_equal_filter_a7aadeaec487bff6203b0e743e129ebfe}{original::notEqualFilter<TYPE>::notEqualFilter}}(\textcolor{keyword}{const}\ TYPE\&\ target)}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ :\ target(target)\ \{\}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1not_equal_filter_a375332eeb73735ad43ffe1977aa1dc21}{original::notEqualFilter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1not_equal_filter_a7aadeaec487bff6203b0e743e129ebfe}{notEqualFilter}}*}
+\DoxyCodeLine{00330\ \ \ \ \ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1not_equal_filter_a7aadeaec487bff6203b0e743e129ebfe}{notEqualFilter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00332\ \ \ \ \ \}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::lessFilter<TYPE>::match(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ <\ low;}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00340\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1less_filter_a73aefc932427b3931e9d54c052f8ef34}{original::lessFilter<TYPE>::lessFilter}}(\textcolor{keyword}{const}\ TYPE\&\ low)}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ :\ low(low)\ \{\}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1less_filter_a58d7ea82b2aae99120da094f9ccb23a3}{original::lessFilter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1less_filter_a73aefc932427b3931e9d54c052f8ef34}{lessFilter}}*}
+\DoxyCodeLine{00345\ \ \ \ \ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1less_filter_a73aefc932427b3931e9d54c052f8ef34}{lessFilter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00347\ \ \ \ \ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::greaterFilter<TYPE>::match(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ >\ high;}
+\DoxyCodeLine{00352\ \ \ \ \ \}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00355\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1greater_filter_adc855b01742e3e7a62c785c130675716}{original::greaterFilter<TYPE>::greaterFilter}}(\textcolor{keyword}{const}\ TYPE\&\ high)}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ :\ high(high)\ \{\}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1greater_filter_a3f24edb9c8dd77fbc2a3568d407a0b14}{original::greaterFilter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1greater_filter_adc855b01742e3e7a62c785c130675716}{greaterFilter}}*}
+\DoxyCodeLine{00360\ \ \ \ \ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1greater_filter_adc855b01742e3e7a62c785c130675716}{greaterFilter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00362\ \ \ \ \ \}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::notLessFilter<TYPE>::match(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ >=\ high;}
+\DoxyCodeLine{00367\ \ \ \ \ \}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00370\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1not_less_filter_aa05c9c78c121ac4d9d370ecc5a28c987}{original::notLessFilter<TYPE>::notLessFilter}}(\textcolor{keyword}{const}\ TYPE\&\ high)}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ :\ high(high)\ \{\}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1not_less_filter_abd2509c191cb47112ed201b50851eb1f}{original::notLessFilter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1not_less_filter_aa05c9c78c121ac4d9d370ecc5a28c987}{notLessFilter}}*}
+\DoxyCodeLine{00375\ \ \ \ \ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1not_less_filter_aa05c9c78c121ac4d9d370ecc5a28c987}{notLessFilter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00377\ \ \ \ \ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::notGreaterFilter<TYPE>::match(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ <=\ low;}
+\DoxyCodeLine{00382\ \ \ \ \ \}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00385\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1not_greater_filter_ae3bc29a2e7ed95ad4d371b580ea076ea}{original::notGreaterFilter<TYPE>::notGreaterFilter}}(\textcolor{keyword}{const}\ TYPE\&\ low)}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ :\ low(low)\ \{\}}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1not_greater_filter_a8b96834a5d85c817174bc4a7be6d2f80}{original::notGreaterFilter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1not_greater_filter_ae3bc29a2e7ed95ad4d371b580ea076ea}{notGreaterFilter}}*}
+\DoxyCodeLine{00390\ \ \ \ \ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1not_greater_filter_ae3bc29a2e7ed95ad4d371b580ea076ea}{notGreaterFilter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00392\ \ \ \ \ \}}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordtype}{bool}\ original::rangeFilter<TYPE>::match(\textcolor{keyword}{const}\ TYPE\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ >=\ low\ \&\&\ t\ <=\ high;}
+\DoxyCodeLine{00397\ \ \ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00400\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1range_filter_ab98a2d0c5fe817b8a0a8837765dbb442}{original::rangeFilter<TYPE>::rangeFilter}}(\textcolor{keyword}{const}\ TYPE\&\ low,\ \textcolor{keyword}{const}\ TYPE\&\ high)}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ :\ low(low),\ high(high)\ \{\}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1range_filter_ad44c704dd890a73f736e65fc6ae58a65}{original::rangeFilter<TYPE>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1range_filter_ab98a2d0c5fe817b8a0a8837765dbb442}{rangeFilter}}*}
+\DoxyCodeLine{00405\ \ \ \ \ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1range_filter_ab98a2d0c5fe817b8a0a8837765dbb442}{rangeFilter}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00407\ \ \ \ \ \}}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FILTER\_H}}
+
+\end{DoxyCode}

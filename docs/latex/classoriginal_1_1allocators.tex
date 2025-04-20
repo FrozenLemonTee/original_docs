@@ -1,0 +1,100 @@
+\doxysection{original\+::allocators Class Reference}
+\hypertarget{classoriginal_1_1allocators}{}\label{classoriginal_1_1allocators}\index{original::allocators@{original::allocators}}
+
+
+Utility class providing static memory allocation/de-\/allocation functions.  
+
+
+
+
+{\ttfamily \#include $<$allocator.\+h$>$}
+
+
+
+Collaboration diagram for original\+::allocators\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classoriginal_1_1allocators__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename TYPE$>$ }\\static TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{malloc}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)
+\begin{DoxyCompactList}\small\item\em Allocates raw memory using global operator new. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE$>$ }\\static void \mbox{\hyperlink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{free}} (TYPE \texorpdfstring{$\ast$}{*}ptr)
+\begin{DoxyCompactList}\small\item\em Deallocates memory using global operator delete. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class providing static memory allocation/de-\/allocation functions. 
+
+Contains static methods for raw memory operations that serve as the foundation for other allocator implementations in this namespace. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}\index{original::allocators@{original::allocators}!free@{free}}
+\index{free@{free}!original::allocators@{original::allocators}}
+\doxysubsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04} 
+template$<$typename TYPE$>$ \\
+void original\+::allocators\+::free (\begin{DoxyParamCaption}\item[{TYPE \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Deallocates memory using global operator delete. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of objects being freed (auto deduced) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & Pointer to memory to free \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}{malloc} 
+\end{DoxySeeAlso}
+\Hypertarget{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017}\index{original::allocators@{original::allocators}!malloc@{malloc}}
+\index{malloc@{malloc}!original::allocators@{original::allocators}}
+\doxysubsubsection{\texorpdfstring{malloc()}{malloc()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1allocators_a1e3e80d6f4395ad311500c3e2a532017} 
+template$<$typename TYPE$>$ \\
+TYPE \texorpdfstring{$\ast$}{*} original\+::allocators\+::malloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Allocates raw memory using global operator new. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of objects to allocate \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Number of elements to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to allocated memory 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1allocate_error}{allocate\+Error}} & When memory allocation fails \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+Returns nullptr if size is 0 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classoriginal_1_1allocators_ae8f0c12c9e26cb96c0009f21a0834e04}{free} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/core/\mbox{\hyperlink{allocator_8h}{allocator.\+h}}\end{DoxyCompactItemize}

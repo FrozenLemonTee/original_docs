@@ -1,0 +1,44 @@
+\doxysection{original\+::Condition Concept Reference}
+\hypertarget{conceptoriginal_1_1_condition}{}\label{conceptoriginal_1_1_condition}\index{original::Condition@{original::Condition}}
+
+
+Constraint for predicate callbacks.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_condition}{original::Condition}}\ =\ \ \mbox{\hyperlink{conceptoriginal_1_1_callback_of}{CallbackOf<Callback,\ bool,\ const\ TYPE\&>}}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Constraint for predicate callbacks. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callback} & Predicate function type \\
+\hline
+{\em TYPE} & Input type for predicate\\
+\hline
+\end{DoxyTemplParams}
+Requires a callback that takes a TYPE reference and returns bool.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Validates\ positive\ number\ checker}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ is\_positive\ =\ [](\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ x)\ \{\ \textcolor{keywordflow}{return}\ x\ >\ 0;\ \};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(Condition<\textcolor{keyword}{decltype}(is\_positive),\ \textcolor{keywordtype}{double}>);\ \ \textcolor{comment}{//\ Passes}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Invalid\ example\ (parameter\ type\ mismatch)}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ string\_check\ =\ [](std::string\ s)\ \{\ \textcolor{keywordflow}{return}\ !s.empty();\ \};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!Condition<\textcolor{keyword}{decltype}(string\_check),\ \textcolor{keyword}{const}\ std::string\&>);\ \ \textcolor{comment}{//\ Fails:\ requires\ const\ reference}}
+
+\end{DoxyCode}
+ 

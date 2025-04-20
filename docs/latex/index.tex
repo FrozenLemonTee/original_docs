@@ -1,0 +1,130 @@
+\chapter{Original, A C++ Tool Library}
+\hypertarget{index}{}\label{index}\index{Original, A C++ Tool Library@{Original, A C++ Tool Library}}
+\label{index_md_docs_2index}%
+\Hypertarget{index_md_docs_2index}%
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{简介}{简介}}\label{index_autotoc_md1}
+Original是一个\+C++基础工具库,也是本人的第一个正式项目，用于学习\+C++相关基础以及\+STL、\+Boost等库。项目的目标是实现\+STL的主要内容以及\+Boost的某些相关功能，具体已经实现和未来计划实现的模块内容在下文列出，计划实现的部分会根据情况进行调整，不一定都实现，以最终项目为准。
+
+\href{https://github.com/FrozenLemonTee/original}{\texttt{ Github地址}}
+
+如有问题可以在\href{https://github.com/FrozenLemonTee/original/issues}{\texttt{ Issues}}中提出，也欢迎一起参与到本项目的实现中来，如\+Fork等。\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{安装}{安装}}\label{index_autotoc_md2}
+这里以项目{\ttfamily hello\+\_\+original}为例： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{├─CMakeLists.txt}
+\DoxyCodeLine{└─main.cpp}
+
+\end{DoxyCode}
+
+
+方法一 使用\+Cmake远程拉取（推荐）：
+
+配置{\ttfamily CMake\+Lists.\+txt}： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\_minimum\_required(VERSION\ 3.30)}
+\DoxyCodeLine{project(hello\_original)}
+\DoxyCodeLine{}
+\DoxyCodeLine{set(CMAKE\_CXX\_STANDARD\ 20)}
+\DoxyCodeLine{}
+\DoxyCodeLine{set(BUILD\_TESTING\ OFF\ CACHE\ BOOL\ "{}Disable\ tests\ in\ the\ fetched\ project"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{include(FetchContent)}
+\DoxyCodeLine{}
+\DoxyCodeLine{FetchContent\_Declare(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ original}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ GIT\_REPOSITORY\ git@github.com:FrozenLemonTee/original.git}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ GIT\_TAG\ master}
+\DoxyCodeLine{)}
+\DoxyCodeLine{}
+\DoxyCodeLine{FetchContent\_MakeAvailable(original)}
+\DoxyCodeLine{}
+\DoxyCodeLine{add\_executable(hello\_original\ main.cpp)}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{target\_link\_libraries(hello\_original\ PRIVATE\ original)}
+
+\end{DoxyCode}
+ 方法二 使用\+Cmake本地构建、安装：
+
+在该项目文件夹下新建文件夹{\ttfamily build}并进入： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build}
+\DoxyCodeLine{cd\ build}
+
+\end{DoxyCode}
+ 利用cmake构建库： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ ..\ -\/DCMAKE\_BUILD\_TYPE=Debug\ -\/DBUILD\_TESTING=OFF}
+\DoxyCodeLine{cmake\ -\/-\/build\ .\ -\/-\/config\ Debug}
+\DoxyCodeLine{cmake\ -\/-\/install\ .\ -\/-\/config\ Debug}
+
+\end{DoxyCode}
+ 将生成的{\ttfamily build}和{\ttfamily install}文件夹复制到项目{\ttfamily hello\+\_\+original}中。
+
+复制后项目的结构如下： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{├─build}
+\DoxyCodeLine{├─install}
+\DoxyCodeLine{├─CMakeLists.txt}
+\DoxyCodeLine{└─main.cpp}
+
+\end{DoxyCode}
+
+
+配置{\ttfamily CMake\+Lists.\+txt}： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\_minimum\_required(VERSION\ 3.30)}
+\DoxyCodeLine{project(hello\_original)}
+\DoxyCodeLine{}
+\DoxyCodeLine{set(CMAKE\_CXX\_STANDARD\ 20)}
+\DoxyCodeLine{}
+\DoxyCodeLine{set(CMAKE\_PREFIX\_PATH\ "{}\$\{CMAKE\_SOURCE\_DIR\}/install/cmake"{})}
+\DoxyCodeLine{list(APPEND\ CMAKE\_PREFIX\_PATH\ "{}\$\{CMAKE\_SOURCE\_DIR\}/install/cmake/original"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{find\_package(original\ REQUIRED)}
+\DoxyCodeLine{}
+\DoxyCodeLine{add\_executable(hello\_original\ main.cpp)}
+\DoxyCodeLine{}
+\DoxyCodeLine{target\_link\_libraries(hello\_original\ PRIVATE\ "{}\$\{ORIGINAL\_LIBRARIES\}"{})}
+
+\end{DoxyCode}
+
+
+接下来展示测试\+Demo：
+
+{\ttfamily main.\+cpp}： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{original_8h}{original.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hello,\ Original!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ a1\ =\ \mbox{\hyperlink{classoriginal_1_1array}{original::array}}(\{\textcolor{stringliteral}{"{}Hello,\ Original!"{}}\});}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ a1\ <<\ std::endl;}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(a1));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 输出： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Hello,\ original!}
+\DoxyCodeLine{array("{}Hello,\ original!"{})}
+\DoxyCodeLine{array("{}Hello,\ original!"{})}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{模块进度}{模块进度}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Core}{Core}}\label{index_autotoc_md4}
+正在实现中。已实现部分：\hypertarget{index_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{容器：}{容器：}}\label{index_autotoc_md5}
+定长容器：定长数组 array，位集合 bit\+Set，变长容器：变长数组 vector，单向链表 forward\+Chain，双向链表 chain，块状链表 blocks\+List，关联容器：映射表 hash\+Map，集合 hash\+Set\hypertarget{index_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{容器接口：}{容器接口：}}\label{index_autotoc_md6}
+格式化输出接口 printable，元素比较接口 comparable，堆对象深拷贝接口 cloneable，可迭代接口 iterable\hypertarget{index_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{算法库：}{算法库：}}\label{index_autotoc_md7}
+布尔算法：all\+Of/any\+Of/none\+Of...，非修改算法 find/count/equal...，修改算法 fill/swap/for\+Each/...，排序算法 sort/stable\+Sort/intro\+Sort...\hypertarget{index_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{容器适配器：}{容器适配器：}}\label{index_autotoc_md8}
+栈 stack，队列 queue，双端队列 deque，优先队列 prique\hypertarget{index_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{算法适配器：}{算法适配器：}}\label{index_autotoc_md9}
+迭代器 iterator/iter\+Adaptor，变换器 transform/transform\+Stream，过滤器 filter/filter\+Stream，比较器 comparator\hypertarget{index_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{异常安全：}{异常安全：}}\label{index_autotoc_md10}
+运行时异常 error/out\+Of\+Bound\+Error/un\+Supported\+Method\+Error/allocate\+Error...，编译期错误 static\+Error\hypertarget{index_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{编译期工具：}{编译期工具：}}\label{index_autotoc_md11}
+二元组 couple，多元组 tuple\hypertarget{index_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{内存管理：}{内存管理：}}\label{index_autotoc_md12}
+自动指针 owner\+Ptr/strong\+Ptr/weak\+Ptr，分配器 allocator\+Base/allocator/obj\+Pool\+Allocator，删除器 deleter\+Base/deleter\hypertarget{index_autotoc_md13}{}\doxysubsubsection{\texorpdfstring{async\+IO}{async\+IO}}\label{index_autotoc_md13}
+计划实现，包含多线程和网络通信功能。\hypertarget{index_autotoc_md14}{}\doxysubsubsection{\texorpdfstring{matrix}{matrix}}\label{index_autotoc_md14}
+计划实现，包含张量，线性代数工具功能。\hypertarget{index_autotoc_md15}{}\doxysubsubsection{\texorpdfstring{graph}{graph}}\label{index_autotoc_md15}
+计划实现，包含图论结构和图算法。 

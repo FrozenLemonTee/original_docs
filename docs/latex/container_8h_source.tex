@@ -1,0 +1,78 @@
+\doxysection{container.\+h}
+\hypertarget{container_8h_source}{}\label{container_8h_source}\index{src/core/container.h@{src/core/container.h}}
+\mbox{\hyperlink{container_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONTAINER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONTAINER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1container_abcdc39bccef4592225ef6146bfbbb0c5}{container}}\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \ \ \ \ ALLOC\ \mbox{\hyperlink{classoriginal_1_1container_a4ba0e1d146df2af6d85d7da63a2b5787}{allocator}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1container_abcdc39bccef4592225ef6146bfbbb0c5}{container}}(ALLOC\ alloc\ =\ ALLOC\{\});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \ \ TYPE*\ \mbox{\hyperlink{classoriginal_1_1container_acc19d8b89584ee6ff7c7b34c5c065165}{allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1container_a98e12c7923696e99b937fb1e937a196c}{deallocate}}(TYPE*\ ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1container_aff7d744e157df951542e23984619323f}{construct}}(O\_TYPE*\ o\_ptr,\ Args\&\&...\ args);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE>}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1container_aeca6ae2778593047eb331343df31df61}{destroy}}(O\_TYPE*\ o\_ptr);}
+\DoxyCodeLine{00079\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00102\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1container_a581486065c2b4b2046d3afa422ed477b}{empty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1container_aeadfc6b78611393782168db7f3c2705f}{contains}}(\textcolor{keyword}{const}\ TYPE\&\ e)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1container_a63b10629c3e9f9367498dba4dcbce68c}{\string~container}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Definitions\ of\ container.h\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00129\ \mbox{\hyperlink{classoriginal_1_1container_abcdc39bccef4592225ef6146bfbbb0c5}{original::container<TYPE,\ ALLOC>::container}}(ALLOC\ alloc)}
+\DoxyCodeLine{00130\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_a4ba0e1d146df2af6d85d7da63a2b5787}{allocator}}(std::move(alloc))\ \{\}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00133\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1container_acc19d8b89584ee6ff7c7b34c5c065165}{original::container<TYPE,\ ALLOC>::allocate}}(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}})\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_a4ba0e1d146df2af6d85d7da63a2b5787}{allocator}}.allocate(\mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}});}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1container_a98e12c7923696e99b937fb1e937a196c}{original::container<TYPE,\ ALLOC>::deallocate}}(TYPE\ *ptr,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}})\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_a4ba0e1d146df2af6d85d7da63a2b5787}{allocator}}.deallocate(ptr,\ \mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}});}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00143\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1container_aff7d744e157df951542e23984619323f}{original::container<TYPE,\ ALLOC>::construct}}(O\_TYPE\ *o\_ptr,\ Args\ \&\&...\ args)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_a4ba0e1d146df2af6d85d7da63a2b5787}{allocator}}.construct(o\_ptr,\ std::forward<Args>(args)...);}
+\DoxyCodeLine{00146\ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00149\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ O\_TYPE>}
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1container_aeca6ae2778593047eb331343df31df61}{original::container<TYPE,\ ALLOC>::destroy}}(O\_TYPE\ *o\_ptr)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_a4ba0e1d146df2af6d85d7da63a2b5787}{allocator}}.destroy(o\_ptr);}
+\DoxyCodeLine{00152\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1container_a581486065c2b4b2046d3afa422ed477b}{original::container<TYPE,\ ALLOC>::empty}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_a4edebca807f4d2dba73b5715d23320e2}{size}}()\ ==\ 0;}
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CONTAINER\_H}}
+
+\end{DoxyCode}
