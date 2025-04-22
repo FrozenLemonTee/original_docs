@@ -1,0 +1,284 @@
+\doxysection{RBTree.\+h}
+\hypertarget{_r_b_tree_8h_source}{}\label{_r_b_tree_8h_source}\index{src/core/RBTree.h@{src/core/RBTree.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RBTREE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RBTREE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{allocator_8h}{allocator.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comparator_8h}{comparator.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{couple_8h}{couple.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//\ todo}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ V\_TYPE,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ALLOC\ =\ \mbox{\hyperlink{classoriginal_1_1allocator}{allocator<K\_TYPE>}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{Compare}}\ =\ \mbox{\hyperlink{classoriginal_1_1increase_comparator}{increaseComparator<K\_TYPE>}}>}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }RBTree\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }RBNode\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ color\ \{\ BLACK,\ RED\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ data\_;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ color\ color\_;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode*\ parent\_;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode*\ left\_;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode*\ right\_;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ RBNode(\textcolor{keyword}{const}\ K\_TYPE\&\ key\ =\ K\_TYPE\{\},\ \textcolor{keyword}{const}\ V\_TYPE\&\ value\ =\ V\_TYPE\{\},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\ color\ =\ color::RED,\ RBNode*\ parent\ =\ \textcolor{keyword}{nullptr},\ RBNode*\ left\ =\ \textcolor{keyword}{nullptr},\ RBNode*\ right\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode(\textcolor{keyword}{const}\ RBNode\&\ other);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode\&\ operator=(\textcolor{keyword}{const}\ RBNode\&\ other);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ K\_TYPE\&\ getKey()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ V\_TYPE\&\ getValue()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ V\_TYPE\&\ getValue();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setValue(\textcolor{keyword}{const}\ V\_TYPE\&\ value);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ color\ getColor()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode*\ getPParent()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode*\ getPLeft()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ RBNode*\ getPRight()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setColor(color\ new\_color);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPParent(RBNode*\ new\_parent);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPLeft(RBNode*\ new\_left);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPRight(RBNode*\ new\_right);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ connect(RBNode*\ parent,\ RBNode*\ child,\ \textcolor{keywordtype}{bool}\ is\_left);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }color\ =\ RBNode::color;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ color\ BLACK\ =\ color::BLACK;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ color\ RED\ =\ color::RED;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_node\ =\ \textcolor{keyword}{typename}\ ALLOC::template\ rebind\_alloc<RBNode>;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ root\_;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{conceptoriginal_1_1_compare}{Compare}}\ compare\_;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ rebind\_alloc\_node\ rebind\_alloc\{\};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ RBNode*\ createNode(\textcolor{keyword}{const}\ K\_TYPE\&\ key\ =\ K\_TYPE\{\},\ \textcolor{keyword}{const}\ V\_TYPE\&\ value\ =\ V\_TYPE\{\},}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\ color\ =\ RED,\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ parent\ =\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ left\ =\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ right\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ destroyNode(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ node)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ highPriority(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ cur,\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ highPriority(\textcolor{keyword}{const}\ K\_TYPE\&\ key,\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\&\ findParent(\textcolor{keyword}{const}\ K\_TYPE\&\ key);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ RBTree(Compare\ compare\ =\ Compare\{\});}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ find(\textcolor{keyword}{const}\ K\_TYPE\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ insert(\textcolor{keyword}{const}\ K\_TYPE\&\ key,\ \textcolor{keyword}{const}\ V\_TYPE\&\ value);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ erase(\textcolor{keyword}{const}\ K\_TYPE\&\ key);}
+\DoxyCodeLine{00091\ \ \ \ \ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00096\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::RBNode(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\ color,\ RBNode\ *parent,\ RBNode\ *left,\ RBNode\ *right)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ data\_(\{key,\ value\}),\ color\_(color),\ parent\_(parent),\ left\_(left),\ right\_(right)\ \{\}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00101\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::RBNode(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}()\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ this-\/>operator=(other);}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00106\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode\&}
+\DoxyCodeLine{00107\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}\ \&other)\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ this-\/>data\_\ =\ other.data\_;}
+\DoxyCodeLine{00112\ \ \ \ \ this-\/>color\_\ =\ other.color\_;}
+\DoxyCodeLine{00113\ \ \ \ \ this-\/>parent\_\ =\ other.parent\_;}
+\DoxyCodeLine{00114\ \ \ \ \ this-\/>left\_\ =\ other.left\_;}
+\DoxyCodeLine{00115\ \ \ \ \ this-\/>right\_\ =\ other.right\_;}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00120\ \textcolor{keyword}{const}\ K\_TYPE\ \&original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::getKey()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_.first();}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00125\ \textcolor{keyword}{const}\ V\_TYPE\ \&original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::getValue()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_.second();}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00130\ V\_TYPE\ \&original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::getValue()\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_.second();}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::setValue(\textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ this-\/>data\_.template\ set<1>(value);}
+\DoxyCodeLine{00137\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00140\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::color\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::getColor()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>color\_;}
+\DoxyCodeLine{00142\ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00145\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode*}
+\DoxyCodeLine{00146\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::getPParent()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>parent\_;}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00151\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode*}
+\DoxyCodeLine{00152\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::getPLeft()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>left\_;}
+\DoxyCodeLine{00154\ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00157\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode*}
+\DoxyCodeLine{00158\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::getPRight()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>right\_;}
+\DoxyCodeLine{00160\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::setColor(color\ new\_color)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ this-\/>color\_\ =\ new\_color;}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::setPParent(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ new\_parent)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ this-\/>parent\_\ =\ new\_parent;}
+\DoxyCodeLine{00170\ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::setPLeft(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ new\_left)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ this-\/>left\_\ =\ new\_left;}
+\DoxyCodeLine{00175\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00178\ \textcolor{keywordtype}{void}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::setPRight(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ new\_right)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ this-\/>right\_\ =\ new\_right;}
+\DoxyCodeLine{00180\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{void}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode::connect(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ parent,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ child,\ \textcolor{keywordtype}{bool}\ is\_left)\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{if}\ (parent)\{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ is\_left\ ?\ parent-\/>left\_\ =\ child\ :\ parent-\/>right\_\ =\ child;}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{if}\ (child)\{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ child-\/>parent\_\ =\ parent;}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00194\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode*}
+\DoxyCodeLine{00195\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::createNode(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\ color,\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ parent,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ left,\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ right)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>rebind\_alloc.allocate(1);}
+\DoxyCodeLine{00199\ \ \ \ \ this-\/>rebind\_alloc.construct(node,\ key,\ value,\ color,\ parent,\ left,\ right);}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{return}\ node;}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::destroyNode(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ node)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ this-\/>rebind\_alloc.destroy(node);}
+\DoxyCodeLine{00206\ \ \ \ \ this-\/>rebind\_alloc.deallocate(node,\ 1);}
+\DoxyCodeLine{00207\ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00210\ \textcolor{keywordtype}{bool}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::highPriority(\mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}\ *cur,\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}\ *other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{if}\ (!cur)\{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>highPriority(cur-\/>getKey(),\ other);}
+\DoxyCodeLine{00215\ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00218\ \textcolor{keywordtype}{bool}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::highPriority(\textcolor{keyword}{const}\ K\_TYPE\&\ key,\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBNode}}*\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{if}\ (!other)\{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>compare\_(key,\ other-\/>getKey());}
+\DoxyCodeLine{00223\ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00226\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode*\&}
+\DoxyCodeLine{00227\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::findParent(\textcolor{keyword}{const}\ K\_TYPE\ \&key)\ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{auto}\ cur\ =\ \&this-\/>root\_;}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{if}\ (!*cur)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *cur;}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{auto}\ parent\ =\ cur;}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordflow}{while}\ (*cur)\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ (*cur)-\/>getKey())\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *parent;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ parent\ =\ cur;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>highPriority(key,\ *cur))\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ \&((*cur)-\/>getPLeft());}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ cur\ =\ \&((*cur)-\/>getPRight());}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{return}\ *parent;}
+\DoxyCodeLine{00249\ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00252\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBTree(Compare\ compare)}
+\DoxyCodeLine{00253\ \ \ \ \ :\ root\_(nullptr),\ size\_(0),\ compare\_(std::move(compare))\ \{\}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00256\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::RBNode*}
+\DoxyCodeLine{00257\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::find(\textcolor{keyword}{const}\ K\_TYPE\ \&key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{auto}\ cur\ =\ this-\/>root\_;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{while}\ (cur)\{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur-\/>getKey()\ ==\ key)\{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ cur\ =\ this-\/>highPriority(key,\ cur)\ ?\ cur-\/>getPLeft()\ :\ cur-\/>getPRight();}
+\DoxyCodeLine{00264\ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{return}\ cur;}
+\DoxyCodeLine{00266\ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00269\ \textcolor{keywordtype}{bool}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::insert(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00271\ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00274\ \textcolor{keywordtype}{bool}\ original::RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::erase(\textcolor{keyword}{const}\ K\_TYPE\ \&key)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00276\ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//RBTREE\_H}}
+
+\end{DoxyCode}
