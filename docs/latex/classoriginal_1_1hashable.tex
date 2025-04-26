@@ -2,7 +2,17 @@
 \hypertarget{classoriginal_1_1hashable}{}\label{classoriginal_1_1hashable}\index{original::hashable$<$ DERIVED $>$@{original::hashable$<$ DERIVED $>$}}
 
 
-Collaboration diagram for original\+::hashable\texorpdfstring{$<$}{<} DERIVED \texorpdfstring{$>$}{>}\+:\nopagebreak
+Forward declaration of hashable interface template.  
+
+
+
+
+{\ttfamily \#include $<$hash.\+h$>$}
+
+
+
+Collaboration diagram for original\+::hashable\texorpdfstring{$<$}{<} DERIVED \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,14 +22,84 @@ Collaboration diagram for original\+::hashable\texorpdfstring{$<$}{<} DERIVED \t
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63}\label{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63} 
-virtual \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} {\bfseries to\+Hash} () const noexcept
-\item 
-\Hypertarget{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6}\label{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6} 
-virtual bool {\bfseries equals} (const DERIVED \&other) const noexcept
-\end{DoxyCompactItemize}
+virtual \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63}{to\+Hash}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Computes the hash of the object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6}{equals}} (const DERIVED \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Compares two objects for equality. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1hashable_a655fb2bf0e6cb58992eae103fe3cc0a8}\label{classoriginal_1_1hashable_a655fb2bf0e6cb58992eae103fe3cc0a8} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}hashable} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename DERIVED$>$\newline
+class original\+::hashable$<$ DERIVED $>$}
+Forward declaration of hashable interface template. 
+
+Interface for user-\/defined hashable types.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em DERIVED} & The derived class that inherits from hashable.\\
+\hline
+{\em DERIVED} & The derived type\\
+\hline
+\end{DoxyTemplParams}
+Provides default implementations for\+:
+\begin{DoxyItemize}
+\item \doxylink{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63}{to\+Hash()}\+: Uses byte-\/wise hashing of object representation
+\item \doxylink{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6}{equals()}\+: Uses operator== comparison
+\end{DoxyItemize}
+
+Usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }MyType\ :\ \textcolor{keyword}{public}\ hashable<MyType>\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Optionally\ override\ toHash()\ and\ equals()}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6}\index{original::hashable$<$ DERIVED $>$@{original::hashable$<$ DERIVED $>$}!equals@{equals}}
+\index{equals@{equals}!original::hashable$<$ DERIVED $>$@{original::hashable$<$ DERIVED $>$}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6} 
+template$<$typename DERIVED $>$ \\
+bool \mbox{\hyperlink{classoriginal_1_1hashable}{original\+::hashable}}$<$ DERIVED $>$\+::equals (\begin{DoxyParamCaption}\item[{const DERIVED \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Compares two objects for equality. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The object to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if equal
+\end{DoxyReturn}
+Default implementation uses operator== \Hypertarget{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63}\index{original::hashable$<$ DERIVED $>$@{original::hashable$<$ DERIVED $>$}!toHash@{toHash}}
+\index{toHash@{toHash}!original::hashable$<$ DERIVED $>$@{original::hashable$<$ DERIVED $>$}}
+\doxysubsubsection{\texorpdfstring{toHash()}{toHash()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63} 
+template$<$typename DERIVED $>$ \\
+\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original\+::u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1hashable}{original\+::hashable}}$<$ DERIVED $>$\+::to\+Hash (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Computes the hash of the object. 
+
+\begin{DoxyReturn}{Returns}
+A hash value
+\end{DoxyReturn}
+Default implementation uses byte-\/wise hashing of object 
+
+Reimplemented in \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab98043c18ea29d5ee0c3112c12419e3c}{original\+::auto\+Ptr$<$ TYPE, DERIVED, DELETER $>$}}, \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab98043c18ea29d5ee0c3112c12419e3c}{original\+::auto\+Ptr$<$ TYPE, owner\+Ptr$<$ TYPE, deleter$<$ TYPE $>$ $>$, deleter$<$ TYPE $>$ $>$}}, \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab98043c18ea29d5ee0c3112c12419e3c}{original\+::auto\+Ptr$<$ TYPE, strong\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}, and \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab98043c18ea29d5ee0c3112c12419e3c}{original\+::auto\+Ptr$<$ TYPE, weak\+Ptr$<$ TYPE, DELETER $>$, DELETER $>$}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/core/hash.\+h\end{DoxyCompactItemize}
+src/core/\mbox{\hyperlink{hash_8h}{hash.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,66 @@
+\doxysection{src/core/hash.h File Reference}
+\hypertarget{hash_8h}{}\label{hash_8h}\index{src/core/hash.h@{src/core/hash.h}}
+
+
+Provides a generic hashing utility and a base interface for hashable types.  
+
+
+{\ttfamily \#include "{}config.\+h"{}}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for hash.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{hash_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hash_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classoriginal_1_1hash}{original\+::hash$<$ TYPE $>$}}
+\begin{DoxyCompactList}\small\item\em Forward declaration of hash class template. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1hashable}{original\+::hashable$<$ DERIVED $>$}}
+\begin{DoxyCompactList}\small\item\em Forward declaration of hashable interface template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceoriginal}{original}}
+\begin{DoxyCompactList}\small\item\em Main namespace for the project Original. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Concepts}
+\begin{DoxyCompactItemize}
+\item 
+concept \mbox{\hyperlink{conceptoriginal_1_1is_hashable}{original\+::is\+Hashable}}
+\begin{DoxyCompactList}\small\item\em Concept checking for hashable types. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides a generic hashing utility and a base interface for hashable types. 
+
+This header defines\+:
+\begin{DoxyItemize}
+\item A comprehensive hash function object (hash) with specializations for common types
+\item A base interface (hashable) for user-\/defined hashable types
+\item Concept checking for hashable types (is\+Hashable)
+\end{DoxyItemize}
+
+Hash Function Features\+:
+\begin{DoxyItemize}
+\item FNV-\/1a algorithm implementation for byte data
+\item Specializations for integral types, pointers, strings, and custom types
+\item Fallback implementations for trivially copyable types
+\item Support for nullptr handling
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+All hash functions are noexcept and provide basic hash distribution 
+\end{DoxyNote}

@@ -9,8 +9,7 @@ Heterogeneous tuple container implementation.
 {\ttfamily \#include "{}comparable.\+h"{}}\newline
 {\ttfamily \#include "{}couple.\+h"{}}\newline
 {\ttfamily \#include "{}types.\+h"{}}\newline
-Include dependency graph for tuple.\+h\+:
-\nopagebreak
+Include dependency graph for tuple.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -41,7 +40,7 @@ namespace \mbox{\hyperlink{namespaceoriginal}{original}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename F\+\_\+\+TYPE, typename S\+\_\+\+TYPE$>$ }\\\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}$<$ F\+\_\+\+TYPE, S\+\_\+\+TYPE $>$ \mbox{\hyperlink{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}{original\+::make\+Tuple}} (const \mbox{\hyperlink{classoriginal_1_1couple}{couple}}$<$ F\+\_\+\+TYPE, S\+\_\+\+TYPE $>$ \&cp)
+{\footnotesize template$<$typename F\+\_\+\+TYPE , typename S\+\_\+\+TYPE $>$ }\\\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}$<$ F\+\_\+\+TYPE, S\+\_\+\+TYPE $>$ \mbox{\hyperlink{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}{original\+::make\+Tuple}} (const \mbox{\hyperlink{classoriginal_1_1couple}{couple}}$<$ F\+\_\+\+TYPE, S\+\_\+\+TYPE $>$ \&cp)
 \item 
 {\footnotesize template$<$typename... L\+\_\+\+TYPES, typename... R\+\_\+\+TYPES$>$ }\\\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}$<$ L\+\_\+\+TYPES..., R\+\_\+\+TYPES... $>$ \mbox{\hyperlink{namespaceoriginal_a49d77cd1b0855c560a6ca0ec1f9754c8}{original\+::operator+}} (const \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}$<$ L\+\_\+\+TYPES... $>$ \&lt, const \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}$<$ R\+\_\+\+TYPES... $>$ \&rt)
 \item 
@@ -59,6 +58,7 @@ Heterogeneous tuple container implementation.
 This file implements a type-\/safe, compile-\/time fixed-\/size tuple container with\+:
 \begin{DoxyItemize}
 \item Element access by index
+\item Element modification
 \item Equality comparison
 \item Formatted output
 \item Move semantics
@@ -67,7 +67,7 @@ This file implements a type-\/safe, compile-\/time fixed-\/size tuple container 
 \end{DoxyItemize}
 
 \begin{DoxyNote}{Note}
-The implementation uses recursive template instantiation for element storage 
+Structured binding is enabled via {\ttfamily std\+::tuple\+\_\+size} and {\ttfamily std\+::tuple\+\_\+element} specializations. Value type deduction is used to ensure compatibility with {\ttfamily const auto\& \mbox{[}a, b, c\mbox{]} = my\+Tuple} syntax. 
 \end{DoxyNote}
 
 

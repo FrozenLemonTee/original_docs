@@ -10,507 +10,557 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{couple_8h}{couple.h}}"{}}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\{}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{class\ }tuple\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tuple<TYPES...>>\{}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ SIZE\ =\ \textcolor{keyword}{sizeof}...(TYPES);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ I,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl<I,\ T>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tupleImpl<I,\ T>>\{}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ T\ cur\_elem;\ \ }
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur\ =\ T\{\});}
+\DoxyCodeLine{00033\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\{}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tuple<TYPES...>>\{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ SIZE\ =\ \textcolor{keyword}{sizeof}...(TYPES);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ I,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl;}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(tupleImpl<I,\ T>\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl<I,\ T>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tupleImpl<I,\ T>>\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ T\ cur\_elem;\ \ }
 \DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I,\ T>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(tupleImpl<I,\ T>\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{get}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }tuple;}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl<I,\ T,\ TS>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tupleImpl<I,\ T,\ TS>>\{}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ T\ cur\_elem;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I\ +\ 1,\ TS>\ next;\ \ \ }
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur\ =\ T\{\},\ \textcolor{keyword}{const}\ TS\&\ next\_elems\ =\ TS\{\});}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(tupleImpl<I,\ T,\ TS>\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other);}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I,\ T,\ TS>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(tupleImpl<I,\ T,\ TS>\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur\ =\ T\{\});}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(tupleImpl<I,\ T>\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I,\ T>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(tupleImpl<I,\ T>\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl<I,\ T,\ TS>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tupleImpl<I,\ T,\ TS>>\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ T\ cur\_elem;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I\ +\ 1,\ TS>\ next;\ \ \ }
 \DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{get}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }tuple;}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur\ =\ T\{\},\ \textcolor{keyword}{const}\ TS\&\ next\_elems\ =\ TS\{\});}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(tupleImpl<I,\ T,\ TS>\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl<I,\ T,\ TS...>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tupleImpl<I,\ T,\ TS...>>\{}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ T\ cur\_elem;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I\ +\ 1,\ TS...>\ next;\ \ \ }
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ TS\&...\ next\_elems);}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur\ =\ T\{\},\ \textcolor{keyword}{const}\ tupleImpl<I\ +\ 1,\ TS...>\&\ nt\ =\ tupleImpl<I\ +\ 1,\ TS...>\{\});}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(tupleImpl<I,\ T,\ TS...>\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I,\ T,\ TS>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(tupleImpl<I,\ T,\ TS>\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \};}
 \DoxyCodeLine{00133\ }
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other);}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I,\ T,\ TS...>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(tupleImpl<I,\ T,\ TS...>\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{get}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }tuple;}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }tupleImpl<I,\ T,\ TS...>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1comparable}{comparable}}<tupleImpl<I,\ T,\ TS...>>\{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ T\ cur\_elem;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I\ +\ 1,\ TS...>\ next;\ \ \ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ TS\&...\ next\_elems);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tupleImpl(\textcolor{keyword}{const}\ T\&\ cur\ =\ T\{\},\ \textcolor{keyword}{const}\ tupleImpl<I\ +\ 1,\ TS...>\&\ nt\ =\ tupleImpl<I\ +\ 1,\ TS...>\{\});}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(tupleImpl<I,\ T,\ TS...>\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ tupleImpl<0,\ TYPES...>\ elems;\ \ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other);}
 \DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}...\ IDX\_S,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ BEGIN\_IDX>}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_slice(std::integer\_sequence<u\_integer,\ IDX\_S...>\ indexes,\ std::integral\_constant<u\_integer,\ BEGIN\_IDX>\ begin)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ O\_TYPES,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}...\ T\_SIZE,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}...\ O\_SIZE>}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ tuple<TYPES...,\ O\_TYPES...>\ \_concat(\textcolor{keyword}{const}\ tuple<O\_TYPES...>\&\ other,}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ T\_SIZE...>\ ts,}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ O\_SIZE...>\ os)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ tupleImpl<I,\ T,\ TS...>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(tupleImpl<I,\ T,\ TS...>\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}();}
 \DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00161\ }
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tuple();}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ tuple(\textcolor{keyword}{const}\ TYPES\&...\ e);}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ tuple(\textcolor{keyword}{const}\ tuple\&\ other);}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ tuple\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(\textcolor{keyword}{const}\ tuple\&\ other);}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ tuple(tuple\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ tuple\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(tuple\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ tupleImpl<0,\ TYPES...>\ elems;\ \ }
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}...\ IDX\_S,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ BEGIN\_IDX>}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \_slice(std::integer\_sequence<u\_integer,\ IDX\_S...>\ indexes,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<u\_integer,\ BEGIN\_IDX>\ begin)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ O\_TYPES,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}...\ T\_SIZE,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}...\ O\_SIZE>}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}<TYPES...,\ O\_TYPES...>\ \_concat(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<O\_TYPES...>}}\&\ other,}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ T\_SIZE...>\ ts,}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ O\_SIZE...>\ os)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00195\ }
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a95f2b9f3aaad9297b18a8dadd2dfbdd3}{size}}();}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ IDX>}
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{get}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00209\ }
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ IDX,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
-\DoxyCodeLine{00220\ }
-\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ BEGIN\_IDX,\ u\_\textcolor{keywordtype}{int}eger\ N\_ELEMS>}
-\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae22e206155a3a9741a287f1efe188a49}{slice}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00229\ }
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ tuple\&\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00244\ }
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a8af22e6508a586d5eb344175509e4230}{className}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00257\ }
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \string~tuple()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}();}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}(\textcolor{keyword}{const}\ TYPES\&...\ e);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ other);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ other);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}(\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{operator=}}(\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a95f2b9f3aaad9297b18a8dadd2dfbdd3}{size}}();}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ IDX>}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ IDX>}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{get}}();}
 \DoxyCodeLine{00259\ }
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ tuple<F\_TYPE,\ S\_TYPE>\ \mbox{\hyperlink{classoriginal_1_1tuple_acf49e19bc49952eaf947d5a5fd5f599f}{makeTuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<F\_TYPE,\ S\_TYPE>}}\&\ cp);}
-\DoxyCodeLine{00269\ }
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ L\_TYPES,\ \textcolor{keyword}{typename}...\ R\_TYPES>}
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ tuple<L\_TYPES...,\ R\_TYPES...>\ \mbox{\hyperlink{classoriginal_1_1tuple_a89853440bfa7f2ad554ccfec48e52f86}{operator+}}(\textcolor{keyword}{const}\ tuple<L\_TYPES...>\&\ lt,\ \textcolor{keyword}{const}\ tuple<R\_TYPES...>\&\ rt);}
-\DoxyCodeLine{00280\ \ \ \ \ \};}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
-\DoxyCodeLine{00283\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<F\_TYPE,\ S\_TYPE>}}\ \mbox{\hyperlink{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}{makeTuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<F\_TYPE,\ S\_TYPE>}}\ \&cp);}
-\DoxyCodeLine{00284\ }
-\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ L\_TYPES,\ \textcolor{keyword}{typename}...\ R\_TYPES>}
-\DoxyCodeLine{00286\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}<L\_TYPES...,\ R\_TYPES...>\ \mbox{\hyperlink{namespaceoriginal_a176d8ed479959a50d637c2ee6900a159}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<L\_TYPES...>}}\&\ lt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<R\_TYPES...>}}\&\ rt);}
-\DoxyCodeLine{00287\ \}}
-\DoxyCodeLine{00288\ }
-\DoxyCodeLine{00289\ \textcolor{keyword}{namespace\ }std\ \{}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keyword}{struct\ }tuple\_size<\mbox{\hyperlink{namespaceoriginal}{original}}::tuple<TYPES...>>\ \textcolor{comment}{//NOLINT}}
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ :\ std::integral\_constant<std::size\_t,\ sizeof...(TYPES)>\ \{\};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ IDX,\ \textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\&\ e);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<u\_\textcolor{keywordtype}{int}eger\ BEGIN\_IDX,\ u\_\textcolor{keywordtype}{int}eger\ N\_ELEMS>}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae22e206155a3a9741a287f1efe188a49}{slice}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00298\ }
-\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keyword}{struct\ }tuple\_element<I,\ \mbox{\hyperlink{namespaceoriginal}{original}}::tuple<TYPES...>>\ \{\ \textcolor{comment}{//NOLINT}}
-\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ \textcolor{keyword}{decltype}(std::declval<\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<TYPES...>>().template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<I>}}());}
-\DoxyCodeLine{00307\ \ \ \ \ \};}
-\DoxyCodeLine{00308\ }
-\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\&\ t)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//NOLINT}}
-\DoxyCodeLine{00319\ }
-\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\&\ t)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//NOLINT}}
-\DoxyCodeLine{00330\ }
-\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\&\&\ t)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a8af22e6508a586d5eb344175509e4230}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{\string~tuple}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<F\_TYPE,\ S\_TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1tuple_acf49e19bc49952eaf947d5a5fd5f599f}{makeTuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<F\_TYPE,\ S\_TYPE>}}\&\ cp);}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ L\_TYPES,\ \textcolor{keyword}{typename}...\ R\_TYPES>}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}<L\_TYPES...,\ R\_TYPES...>\ \mbox{\hyperlink{classoriginal_1_1tuple_a89853440bfa7f2ad554ccfec48e52f86}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<L\_TYPES...>}}\&\ lt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<R\_TYPES...>}}\&\ rt);}
+\DoxyCodeLine{00334\ \ \ \ \ \};}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
+\DoxyCodeLine{00337\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<F\_TYPE,\ S\_TYPE>}}\ \mbox{\hyperlink{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}{makeTuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<F\_TYPE,\ S\_TYPE>}}\ \&cp);}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ L\_TYPES,\ \textcolor{keyword}{typename}...\ R\_TYPES>}
+\DoxyCodeLine{00340\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}<L\_TYPES...,\ R\_TYPES...>\ \mbox{\hyperlink{namespaceoriginal_a176d8ed479959a50d637c2ee6900a159}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<L\_TYPES...>}}\&\ lt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<R\_TYPES...>}}\&\ rt);}
 \DoxyCodeLine{00341\ \}}
 \DoxyCodeLine{00342\ }
-\DoxyCodeLine{00343\ }
-\DoxyCodeLine{00344\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00345\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00346\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T>::tupleImpl}}(\textcolor{keyword}{const}\ T\&\ cur)}
-\DoxyCodeLine{00347\ \ \ \ \ :\ cur\_elem(cur)\ \{\}}
-\DoxyCodeLine{00348\ }
-\DoxyCodeLine{00349\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00350\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00351\ original::tuple<TYPES...>::tupleImpl<I,\ T>::tupleImpl(tupleImpl<I,\ T>\&\&\ other)\ noexcept}
-\DoxyCodeLine{00352\ \ \ \ \ :\ cur\_elem(std::move(other.cur\_elem))\ \{\}}
-\DoxyCodeLine{00353\ }
-\DoxyCodeLine{00354\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00355\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00356\ original::tuple<TYPES...>::tupleImpl<I,\ T>::tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other)}
-\DoxyCodeLine{00357\ \ \ \ \ :\ cur\_elem(other.cur\_elem)\ \{\}}
-\DoxyCodeLine{00358\ }
-\DoxyCodeLine{00359\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00360\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00361\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::tupleImpl<I,\ T>::operator=}}(tupleImpl<I,\ T>\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ tupleImpl<I,\ T>\&}
-\DoxyCodeLine{00362\ \{}
-\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00365\ \ \ \ \ cur\_elem\ =\ std::move(other.cur\_elem);}
-\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00367\ \}}
+\DoxyCodeLine{00343\ \textcolor{keyword}{namespace\ }std\ \{}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keyword}{struct\ }tuple\_size<\mbox{\hyperlink{namespaceoriginal}{original}}::tuple<TYPES...>>\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ :\ std::integral\_constant<std::size\_t,\ sizeof...(TYPES)>\ \{\};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keyword}{struct\ }tuple\_element<I,\ \mbox{\hyperlink{namespaceoriginal}{original}}::tuple<TYPES...>>\ \{\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ std::tuple\_element\_t<I,\ std::tuple<TYPES...>>;}
+\DoxyCodeLine{00367\ \ \ \ \ \};}
 \DoxyCodeLine{00368\ }
-\DoxyCodeLine{00369\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00370\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00371\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
-\DoxyCodeLine{00372\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{original::tuple<TYPES...>::tupleImpl<I,\ T>::get}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00373\ \ \ \ \ staticError<outOfBoundError,\ (I\_DIFF\ >\ 0)>\{\};}
-\DoxyCodeLine{00374\ }
-\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
-\DoxyCodeLine{00376\ \}}
-\DoxyCodeLine{00377\ }
-\DoxyCodeLine{00378\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00379\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00380\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00381\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{original::tuple<TYPES...>::tupleImpl<I,\ T>::set}}(\textcolor{keyword}{const}\ E\&\ e)\ \{}
-\DoxyCodeLine{00382\ \ \ \ \ staticError<outOfBoundError,\ (I\_DIFF\ >\ 0)>\{\};}
-\DoxyCodeLine{00383\ \ \ \ \ staticError<valueError,\ !std::is\_convertible\_v<E,\ T>>\{\};}
-\DoxyCodeLine{00384\ }
-\DoxyCodeLine{00385\ \ \ \ \ cur\_elem\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(e);}
-\DoxyCodeLine{00386\ \}}
-\DoxyCodeLine{00387\ }
-\DoxyCodeLine{00388\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00389\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00390\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::tupleImpl<I,\ T>::compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
-\DoxyCodeLine{00391\ \{}
-\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Comparable<T>)\{}
-\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_elem\ !=\ other.cur\_elem)}
-\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem\ <\ other.cur\_elem\ ?\ -\/1\ :\ 1;}
-\DoxyCodeLine{00395\ \ \ \ \ \}}
-\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{00397\ \}}
-\DoxyCodeLine{00398\ }
-\DoxyCodeLine{00399\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00400\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00401\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::tupleImpl<I,\ T>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00402\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\ !=\ 0)}
-\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00405\ \ \ \ \ ss\ <<\ formatString(cur\_elem);}
-\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00407\ \}}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\&\ t)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\&\ t)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\&\&\ t)\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00401\ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00405\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00406\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T>::tupleImpl}}(\textcolor{keyword}{const}\ T\&\ cur)}
+\DoxyCodeLine{00407\ \ \ \ \ :\ cur\_elem(cur)\ \{\}}
 \DoxyCodeLine{00408\ }
 \DoxyCodeLine{00409\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00410\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00411\ original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::tupleImpl(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ TS\&\ next\_elems)}
-\DoxyCodeLine{00412\ \ \ \ \ :\ cur\_elem(cur),\ next(next\_elems)\ \{\}}
+\DoxyCodeLine{00410\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00411\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T>::tupleImpl}}(tupleImpl<I,\ T>\&\&\ other)\ noexcept}
+\DoxyCodeLine{00412\ \ \ \ \ :\ cur\_elem(std::move(other.cur\_elem))\ \{\}}
 \DoxyCodeLine{00413\ }
 \DoxyCodeLine{00414\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00415\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00416\ original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::tupleImpl(tupleImpl<I,\ T,\ TS>\&\&\ other)\ noexcept}
-\DoxyCodeLine{00417\ \ \ \ \ :\ cur\_elem(std::move(other.cur\_elem)),\ next(std::move(other.next))\ \{\}}
+\DoxyCodeLine{00415\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00416\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T>::tupleImpl}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other)}
+\DoxyCodeLine{00417\ \ \ \ \ :\ cur\_elem(other.cur\_elem)\ \{\}}
 \DoxyCodeLine{00418\ }
 \DoxyCodeLine{00419\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00420\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00421\ original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other)}
-\DoxyCodeLine{00422\ \ \ \ \ :\ cur\_elem(other.cur\_elem),\ next(other.next)\ \{\}}
-\DoxyCodeLine{00423\ }
-\DoxyCodeLine{00424\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00425\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00426\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::operator=}}(}
-\DoxyCodeLine{00427\ \ \ \ \ tupleImpl<I,\ T,\ TS>\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ tupleImpl<I,\ T,\ TS>\&}
-\DoxyCodeLine{00428\ \{}
-\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00431\ \ \ \ \ cur\_elem\ =\ std::move(other.cur\_elem);}
-\DoxyCodeLine{00432\ \ \ \ \ next\ =\ std::move(other.next);}
-\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00434\ \}}
-\DoxyCodeLine{00435\ }
-\DoxyCodeLine{00436\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00437\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00438\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
-\DoxyCodeLine{00439\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::get}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
-\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
-\DoxyCodeLine{00442\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ next.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}<I\_DIFF\ -\/\ 1>();}
-\DoxyCodeLine{00444\ \ \ \ \ \}}
+\DoxyCodeLine{00420\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00421\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::tupleImpl<I,\ T>::operator=}}(tupleImpl<I,\ T>\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ tupleImpl<I,\ T>\&}
+\DoxyCodeLine{00422\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00425\ \ \ \ \ cur\_elem\ =\ std::move(other.cur\_elem);}
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00427\ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00430\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00431\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00432\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::tupleImpl<I,\ T>::get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00433\ \ \ \ \ staticError<outOfBoundError,\ (I\_DIFF\ >\ 0)>\{\};}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
+\DoxyCodeLine{00436\ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00439\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00440\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00441\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::tupleImpl<I,\ T>::get}}()\ \{}
+\DoxyCodeLine{00442\ \ \ \ \ staticError<outOfBoundError,\ (I\_DIFF\ >\ 0)>\{\};}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
 \DoxyCodeLine{00445\ \}}
 \DoxyCodeLine{00446\ }
 \DoxyCodeLine{00447\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00448\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00448\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
 \DoxyCodeLine{00449\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00450\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::set}}(\textcolor{keyword}{const}\ E\&\ e)\ \{}
-\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
-\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ staticError<valueError,\ !std::is\_convertible\_v<E,\ T>>\{\};}
+\DoxyCodeLine{00450\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{original::tuple<TYPES...>::tupleImpl<I,\ T>::set}}(\textcolor{keyword}{const}\ E\&\ e)\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ staticError<outOfBoundError,\ (I\_DIFF\ >\ 0)>\{\};}
+\DoxyCodeLine{00452\ \ \ \ \ staticError<valueError,\ !std::is\_convertible\_v<E,\ T>>\{\};}
 \DoxyCodeLine{00453\ }
-\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ cur\_elem\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(e);}
-\DoxyCodeLine{00455\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ next.template\ set<I\_DIFF\ -\/\ 1,\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}>(e);}
-\DoxyCodeLine{00457\ \ \ \ \ \}}
-\DoxyCodeLine{00458\ \}}
-\DoxyCodeLine{00459\ }
-\DoxyCodeLine{00460\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00461\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00462\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::compareTo}}(}
-\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
-\DoxyCodeLine{00464\ \{}
-\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Comparable<T>)\{}
-\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_elem\ !=\ other.cur\_elem)}
-\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem\ <\ other.cur\_elem\ ?\ -\/1\ :\ 1;}
-\DoxyCodeLine{00468\ \ \ \ \ \}}
-\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordflow}{return}\ next.compareTo(other.next);}
-\DoxyCodeLine{00470\ \}}
-\DoxyCodeLine{00471\ }
-\DoxyCodeLine{00472\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00473\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
-\DoxyCodeLine{00474\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00475\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\ !=\ 0)}
-\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00478\ \ \ \ \ ss\ <<\ formatString(cur\_elem);}
-\DoxyCodeLine{00479\ \ \ \ \ ss\ <<\ formatString(next);}
-\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00481\ \}}
+\DoxyCodeLine{00454\ \ \ \ \ cur\_elem\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(e);}
+\DoxyCodeLine{00455\ \}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00458\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00459\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::tupleImpl<I,\ T>::compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T>\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
+\DoxyCodeLine{00460\ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Comparable<T>)\{}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_elem\ !=\ other.cur\_elem)}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem\ <\ other.cur\_elem\ ?\ -\/1\ :\ 1;}
+\DoxyCodeLine{00464\ \ \ \ \ \}}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00466\ \}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00469\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00470\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::tupleImpl<I,\ T>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00471\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\ !=\ 0)}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00474\ \ \ \ \ ss\ <<\ formatString(cur\_elem);}
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00476\ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00479\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00480\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::tupleImpl}}(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ TS\&\ next\_elems)}
+\DoxyCodeLine{00481\ \ \ \ \ :\ cur\_elem(cur),\ next(next\_elems)\ \{\}}
 \DoxyCodeLine{00482\ }
 \DoxyCodeLine{00483\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00484\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00485\ original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ TS\&...\ next\_elems)}
-\DoxyCodeLine{00486\ \ \ \ \ :\ cur\_elem(cur),\ next(next\_elems...)\ \{\}}
+\DoxyCodeLine{00484\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00485\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::tupleImpl}}(tupleImpl<I,\ T,\ TS>\&\&\ other)\ noexcept}
+\DoxyCodeLine{00486\ \ \ \ \ :\ cur\_elem(std::move(other.cur\_elem)),\ next(std::move(other.next))\ \{\}}
 \DoxyCodeLine{00487\ }
 \DoxyCodeLine{00488\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00489\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00490\ original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ tupleImpl<I\ +\ 1,\ TS...>\&\ nt)}
-\DoxyCodeLine{00491\ \ \ \ \ :\ cur\_elem(cur),\ next(nt)\ \{\}}
+\DoxyCodeLine{00489\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00490\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::tupleImpl}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other)}
+\DoxyCodeLine{00491\ \ \ \ \ :\ cur\_elem(other.cur\_elem),\ next(other.next)\ \{\}}
 \DoxyCodeLine{00492\ }
 \DoxyCodeLine{00493\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00494\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00495\ original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl(tupleImpl<I,\ T,\ TS...>\ \&\&other)\ noexcept}
-\DoxyCodeLine{00496\ \ \ \ \ :\ cur\_elem(std::move(other.cur\_elem)),\ next(std::move(other.next))\ \{\}}
-\DoxyCodeLine{00497\ }
-\DoxyCodeLine{00498\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00499\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00500\ original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other)}
-\DoxyCodeLine{00501\ \ \ \ \ :\ cur\_elem(other.cur\_elem),\ next(other.next)\ \{\}}
-\DoxyCodeLine{00502\ }
-\DoxyCodeLine{00503\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00504\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00505\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::operator=}}(}
-\DoxyCodeLine{00506\ \ \ \ \ tupleImpl<I,\ T,\ TS...>\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ tupleImpl<I,\ T,\ TS...>\&}
-\DoxyCodeLine{00507\ \{}
-\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00510\ \ \ \ \ cur\_elem\ =\ std::move(other.cur\_elem);}
-\DoxyCodeLine{00511\ \ \ \ \ next\ =\ std::move(other.next);}
-\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00513\ \}}
-\DoxyCodeLine{00514\ }
-\DoxyCodeLine{00515\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00516\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00517\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
-\DoxyCodeLine{00518\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::get}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
-\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
-\DoxyCodeLine{00521\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ next.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}<I\_DIFF\ -\/\ 1>();}
-\DoxyCodeLine{00523\ \ \ \ \ \}}
-\DoxyCodeLine{00524\ \}}
-\DoxyCodeLine{00525\ }
-\DoxyCodeLine{00526\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00527\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00528\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00529\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::set}}(\textcolor{keyword}{const}\ E\&\ e)\ \{}
-\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
-\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ staticError<valueError,\ !std::is\_convertible\_v<E,\ T>>\{\};}
-\DoxyCodeLine{00532\ }
-\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ cur\_elem\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(e);}
-\DoxyCodeLine{00534\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ next.template\ set<I\_DIFF\ -\/\ 1,\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}>(e);}
-\DoxyCodeLine{00536\ \ \ \ \ \}}
-\DoxyCodeLine{00537\ \}}
-\DoxyCodeLine{00538\ }
-\DoxyCodeLine{00539\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00540\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00541\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}}
-\DoxyCodeLine{00542\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Comparable<T>)\{}
-\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_elem\ !=\ other.cur\_elem)}
-\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem\ <\ other.cur\_elem\ ?\ -\/1\ :\ 1;}
-\DoxyCodeLine{00546\ \ \ \ \ \}}
-\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keywordflow}{return}\ next.\mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(other.next);}
-\DoxyCodeLine{00548\ \}}
-\DoxyCodeLine{00549\ }
-\DoxyCodeLine{00550\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00551\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
-\DoxyCodeLine{00552\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00553\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\ !=\ 0)}
-\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00556\ \ \ \ \ ss\ <<\ formatString(cur\_elem);}
-\DoxyCodeLine{00557\ \ \ \ \ ss\ <<\ formatString(next);}
-\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00559\ \}}
-\DoxyCodeLine{00560\ }
-\DoxyCodeLine{00561\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00562\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}...\ IDX\_S,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ BEGIN\_IDX>}
-\DoxyCodeLine{00563\ \textcolor{keyword}{auto}\ original::tuple<TYPES...>::\_slice(std::integer\_sequence<u\_integer,\ IDX\_S...>,}
-\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<u\_integer,\ BEGIN\_IDX>)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keywordflow}{return}\ tuple<\textcolor{keyword}{decltype}(this-\/>\mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<BEGIN\_IDX\ +\ IDX\_S>}}())...>(this-\/>\mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<BEGIN\_IDX\ +\ IDX\_S>}}()...);}
-\DoxyCodeLine{00566\ \}}
+\DoxyCodeLine{00494\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00495\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::operator=}}(}
+\DoxyCodeLine{00496\ \ \ \ \ tupleImpl<I,\ T,\ TS>\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ tupleImpl<I,\ T,\ TS>\&}
+\DoxyCodeLine{00497\ \{}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00500\ \ \ \ \ cur\_elem\ =\ std::move(other.cur\_elem);}
+\DoxyCodeLine{00501\ \ \ \ \ next\ =\ std::move(other.next);}
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00503\ \}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00506\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00507\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00508\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
+\DoxyCodeLine{00511\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ next.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}<I\_DIFF\ -\/\ 1>();}
+\DoxyCodeLine{00513\ \ \ \ \ \}}
+\DoxyCodeLine{00514\ \}}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00517\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00518\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00519\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::get}}()\ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
+\DoxyCodeLine{00522\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ next.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}<I\_DIFF\ -\/\ 1>();}
+\DoxyCodeLine{00524\ \ \ \ \ \}}
+\DoxyCodeLine{00525\ \}}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00528\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00529\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00530\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::set}}(\textcolor{keyword}{const}\ E\&\ e)\ \{}
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ staticError<valueError,\ !std::is\_convertible\_v<E,\ T>>\{\};}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ cur\_elem\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(e);}
+\DoxyCodeLine{00535\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ next.template\ set<I\_DIFF\ -\/\ 1,\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}>(e);}
+\DoxyCodeLine{00537\ \ \ \ \ \}}
+\DoxyCodeLine{00538\ \}}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00541\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00542\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::compareTo}}(}
+\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS>\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
+\DoxyCodeLine{00544\ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Comparable<T>)\{}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_elem\ !=\ other.cur\_elem)}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem\ <\ other.cur\_elem\ ?\ -\/1\ :\ 1;}
+\DoxyCodeLine{00548\ \ \ \ \ \}}
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keywordflow}{return}\ next.compareTo(other.next);}
+\DoxyCodeLine{00550\ \}}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00553\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ TS>}
+\DoxyCodeLine{00554\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00555\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\ !=\ 0)}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00558\ \ \ \ \ ss\ <<\ formatString(cur\_elem);}
+\DoxyCodeLine{00559\ \ \ \ \ ss\ <<\ formatString(next);}
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00561\ \}}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00564\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00565\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl}}(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ TS\&...\ next\_elems)}
+\DoxyCodeLine{00566\ \ \ \ \ :\ cur\_elem(cur),\ next(next\_elems...)\ \{\}}
 \DoxyCodeLine{00567\ }
 \DoxyCodeLine{00568\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00569\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ O\_TYPES,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}...\ T\_SIZE,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}...\ O\_SIZE>}
-\DoxyCodeLine{00570\ original::tuple<TYPES...,\ O\_TYPES...>}
-\DoxyCodeLine{00571\ original::tuple<TYPES...>::\_concat(\textcolor{keyword}{const}\ tuple<O\_TYPES...>\ \&other,}
-\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ T\_SIZE...>,}
-\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ O\_SIZE...>)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00574\ \ \ \ \ \textcolor{keywordflow}{return}\ tuple<TYPES...,\ O\_TYPES...>\{this-\/>\mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<T\_SIZE>}}()...,\ other.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<O\_SIZE>}}()...\};}
-\DoxyCodeLine{00575\ \}}
-\DoxyCodeLine{00576\ }
-\DoxyCodeLine{00577\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00578\ original::tuple<TYPES...>::tuple()\ :\ elems()\ \{\}}
-\DoxyCodeLine{00579\ }
-\DoxyCodeLine{00580\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00581\ original::tuple<TYPES...>::tuple(\textcolor{keyword}{const}\ TYPES\&...\ e)\ :\ elems(e...)\ \{\}}
+\DoxyCodeLine{00569\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00570\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl}}(\textcolor{keyword}{const}\ T\&\ cur,\ \textcolor{keyword}{const}\ tupleImpl<I\ +\ 1,\ TS...>\&\ nt)}
+\DoxyCodeLine{00571\ \ \ \ \ :\ cur\_elem(cur),\ next(nt)\ \{\}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00574\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00575\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl}}(tupleImpl<I,\ T,\ TS...>\ \&\&other)\ noexcept}
+\DoxyCodeLine{00576\ \ \ \ \ :\ cur\_elem(std::move(other.cur\_elem)),\ next(std::move(other.next))\ \{\}}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00579\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00580\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::tupleImpl}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other)}
+\DoxyCodeLine{00581\ \ \ \ \ :\ cur\_elem(other.cur\_elem),\ next(other.next)\ \{\}}
 \DoxyCodeLine{00582\ }
 \DoxyCodeLine{00583\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00584\ original::tuple<TYPES...>::tuple(\textcolor{keyword}{const}\ tuple\&\ other)\ :\ elems(other.elems)\ \{\}}
-\DoxyCodeLine{00585\ }
-\DoxyCodeLine{00586\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00587\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<TYPES...>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::operator=}}(\textcolor{keyword}{const}\ tuple\&\ other)\ \{}
-\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00589\ \ \ \ \ this-\/>elems\ =\ other.elems;}
-\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00591\ \}}
-\DoxyCodeLine{00592\ }
-\DoxyCodeLine{00593\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00594\ original::tuple<TYPES...>::tuple(tuple\&\&\ other)\ noexcept}
-\DoxyCodeLine{00595\ \ \ \ \ :\ elems(std::move(other.elems))\ \{\}}
-\DoxyCodeLine{00596\ }
-\DoxyCodeLine{00597\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00598\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<TYPES...>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::operator=}}(tuple\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00599\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00600\ \ \ \ \ this-\/>elems\ =\ std::move(other.elems);}
-\DoxyCodeLine{00601\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00602\ \}}
-\DoxyCodeLine{00603\ }
-\DoxyCodeLine{00604\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00605\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a95f2b9f3aaad9297b18a8dadd2dfbdd3}{original::tuple<TYPES...>::size}}()}
-\DoxyCodeLine{00606\ \{}
-\DoxyCodeLine{00607\ \ \ \ \ \textcolor{keywordflow}{return}\ SIZE;}
-\DoxyCodeLine{00608\ \}}
-\DoxyCodeLine{00609\ }
-\DoxyCodeLine{00610\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00611\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ IDX>}
-\DoxyCodeLine{00612\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{original::tuple<TYPES...>::get}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordflow}{return}\ elems.template\ \mbox{\hyperlink{classoriginal_1_1tuple_ae409370d982d49d9d8dc3be81f9509ef}{get<IDX>}}();}
-\DoxyCodeLine{00614\ \}}
-\DoxyCodeLine{00615\ }
-\DoxyCodeLine{00616\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00617\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ IDX,\ \textcolor{keyword}{typename}\ E>}
-\DoxyCodeLine{00618\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{original::tuple<TYPES...>::set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\ \&e)\ \{}
-\DoxyCodeLine{00619\ \ \ \ \ elems.template\ \mbox{\hyperlink{classoriginal_1_1tuple_aa6e1de926f46dba95759f3d643d63df7}{set<IDX,\ E>}}(e);}
-\DoxyCodeLine{00620\ \}}
-\DoxyCodeLine{00621\ }
-\DoxyCodeLine{00622\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00623\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ BEGIN\_IDX,\ original::u\_\textcolor{keywordtype}{int}eger\ N\_ELEMS>}
-\DoxyCodeLine{00624\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae22e206155a3a9741a287f1efe188a49}{original::tuple<TYPES...>::slice}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00625\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ out\_of\_bound\ =\ BEGIN\_IDX\ >=\ SIZE\ ||\ BEGIN\_IDX\ +\ N\_ELEMS\ >\ SIZE;}
-\DoxyCodeLine{00626\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1static_error}{staticError<outOfBoundError,\ out\_of\_bound>}}\{\};}
-\DoxyCodeLine{00627\ }
-\DoxyCodeLine{00628\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\_slice(}
-\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_integer\_sequence<u\_integer,\ N\_ELEMS>\{\},}
-\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<u\_integer,\ BEGIN\_IDX>\{\}}
-\DoxyCodeLine{00631\ \ \ \ \ );}
-\DoxyCodeLine{00632\ \}}
-\DoxyCodeLine{00633\ }
-\DoxyCodeLine{00634\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00635\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::compareTo}}(\textcolor{keyword}{const}\ tuple\&\ other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00636\ \ \ \ \ \textcolor{keywordflow}{return}\ elems.compareTo(other.elems);}
-\DoxyCodeLine{00637\ \}}
-\DoxyCodeLine{00638\ }
-\DoxyCodeLine{00639\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00640\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00641\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00642\ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1tuple_a8af22e6508a586d5eb344175509e4230}{className}}();}
-\DoxyCodeLine{00643\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ elems\ <<\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00644\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00645\ \}}
-\DoxyCodeLine{00646\ }
-\DoxyCodeLine{00647\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00648\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a8af22e6508a586d5eb344175509e4230}{original::tuple<TYPES...>::className}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00649\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}tuple"{}};}
+\DoxyCodeLine{00584\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00585\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::operator=}}(}
+\DoxyCodeLine{00586\ \ \ \ \ tupleImpl<I,\ T,\ TS...>\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ tupleImpl<I,\ T,\ TS...>\&}
+\DoxyCodeLine{00587\ \{}
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00590\ \ \ \ \ cur\_elem\ =\ std::move(other.cur\_elem);}
+\DoxyCodeLine{00591\ \ \ \ \ next\ =\ std::move(other.next);}
+\DoxyCodeLine{00592\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00593\ \}}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00595\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00596\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00597\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00598\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00599\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
+\DoxyCodeLine{00601\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ next.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}<I\_DIFF\ -\/\ 1>();}
+\DoxyCodeLine{00603\ \ \ \ \ \}}
+\DoxyCodeLine{00604\ \}}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00607\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00608\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF>}
+\DoxyCodeLine{00609\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::get}}()\ \{}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem;}
+\DoxyCodeLine{00612\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ next.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get}}<I\_DIFF\ -\/\ 1>();}
+\DoxyCodeLine{00614\ \ \ \ \ \}}
+\DoxyCodeLine{00615\ \}}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00617\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00618\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00619\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ I\_DIFF,\ \textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00620\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::set}}(\textcolor{keyword}{const}\ E\&\ e)\ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\_DIFF\ ==\ 0)\{}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ staticError<valueError,\ !std::is\_convertible\_v<E,\ T>>\{\};}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ cur\_elem\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(e);}
+\DoxyCodeLine{00625\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ next.template\ set<I\_DIFF\ -\/\ 1,\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}>(e);}
+\DoxyCodeLine{00627\ \ \ \ \ \}}
+\DoxyCodeLine{00628\ \}}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00630\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00631\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00632\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}}
+\DoxyCodeLine{00633\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::compareTo}}(\textcolor{keyword}{const}\ tupleImpl<I,\ T,\ TS...>\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00634\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (Comparable<T>)\{}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cur\_elem\ !=\ other.cur\_elem)}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ cur\_elem\ <\ other.cur\_elem\ ?\ -\/1\ :\ 1;}
+\DoxyCodeLine{00637\ \ \ \ \ \}}
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keywordflow}{return}\ next.\mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{compareTo}}(other.next);}
+\DoxyCodeLine{00639\ \}}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00641\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00642\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ I,\ \textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ TS>}
+\DoxyCodeLine{00643\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::tupleImpl<I,\ T,\ TS...>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00644\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00645\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (I\ !=\ 0)}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00647\ \ \ \ \ ss\ <<\ formatString(cur\_elem);}
+\DoxyCodeLine{00648\ \ \ \ \ ss\ <<\ formatString(next);}
+\DoxyCodeLine{00649\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
 \DoxyCodeLine{00650\ \}}
 \DoxyCodeLine{00651\ }
-\DoxyCodeLine{00652\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
-\DoxyCodeLine{00653\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<F\_TYPE,\ S\_TYPE>}}\ \mbox{\hyperlink{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}{original::makeTuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<F\_TYPE,\ S\_TYPE>}}\ \&cp)\ \{}
-\DoxyCodeLine{00654\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<F\_TYPE,\ S\_TYPE>}}\{cp.template\ get<0>(),\ cp.template\ get<1>()\};}
-\DoxyCodeLine{00655\ \}}
-\DoxyCodeLine{00656\ }
-\DoxyCodeLine{00657\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ L\_TYPES,\ \textcolor{keyword}{typename}...\ R\_TYPES>}
-\DoxyCodeLine{00658\ original::tuple<L\_TYPES...,\ R\_TYPES...>}
-\DoxyCodeLine{00659\ \mbox{\hyperlink{namespaceoriginal_a176d8ed479959a50d637c2ee6900a159}{original::operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<L\_TYPES...>}}\ \&lt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple<R\_TYPES...>}}\ \&rt)\ \{}
-\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keywordflow}{return}\ lt.\_concat(rt,}
-\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ std::make\_integer\_sequence<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}},\ \textcolor{keyword}{sizeof}...(L\_TYPES)>\{\},}
-\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ std::make\_integer\_sequence<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}},\ \textcolor{keyword}{sizeof}...(R\_TYPES)>\{\});}
-\DoxyCodeLine{00663\ \}}
-\DoxyCodeLine{00664\ }
-\DoxyCodeLine{00665\ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00666\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{std::get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\ \&t)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{comment}{//NOLINT}}
-\DoxyCodeLine{00667\ \ \ \ \ \textcolor{keywordflow}{return}\ t.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<I>}}();}
-\DoxyCodeLine{00668\ \}}
-\DoxyCodeLine{00669\ }
-\DoxyCodeLine{00670\ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00671\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{std::get}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\ \&t)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{comment}{//NOLINT}}
-\DoxyCodeLine{00672\ \ \ \ \ \textcolor{keywordflow}{return}\ t.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<I>}}();}
-\DoxyCodeLine{00673\ \}}
-\DoxyCodeLine{00674\ }
-\DoxyCodeLine{00675\ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
-\DoxyCodeLine{00676\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{std::get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\ \&\&t)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{comment}{//NOLINT}}
-\DoxyCodeLine{00677\ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(t.template\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{get<I>}}());}
-\DoxyCodeLine{00678\ \}}
-\DoxyCodeLine{00679\ }
-\DoxyCodeLine{00680\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TUPLE\_H}}
+\DoxyCodeLine{00652\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00653\ \textcolor{keyword}{template}<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}...\ IDX\_S,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ BEGIN\_IDX>}
+\DoxyCodeLine{00654\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::\_slice}}(std::integer\_sequence<u\_integer,\ IDX\_S...>,}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<u\_integer,\ BEGIN\_IDX>)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00656\ \ \ \ \ \textcolor{keywordflow}{return}\ tuple<\textcolor{keyword}{decltype}(this-\/>get<BEGIN\_IDX\ +\ IDX\_S>())...>(this-\/>get<BEGIN\_IDX\ +\ IDX\_S>()...);}
+\DoxyCodeLine{00657\ \}}
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00659\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00660\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ O\_TYPES,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}...\ T\_SIZE,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}...\ O\_SIZE>}
+\DoxyCodeLine{00661\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<TYPES...,\ O\_TYPES...>}
+\DoxyCodeLine{00662\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::\_concat}}(\textcolor{keyword}{const}\ tuple<O\_TYPES...>\ \&other,}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ T\_SIZE...>,}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::integer\_sequence<u\_integer,\ O\_SIZE...>)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00665\ \ \ \ \ \textcolor{keywordflow}{return}\ tuple<TYPES...,\ O\_TYPES...>\{this-\/>get<T\_SIZE>()...,\ other.template\ get<O\_SIZE>()...\};}
+\DoxyCodeLine{00666\ \}}
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00669\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tuple}}()\ :\ elems()\ \{\}}
+\DoxyCodeLine{00670\ }
+\DoxyCodeLine{00671\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00672\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tuple}}(\textcolor{keyword}{const}\ TYPES\&...\ e)\ :\ elems(e...)\ \{\}}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00674\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00675\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ other)\ :\ elems(other.elems)\ \{\}}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00678\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<TYPES...>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ other)\ \{}
+\DoxyCodeLine{00679\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00680\ \ \ \ \ this-\/>elems\ =\ other.elems;}
+\DoxyCodeLine{00681\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00682\ \}}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00684\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00685\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>::tuple}}(\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\&\ other)\ noexcept}
+\DoxyCodeLine{00686\ \ \ \ \ :\ elems(std::move(other.elems))\ \{\}}
+\DoxyCodeLine{00687\ }
+\DoxyCodeLine{00688\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00689\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<TYPES...>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a25f52ab9cb08965a2cef1e4769a4e710}{original::tuple<TYPES...>::operator=}}(\mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00690\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00691\ \ \ \ \ this-\/>elems\ =\ std::move(other.elems);}
+\DoxyCodeLine{00692\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00693\ \}}
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00695\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00696\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a95f2b9f3aaad9297b18a8dadd2dfbdd3}{original::tuple<TYPES...>::size}}()}
+\DoxyCodeLine{00697\ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \textcolor{keywordflow}{return}\ SIZE;}
+\DoxyCodeLine{00699\ \}}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00701\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00702\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ IDX>}
+\DoxyCodeLine{00703\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00704\ \ \ \ \ \textcolor{keywordflow}{return}\ elems.template\ get<IDX>();}
+\DoxyCodeLine{00705\ \}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00708\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ IDX>}
+\DoxyCodeLine{00709\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a67be30bc44c99212ec9424db240881b5}{original::tuple<TYPES...>::get}}()\ \{}
+\DoxyCodeLine{00710\ \ \ \ \ \textcolor{keywordflow}{return}\ elems.template\ get<IDX>();}
+\DoxyCodeLine{00711\ \}}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00713\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00714\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ IDX,\ \textcolor{keyword}{typename}\ E>}
+\DoxyCodeLine{00715\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<TYPES...>\&\ \mbox{\hyperlink{classoriginal_1_1tuple_a9c1a0b9e3227c768941ea616a821055a}{original::tuple<TYPES...>::set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_ad9f68a800f874a16bc6a433ddcf06ed5}{E}}\ \&e)\ \{}
+\DoxyCodeLine{00716\ \ \ \ \ elems.template\ \mbox{\hyperlink{classoriginal_1_1set}{set<IDX,\ E>}}(e);}
+\DoxyCodeLine{00717\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00718\ \}}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00721\ \textcolor{keyword}{template}<original::u\_\textcolor{keywordtype}{int}eger\ BEGIN\_IDX,\ original::u\_\textcolor{keywordtype}{int}eger\ N\_ELEMS>}
+\DoxyCodeLine{00722\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1tuple_ae22e206155a3a9741a287f1efe188a49}{original::tuple<TYPES...>::slice}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00723\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ out\_of\_bound\ =\ BEGIN\_IDX\ >=\ SIZE\ ||\ BEGIN\_IDX\ +\ N\_ELEMS\ >\ SIZE;}
+\DoxyCodeLine{00724\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1static_error}{staticError<outOfBoundError,\ out\_of\_bound>}}\{\};}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00726\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\_slice(}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_integer\_sequence<u\_integer,\ N\_ELEMS>\{\},}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \ \ \ \ std::integral\_constant<u\_integer,\ BEGIN\_IDX>\{\}}
+\DoxyCodeLine{00729\ \ \ \ \ );}
+\DoxyCodeLine{00730\ \}}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00733\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}\ \mbox{\hyperlink{classoriginal_1_1tuple_a93584b69eb3ec1421d70934fc4fa1a2f}{original::tuple<TYPES...>::compareTo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{tuple}}\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00734\ \ \ \ \ \textcolor{keywordflow}{return}\ elems.compareTo(other.elems);}
+\DoxyCodeLine{00735\ \}}
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00738\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a4bdba65409d58fcdbf76fd298a744acf}{original::tuple<TYPES...>::toString}}(\textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00739\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00740\ \ \ \ \ ss\ <<\ this-\/>className();}
+\DoxyCodeLine{00741\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ elems\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00742\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00743\ \}}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00746\ std::string\ \mbox{\hyperlink{classoriginal_1_1tuple_a8af22e6508a586d5eb344175509e4230}{original::tuple<TYPES...>::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00747\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}tuple"{}};}
+\DoxyCodeLine{00748\ \}}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ F\_TYPE,\ \textcolor{keyword}{typename}\ S\_TYPE>}
+\DoxyCodeLine{00751\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<F\_TYPE,\ S\_TYPE>}}\ \mbox{\hyperlink{namespaceoriginal_a825c5ff9d360f357bff2e67f0191b5d8}{original::makeTuple}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<F\_TYPE,\ S\_TYPE>}}\ \&cp)\ \{}
+\DoxyCodeLine{00752\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<F\_TYPE,\ S\_TYPE>}}\{cp.template\ get<0>(),\ cp.template\ get<1>()\};}
+\DoxyCodeLine{00753\ \}}
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00755\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ L\_TYPES,\ \textcolor{keyword}{typename}...\ R\_TYPES>}
+\DoxyCodeLine{00756\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple}}<L\_TYPES...,\ R\_TYPES...>}
+\DoxyCodeLine{00757\ \mbox{\hyperlink{namespaceoriginal_a176d8ed479959a50d637c2ee6900a159}{original::operator+}}(\textcolor{keyword}{const}\ tuple<L\_TYPES...>\ \&lt,\ \textcolor{keyword}{const}\ tuple<R\_TYPES...>\ \&rt)\ \{}
+\DoxyCodeLine{00758\ \ \ \ \ \textcolor{keywordflow}{return}\ lt.\_concat(rt,}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ std::make\_integer\_sequence<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}},\ \textcolor{keyword}{sizeof}...(L\_TYPES)>\{\},}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ std::make\_integer\_sequence<\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}},\ \textcolor{keyword}{sizeof}...(R\_TYPES)>\{\});}
+\DoxyCodeLine{00761\ \}}
+\DoxyCodeLine{00762\ }
+\DoxyCodeLine{00763\ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00764\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{std::get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\ \&t)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00765\ \ \ \ \ \textcolor{keywordflow}{return}\ t.template\ get<I>();}
+\DoxyCodeLine{00766\ \}}
+\DoxyCodeLine{00767\ }
+\DoxyCodeLine{00768\ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00769\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{std::get}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\ \&t)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00770\ \ \ \ \ \textcolor{keywordflow}{return}\ t.template\ get<I>();}
+\DoxyCodeLine{00771\ \}}
+\DoxyCodeLine{00772\ }
+\DoxyCodeLine{00773\ \textcolor{keyword}{template}<std::size\_t\ I,\ \textcolor{keyword}{typename}...\ TYPES>}
+\DoxyCodeLine{00774\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\&\&\ \mbox{\hyperlink{couple_8h_aa80128e7b1e8116b414d264264c7848f}{std::get}}(\mbox{\hyperlink{classoriginal_1_1tuple}{original::tuple<TYPES...>}}\ \&\&t)\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{comment}{//NOLINT}}
+\DoxyCodeLine{00775\ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(t.template\ get<I>());}
+\DoxyCodeLine{00776\ \}}
+\DoxyCodeLine{00777\ }
+\DoxyCodeLine{00778\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TUPLE\_H}}
 
 \end{DoxyCode}

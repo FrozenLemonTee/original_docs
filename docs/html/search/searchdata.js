@@ -3,13 +3,13 @@ var indexSectionsWithContent =
   0: "_abcdefghilmnopqrstuvw~内安容异模简算编",
   1: "abcdefghilmnopqrstuvw",
   2: "o",
-  3: "abcdefimopqrstvw",
+  3: "abcdefhimopqrstvw",
   4: "_abcdefghilmnopqrstuvw~",
-  5: "_aeprs",
+  5: "_abeflprs",
   6: "bfilprsu",
   7: "gmo",
   8: "aclot",
-  9: "ceinos"
+  9: "o"
 };
 
 var indexSectionNames =

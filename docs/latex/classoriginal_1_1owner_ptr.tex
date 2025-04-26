@@ -11,7 +11,8 @@ Unique ownership smart pointer with move semantics.
 
 
 
-Inheritance diagram for original\+::owner\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:\nopagebreak
+Inheritance diagram for original\+::owner\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for original\+::owner\+Ptr\texorpdfstring{$<$}{<} TYPE, DELE
 \end{figure}
 
 
-Collaboration diagram for original\+::owner\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::owner\+Ptr\texorpdfstring{$<$}{<} TYPE, DELETER \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -85,7 +87,7 @@ void \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab57e2635661b24a1dae97887a3c4c11
 std\+::string \mbox{\hyperlink{classoriginal_1_1auto_ptr_ae425525928c1ce696a19debecf32189a}{to\+String}} (bool enter) const override
 \begin{DoxyCompactList}\small\item\em String representation formatter. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1auto_ptr_ab98043c18ea29d5ee0c3112c12419e3c}{to\+Hash}} () const noexcept override
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the hash of the object. \end{DoxyCompactList}\item 
 bool {\bfseries equals} (const \mbox{\hyperlink{classoriginal_1_1auto_ptr}{auto\+Ptr}} \&other) const noexcept override
 \item 
 {\bfseries \texorpdfstring{$\sim$}{\string~}auto\+Ptr} () override
@@ -99,13 +101,13 @@ bool {\bfseries equals} (const \mbox{\hyperlink{classoriginal_1_1auto_ptr}{auto\
 \begin{DoxyCompactList}\small\item\em Explicit conversion to C-\/style string. \end{DoxyCompactList}\item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{to\+CString}} (bool enter) const
 \begin{DoxyCompactList}\small\item\em Direct C-\/string access with formatting control. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1comparable}{original\+::comparable$<$ auto\+Ptr$<$ TYPE, DERIVED, DELETER $>$ $>$}}}
 \begin{DoxyCompactItemize}
@@ -129,26 +131,28 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1hashable}{original\+::hashable$<$ auto\+Ptr$<$ TYPE, DERIVED, DELETER $>$ $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-virtual bool {\bfseries equals} (const DERIVED \&other) const noexcept
-\end{DoxyCompactItemize}
+virtual bool \mbox{\hyperlink{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6}{equals}} (const DERIVED \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Compares two objects for equality. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}hashable} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T, typename DEL, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1owner_ptr_a566773f5a4c9261e105187e6b8cd4fd8}{make\+Owner\+Ptr}} (Args \&\&... args)
+{\footnotesize template$<$typename T , typename DEL , typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1owner_ptr_a566773f5a4c9261e105187e6b8cd4fd8}{make\+Owner\+Ptr}} (Args \&\&... args)
 \begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1owner_ptr}{owner\+Ptr} managing a dynamically allocated object. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T, typename DEL, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1owner_ptr_a37fb5ad95ce215fd43eab6a5d739e9bc}{make\+Owner\+Ptr\+Array}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size, Args \&\&... args)
+{\footnotesize template$<$typename T , typename DEL , typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{classoriginal_1_1owner_ptr_a37fb5ad95ce215fd43eab6a5d739e9bc}{make\+Owner\+Ptr\+Array}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size, Args \&\&... args)
 \begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1owner_ptr}{owner\+Ptr} managing a dynamically allocated array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
 \begin{DoxyCompactList}\small\item\em Universal value-\/to-\/string conversion. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{format\+String}} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{format\+String}} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
 \begin{DoxyCompactList}\small\item\em Pointer-\/specific formatting. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{format\+CString}} (const TYPE \&t)
+{\footnotesize template$<$typename TYPE $>$ }\\static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{format\+CString}} (const TYPE \&t)
 \begin{DoxyCompactList}\small\item\em C-\/string cache for temporary usage. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{format\+Enum}} (const TYPE \&t)
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{format\+Enum}} (const TYPE \&t)
 \begin{DoxyCompactList}\small\item\em Enum formatting utility. \end{DoxyCompactList}\item 
 template$<$$>$ auto {\bfseries format\+String} (const char \&t) -\/$>$ std\+::string
 \item 
@@ -212,7 +216,7 @@ Key features\+:
 \index{ownerPtr@{ownerPtr}!original::ownerPtr$<$ TYPE, DELETER $>$@{original::ownerPtr$<$ TYPE, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{ownerPtr()}{ownerPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1owner_ptr_a82cf35fe794d2b63b2123322fdaa0f6c} 
-template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename TYPE , typename DELETER $>$ \\
 \mbox{\hyperlink{classoriginal_1_1owner_ptr}{original\+::owner\+Ptr}}$<$ TYPE, DELETER $>$\+::owner\+Ptr (\begin{DoxyParamCaption}\item[{TYPE \texorpdfstring{$\ast$}{*}}]{p}{ = {\ttfamily std\+:\+:nullptr\+\_\+t\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
@@ -231,7 +235,7 @@ Transfers ownership responsibility to \doxylink{classoriginal_1_1owner_ptr}{owne
 \index{ownerPtr@{ownerPtr}!original::ownerPtr$<$ TYPE, DELETER $>$@{original::ownerPtr$<$ TYPE, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{ownerPtr()}{ownerPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1owner_ptr_a2755160f420db90a89a2ce032934d0eb} 
-template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename TYPE , typename DELETER $>$ \\
 \mbox{\hyperlink{classoriginal_1_1owner_ptr}{original\+::owner\+Ptr}}$<$ TYPE, DELETER $>$\+::owner\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ TYPE, DELETER $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
@@ -253,7 +257,7 @@ other becomes empty
 \index{className@{className}!original::ownerPtr$<$ TYPE, DELETER $>$@{original::ownerPtr$<$ TYPE, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{className()}{className()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1owner_ptr_aee9acbb4f8119129005a98f59e4d76cb} 
-template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename TYPE , typename DELETER $>$ \\
 std\+::string \mbox{\hyperlink{classoriginal_1_1owner_ptr}{original\+::owner\+Ptr}}$<$ TYPE, DELETER $>$\+::class\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
@@ -271,7 +275,7 @@ Reimplemented from \mbox{\hyperlink{classoriginal_1_1auto_ptr_a92e53d3f6bbaedcac
 \index{operator=@{operator=}!original::ownerPtr$<$ TYPE, DELETER $>$@{original::ownerPtr$<$ TYPE, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1owner_ptr_a3410501464f262870c72d6a4c6669dce} 
-template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename TYPE , typename DELETER $>$ \\
 \mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ TYPE, DELETER $>$ \& \mbox{\hyperlink{classoriginal_1_1owner_ptr}{original\+::owner\+Ptr}}$<$ TYPE, DELETER $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ TYPE, DELETER $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
@@ -293,7 +297,7 @@ other becomes empty
 \index{unlock@{unlock}!original::ownerPtr$<$ TYPE, DELETER $>$@{original::ownerPtr$<$ TYPE, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{unlock()}{unlock()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1owner_ptr_a9f8942a67bf3975838029f3c05269c9d} 
-template$<$typename TYPE, typename DELETER$>$ \\
+template$<$typename TYPE , typename DELETER $>$ \\
 TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1owner_ptr}{original\+::owner\+Ptr}}$<$ TYPE, DELETER $>$\+::unlock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
@@ -316,8 +320,8 @@ Caller assumes ownership responsibility
 \index{makeOwnerPtr@{makeOwnerPtr}!original::ownerPtr$<$ TYPE, DELETER $>$@{original::ownerPtr$<$ TYPE, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{makeOwnerPtr}{makeOwnerPtr}}
 {\footnotesize\ttfamily \label{classoriginal_1_1owner_ptr_a566773f5a4c9261e105187e6b8cd4fd8} 
-template$<$typename TYPE, typename DELETER = deleter$<$\+TYPE$>$$>$ \\
-template$<$typename T, typename DEL, typename... Args$>$ \\
+template$<$typename TYPE , typename DELETER  = deleter$<$\+TYPE$>$$>$ \\
+template$<$typename T , typename DEL , typename... Args$>$ \\
 \mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ make\+Owner\+Ptr (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 
@@ -357,8 +361,8 @@ The returned \doxylink{classoriginal_1_1owner_ptr}{owner\+Ptr} has exclusive own
 \index{makeOwnerPtrArray@{makeOwnerPtrArray}!original::ownerPtr$<$ TYPE, DELETER $>$@{original::ownerPtr$<$ TYPE, DELETER $>$}}
 \doxysubsubsection{\texorpdfstring{makeOwnerPtrArray}{makeOwnerPtrArray}}
 {\footnotesize\ttfamily \label{classoriginal_1_1owner_ptr_a37fb5ad95ce215fd43eab6a5d739e9bc} 
-template$<$typename TYPE, typename DELETER = deleter$<$\+TYPE$>$$>$ \\
-template$<$typename T, typename DEL, typename... Args$>$ \\
+template$<$typename TYPE , typename DELETER  = deleter$<$\+TYPE$>$$>$ \\
+template$<$typename T , typename DEL , typename... Args$>$ \\
 \mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ make\+Owner\+Ptr\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
 
 
