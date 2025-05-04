@@ -11,398 +11,800 @@
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hash_table_8h}{hashTable.h}}"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{map_8h}{map.h}}"{}}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{owner_ptr_8h}{ownerPtr.h}}"{}}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ V\_TYPE,}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ HASH\ =\ hash<K\_TYPE>,}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ALLOC\ =\ allocator<couple<const\ K\_TYPE,\ V\_TYPE>>>}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ final}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1hash_table}{hashTable}}<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>,}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1map}{map}}<K\_TYPE,\ V\_TYPE,\ ALLOC>,}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterable}{iterable}}<couple<const\ K\_TYPE,\ V\_TYPE>>\{}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }hashNode\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1hash_node}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::hashNode}};}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_pointer\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_table_a39a72a4986e1c090a7920eac7a6d05d3}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::rebind\_alloc\_pointer}};}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1hash_table}{hashTable}}<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator,}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1base_iterator}{baseIterator}}<couple<const\ K\_TYPE,\ V\_TYPE>>\ \{}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(\mbox{\hyperlink{classoriginal_1_1vector}{vector<hashNode*,\ rebind\_alloc\_pointer>}}*\ buckets\ =\ \textcolor{keyword}{nullptr},}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ bucket\ =\ 0,\ hashNode*\ node\ =\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}};}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\&\ other);}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a545a06f796f08928edad297a03eaf558}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\&\ other);}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aeb9585b602302336d40ac26e4f4ab058}{clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8189fefad98e4755fc95eac3f621c804}{className}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aa59e409d0b24869397be41bfcae3e689}{operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaa295f5f7168157ef16b235e6dbfad0a}{operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1iterator_a93b995c7bc03eae6217994040ac902cd}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\ \&other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a5b56c4086cd12bf8720f32626a111e78}{hasNext}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_af87d81420df119230c3330d2607324f2}{hasPrev}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a77bab8477f4d14e97f3728064c37f956}{atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a471182cc7b9d239f277f4bdbe519b7d0}{atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a1b89aac61d4ef3242ec78959944e8c73}{next}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00184\ }
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8a4f0850b098e2db5f23dc958d812623}{prev}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a533e3119e6d7a9748e05e7d18bf76d74}{getPrev}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00194\ }
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \&\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{get}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{get}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_abba02caae1e3778d1fa7e63f2d8f6e93}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \&data)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00211\ }
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaee5b7e37067abc66a089683e9e2c770}{isValid}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{\string~Iterator}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comparator_8h}{comparator.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}RBTree.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ V\_TYPE,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ HASH\ =\ hash<K\_TYPE>,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ALLOC\ =\ allocator<couple<const\ K\_TYPE,\ V\_TYPE>>>}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ final}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1hash_table}{hashTable}}<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1map}{map}}<K\_TYPE,\ V\_TYPE,\ ALLOC>,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterable}{iterable}}<couple<const\ K\_TYPE,\ V\_TYPE>>,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\{}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }hashNode\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1hash_node}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::hashNode}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_pointer\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_table_a39a72a4986e1c090a7920eac7a6d05d3}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::rebind\_alloc\_pointer}};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1hash_table}{hashTable}}<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1base_iterator}{baseIterator}}<couple<const\ K\_TYPE,\ V\_TYPE>>\ \{}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(\mbox{\hyperlink{classoriginal_1_1vector}{vector<hashNode*,\ rebind\_alloc\_pointer>}}*\ buckets\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ bucket\ =\ 0,\ hashNode*\ node\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\&\ other);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a545a06f796f08928edad297a03eaf558}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\&\ other);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aeb9585b602302336d40ac26e4f4ab058}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8189fefad98e4755fc95eac3f621c804}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aa59e409d0b24869397be41bfcae3e689}{operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaa295f5f7168157ef16b235e6dbfad0a}{operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1iterator_a93b995c7bc03eae6217994040ac902cd}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\ \&other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a5b56c4086cd12bf8720f32626a111e78}{hasNext}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_af87d81420df119230c3330d2607324f2}{hasPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a77bab8477f4d14e97f3728064c37f956}{atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a471182cc7b9d239f277f4bdbe519b7d0}{atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a1b89aac61d4ef3242ec78959944e8c73}{next}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8a4f0850b098e2db5f23dc958d812623}{prev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a533e3119e6d7a9748e05e7d18bf76d74}{getPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \&\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{get}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{get}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_abba02caae1e3778d1fa7e63f2d8f6e93}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \&data)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaee5b7e37067abc66a089683e9e2c770}{isValid}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00220\ }
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}(HASH\ \mbox{\hyperlink{classoriginal_1_1hash}{hash}}\ =\ HASH\{\},\ ALLOC\ alloc\ =\ ALLOC\{\});}
-\DoxyCodeLine{00227\ }
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ other);}
-\DoxyCodeLine{00235\ }
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ other);}
-\DoxyCodeLine{00244\ }
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}(\mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00252\ }
-\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{operator=}}(\mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00262\ }
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a240330de81bb12f309072cf492cb4c57}{size}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a7ddb32943ae3a43e7b9c1879e4dc5dc3}{contains}}(\textcolor{keyword}{const}\ couple<const\ K\_TYPE,\ V\_TYPE>\ \&e)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00275\ }
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a26351fd8d09350239b52d0386f323eb1}{add}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k,\ \textcolor{keyword}{const}\ V\_TYPE\ \&v)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00283\ }
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a32922c2dfc52023bf3d660bd91fef4d8}{remove}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9030a86f599a09e1fe805d02d2bc5b7d}{containsKey}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00297\ }
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ V\_TYPE\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae4ad7cacf894360301fe01e500698682}{get}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00305\ }
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_abfdfc799aac745d491afafb43a53ee04}{update}}(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00313\ }
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ V\_TYPE\ \&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00321\ }
-\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ V\_TYPE\ \&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00329\ }
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac0153b360bc9b5382a9b5a1a7a07fdb6}{begins}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00335\ }
-\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1hash_map_a73758b08f0a7b04a4eedefbf3d3445f9}{ends}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00341\ }
-\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9fccf94aeba8f5780ae8fcb81c281ccc}{className}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00347\ }
-\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac97e10564e05ed4ef479c0d8c2bc6b2c}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00354\ }
-\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \string~hashMap()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00357\ \}}
-\DoxyCodeLine{00358\ }
-\DoxyCodeLine{00359\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00360\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::Iterator}}(}
-\DoxyCodeLine{00361\ \ \ \ \ vector<hashNode\ *,\ rebind\_alloc\_pointer>\ *buckets,\ u\_integer\ bucket,\ hashNode\ *node)}
-\DoxyCodeLine{00362\ \ \ \ \ :\ hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator(}
-\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ const\_cast<vector<hashNode*,\ rebind\_alloc\_pointer>*>(buckets),\ bucket,\ node)\ \{\}}
-\DoxyCodeLine{00364\ }
-\DoxyCodeLine{00365\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00366\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::equalPtr}}(}
-\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<couple<const\ K\_TYPE,\ V\_TYPE>>*\ other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ \&\&}
-\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ this-\/>p\_buckets\ ==\ other\_it-\/>p\_buckets\ \&\&}
-\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ this-\/>cur\_bucket\ ==\ other\_it-\/>cur\_bucket\ \&\&}
-\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ this-\/>p\_node\ ==\ other\_it-\/>p\_node;}
-\DoxyCodeLine{00373\ \}}
-\DoxyCodeLine{00374\ }
-\DoxyCodeLine{00375\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00376\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}()\ \{}
-\DoxyCodeLine{00377\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a545a06f796f08928edad297a03eaf558}{operator=}}(other);}
-\DoxyCodeLine{00378\ \}}
-\DoxyCodeLine{00379\ }
-\DoxyCodeLine{00380\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00381\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}\&}
-\DoxyCodeLine{00382\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a545a06f796f08928edad297a03eaf558}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\ \&other)\ \{}
-\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
-\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{\string~Iterator}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}(HASH\ \mbox{\hyperlink{classoriginal_1_1hash}{hash}}\ =\ HASH\{\},\ ALLOC\ alloc\ =\ ALLOC\{\});}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ other);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ other);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}(\mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{operator=}}(\mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{hashMap}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a240330de81bb12f309072cf492cb4c57}{size}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a7ddb32943ae3a43e7b9c1879e4dc5dc3}{contains}}(\textcolor{keyword}{const}\ couple<const\ K\_TYPE,\ V\_TYPE>\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a26351fd8d09350239b52d0386f323eb1}{add}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k,\ \textcolor{keyword}{const}\ V\_TYPE\ \&v)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a32922c2dfc52023bf3d660bd91fef4d8}{remove}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9030a86f599a09e1fe805d02d2bc5b7d}{containsKey}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ V\_TYPE\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae4ad7cacf894360301fe01e500698682}{get}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_abfdfc799aac745d491afafb43a53ee04}{update}}(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ V\_TYPE\ \&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ V\_TYPE\ \&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac0153b360bc9b5382a9b5a1a7a07fdb6}{begins}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1hash_map_a73758b08f0a7b04a4eedefbf3d3445f9}{ends}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9fccf94aeba8f5780ae8fcb81c281ccc}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac97e10564e05ed4ef479c0d8c2bc6b2c}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \string~hashMap()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00359\ \ \ \ \ \};}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ V\_TYPE,}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Compare\ =\ increaseComparator<K\_TYPE>,}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ALLOC\ =\ allocator<couple<const\ K\_TYPE,\ V\_TYPE>>>}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tree_map}{treeMap}}\ final\ :\ \textcolor{keyword}{public}\ RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1map}{map}}<K\_TYPE,\ V\_TYPE,\ ALLOC>,}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterable}{iterable}}<couple<const\ K\_TYPE,\ V\_TYPE>>,}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }RBTree\ =\ RBTree<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>;}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }RBNode\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_r_b_node}{RBTree::RBNode}};}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree_1_1_iterator}{RBTree::Iterator}},}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1base_iterator}{baseIterator}}<couple<const\ K\_TYPE,\ V\_TYPE>>}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}(RBTree*\ tree,\ RBNode*\ cur);}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tree_map}{treeMap}};}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}\&\ other);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}\&\ other);}
 \DoxyCodeLine{00385\ }
-\DoxyCodeLine{00386\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a42bdde95106055992ea6405dd3653f7e}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::operator=}}(other);}
-\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00388\ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a7be46dcd7d079cf81cb9ae2513967be7}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a78eaeffca5a3b930bac8175245ec12c6}{className}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00389\ }
-\DoxyCodeLine{00390\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00391\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
-\DoxyCodeLine{00392\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aeb9585b602302336d40ac26e4f4ab058}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::clone}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00394\ \}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_abd6527ae028075af9da94f559c7d56c3}{operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a6d7b53e1d93c08c6ef2328dd9bba380d}{operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1iterator_a93b995c7bc03eae6217994040ac902cd}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\ \&other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00395\ }
-\DoxyCodeLine{00396\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00397\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8189fefad98e4755fc95eac3f621c804}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::className}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}hashMap::Iterator"{}};}
-\DoxyCodeLine{00399\ \}}
-\DoxyCodeLine{00400\ }
-\DoxyCodeLine{00401\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00402\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aa59e409d0b24869397be41bfcae3e689}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00403\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a604253afee0ad27428accd6576d17551}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::operator+=}}(steps);}
-\DoxyCodeLine{00404\ \}}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a2367b37e4420b3e3fa73f2d0fa04a364}{hasNext}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_aeccce71877ef20f927ca56b652bb6078}{hasPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atPrev(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ atNext(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a27157afcbab5e2907e9d5ca8e1402a87}{next}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00405\ }
-\DoxyCodeLine{00406\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00407\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaa295f5f7168157ef16b235e6dbfad0a}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}})\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
-\DoxyCodeLine{00409\ \}}
-\DoxyCodeLine{00410\ }
-\DoxyCodeLine{00411\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00412\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}\ \mbox{\hyperlink{classoriginal_1_1iterator_a93b995c7bc03eae6217994040ac902cd}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator-\/}}(}
-\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\&)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
-\DoxyCodeLine{00415\ \}}
-\DoxyCodeLine{00416\ }
-\DoxyCodeLine{00417\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00418\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a5b56c4086cd12bf8720f32626a111e78}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::hasNext}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_ab7efd543d5b859a736cb4ab2fc2078d2}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::hasNext}}();}
-\DoxyCodeLine{00420\ \}}
-\DoxyCodeLine{00421\ }
-\DoxyCodeLine{00422\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00423\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_af87d81420df119230c3330d2607324f2}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::hasPrev}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
-\DoxyCodeLine{00425\ \}}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a94a4d3e87ff108f2c04d83a721527a80}{prev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}*\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a75ac2a115ee711fe2a839372210c4931}{getPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\&\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a03533635604f637ce94a72eb21e24557}{get}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a03533635604f637ce94a72eb21e24557}{get}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_aff1468db9e90cd1b0be470c09b4cfec6}{set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \&data)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a7f0e5880d38176d54745a416a5df8265}{isValid}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{\string~Iterator}}()\ \textcolor{keyword}{override}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}};}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{treeMap}}(\mbox{\hyperlink{conceptoriginal_1_1_compare}{Compare}}\ comp\ =\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{Compare}}\{\},\ ALLOC\ alloc\ =\ ALLOC\{\});}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ treeMap(\textcolor{keyword}{const}\ treeMap\&\ other);}
 \DoxyCodeLine{00426\ }
-\DoxyCodeLine{00427\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00428\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a77bab8477f4d14e97f3728064c37f956}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::atPrev}}(}
-\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\ *other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
-\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordflow}{if}\ (!other\_it)\ \{}
-\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00433\ \ \ \ \ \}}
-\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keyword}{auto}\ next\ =\ \mbox{\hyperlink{classoriginal_1_1owner_ptr}{ownerPtr}}(this-\/>clone());}
-\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordflow}{if}\ (!next-\/>isValid())\{}
-\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00437\ \ \ \ \ \}}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ treeMap\&\ operator=(\textcolor{keyword}{const}\ treeMap\&\ other);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ treeMap(treeMap\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ treeMap\&\ operator=(treeMap\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ contains(\textcolor{keyword}{const}\ couple<const\ K\_TYPE,\ V\_TYPE>\ \&e)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ add(\textcolor{keyword}{const}\ K\_TYPE\ \&k,\ \textcolor{keyword}{const}\ V\_TYPE\ \&v)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00438\ }
-\DoxyCodeLine{00439\ \ \ \ \ next-\/>next();}
-\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordflow}{return}\ next-\/>equalPtr(other\_it);}
-\DoxyCodeLine{00441\ \}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ remove(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ containsKey(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00442\ }
-\DoxyCodeLine{00443\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00444\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a471182cc7b9d239f277f4bdbe519b7d0}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::atNext}}(}
-\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\ *other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keywordflow}{return}\ other-\/>atPrev(*\textcolor{keyword}{this});}
-\DoxyCodeLine{00447\ \}}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ V\_TYPE\ get(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ update(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ V\_TYPE\ \&\ operator[](\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00448\ }
-\DoxyCodeLine{00449\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00450\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a1b89aac61d4ef3242ec78959944e8c73}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::next}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00451\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a15e80a68209b7610c739928ea8f9d04a}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::next}}();}
-\DoxyCodeLine{00452\ \}}
-\DoxyCodeLine{00453\ }
-\DoxyCodeLine{00454\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00455\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8a4f0850b098e2db5f23dc958d812623}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::prev}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
-\DoxyCodeLine{00457\ \}}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ V\_TYPE\ \&\ operator[](\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1tree_map_a06bf471b9cc6c5addc7efdd3bcdc24be}{begins}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ Iterator*\ \mbox{\hyperlink{classoriginal_1_1tree_map_a3e77fbb45246a4330519a291b8024278}{ends}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1tree_map_a23bc581e788f0b1d91595cd4594fd666}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1tree_map_a7edaf76d88337790be49de35c7e1267b}{toString}}(\textcolor{keywordtype}{bool}\ enter)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00458\ }
-\DoxyCodeLine{00459\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00460\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
-\DoxyCodeLine{00461\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a533e3119e6d7a9748e05e7d18bf76d74}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::getPrev}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
-\DoxyCodeLine{00463\ \}}
-\DoxyCodeLine{00464\ }
-\DoxyCodeLine{00465\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00466\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}\&}
-\DoxyCodeLine{00467\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::get}}()\ \{}
-\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a2f749102f5210ee9fcd14f453670bdd7}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::get}}();}
-\DoxyCodeLine{00469\ \}}
-\DoxyCodeLine{00470\ }
-\DoxyCodeLine{00471\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00472\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}}
-\DoxyCodeLine{00473\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::get}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a2f749102f5210ee9fcd14f453670bdd7}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::get}}();}
-\DoxyCodeLine{00475\ \}}
-\DoxyCodeLine{00476\ }
-\DoxyCodeLine{00477\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00478\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_abba02caae1e3778d1fa7e63f2d8f6e93}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\&)\ \{}
-\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
-\DoxyCodeLine{00480\ \}}
-\DoxyCodeLine{00481\ }
-\DoxyCodeLine{00482\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00483\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaee5b7e37067abc66a089683e9e2c770}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::isValid}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a6e7f1c107fe33c3a00a38b8b6f82fcfc}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::isValid}}();}
-\DoxyCodeLine{00485\ \}}
-\DoxyCodeLine{00486\ }
-\DoxyCodeLine{00487\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00488\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::hashMap}}(HASH\ \mbox{\hyperlink{classoriginal_1_1hash}{hash}},\ ALLOC\ alloc)}
-\DoxyCodeLine{00489\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1hash_table}{hashTable}}<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>(std::move(\mbox{\hyperlink{classoriginal_1_1hash}{hash}})),}
-\DoxyCodeLine{00490\ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1map}{map}}<K\_TYPE,\ V\_TYPE,\ ALLOC>(std::move(alloc))\ \{\}}
-\DoxyCodeLine{00491\ }
-\DoxyCodeLine{00492\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00493\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::hashMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}()\ \{}
-\DoxyCodeLine{00494\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{operator=}}(other);}
-\DoxyCodeLine{00495\ \}}
-\DoxyCodeLine{00496\ }
-\DoxyCodeLine{00497\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00498\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>}}\&}
-\DoxyCodeLine{00499\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&other)\ \{}
-\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
-\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00502\ \ \ \ \ \}}
-\DoxyCodeLine{00503\ }
-\DoxyCodeLine{00504\ \ \ \ \ this-\/>buckets\ =\ this-\/>bucketsCopy(other.buckets);}
-\DoxyCodeLine{00505\ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
-\DoxyCodeLine{00506\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(ALLOC::propagate\_on\_container\_copy\_assignment::value)\ \{}
-\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ other.allocator;}
-\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ other.rebind\_alloc;}
-\DoxyCodeLine{00509\ \ \ \ \ \}}
-\DoxyCodeLine{00510\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00511\ \}}
-\DoxyCodeLine{00512\ }
-\DoxyCodeLine{00513\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00514\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::hashMap}}(\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&\&other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}()\ \{}
-\DoxyCodeLine{00515\ \ \ \ \ this-\/>operator=(std::move(other));}
-\DoxyCodeLine{00516\ \}}
-\DoxyCodeLine{00517\ }
-\DoxyCodeLine{00518\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00519\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>}}\&}
-\DoxyCodeLine{00520\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator=}}(\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&\&other)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
-\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00523\ \ \ \ \ \}}
-\DoxyCodeLine{00524\ }
-\DoxyCodeLine{00525\ \ \ \ \ this-\/>buckets\ =\ std::move(other.buckets);}
-\DoxyCodeLine{00526\ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
-\DoxyCodeLine{00527\ \ \ \ \ other.size\_\ =\ 0;}
-\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(ALLOC::propagate\_on\_container\_move\_assignment::value)\ \{}
-\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ std::move(other.allocator);}
-\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ std::move(other.rebind\_alloc);}
-\DoxyCodeLine{00531\ \ \ \ \ \}}
-\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00533\ \}}
-\DoxyCodeLine{00534\ }
-\DoxyCodeLine{00535\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00536\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}}
-\DoxyCodeLine{00537\ \mbox{\hyperlink{classoriginal_1_1hash_map_a240330de81bb12f309072cf492cb4c57}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::size}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00538\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
-\DoxyCodeLine{00539\ \}}
-\DoxyCodeLine{00540\ }
-\DoxyCodeLine{00541\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00542\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{00543\ \mbox{\hyperlink{classoriginal_1_1hash_map_a7ddb32943ae3a43e7b9c1879e4dc5dc3}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \&e)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>containsKey(e.\mbox{\hyperlink{classoriginal_1_1couple_a56f21c0b45f7e80c91b994f7073c405b}{first}}())\ \&\&\ this-\/>get(e.\mbox{\hyperlink{classoriginal_1_1couple_a56f21c0b45f7e80c91b994f7073c405b}{first}}())\ ==\ e.\mbox{\hyperlink{classoriginal_1_1couple_a69081ab855c1dcf0c36f1a11e0a28283}{second}}();}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \string~treeMap()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00460\ \ \ \ \ \};}
+\DoxyCodeLine{00461\ \}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00464\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::Iterator}}(}
+\DoxyCodeLine{00465\ \ \ \ \ vector<hashNode\ *,\ rebind\_alloc\_pointer>\ *buckets,\ u\_integer\ bucket,\ hashNode\ *node)}
+\DoxyCodeLine{00466\ \ \ \ \ :\ hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator(}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ const\_cast<vector<hashNode*,\ rebind\_alloc\_pointer>*>(buckets),\ bucket,\ node)\ \{\}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00470\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::equalPtr}}(}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ iterator<couple<const\ K\_TYPE,\ V\_TYPE>>*\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ \&\&}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ this-\/>p\_buckets\ ==\ other\_it-\/>p\_buckets\ \&\&}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ this-\/>cur\_bucket\ ==\ other\_it-\/>cur\_bucket\ \&\&}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ this-\/>p\_node\ ==\ other\_it-\/>p\_node;}
+\DoxyCodeLine{00477\ \}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00480\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}()\ \{}
+\DoxyCodeLine{00481\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a545a06f796f08928edad297a03eaf558}{operator=}}(other);}
+\DoxyCodeLine{00482\ \}}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00485\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}\&}
+\DoxyCodeLine{00486\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a545a06f796f08928edad297a03eaf558}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}\ \&other)\ \{}
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a42bdde95106055992ea6405dd3653f7e}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::operator=}}(other);}
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00492\ \}}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00495\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{00496\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aeb9585b602302336d40ac26e4f4ab058}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::clone}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00498\ \}}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00501\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8189fefad98e4755fc95eac3f621c804}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}hashMap::Iterator"{}};}
+\DoxyCodeLine{00503\ \}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00506\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aa59e409d0b24869397be41bfcae3e689}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00507\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a604253afee0ad27428accd6576d17551}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::operator+=}}(steps);}
+\DoxyCodeLine{00508\ \}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00511\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaa295f5f7168157ef16b235e6dbfad0a}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}})\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00513\ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00516\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}\ \mbox{\hyperlink{classoriginal_1_1iterator_a93b995c7bc03eae6217994040ac902cd}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::operator-\/}}(}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\&)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00519\ \}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00522\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a5b56c4086cd12bf8720f32626a111e78}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::hasNext}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_ab7efd543d5b859a736cb4ab2fc2078d2}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::hasNext}}();}
+\DoxyCodeLine{00524\ \}}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00527\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_af87d81420df119230c3330d2607324f2}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::hasPrev}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00529\ \}}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00532\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a77bab8477f4d14e97f3728064c37f956}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::atPrev}}(}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\ *other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00535\ \ \ \ \ \textcolor{keywordflow}{if}\ (!other\_it)\ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00537\ \ \ \ \ \}}
+\DoxyCodeLine{00538\ \ \ \ \ \textcolor{keyword}{auto}\ next\ =\ \mbox{\hyperlink{classoriginal_1_1owner_ptr}{ownerPtr}}(this-\/>clone());}
+\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keywordflow}{if}\ (!next-\/>isValid())\{}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00541\ \ \ \ \ \}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00543\ \ \ \ \ next-\/>next();}
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keywordflow}{return}\ next-\/>equalPtr(other\_it);}
 \DoxyCodeLine{00545\ \}}
 \DoxyCodeLine{00546\ }
 \DoxyCodeLine{00547\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00548\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a26351fd8d09350239b52d0386f323eb1}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::add}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k,\ \textcolor{keyword}{const}\ V\_TYPE\ \&v)\ \{}
-\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>insert(k,\ v);}
-\DoxyCodeLine{00550\ \}}
-\DoxyCodeLine{00551\ }
-\DoxyCodeLine{00552\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00553\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a32922c2dfc52023bf3d660bd91fef4d8}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::remove}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \{}
-\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>erase(k);}
-\DoxyCodeLine{00555\ \}}
-\DoxyCodeLine{00556\ }
-\DoxyCodeLine{00557\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00558\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9030a86f599a09e1fe805d02d2bc5b7d}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::containsKey}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>find(k);}
-\DoxyCodeLine{00560\ \}}
-\DoxyCodeLine{00561\ }
-\DoxyCodeLine{00562\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00563\ V\_TYPE\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae4ad7cacf894360301fe01e500698682}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::get}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
-\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)}
-\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
-\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
-\DoxyCodeLine{00568\ \}}
-\DoxyCodeLine{00569\ }
-\DoxyCodeLine{00570\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00571\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_abfdfc799aac745d491afafb43a53ee04}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::update}}(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \{}
-\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>modify(key,\ value);}
+\DoxyCodeLine{00548\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a471182cc7b9d239f277f4bdbe519b7d0}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::atNext}}(}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\ *other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keywordflow}{return}\ other-\/>atPrev(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00551\ \}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00554\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a1b89aac61d4ef3242ec78959944e8c73}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::next}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00555\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a15e80a68209b7610c739928ea8f9d04a}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::next}}();}
+\DoxyCodeLine{00556\ \}}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00558\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00559\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a8a4f0850b098e2db5f23dc958d812623}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::prev}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00561\ \}}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00564\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{00565\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_a533e3119e6d7a9748e05e7d18bf76d74}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::getPrev}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00566\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00567\ \}}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00570\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}\&}
+\DoxyCodeLine{00571\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::get}}()\ \{}
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a2f749102f5210ee9fcd14f453670bdd7}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::get}}();}
 \DoxyCodeLine{00573\ \}}
 \DoxyCodeLine{00574\ }
 \DoxyCodeLine{00575\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00576\ \textcolor{keyword}{const}\ V\_TYPE\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00577\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
-\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)}
-\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
-\DoxyCodeLine{00580\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
-\DoxyCodeLine{00581\ \}}
-\DoxyCodeLine{00582\ }
-\DoxyCodeLine{00583\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00584\ V\_TYPE\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \{}
-\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
-\DoxyCodeLine{00586\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \{}
-\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ this-\/>insert(k,\ V\_TYPE\{\});}
-\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ node\ =\ this-\/>find(k);}
-\DoxyCodeLine{00589\ \ \ \ \ \}}
-\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
-\DoxyCodeLine{00591\ \}}
-\DoxyCodeLine{00592\ }
-\DoxyCodeLine{00593\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00594\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
-\DoxyCodeLine{00595\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac0153b360bc9b5382a9b5a1a7a07fdb6}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::begins}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00596\ \ \ \ \ \textcolor{keyword}{auto}\ p\_buckets\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classoriginal_1_1vector}{vector<hashNode*,\ rebind\_alloc\_pointer>}}*\textcolor{keyword}{>}(\&this-\/>buckets);}
-\DoxyCodeLine{00597\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>buckets[0])\ \{}
-\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(p\_buckets,\ 0,\ this-\/>buckets[0]);}
-\DoxyCodeLine{00599\ \ \ \ \ \}}
-\DoxyCodeLine{00600\ \ \ \ \ \textcolor{keyword}{auto}\ bucket\ =\ Iterator::findNextValidBucket(p\_buckets,\ 0);}
-\DoxyCodeLine{00601\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(p\_buckets,\ bucket,\ p\_buckets-\/>get(bucket));}
-\DoxyCodeLine{00602\ \}}
-\DoxyCodeLine{00603\ }
-\DoxyCodeLine{00604\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00605\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
-\DoxyCodeLine{00606\ \mbox{\hyperlink{classoriginal_1_1hash_map_a73758b08f0a7b04a4eedefbf3d3445f9}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::ends}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00607\ \ \ \ \ \textcolor{keyword}{auto}\ p\_buckets\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classoriginal_1_1vector}{vector<hashNode*,\ rebind\_alloc\_pointer>}}*\textcolor{keyword}{>}(\&this-\/>buckets);}
-\DoxyCodeLine{00608\ \ \ \ \ \textcolor{keyword}{auto}\ bucket\ =\ Iterator::findPrevValidBucket(p\_buckets,\ this-\/>buckets.size());}
-\DoxyCodeLine{00609\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>buckets[bucket];}
-\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ \&\&\ node-\/>getPNext())\ \{}
-\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ node\ =\ node-\/>getPNext();}
-\DoxyCodeLine{00612\ \ \ \ \ \}}
-\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(p\_buckets,\ bucket,\ node);}
-\DoxyCodeLine{00614\ \}}
-\DoxyCodeLine{00615\ }
-\DoxyCodeLine{00616\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00617\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9fccf94aeba8f5780ae8fcb81c281ccc}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::className}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}hashMap"{}};}
-\DoxyCodeLine{00619\ \}}
-\DoxyCodeLine{00620\ }
-\DoxyCodeLine{00621\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00622\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac97e10564e05ed4ef479c0d8c2bc6b2c}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00623\ \ \ \ \ std::stringstream\ ss;}
-\DoxyCodeLine{00624\ \ \ \ \ ss\ <<\ this-\/>className();}
-\DoxyCodeLine{00625\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}};}
-\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00627\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ this-\/>begin();\ it\ !=\ this-\/>end();\ it.next())\{}
-\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!first)\{}
-\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\{"{}}\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{printable::formatString}}(it.get().template\ get<0>())\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
-\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{printable::formatString}}(it.get().template\ get<1>())\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
-\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00634\ \ \ \ \ \}}
-\DoxyCodeLine{00635\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
-\DoxyCodeLine{00636\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)}
-\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
-\DoxyCodeLine{00639\ \}}
-\DoxyCodeLine{00640\ }
-\DoxyCodeLine{00641\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00642\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::\string~hashMap}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00643\ }
-\DoxyCodeLine{00644\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAPS\_H}}
+\DoxyCodeLine{00576\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}}
+\DoxyCodeLine{00577\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aece961c9fa00d31ee7b184b36afc4d39}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a2f749102f5210ee9fcd14f453670bdd7}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::get}}();}
+\DoxyCodeLine{00579\ \}}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00582\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_abba02caae1e3778d1fa7e63f2d8f6e93}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\&)\ \{}
+\DoxyCodeLine{00583\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00584\ \}}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00586\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00587\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator_aaee5b7e37067abc66a089683e9e2c770}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator::isValid}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_table_1_1_iterator_a6e7f1c107fe33c3a00a38b8b6f82fcfc}{hashTable<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>::Iterator::isValid}}();}
+\DoxyCodeLine{00589\ \}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00592\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::hashMap}}(HASH\ \mbox{\hyperlink{classoriginal_1_1hash}{hash}},\ ALLOC\ alloc)}
+\DoxyCodeLine{00593\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1hash_table}{hashTable}}<K\_TYPE,\ V\_TYPE,\ ALLOC,\ HASH>(std::move(\mbox{\hyperlink{classoriginal_1_1hash}{hash}})),}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1map}{map}}<K\_TYPE,\ V\_TYPE,\ ALLOC>(std::move(alloc))\ \{\}}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00597\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::hashMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}()\ \{}
+\DoxyCodeLine{00598\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{operator=}}(other);}
+\DoxyCodeLine{00599\ \}}
+\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00601\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00602\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>}}\&}
+\DoxyCodeLine{00603\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&other)\ \{}
+\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00606\ \ \ \ \ \}}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ \ \ \ \ this-\/>buckets\ =\ this-\/>bucketsCopy(other.buckets);}
+\DoxyCodeLine{00609\ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(ALLOC::propagate\_on\_container\_copy\_assignment::value)\ \{}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ other.allocator;}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ other.rebind\_alloc;}
+\DoxyCodeLine{00613\ \ \ \ \ \}}
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00615\ \}}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00617\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00618\ \mbox{\hyperlink{classoriginal_1_1hash_map_a173752d426c60ce58f325672942b9426}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::hashMap}}(\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&\&other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}()\ \{}
+\DoxyCodeLine{00619\ \ \ \ \ this-\/>operator=(std::move(other));}
+\DoxyCodeLine{00620\ \}}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00623\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>}}\&}
+\DoxyCodeLine{00624\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator=}}(\mbox{\hyperlink{classoriginal_1_1hash_map}{hashMap}}\ \&\&other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00625\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00627\ \ \ \ \ \}}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00629\ \ \ \ \ this-\/>buckets\ =\ std::move(other.buckets);}
+\DoxyCodeLine{00630\ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00631\ \ \ \ \ other.size\_\ =\ 0;}
+\DoxyCodeLine{00632\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(ALLOC::propagate\_on\_container\_move\_assignment::value)\ \{}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}\ =\ std::move(other.allocator);}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ std::move(other.rebind\_alloc);}
+\DoxyCodeLine{00635\ \ \ \ \ \}}
+\DoxyCodeLine{00636\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00637\ \}}
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00640\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}}
+\DoxyCodeLine{00641\ \mbox{\hyperlink{classoriginal_1_1hash_map_a240330de81bb12f309072cf492cb4c57}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00642\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
+\DoxyCodeLine{00643\ \}}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00646\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00647\ \mbox{\hyperlink{classoriginal_1_1hash_map_a7ddb32943ae3a43e7b9c1879e4dc5dc3}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00648\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>containsKey(e.\mbox{\hyperlink{classoriginal_1_1couple_a56f21c0b45f7e80c91b994f7073c405b}{first}}())\ \&\&\ this-\/>get(e.\mbox{\hyperlink{classoriginal_1_1couple_a56f21c0b45f7e80c91b994f7073c405b}{first}}())\ ==\ e.\mbox{\hyperlink{classoriginal_1_1couple_a69081ab855c1dcf0c36f1a11e0a28283}{second}}();}
+\DoxyCodeLine{00649\ \}}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00652\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a26351fd8d09350239b52d0386f323eb1}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::add}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k,\ \textcolor{keyword}{const}\ V\_TYPE\ \&v)\ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>insert(k,\ v);}
+\DoxyCodeLine{00654\ \}}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00657\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a32922c2dfc52023bf3d660bd91fef4d8}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::remove}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \{}
+\DoxyCodeLine{00658\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>erase(k);}
+\DoxyCodeLine{00659\ \}}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00661\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00662\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9030a86f599a09e1fe805d02d2bc5b7d}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::containsKey}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>find(k);}
+\DoxyCodeLine{00664\ \}}
+\DoxyCodeLine{00665\ }
+\DoxyCodeLine{00666\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00667\ V\_TYPE\ \mbox{\hyperlink{classoriginal_1_1hash_map_ae4ad7cacf894360301fe01e500698682}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::get}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00668\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
+\DoxyCodeLine{00671\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
+\DoxyCodeLine{00672\ \}}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00674\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00675\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1hash_map_abfdfc799aac745d491afafb43a53ee04}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::update}}(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \{}
+\DoxyCodeLine{00676\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>modify(key,\ value);}
+\DoxyCodeLine{00677\ \}}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00679\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00680\ \textcolor{keyword}{const}\ V\_TYPE\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00681\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{00682\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
+\DoxyCodeLine{00684\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
+\DoxyCodeLine{00685\ \}}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00688\ V\_TYPE\&\ \mbox{\hyperlink{classoriginal_1_1hash_map_aa9490c980ee07fc48f54fe1b2283c98d}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \{}
+\DoxyCodeLine{00689\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{00690\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \{}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ this-\/>insert(k,\ V\_TYPE\{\});}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{00693\ \ \ \ \ \}}
+\DoxyCodeLine{00694\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
+\DoxyCodeLine{00695\ \}}
+\DoxyCodeLine{00696\ }
+\DoxyCodeLine{00697\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00698\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{00699\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac0153b360bc9b5382a9b5a1a7a07fdb6}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::begins}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keyword}{auto}\ p\_buckets\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classoriginal_1_1vector}{vector<hashNode*,\ rebind\_alloc\_pointer>}}*\textcolor{keyword}{>}(\&this-\/>buckets);}
+\DoxyCodeLine{00701\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>buckets[0])\ \{}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(p\_buckets,\ 0,\ this-\/>buckets[0]);}
+\DoxyCodeLine{00703\ \ \ \ \ \}}
+\DoxyCodeLine{00704\ \ \ \ \ \textcolor{keyword}{auto}\ bucket\ =\ Iterator::findNextValidBucket(p\_buckets,\ 0);}
+\DoxyCodeLine{00705\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(p\_buckets,\ bucket,\ p\_buckets-\/>get(bucket));}
+\DoxyCodeLine{00706\ \}}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00709\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{00710\ \mbox{\hyperlink{classoriginal_1_1hash_map_a73758b08f0a7b04a4eedefbf3d3445f9}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::ends}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00711\ \ \ \ \ \textcolor{keyword}{auto}\ p\_buckets\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classoriginal_1_1vector}{vector<hashNode*,\ rebind\_alloc\_pointer>}}*\textcolor{keyword}{>}(\&this-\/>buckets);}
+\DoxyCodeLine{00712\ \ \ \ \ \textcolor{keyword}{auto}\ bucket\ =\ Iterator::findPrevValidBucket(p\_buckets,\ this-\/>buckets.size());}
+\DoxyCodeLine{00713\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>buckets[bucket];}
+\DoxyCodeLine{00714\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ \&\&\ node-\/>getPNext())\ \{}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ node\ =\ node-\/>getPNext();}
+\DoxyCodeLine{00716\ \ \ \ \ \}}
+\DoxyCodeLine{00717\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1hash_map_1_1_iterator}{Iterator}}(p\_buckets,\ bucket,\ node);}
+\DoxyCodeLine{00718\ \}}
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00721\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_a9fccf94aeba8f5780ae8fcb81c281ccc}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00722\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}hashMap"{}};}
+\DoxyCodeLine{00723\ \}}
+\DoxyCodeLine{00724\ }
+\DoxyCodeLine{00725\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00726\ std::string\ \mbox{\hyperlink{classoriginal_1_1hash_map_ac97e10564e05ed4ef479c0d8c2bc6b2c}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00727\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{00728\ \ \ \ \ ss\ <<\ this-\/>className();}
+\DoxyCodeLine{00729\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{00730\ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00731\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ this-\/>begin();\ it\ !=\ this-\/>end();\ it.next())\{}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!first)\{}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\{"{}}\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{printable::formatString}}(it.get().template\ get<0>())\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{printable::formatString}}(it.get().template\ get<1>())\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00738\ \ \ \ \ \}}
+\DoxyCodeLine{00739\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00740\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00742\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00743\ \}}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00746\ \mbox{\hyperlink{classoriginal_1_1hash_map}{original::hashMap<K\_TYPE,\ V\_TYPE,\ HASH,\ ALLOC>::\string~hashMap}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00748\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00749\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::Iterator}}(\mbox{\hyperlink{classoriginal_1_1_r_b_tree}{RBTree}}*\ tree,\ RBNode*\ cur)}
+\DoxyCodeLine{00750\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1_r_b_tree}{RBTree}}::Iterator(tree,\ cur)\ \ \{\}}
+\DoxyCodeLine{00751\ }
+\DoxyCodeLine{00752\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00753\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00754\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::equalPtr}}(}
+\DoxyCodeLine{00755\ \ \ \ \ \textcolor{keyword}{const}\ iterator<couple<const\ K\_TYPE,\ V\_TYPE>>*\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00756\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00757\ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }Iterator*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00758\ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ \&\&}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ this-\/>tree\_\ ==\ other\_it-\/>tree\_\ \&\&}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ this-\/>cur\_\ ==\ other\_it-\/>cur\_;}
+\DoxyCodeLine{00761\ \}}
+\DoxyCodeLine{00762\ }
+\DoxyCodeLine{00763\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00764\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::Iterator}}(\textcolor{keyword}{const}\ Iterator\&\ other)\ :\ Iterator(nullptr,\ nullptr)}
+\DoxyCodeLine{00765\ \{}
+\DoxyCodeLine{00766\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1hash_map_ae2df263ec8c9d8e71576746e6e50144e}{operator=}}(other);}
+\DoxyCodeLine{00767\ \}}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00770\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator}}\&}
+\DoxyCodeLine{00771\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::operator=}}(\textcolor{keyword}{const}\ Iterator\&\ other)}
+\DoxyCodeLine{00772\ \{}
+\DoxyCodeLine{00773\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00775\ \ \ \ \ \}}
+\DoxyCodeLine{00776\ }
+\DoxyCodeLine{00777\ \ \ \ \ this-\/>tree\_\ =\ other.tree\_;}
+\DoxyCodeLine{00778\ \ \ \ \ this-\/>cur\_\ =\ other.cur\_;}
+\DoxyCodeLine{00779\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00780\ \}}
+\DoxyCodeLine{00781\ }
+\DoxyCodeLine{00782\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00783\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{00784\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a7be46dcd7d079cf81cb9ae2513967be7}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::clone}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00785\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00786\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00787\ \}}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00790\ std::string\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a78eaeffca5a3b930bac8175245ec12c6}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::className}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00791\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00792\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}treeMap::Iterator"{}};}
+\DoxyCodeLine{00793\ \}}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00796\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_abd6527ae028075af9da94f559c7d56c3}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00797\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00798\ \ \ \ \ RBTree::Iterator::operator+=(steps);}
+\DoxyCodeLine{00799\ \}}
+\DoxyCodeLine{00800\ }
+\DoxyCodeLine{00801\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00802\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a6d7b53e1d93c08c6ef2328dd9bba380d}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00803\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00804\ \ \ \ \ RBTree::Iterator::operator-\/=(steps);}
+\DoxyCodeLine{00805\ \}}
+\DoxyCodeLine{00806\ }
+\DoxyCodeLine{00807\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00808\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{original::integer}}}
+\DoxyCodeLine{00809\ \mbox{\hyperlink{classoriginal_1_1iterator_a93b995c7bc03eae6217994040ac902cd}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::operator-\/}}(}
+\DoxyCodeLine{00810\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>\&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00811\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00813\ \}}
+\DoxyCodeLine{00814\ }
+\DoxyCodeLine{00815\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00816\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a2367b37e4420b3e3fa73f2d0fa04a364}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::hasNext}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00817\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00818\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTree::Iterator::hasNext();}
+\DoxyCodeLine{00819\ \}}
+\DoxyCodeLine{00820\ }
+\DoxyCodeLine{00821\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00822\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_aeccce71877ef20f927ca56b652bb6078}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::hasPrev}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00823\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00824\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTree::Iterator::hasPrev();}
+\DoxyCodeLine{00825\ \}}
+\DoxyCodeLine{00826\ }
+\DoxyCodeLine{00827\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00828\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::atPrev}}(}
+\DoxyCodeLine{00829\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}<\mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}>*\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00830\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00831\ \ \ \ \ \textcolor{keyword}{auto}\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00832\ \ \ \ \ \textcolor{keywordflow}{if}\ (!other\_it)\ \{}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00834\ \ \ \ \ \}}
+\DoxyCodeLine{00835\ \ \ \ \ \textcolor{keyword}{auto}\ next\ =\ \mbox{\hyperlink{classoriginal_1_1owner_ptr}{ownerPtr}}(this-\/>clone());}
+\DoxyCodeLine{00836\ \ \ \ \ \textcolor{keywordflow}{if}\ (!next-\/>isValid())\{}
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00838\ \ \ \ \ \}}
+\DoxyCodeLine{00839\ }
+\DoxyCodeLine{00840\ \ \ \ \ next-\/>next();}
+\DoxyCodeLine{00841\ \ \ \ \ \textcolor{keywordflow}{return}\ next-\/>equalPtr(other\_it);}
+\DoxyCodeLine{00842\ \}}
+\DoxyCodeLine{00843\ }
+\DoxyCodeLine{00844\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00845\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::atNext}}(}
+\DoxyCodeLine{00846\ \ \ \ \ \textcolor{keyword}{const}\ iterator<couple<const\ K\_TYPE,\ V\_TYPE>>*\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00847\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00848\ \ \ \ \ \textcolor{keywordflow}{return}\ other-\/>atNext(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00849\ \}}
+\DoxyCodeLine{00850\ }
+\DoxyCodeLine{00851\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00852\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a27157afcbab5e2907e9d5ca8e1402a87}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::next}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00853\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00854\ \ \ \ \ RBTree::Iterator::next();}
+\DoxyCodeLine{00855\ \}}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00858\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a94a4d3e87ff108f2c04d83a721527a80}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::prev}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00859\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00860\ \ \ \ \ RBTree::Iterator::prev();}
+\DoxyCodeLine{00861\ \}}
+\DoxyCodeLine{00862\ }
+\DoxyCodeLine{00863\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00864\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{00865\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a75ac2a115ee711fe2a839372210c4931}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::getPrev}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00866\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00867\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ this-\/>clone();}
+\DoxyCodeLine{00868\ \ \ \ \ it-\/>prev();}
+\DoxyCodeLine{00869\ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00870\ \}}
+\DoxyCodeLine{00871\ }
+\DoxyCodeLine{00872\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00873\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}\&\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a03533635604f637ce94a72eb21e24557}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::get}}()}
+\DoxyCodeLine{00874\ \{}
+\DoxyCodeLine{00875\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTree::Iterator::get();}
+\DoxyCodeLine{00876\ \}}
+\DoxyCodeLine{00877\ }
+\DoxyCodeLine{00878\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00879\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a03533635604f637ce94a72eb21e24557}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::get}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00880\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00881\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTree::Iterator::get();}
+\DoxyCodeLine{00882\ \}}
+\DoxyCodeLine{00883\ }
+\DoxyCodeLine{00884\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00885\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_aff1468db9e90cd1b0be470c09b4cfec6}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::set}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\&\ data)}
+\DoxyCodeLine{00886\ \{}
+\DoxyCodeLine{00887\ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1un_supported_method_error}{unSupportedMethodError}}();}
+\DoxyCodeLine{00888\ \}}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00890\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00891\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator_a7f0e5880d38176d54745a416a5df8265}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator::isValid}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00892\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00893\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTree::Iterator::isValid();}
+\DoxyCodeLine{00894\ \}}
+\DoxyCodeLine{00895\ }
+\DoxyCodeLine{00896\ }
+\DoxyCodeLine{00897\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00898\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::treeMap}}(\mbox{\hyperlink{conceptoriginal_1_1_compare}{Compare}}\ comp,\ ALLOC\ alloc)}
+\DoxyCodeLine{00899\ \ \ \ \ :\ RBTree(std::move(comp)),}
+\DoxyCodeLine{00900\ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1map}{map}}<K\_TYPE,\ V\_TYPE,\ ALLOC>(std::move(alloc))\ \{\}}
+\DoxyCodeLine{00901\ }
+\DoxyCodeLine{00902\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00903\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::treeMap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{treeMap}}\&\ other)\ :\ \mbox{\hyperlink{classoriginal_1_1tree_map}{treeMap}}()\ \{}
+\DoxyCodeLine{00904\ \ \ \ \ this-\/>operator=(other);}
+\DoxyCodeLine{00905\ \}}
+\DoxyCodeLine{00906\ }
+\DoxyCodeLine{00907\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00908\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>}}\&}
+\DoxyCodeLine{00909\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::operator=}}(\textcolor{keyword}{const}\ treeMap\&\ other)\ \{}
+\DoxyCodeLine{00910\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\{}
+\DoxyCodeLine{00911\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00912\ \ \ \ \ \}}
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00914\ \ \ \ \ this-\/>destroyTree();}
+\DoxyCodeLine{00915\ \ \ \ \ this-\/>root\_\ =\ other.treeCopy();}
+\DoxyCodeLine{00916\ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00917\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(ALLOC::propagate\_on\_container\_copy\_assignment::value)\ \{}
+\DoxyCodeLine{00918\ \ \ \ \ \ \ \ \ this-\/>allocator\ =\ other.allocator;}
+\DoxyCodeLine{00919\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ other.rebind\_alloc;}
+\DoxyCodeLine{00920\ \ \ \ \ \}}
+\DoxyCodeLine{00921\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00922\ \}}
+\DoxyCodeLine{00923\ }
+\DoxyCodeLine{00924\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00925\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::treeMap}}(treeMap\&\&\ other)\ noexcept\ :\ treeMap()\ \{}
+\DoxyCodeLine{00926\ \ \ \ \ this-\/>operator=(std::move(other));}
+\DoxyCodeLine{00927\ \}}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00929\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00930\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>}}\&}
+\DoxyCodeLine{00931\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::operator=}}(treeMap\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00932\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\{}
+\DoxyCodeLine{00933\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00934\ \ \ \ \ \}}
+\DoxyCodeLine{00935\ }
+\DoxyCodeLine{00936\ \ \ \ \ this-\/>root\_\ =\ other.root\_;}
+\DoxyCodeLine{00937\ \ \ \ \ other.root\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00938\ \ \ \ \ this-\/>size\_\ =\ other.size\_;}
+\DoxyCodeLine{00939\ \ \ \ \ other.size\_\ =\ 0;}
+\DoxyCodeLine{00940\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}(ALLOC::propagate\_on\_container\_move\_assignment::value)\ \{}
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ this-\/>allocator\ =\ std::move(other.allocator);}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ this-\/>rebind\_alloc\ =\ std::move(other.rebind\_alloc);}
+\DoxyCodeLine{00943\ \ \ \ \ \}}
+\DoxyCodeLine{00944\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00945\ \}}
+\DoxyCodeLine{00946\ }
+\DoxyCodeLine{00947\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00948\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00949\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>size\_;}
+\DoxyCodeLine{00950\ \}}
+\DoxyCodeLine{00951\ }
+\DoxyCodeLine{00952\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00953\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00954\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::contains}}(\textcolor{keyword}{const}\ couple<const\ K\_TYPE,\ V\_TYPE>\ \&e)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00955\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>containsKey(e.first())\ \&\&\ this-\/>get(e.first())\ ==\ e.second();}
+\DoxyCodeLine{00956\ \}}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00958\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00959\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::add}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k,\ \textcolor{keyword}{const}\ V\_TYPE\ \&v)\ \{}
+\DoxyCodeLine{00960\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>insert(k,\ v);}
+\DoxyCodeLine{00961\ \}}
+\DoxyCodeLine{00962\ }
+\DoxyCodeLine{00963\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00964\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::remove}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \{}
+\DoxyCodeLine{00965\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>erase(k);}
+\DoxyCodeLine{00966\ \}}
+\DoxyCodeLine{00967\ }
+\DoxyCodeLine{00968\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00969\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::containsKey}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00970\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>find(k);}
+\DoxyCodeLine{00971\ \}}
+\DoxyCodeLine{00972\ }
+\DoxyCodeLine{00973\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00974\ V\_TYPE\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::get}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00975\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{00976\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)}
+\DoxyCodeLine{00977\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ noElementError();}
+\DoxyCodeLine{00978\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
+\DoxyCodeLine{00979\ \}}
+\DoxyCodeLine{00980\ }
+\DoxyCodeLine{00981\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00982\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::update}}(\textcolor{keyword}{const}\ K\_TYPE\ \&key,\ \textcolor{keyword}{const}\ V\_TYPE\ \&value)\ \{}
+\DoxyCodeLine{00983\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>modify(key,\ value);}
+\DoxyCodeLine{00984\ \}}
+\DoxyCodeLine{00985\ }
+\DoxyCodeLine{00986\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00987\ \textcolor{keyword}{const}\ V\_TYPE\ \&\mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00988\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{00989\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ noElementError();}
+\DoxyCodeLine{00991\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
+\DoxyCodeLine{00992\ \}}
+\DoxyCodeLine{00993\ }
+\DoxyCodeLine{00994\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00995\ V\_TYPE\ \&\mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::operator[]}}(\textcolor{keyword}{const}\ K\_TYPE\ \&k)\ \{}
+\DoxyCodeLine{00996\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{00997\ \ \ \ \ \textcolor{keywordflow}{if}\ (!node)\ \{}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ this-\/>insert(k,\ V\_TYPE\{\});}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \ \ node\ =\ this-\/>find(k);}
+\DoxyCodeLine{01000\ \ \ \ \ \}}
+\DoxyCodeLine{01001\ \ \ \ \ \textcolor{keywordflow}{return}\ node-\/>getValue();}
+\DoxyCodeLine{01002\ \}}
+\DoxyCodeLine{01003\ }
+\DoxyCodeLine{01004\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{01005\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{01006\ \mbox{\hyperlink{classoriginal_1_1tree_map_a06bf471b9cc6c5addc7efdd3bcdc24be}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::begins}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01007\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{01008\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}(\textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classoriginal_1_1tree_map}{treeMap}}*\textcolor{keyword}{>}(\textcolor{keyword}{this}),\ this-\/>getMinNode());}
+\DoxyCodeLine{01009\ \}}
+\DoxyCodeLine{01010\ }
+\DoxyCodeLine{01011\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{01012\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::Iterator}}*}
+\DoxyCodeLine{01013\ \mbox{\hyperlink{classoriginal_1_1tree_map_a3e77fbb45246a4330519a291b8024278}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::ends}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01014\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{01015\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1tree_map_1_1_iterator}{Iterator}}(\textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classoriginal_1_1tree_map}{treeMap}}*\textcolor{keyword}{>}(\textcolor{keyword}{this}),\ this-\/>getMaxNode());}
+\DoxyCodeLine{01016\ \}}
+\DoxyCodeLine{01017\ }
+\DoxyCodeLine{01018\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{01019\ std::string\ \mbox{\hyperlink{classoriginal_1_1tree_map_a23bc581e788f0b1d91595cd4594fd666}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::className}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{01020\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}treeMap"{}};}
+\DoxyCodeLine{01021\ \}}
+\DoxyCodeLine{01022\ }
+\DoxyCodeLine{01023\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{01024\ std::string\ \mbox{\hyperlink{classoriginal_1_1tree_map_a7edaf76d88337790be49de35c7e1267b}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::toString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ enter)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{01025\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{01026\ \ \ \ \ ss\ <<\ this-\/>\mbox{\hyperlink{classoriginal_1_1tree_map_a23bc581e788f0b1d91595cd4594fd666}{className}}();}
+\DoxyCodeLine{01027\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{01028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01029\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_abbe2b7be21e8c971b9b548c46d394014}{begin}}();\ it\ !=\ this-\/>\mbox{\hyperlink{classoriginal_1_1iterable_a573f7bd567b302868762aaeff0f7de9b}{end}}();\ it.next())\{}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}})\{}
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\{"{}}\ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{printable::formatString}}(it.get().template\ get<0>())\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
+\DoxyCodeLine{01034\ \ \ \ \ \ \ \ \ \ \ \ <<\ \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{printable::formatString}}(it.get().template\ get<1>())\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{01035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1iterable_a35d7da844c6d25bc1a24b7fc1583aa80}{first}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01036\ \ \ \ \ \}}
+\DoxyCodeLine{01037\ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{01038\ \ \ \ \ \textcolor{keywordflow}{if}\ (enter)}
+\DoxyCodeLine{01039\ \ \ \ \ \ \ \ \ ss\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{01040\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{01041\ \}}
+\DoxyCodeLine{01042\ }
+\DoxyCodeLine{01043\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{01044\ \mbox{\hyperlink{classoriginal_1_1tree_map}{original::treeMap<K\_TYPE,\ V\_TYPE,\ Compare,\ ALLOC>::\string~treeMap}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{01045\ }
+\DoxyCodeLine{01046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MAPS\_H}}
 
 \end{DoxyCode}

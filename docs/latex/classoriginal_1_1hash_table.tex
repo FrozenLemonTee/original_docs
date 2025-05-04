@@ -11,16 +11,6 @@ Hash table implementation with separate chaining.
 
 
 
-Inheritance diagram for original\+::hash\+Table\texorpdfstring{$<$}{<} K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH \texorpdfstring{$>$}{>}\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=550pt]{classoriginal_1_1hash_table__inherit__graph}
-\end{center}
-\end{figure}
-
-
 Collaboration diagram for original\+::hash\+Table\texorpdfstring{$<$}{<} K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH \texorpdfstring{$>$}{>}\+:
 \nopagebreak
 \begin{figure}[H]
@@ -51,7 +41,7 @@ using {\bfseries buckets\+\_\+type} = \mbox{\hyperlink{classoriginal_1_1vector}{
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{buckets\+\_\+type}} \mbox{\hyperlink{classoriginal_1_1hash_table_aedaab83522daf17355151691790d8601}{buckets\+Copy}} (const \mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{buckets\+\_\+type}} \&buckets) const
+\mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{buckets\+\_\+type}} \mbox{\hyperlink{classoriginal_1_1hash_table_a88b1e7ef259a20722f264b3fc80a5acb}{buckets\+Copy}} (const \mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{buckets\+\_\+type}} \&old\+\_\+buckets) const
 \begin{DoxyCompactList}\small\item\em Creates a deep copy of the hash table\textquotesingle{}s bucket array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1hash_table_1_1hash_node}{hash\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1hash_table_a1186aae1a84a125368c23008eb37a9cd}{create\+Node}} (const K\+\_\+\+TYPE \&key=K\+\_\+\+TYPE\{\}, const V\+\_\+\+TYPE \&value=V\+\_\+\+TYPE\{\}, \mbox{\hyperlink{classoriginal_1_1hash_table_1_1hash_node}{hash\+Node}} \texorpdfstring{$\ast$}{*}next=nullptr) const
 \begin{DoxyCompactList}\small\item\em Creates a new hash node. \end{DoxyCompactList}\item 
@@ -83,9 +73,7 @@ bool \mbox{\hyperlink{classoriginal_1_1hash_table_a8f35ac196bfe8887316cea1f9aae9
 \begin{DoxyCompactList}\small\item\em Inserts new key-\/value pair. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1hash_table_ac4eab9cb5d20601ae4c07d5340387881}{erase}} (const K\+\_\+\+TYPE \&key)
 \begin{DoxyCompactList}\small\item\em Removes key-\/value pair. \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{classoriginal_1_1hash_table_aa64bae44f0dd4e43b4b096160ef94bab}{class\+Name}} () const override
-\begin{DoxyCompactList}\small\item\em Gets class name. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classoriginal_1_1hash_table_a053fa12e1e3e803dfa0bf1b8f8bbdf3c}{\texorpdfstring{$\sim$}{\string~}hash\+Table}} () override
+\mbox{\hyperlink{classoriginal_1_1hash_table_a3e772987816536a98aaed29523a7107d}{\texorpdfstring{$\sim$}{\string~}hash\+Table}} ()
 \begin{DoxyCompactList}\small\item\em Destroys \doxylink{classoriginal_1_1hash_table}{hash\+Table}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -113,46 +101,9 @@ static constexpr \mbox{\hyperlink{namespaceoriginal_a5104897f92e2cdc97514b043bbd
 \begin{DoxyCompactList}\small\item\em Maximum load factor before expanding. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1hash_table_a676193075374f62769b826613b7704eb}\label{classoriginal_1_1hash_table_a676193075374f62769b826613b7704eb} 
 static constexpr \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} {\bfseries BUCKETS\+\_\+\+SIZES\+\_\+\+COUNT} = 30
-\begin{DoxyCompactList}\small\item\em Number of predefined bucket sizes. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Size of BUCKETS\+\_\+\+SIZES \doxylink{classoriginal_1_1hash_table_af2771177863c0be4896fe63e23f38aeb}{BUCKETS\+\_\+\+SIZES}. \end{DoxyCompactList}\item 
 static constexpr \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1hash_table_af2771177863c0be4896fe63e23f38aeb}{BUCKETS\+\_\+\+SIZES}} \mbox{[}$\,$\mbox{]}
 \begin{DoxyCompactList}\small\item\em Predefined bucket sizes for hash table resizing. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Additional Inherited Members}
-\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
-\begin{DoxyCompactItemize}
-\item 
-virtual std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a8c944ccaa4e8cf8d6c8e9ac25471fe7e}{to\+String}} (bool enter) const
-\begin{DoxyCompactList}\small\item\em Generates formatted string representation. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classoriginal_1_1printable_a25115aca8a3414062cac9d6027c9c525}{operator std\+::string}} () const
-\begin{DoxyCompactList}\small\item\em Explicit conversion to std\+::string. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classoriginal_1_1printable_ae90d2e1d35c97ccf92c283f1a7158da8}{operator const char \texorpdfstring{$\ast$}{*}}} () const
-\begin{DoxyCompactList}\small\item\em Explicit conversion to C-\/style string. \end{DoxyCompactList}\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{to\+CString}} (bool enter) const
-\begin{DoxyCompactList}\small\item\em Direct C-\/string access with formatting control. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
-\begin{DoxyCompactItemize}
-\item 
-{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
-\begin{DoxyCompactList}\small\item\em Universal value-\/to-\/string conversion. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{format\+String}} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
-\begin{DoxyCompactList}\small\item\em Pointer-\/specific formatting. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE $>$ }\\static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{format\+CString}} (const TYPE \&t)
-\begin{DoxyCompactList}\small\item\em C-\/string cache for temporary usage. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{format\+Enum}} (const TYPE \&t)
-\begin{DoxyCompactList}\small\item\em Enum formatting utility. \end{DoxyCompactList}\item 
-template$<$$>$ auto {\bfseries format\+String} (const char \&t) -\/$>$ std\+::string
-\item 
-template$<$$>$ auto {\bfseries format\+String} (const bool \&t) -\/$>$ std\+::string
-\item 
-template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -209,12 +160,12 @@ Constructs empty \doxylink{classoriginal_1_1hash_table}{hash\+Table}.
 {\em hash} & Hash function to use \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classoriginal_1_1hash_table_a053fa12e1e3e803dfa0bf1b8f8bbdf3c}\index{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}!````~hashTable@{\texorpdfstring{$\sim$}{\string~}hashTable}}
+\Hypertarget{classoriginal_1_1hash_table_a3e772987816536a98aaed29523a7107d}\index{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}!````~hashTable@{\texorpdfstring{$\sim$}{\string~}hashTable}}
 \index{````~hashTable@{\texorpdfstring{$\sim$}{\string~}hashTable}!original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}hashTable()}{\string~hashTable()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1hash_table_a053fa12e1e3e803dfa0bf1b8f8bbdf3c} 
+{\footnotesize\ttfamily \label{classoriginal_1_1hash_table_a3e772987816536a98aaed29523a7107d} 
 template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC , typename HASH $>$ \\
-\mbox{\hyperlink{classoriginal_1_1hash_table}{original\+::hash\+Table}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classoriginal_1_1hash_table}{hash\+Table}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+\mbox{\hyperlink{classoriginal_1_1hash_table}{original\+::hash\+Table}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classoriginal_1_1hash_table}{hash\+Table}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
@@ -238,12 +189,12 @@ Checks current load factor and resizes if\+:
 \begin{DoxyItemize}
 \item \doxylink{classoriginal_1_1hash_table_abd52c574bb7adf1b32b312ab0a673642}{load\+Factor()} \texorpdfstring{$>$}{>}= LOAD\+\_\+\+FACTOR\+\_\+\+MAX\+: expands table
 \item \doxylink{classoriginal_1_1hash_table_abd52c574bb7adf1b32b312ab0a673642}{load\+Factor()} \texorpdfstring{$<$}{<}= LOAD\+\_\+\+FACTOR\+\_\+\+MIN\+: shrinks table 
-\end{DoxyItemize}\Hypertarget{classoriginal_1_1hash_table_aedaab83522daf17355151691790d8601}\index{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}!bucketsCopy@{bucketsCopy}}
+\end{DoxyItemize}\Hypertarget{classoriginal_1_1hash_table_a88b1e7ef259a20722f264b3fc80a5acb}\index{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}!bucketsCopy@{bucketsCopy}}
 \index{bucketsCopy@{bucketsCopy}!original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}}
 \doxysubsubsection{\texorpdfstring{bucketsCopy()}{bucketsCopy()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1hash_table_aedaab83522daf17355151691790d8601} 
+{\footnotesize\ttfamily \label{classoriginal_1_1hash_table_a88b1e7ef259a20722f264b3fc80a5acb} 
 template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC , typename HASH $>$ \\
-\mbox{\hyperlink{classoriginal_1_1hash_table}{original\+::hash\+Table}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH $>$\mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{\+::buckets\+\_\+type}} \mbox{\hyperlink{classoriginal_1_1hash_table}{original\+::hash\+Table}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH $>$\+::buckets\+Copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{buckets\+\_\+type}} \&}]{buckets}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+\mbox{\hyperlink{classoriginal_1_1hash_table}{original\+::hash\+Table}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH $>$\mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{\+::buckets\+\_\+type}} \mbox{\hyperlink{classoriginal_1_1hash_table}{original\+::hash\+Table}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH $>$\+::buckets\+Copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1hash_table_a56da3820bc943d0e1a3e9dc654129388}{buckets\+\_\+type}} \&}]{old\+\_\+buckets}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
@@ -251,13 +202,13 @@ Creates a deep copy of the hash table\textquotesingle{}s bucket array.
 
 
 \begin{DoxyParams}{Parameters}
-{\em buckets} & The original buckets array to copy \\
+{\em old\+\_\+buckets} & The original old\+\_\+buckets array to copy \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A new buckets array with cloned nodes
+A new old\+\_\+buckets array with cloned nodes
 \end{DoxyReturn}
-This function performs a deep copy of the entire buckets array used by the hash table, including the internal linked list in each bucket (used for separate chaining).
+This function performs a deep copy of the entire old\+\_\+buckets array used by the hash table, including the internal linked list in each bucket (used for separate chaining).
 
 Copying strategy\+:
 \begin{DoxyItemize}
@@ -280,28 +231,10 @@ The function ensures that\+:
 \end{DoxyItemize}
 
 \begin{DoxyNote}{Note}
-This function assumes the original buckets are well-\/formed (no cycles). 
+This function assumes the original old\+\_\+buckets are well-\/formed (no cycles). 
 
 Uses allocator rebound to allocate memory for the new nodes. 
 \end{DoxyNote}
-\Hypertarget{classoriginal_1_1hash_table_aa64bae44f0dd4e43b4b096160ef94bab}\index{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}!className@{className}}
-\index{className@{className}!original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}}
-\doxysubsubsection{\texorpdfstring{className()}{className()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1hash_table_aa64bae44f0dd4e43b4b096160ef94bab} 
-template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC , typename HASH $>$ \\
-std\+::string \mbox{\hyperlink{classoriginal_1_1hash_table}{original\+::hash\+Table}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC, HASH $>$\+::class\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
-
-
-
-Gets class name. 
-
-\begin{DoxyReturn}{Returns}
-"{}hash\+Table"{} 
-\end{DoxyReturn}
-
-
-Reimplemented from \mbox{\hyperlink{classoriginal_1_1printable_a964ede666275c3d0884df1c8a6e9f720}{original\+::printable}}.
-
 \Hypertarget{classoriginal_1_1hash_table_a1186aae1a84a125368c23008eb37a9cd}\index{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}!createNode@{createNode}}
 \index{createNode@{createNode}!original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$@{original::hashTable$<$ K\_TYPE, V\_TYPE, ALLOC, HASH $>$}}
 \doxysubsubsection{\texorpdfstring{createNode()}{createNode()}}

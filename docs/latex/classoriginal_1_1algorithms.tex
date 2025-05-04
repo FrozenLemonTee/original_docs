@@ -190,7 +190,7 @@ requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classorigina
 requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_a2336bd54f1be8f54d604af00af47bfeb}{heap\+Init}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares)
 \begin{DoxyCompactList}\small\item\em Initializes a heap structure from a range of iterators. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TYPE , typename Callback $>$ \newline
-requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_a622ecf51f023a5b452971c31f4b642be}{sort}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares, bool is\+Stable=false)
+requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_a208a5c07491f2104a24ea3a36dfeda7d}{sort}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares, bool is\+\_\+stable=false)
 \begin{DoxyCompactList}\small\item\em Sorts a range of elements using either stable or unstable sorting algorithm. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename TYPE , typename Callback $>$ \newline
 requires Compare$<$Callback, TYPE$>$}\\static void \mbox{\hyperlink{classoriginal_1_1algorithms_a84e21f685076376b3e463d792b3e2c3d}{intro\+Sort}} (const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&begin, const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&end, const Callback \&compares)
@@ -1307,13 +1307,13 @@ strong\+Ptr$<$iterator$<$\+TYPE$>$$>$ Iterator to new end of reversed range
 \begin{DoxyNote}{Note}
 Performs in-\/place reversal of elements 
 \end{DoxyNote}
-\Hypertarget{classoriginal_1_1algorithms_a622ecf51f023a5b452971c31f4b642be}\index{original::algorithms@{original::algorithms}!sort@{sort}}
+\Hypertarget{classoriginal_1_1algorithms_a208a5c07491f2104a24ea3a36dfeda7d}\index{original::algorithms@{original::algorithms}!sort@{sort}}
 \index{sort@{sort}!original::algorithms@{original::algorithms}}
 \doxysubsubsection{\texorpdfstring{sort()}{sort()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1algorithms_a622ecf51f023a5b452971c31f4b642be} 
+{\footnotesize\ttfamily \label{classoriginal_1_1algorithms_a208a5c07491f2104a24ea3a36dfeda7d} 
 template$<$typename TYPE , typename Callback $>$ \newline
 requires Compare$<$Callback, TYPE$>$\\
-void original\+::algorithms\+::sort (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{begin}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{end}{, }\item[{const Callback \&}]{compares}{, }\item[{bool}]{is\+Stable}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+void original\+::algorithms\+::sort (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{begin}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1iterator}{iterator}}$<$ TYPE $>$ \&}]{end}{, }\item[{const Callback \&}]{compares}{, }\item[{bool}]{is\+\_\+stable}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -1334,10 +1334,10 @@ Sorts a range of elements using either stable or unstable sorting algorithm.
 \hline
 {\em compares} & Comparison callback to define the order \\
 \hline
-{\em is\+Stable} & Flag indicating whether to use stable sorting (default\+: false)\\
+{\em is\+\_\+stable} & Flag indicating whether to use stable sorting (default\+: false)\\
 \hline
 \end{DoxyParams}
-This function sorts the elements in the range \mbox{[}begin, end\mbox{]} based on the specified comparison callback. When is\+Stable is set to true, it delegates to stable sort (hybrid of mergesort/insertion\+Sort, see \doxylink{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}{stable\+Sort()}) which preserves the relative order of equivalent elements, suitable for scenarios requiring stability. When false (default), it uses introspective sort (hybrid of quicksort/heap\+Sort/insertion\+Sort, see \doxylink{classoriginal_1_1algorithms_a84e21f685076376b3e463d792b3e2c3d}{intro\+Sort()}) which provides O(n log n) worst-\/case performance but does not preserve element order equality. The choice depends on use-\/case requirements\+: Introspective sort (default) is optimal for general-\/purpose sorting with large datasets Stable sort is explicitly chosen for when stability is required \Hypertarget{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}\index{original::algorithms@{original::algorithms}!stableSort@{stableSort}}
+This function sorts the elements in the range \mbox{[}begin, end\mbox{]} based on the specified comparison callback. When is\+\_\+stable is set to true, it delegates to stable sort (hybrid of mergesort/insertion\+Sort, see \doxylink{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}{stable\+Sort()}) which preserves the relative order of equivalent elements, suitable for scenarios requiring stability. When false (default), it uses introspective sort (hybrid of quicksort/heap\+Sort/insertion\+Sort, see \doxylink{classoriginal_1_1algorithms_a84e21f685076376b3e463d792b3e2c3d}{intro\+Sort()}) which provides O(n log n) worst-\/case performance but does not preserve element order equality. The choice depends on use-\/case requirements\+: Introspective sort (default) is optimal for general-\/purpose sorting with large datasets Stable sort is explicitly chosen for when stability is required \Hypertarget{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657}\index{original::algorithms@{original::algorithms}!stableSort@{stableSort}}
 \index{stableSort@{stableSort}!original::algorithms@{original::algorithms}}
 \doxysubsubsection{\texorpdfstring{stableSort()}{stableSort()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1algorithms_ac11be4fa7a74d34e74699e1715d4a657} 
