@@ -112,18 +112,18 @@
 \DoxyCodeLine{00343\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,}
 \DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ \mbox{\hyperlink{conceptoriginal_1_1Compare}{Compare}}\ =\ \mbox{\hyperlink{classoriginal_1_1increaseComparator}{increaseComparator<TYPE>}},}
 \DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ALLOC\ =\ \mbox{\hyperlink{classoriginal_1_1allocator}{allocator<couple<const\ TYPE,\ const\ bool>}}>>}
-\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1treeSet_a8436c40d9cec6a1e1fd4b0fb1153a076}{treeSet}}\ final\ :\ \textcolor{keyword}{public}\ RBTree<TYPE,\ const\ bool,\ ALLOC,\ Compare>,}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1treeSet_a8436c40d9cec6a1e1fd4b0fb1153a076}{treeSet}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1RBTree}{RBTree}}<TYPE,\ const\ bool,\ ALLOC,\ Compare>,}
 \DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1set}{set}}<TYPE,\ ALLOC>,}
 \DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1iterable}{iterable}}<const\ TYPE>,}
 \DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1printable}{printable}}\ \{}
-\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }RBTree\ =\ RBTree<TYPE,\ const\ bool,\ ALLOC,\ Compare>;}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }RBTreeType\ =\ \mbox{\hyperlink{classoriginal_1_1RBTree}{RBTree<TYPE,\ const\ bool,\ ALLOC,\ Compare>}};}
 \DoxyCodeLine{00351\ }
-\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }RBNode\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1RBNode}{RBTree::RBNode}};}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }RBNode\ =\ \textcolor{keyword}{typename}\ RBTreeType::RBNode;}
 \DoxyCodeLine{00357\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator}{RBTree::Iterator}},}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }Iterator\ final\ :\ \textcolor{keyword}{public}\ RBTreeType::Iterator,}
 \DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}<const\ TYPE>}
 \DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Iterator(RBTree*\ tree,\ RBNode*\ cur);}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Iterator(RBTreeType*\ tree,\ RBNode*\ cur);}
 \DoxyCodeLine{00381\ }
 \DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ equalPtr(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<const\ TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
@@ -442,8 +442,8 @@
 \DoxyCodeLine{00846\ original::hashSet<TYPE,\ HASH,\ ALLOC>::\string~hashSet()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{00847\ }
 \DoxyCodeLine{00848\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
-\DoxyCodeLine{00849\ original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::Iterator(\mbox{\hyperlink{classoriginal_1_1RBTree}{RBTree}}*\ tree,\ RBNode*\ cur)}
-\DoxyCodeLine{00850\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1RBTree}{RBTree}}::Iterator(tree,\ cur)\ \ \{\}}
+\DoxyCodeLine{00849\ original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::Iterator(RBTreeType*\ tree,\ RBNode*\ cur)}
+\DoxyCodeLine{00850\ \ \ \ \ :\ RBTreeType::Iterator(tree,\ cur)\ \ \{\}}
 \DoxyCodeLine{00851\ }
 \DoxyCodeLine{00852\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00853\ \textcolor{keywordtype}{bool}\ original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::equalPtr(\textcolor{keyword}{const}\ iterator<const\ TYPE>*\ other)\textcolor{keyword}{\ const}}
@@ -469,8 +469,8 @@
 \DoxyCodeLine{00873\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00874\ \ \ \ \ \}}
 \DoxyCodeLine{00875\ }
-\DoxyCodeLine{00876\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_af5c63b76bbd5d9536101d18fee3e45b9}{tree\_}}\ =\ other.\mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_af5c63b76bbd5d9536101d18fee3e45b9}{tree\_}};}
-\DoxyCodeLine{00877\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_aa76b64deb3c7adb1145f4e38e2bd09e2}{cur\_}}\ =\ other.\mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_aa76b64deb3c7adb1145f4e38e2bd09e2}{cur\_}};}
+\DoxyCodeLine{00876\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_af5c63b76bbd5d9536101d18fee3e45b9}{tree\_}}\ =\ other.tree\_;}
+\DoxyCodeLine{00877\ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_aa76b64deb3c7adb1145f4e38e2bd09e2}{cur\_}}\ =\ other.cur\_;}
 \DoxyCodeLine{00878\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00879\ \}}
 \DoxyCodeLine{00880\ }
@@ -490,13 +490,13 @@
 \DoxyCodeLine{00894\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00895\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a620be8f52619a599e943868e66bd3c7b}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00896\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00897\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_aaca3508fd08ac70868812243a59ffe50}{RBTree::Iterator::operator+=}}(steps);}
+\DoxyCodeLine{00897\ \ \ \ \ RBTreeType::Iterator::operator+=(steps);}
 \DoxyCodeLine{00898\ \}}
 \DoxyCodeLine{00899\ }
 \DoxyCodeLine{00900\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00901\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a27f8b88b6ef9333d7c265a342bd0d050}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00902\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00903\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_a8b6c0dde4aeebecf517855b0152f6931}{RBTree::Iterator::operator-\/=}}(steps);}
+\DoxyCodeLine{00903\ \ \ \ \ RBTreeType::Iterator::operator-\/=(steps);}
 \DoxyCodeLine{00904\ \}}
 \DoxyCodeLine{00905\ }
 \DoxyCodeLine{00906\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
@@ -509,13 +509,13 @@
 \DoxyCodeLine{00913\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00914\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a86c16e7ffb4c99a257a21fd61ef8832b}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::hasNext}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00915\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00916\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_a8e884e8e41dfe11eeba49c6372a15324}{RBTree::Iterator::hasNext}}();}
+\DoxyCodeLine{00916\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTreeType::Iterator::hasNext();}
 \DoxyCodeLine{00917\ \}}
 \DoxyCodeLine{00918\ }
 \DoxyCodeLine{00919\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00920\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a97e18788f2b6a5d34b0cb03c3a82516e}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::hasPrev}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00921\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00922\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_a54baf8148028f8097be9a826cd4f3139}{RBTree::Iterator::hasPrev}}();}
+\DoxyCodeLine{00922\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTreeType::Iterator::hasPrev();}
 \DoxyCodeLine{00923\ \}}
 \DoxyCodeLine{00924\ }
 \DoxyCodeLine{00925\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
@@ -543,13 +543,13 @@
 \DoxyCodeLine{00947\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00948\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a1d5db52a24c0d80b7526c6a6dd92ad1a}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::next}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00949\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00950\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_aeb9cbbed7341a456644b92ffa4d202c6}{RBTree::Iterator::next}}();}
+\DoxyCodeLine{00950\ \ \ \ \ RBTreeType::Iterator::next();}
 \DoxyCodeLine{00951\ \}}
 \DoxyCodeLine{00952\ }
 \DoxyCodeLine{00953\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00954\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a6d2aaea6b3d8188a2f9ae9b33175d86b}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::prev}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00955\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00956\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_aaf0760e317606acd70e1a2d7ce470bea}{RBTree::Iterator::prev}}();}
+\DoxyCodeLine{00956\ \ \ \ \ RBTreeType::Iterator::prev();}
 \DoxyCodeLine{00957\ \}}
 \DoxyCodeLine{00958\ }
 \DoxyCodeLine{00959\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
@@ -564,13 +564,13 @@
 \DoxyCodeLine{00968\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00969\ \textcolor{keyword}{const}\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a340efd4d45df4224d712aeef857e2a12}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::get}}()}
 \DoxyCodeLine{00970\ \{}
-\DoxyCodeLine{00971\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_a9954b5a46f2c3ab4ec49ff31f4c62735}{RBTree::Iterator::get}}().template\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a340efd4d45df4224d712aeef857e2a12}{get<0>}}();}
+\DoxyCodeLine{00971\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTreeType::Iterator::get().template\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a340efd4d45df4224d712aeef857e2a12}{get<0>}}();}
 \DoxyCodeLine{00972\ \}}
 \DoxyCodeLine{00973\ }
 \DoxyCodeLine{00974\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00975\ \textcolor{keyword}{const}\ TYPE\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a340efd4d45df4224d712aeef857e2a12}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::get}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00976\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00977\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_a9954b5a46f2c3ab4ec49ff31f4c62735}{RBTree::Iterator::get}}().template\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a340efd4d45df4224d712aeef857e2a12}{get<0>}}();}
+\DoxyCodeLine{00977\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTreeType::Iterator::get().template\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a340efd4d45df4224d712aeef857e2a12}{get<0>}}();}
 \DoxyCodeLine{00978\ \}}
 \DoxyCodeLine{00979\ }
 \DoxyCodeLine{00980\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
@@ -582,12 +582,12 @@
 \DoxyCodeLine{00986\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00987\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1treeSet_1_1Iterator_a057b43fb0dd5e2a0ea8c292ded4f3fba}{original::treeSet<TYPE,\ Compare,\ ALLOC>::Iterator::isValid}}()\textcolor{keyword}{\ const}}
 \DoxyCodeLine{00988\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00989\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1RBTree_1_1Iterator_a9215973074686ba4afa5e64de2341f2a}{RBTree::Iterator::isValid}}();}
+\DoxyCodeLine{00989\ \ \ \ \ \textcolor{keywordflow}{return}\ RBTreeType::Iterator::isValid();}
 \DoxyCodeLine{00990\ \}}
 \DoxyCodeLine{00991\ }
 \DoxyCodeLine{00992\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00993\ \mbox{\hyperlink{classoriginal_1_1treeSet_a8436c40d9cec6a1e1fd4b0fb1153a076}{original::treeSet<TYPE,\ Compare,\ ALLOC>::treeSet}}(\mbox{\hyperlink{conceptoriginal_1_1Compare}{Compare}}\ comp,\ ALLOC\ alloc)}
-\DoxyCodeLine{00994\ \ \ \ \ :\ RBTree(std::move(comp)),}
+\DoxyCodeLine{00994\ \ \ \ \ :\ RBTreeType(std::move(comp)),}
 \DoxyCodeLine{00995\ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1set}{set}}<TYPE,\ ALLOC>(std::move(alloc))\ \{\}}
 \DoxyCodeLine{00996\ }
 \DoxyCodeLine{00997\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ ALLOC>}
