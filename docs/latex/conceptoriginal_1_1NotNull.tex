@@ -1,0 +1,37 @@
+\doxysection{original\+::Not\+Null Concept Reference}
+\hypertarget{conceptoriginal_1_1NotNull}{}\label{conceptoriginal_1_1NotNull}\index{original::NotNull@{original::NotNull}}
+
+
+Ensures the parameter pack is not empty.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ ARGS>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1NotNull}{original::NotNull}}\ =\ \ \textcolor{keyword}{sizeof}...(ARGS)\ >\ 0}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Ensures the parameter pack is not empty. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em ARGS} & Variadic template parameter pack to check\\
+\hline
+\end{DoxyTemplParams}
+This concept checks that at least one type is provided in the parameter pack. Useful for enforcing non-\/empty template parameter lists.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(NotNull<int>);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Succeeds}}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!NotNull<>);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fails}}
+
+\end{DoxyCode}
+ 

@@ -11,6 +11,7 @@
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ }
+\DoxyCodeLine{00026\ }
 \DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
 \DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <cstring>}}
 \DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <string>}}
@@ -18,13 +19,13 @@
 \DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
 \DoxyCodeLine{00032\ }
 \DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{class\ }hash;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hash}{hash}};}
 \DoxyCodeLine{00039\ }
 \DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{class\ }hashable;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hashable}{hashable}};}
 \DoxyCodeLine{00046\ }
 \DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ DERIVED>}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1is_hashable}{isHashable}}\ =}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1isHashable}{isHashable}}\ =}
 \DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{requires}(\textcolor{keyword}{const}\ DERIVED\&\ t,\ \textcolor{keyword}{const}\ DERIVED\&\ other)\ \{}
 \DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \{\ t.toHash()\ \}\ -\/>\ std::same\_as<u\_integer>;}
 \DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{\ t.equals(other)\ \}\ -\/>\ std::same\_as<bool>;}
@@ -38,7 +39,7 @@
 \DoxyCodeLine{00104\ }
 \DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1hashable}{hashable}};}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }hashable;}
 \DoxyCodeLine{00108\ }
 \DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash_ac5ea191de1244e080e85d24a4728a440}{FNV\_OFFSET\_BASIS}}\ =\ 0x811C9DC5;}
 \DoxyCodeLine{00111\ }
@@ -94,10 +95,10 @@
 \DoxyCodeLine{00249\ }
 \DoxyCodeLine{00250\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00251\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash_ae54431972b30e96c6224125192694e17}{original::hash<TYPE>::fnv1a}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{byte}*\ data,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash}{hash}}\ =\ FNV\_OFFSET\_BASIS;}
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash}{hash}}\ =\ \mbox{\hyperlink{classoriginal_1_1hash_ac5ea191de1244e080e85d24a4728a440}{FNV\_OFFSET\_BASIS}};}
 \DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ size;\ ++i)\ \{}
 \DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash}{hash}}\ \string^=\ data[i];}
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash}{hash}}\ *=\ FNV\_32\_PRIME;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1hash}{hash}}\ *=\ \mbox{\hyperlink{classoriginal_1_1hash_ad3c497e0b7c4b90b40b78df544c3bb6e}{FNV\_32\_PRIME}};}
 \DoxyCodeLine{00256\ \ \ \ \ \}}
 \DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash}{hash}};}
 \DoxyCodeLine{00258\ \}}
@@ -139,22 +140,22 @@
 \DoxyCodeLine{00294\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00295\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash_a1233ff4eef236e9758b99426d9c82589}{original::hash<TYPE>::hashFunc}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str)\ \textcolor{keyword}{noexcept}\ \{}
 \DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{if}\ (str\ ==\ \textcolor{keyword}{nullptr})\ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{return}\ fnv1a(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{byte}*\textcolor{keyword}{>}(str),\ std::strlen(str));}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_ae54431972b30e96c6224125192694e17}{fnv1a}}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{byte}*\textcolor{keyword}{>}(str),\ std::strlen(str));}
 \DoxyCodeLine{00298\ \}}
 \DoxyCodeLine{00299\ }
 \DoxyCodeLine{00300\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00301\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash_a1233ff4eef236e9758b99426d9c82589}{original::hash<TYPE>::hashFunc}}(\textcolor{keyword}{const}\ std::string\&\ str)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ fnv1a(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{byte}*\textcolor{keyword}{>}(str.data()),\ str.size());}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_ae54431972b30e96c6224125192694e17}{fnv1a}}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{byte}*\textcolor{keyword}{>}(str.data()),\ str.size());}
 \DoxyCodeLine{00303\ \}}
 \DoxyCodeLine{00304\ }
 \DoxyCodeLine{00305\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{00306\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hash_a4b7b85a3d8c9360c773e3a57ed0c773a}{original::hash<TYPE>::operator()}}(\textcolor{keyword}{const}\ TYPE\ \&t)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ hashFunc(t);}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash_a1233ff4eef236e9758b99426d9c82589}{hashFunc}}(t);}
 \DoxyCodeLine{00308\ \}}
 \DoxyCodeLine{00309\ }
 \DoxyCodeLine{00310\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ DERIVED>}
 \DoxyCodeLine{00311\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63}{original::hashable<DERIVED>::toHash}}()\ const\ noexcept\ \{}
-\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classoriginal_1_1hash}{hash<DERIVED>::hashFuncImpl}}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }DERIVED\&\textcolor{keyword}{>}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{return}\ hash<DERIVED>::hashFuncImpl(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }DERIVED\&\textcolor{keyword}{>}(*\textcolor{keyword}{this}));}
 \DoxyCodeLine{00313\ \}}
 \DoxyCodeLine{00314\ }
 \DoxyCodeLine{00315\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ DERIVED>}

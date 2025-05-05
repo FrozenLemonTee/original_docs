@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['u_5finteger_0',['u_integer',['../namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e',1,'original']]]
+  ['s_5fbyte_0',['s_byte',['../namespaceoriginal.html#a49fc35dccecb8e6761c4b8a89ab8ebf4',1,'original']]]
 ];

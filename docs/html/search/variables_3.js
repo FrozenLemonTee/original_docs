@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['e_0',['E',['../namespaceoriginal.html#ad9f68a800f874a16bc6a433ddcf06ed5',1,'original']]]
+  ['compare_5f_0',['compare_',['../classoriginal_1_1RBTree.html#acde04eb105f2010f884d32c8f543ad36',1,'original::RBTree']]],
+  ['cur_5f_1',['cur_',['../classoriginal_1_1RBTree_1_1Iterator.html#aa76b64deb3c7adb1145f4e38e2bd09e2',1,'original::RBTree::Iterator']]]
 ];

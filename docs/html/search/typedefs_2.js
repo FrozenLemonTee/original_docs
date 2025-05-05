@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['integer_0',['integer',['../namespaceoriginal.html#a583969b2c4869f07ee4fedb102e587cd',1,'original']]]
+  ['floating_0',['floating',['../namespaceoriginal.html#a5104897f92e2cdc97514b043bbddceb1',1,'original']]]
 ];

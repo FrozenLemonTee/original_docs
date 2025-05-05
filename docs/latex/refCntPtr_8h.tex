@@ -1,0 +1,52 @@
+\doxysection{src/core/ref\+Cnt\+Ptr.h File Reference}
+\hypertarget{refCntPtr_8h}{}\label{refCntPtr_8h}\index{src/core/refCntPtr.h@{src/core/refCntPtr.h}}
+
+
+Reference-\/counted smart pointer hierarchy.  
+
+
+{\ttfamily \#include "{}auto\+Ptr.\+h"{}}\newline
+{\ttfamily \#include "{}deleter.\+h"{}}\newline
+Include dependency graph for ref\+Cnt\+Ptr.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{refCntPtr_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{refCntPtr_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classoriginal_1_1refCntPtr}{original\+::ref\+Cnt\+Ptr$<$ TYPE, DERIVED, DELETER $>$}}
+\begin{DoxyCompactList}\small\item\em Base class for reference-\/counted pointers. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1strongPtr}{original\+::strong\+Ptr$<$ TYPE, DELETER $>$}}
+\begin{DoxyCompactList}\small\item\em Shared ownership smart pointer with strong references. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1weakPtr}{original\+::weak\+Ptr$<$ TYPE, DELETER $>$}}
+\begin{DoxyCompactList}\small\item\em Non-\/owning reference to shared resource. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceoriginal}{original}}
+\begin{DoxyCompactList}\small\item\em Main namespace for the project Original. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T$>$, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_ab3a918750a407487641ef6924df40d8d}{original\+::make\+Strong\+Ptr}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} managing a shared object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1strongPtr}{strong\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a70101a33a2bf1305a42a180652c98c95}{original\+::make\+Strong\+Ptr\+Array}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1strongPtr}{strong\+Ptr} managing a shared array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reference-\/counted smart pointer hierarchy. 
+
+Implements shared ownership semantics through strong/weak reference models. Base class provides common reference counting infrastructure, while derived classes implement specific ownership policies. Supports cyclic reference breaking through weak reference design. 

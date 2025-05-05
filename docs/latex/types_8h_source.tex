@@ -8,13 +8,14 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}type\_traits"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <concepts>}}
 \DoxyCodeLine{00006\ }
+\DoxyCodeLine{00015\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00030\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ ARGS>}
-\DoxyCodeLine{00031\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_not_null}{NotNull}}\ =\ \textcolor{keyword}{sizeof}...(ARGS)\ >\ 0;}
+\DoxyCodeLine{00031\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1NotNull}{NotNull}}\ =\ \textcolor{keyword}{sizeof}...(ARGS)\ >\ 0;}
 \DoxyCodeLine{00032\ \ \ \ \ }
 \DoxyCodeLine{00044\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00045\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_comparable}{Comparable}}\ =\ \textcolor{keyword}{requires}(\textcolor{keyword}{const}\ TYPE\&\ t1,\ \textcolor{keyword}{const}\ TYPE\&\ t2)\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1Comparable}{Comparable}}\ =\ \textcolor{keyword}{requires}(\textcolor{keyword}{const}\ TYPE\&\ t1,\ \textcolor{keyword}{const}\ TYPE\&\ t2)\ \{}
 \DoxyCodeLine{00046\ \ \ \ \ \{\ t1\ ==\ t2\ \}\ -\/>\ std::same\_as<bool>;}
 \DoxyCodeLine{00047\ \ \ \ \ \{\ t1\ !=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
 \DoxyCodeLine{00048\ \ \ \ \ \{\ t1\ <\ t2\ \}\ -\/>\ std::same\_as<bool>;}
@@ -24,25 +25,25 @@
 \DoxyCodeLine{00052\ \};}
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00068\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ ReturnType,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00069\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_callback_of}{CallbackOf}}\ =\ \textcolor{keyword}{requires}(Callback\ callback,\ Args\&\&...\ args)\{}
+\DoxyCodeLine{00069\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1CallbackOf}{CallbackOf}}\ =\ \textcolor{keyword}{requires}(Callback\ callback,\ Args\&\&...\ args)\{}
 \DoxyCodeLine{00070\ \ \ \ \ \{\ callback(std::forward<Args>(args)...)\ \}\ -\/>\ std::same\_as<ReturnType>;}
 \DoxyCodeLine{00071\ \};}
 \DoxyCodeLine{00072\ }
 \DoxyCodeLine{00091\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00092\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_compare}{Compare}}\ =}
-\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{conceptoriginal_1_1_comparable}{Comparable<TYPE>}}\ \&\&\ \mbox{\hyperlink{conceptoriginal_1_1_callback_of}{CallbackOf<Callback,\ bool,\ const\ TYPE\&,\ const\ TYPE\&>}};}
+\DoxyCodeLine{00092\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1Compare}{Compare}}\ =}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{conceptoriginal_1_1Comparable}{Comparable<TYPE>}}\ \&\&\ \mbox{\hyperlink{conceptoriginal_1_1CallbackOf}{CallbackOf<Callback,\ bool,\ const\ TYPE\&,\ const\ TYPE\&>}};}
 \DoxyCodeLine{00094\ }
 \DoxyCodeLine{00112\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00113\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_condition}{Condition}}\ =\ \mbox{\hyperlink{conceptoriginal_1_1_callback_of}{CallbackOf<Callback,\ bool,\ const\ TYPE\&>}};}
+\DoxyCodeLine{00113\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1Condition}{Condition}}\ =\ \mbox{\hyperlink{conceptoriginal_1_1CallbackOf}{CallbackOf<Callback,\ bool,\ const\ TYPE\&>}};}
 \DoxyCodeLine{00114\ }
 \DoxyCodeLine{00132\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ TYPE>}
-\DoxyCodeLine{00133\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_operation}{Operation}}\ =\ \mbox{\hyperlink{conceptoriginal_1_1_callback_of}{CallbackOf<Callback,\ void,\ TYPE\&>}};}
+\DoxyCodeLine{00133\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1Operation}{Operation}}\ =\ \mbox{\hyperlink{conceptoriginal_1_1CallbackOf}{CallbackOf<Callback,\ void,\ TYPE\&>}};}
 \DoxyCodeLine{00134\ }
 \DoxyCodeLine{00152\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Base,\ \textcolor{keyword}{typename}\ Derive>}
-\DoxyCodeLine{00153\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_super_of}{SuperOf}}\ =\ std::is\_base\_of\_v<Base,\ Derive>\ ||\ std::is\_same\_v<Base,\ Derive>;}
+\DoxyCodeLine{00153\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1SuperOf}{SuperOf}}\ =\ std::is\_base\_of\_v<Base,\ Derive>\ ||\ std::is\_same\_v<Base,\ Derive>;}
 \DoxyCodeLine{00154\ }
 \DoxyCodeLine{00172\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Base,\ \textcolor{keyword}{typename}\ Derive>}
-\DoxyCodeLine{00173\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_extends_of}{ExtendsOf}}\ =\ std::derived\_from<Derive,\ Base>\ ||\ std::is\_same\_v<Base,\ Derive>;}
+\DoxyCodeLine{00173\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1ExtendsOf}{ExtendsOf}}\ =\ std::derived\_from<Derive,\ Base>\ ||\ std::is\_same\_v<Base,\ Derive>;}
 \DoxyCodeLine{00174\ }
 \DoxyCodeLine{00175\ \}\ \textcolor{comment}{//\ namespace\ original}}
 \DoxyCodeLine{00176\ }

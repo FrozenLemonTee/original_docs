@@ -1,0 +1,208 @@
+\doxysection{random\+Access\+Iterator.\+h}
+\hypertarget{randomAccessIterator_8h_source}{}\label{randomAccessIterator_8h_source}\index{src/core/randomAccessIterator.h@{src/core/randomAccessIterator.h}}
+\mbox{\hyperlink{randomAccessIterator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RANDOMACCESSITERATOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RANDOMACCESSITERATOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{container_8h}{container.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{iterator_8h}{iterator.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1baseIterator}{baseIterator}}<TYPE>\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ TYPE*\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1container}{container<TYPE,\ ALLOC>}}*\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}};\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}(TYPE*\ ptr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1container}{container<TYPE,\ ALLOC>}}*\ \mbox{\hyperlink{classoriginal_1_1container}{container}},\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ pos);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a2d02bd9d9f5a224ef0c549334e14eefa}{equalPtr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\&\ other);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\&\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ae1271582f894615eeccfd025a3741e89}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\&\ other);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad864a88500bbcfd55e69d50accf9a084}{clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a2ad6207b471965df3f934e7498616376}{hasNext}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a49e783c74c12d5e05cdfab6bff812efd}{hasPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aea67df2dc35c5869f99ae747b43b18bb}{atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a53fe67e5696cebcf8b5033ecb165aa5f}{atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ab827df00af0f04f896712d9894d89f54}{next}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a5b19c9feb4a49d49ef1c0bdbbe02e598}{prev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a8aa25c8cbe4a08704bda42ba446c2346}{operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ae017eed40b590d0282b214e50500e241}{operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a221022c28711bcb023be578013276f93}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ other)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a02f11fc29613ec9e0c7ff0b6d8e91254}{getNext}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad64f306a73a632be931e5a8c156f0f06}{getPrev}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aebbe2ce9740adf2ab67952bfc57dfabf}{get}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ TYPE\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aebbe2ce9740adf2ab67952bfc57dfabf}{get}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a2b0d1846b114143705e94b7447f5a7f4}{set}}(\textcolor{keyword}{const}\ TYPE\&\ data)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ [[nodiscard]]\ std::string\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a0a0faf28f4e97cfee333b4e0146d2d5f}{className}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00177\ \ \ \ \ \};}
+\DoxyCodeLine{00178\ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{original::randomAccessIterator<TYPE,\ ALLOC>::randomAccessIterator}}(TYPE*\ ptr,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1container}{container<TYPE,\ ALLOC>}}*\ \mbox{\hyperlink{classoriginal_1_1container}{container}},}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ pos)}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}}\{ptr\},\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}}\{\mbox{\hyperlink{classoriginal_1_1container}{container}}\},\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}(pos)\ \{\}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a2d02bd9d9f5a224ef0c549334e14eefa}{original::randomAccessIterator<TYPE,\ ALLOC>::equalPtr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\ *other)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\textcolor{keyword}{>}(other);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ other\_it\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}}\ ==\ other\_it-\/>\_ptr;}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{original::randomAccessIterator<TYPE,\ ALLOC>::randomAccessIterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\ \&other)\ :\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}(0)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ae1271582f894615eeccfd025a3741e89}{operator=}}(other);}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ae1271582f894615eeccfd025a3741e89}{original::randomAccessIterator<TYPE,\ ALLOC>::operator=}}(}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\ \&other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\&\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}}\ =\ other.\_ptr;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}}\ =\ other.\_container;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\ =\ other.\_pos;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00206\ \ \ \ \ \}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad864a88500bbcfd55e69d50accf9a084}{original::randomAccessIterator<TYPE,\ ALLOC>::clone}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}\{\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}},\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}},\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\};}
+\DoxyCodeLine{00211\ \ \ \ \ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a2ad6207b471965df3f934e7498616376}{original::randomAccessIterator<TYPE,\ ALLOC>::hasNext}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}()\ \&\&\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\ <=\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}}-\/>size()\ -\/\ 1;}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a49e783c74c12d5e05cdfab6bff812efd}{original::randomAccessIterator<TYPE,\ ALLOC>::hasPrev}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}()\ \&\&\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\ >=\ 1;}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aea67df2dc35c5869f99ae747b43b18bb}{original::randomAccessIterator<TYPE,\ ALLOC>::atPrev}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}();}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a53fe67e5696cebcf8b5033ecb165aa5f}{original::randomAccessIterator<TYPE,\ ALLOC>::atNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}*)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}}();}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ab827df00af0f04f896712d9894d89f54}{original::randomAccessIterator<TYPE,\ ALLOC>::next}}()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ ++this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}};}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ ++this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}};}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a5b19c9feb4a49d49ef1c0bdbbe02e598}{original::randomAccessIterator<TYPE,\ ALLOC>::prev}}()\ const\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ -\/-\/this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}};}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ -\/-\/this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}};}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a8aa25c8cbe4a08704bda42ba446c2346}{original::randomAccessIterator<TYPE,\ ALLOC>::operator+=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\ +=\ steps;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}}\ +=\ steps;}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ae017eed40b590d0282b214e50500e241}{original::randomAccessIterator<TYPE,\ ALLOC>::operator-\/=}}(\mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}\ steps)\ \textcolor{keyword}{const}\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\ -\/=\ steps;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}}\ -\/=\ steps;}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a221022c28711bcb023be578013276f93}{original::randomAccessIterator<TYPE,\ ALLOC>::operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1iterator}{iterator<TYPE>}}\&\ other)\ \textcolor{keyword}{const}\ -\/>\ \mbox{\hyperlink{namespaceoriginal_a583969b2c4869f07ee4fedb102e587cd}{integer}}}
+\DoxyCodeLine{00259\ \ \ \ \ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}*\ other\_it\ =\ \textcolor{keyword}{dynamic\_cast<}\textcolor{keyword}{const\ }\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\textcolor{keyword}{>}(\&other);}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (other\_it\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}\ >\ \&other\ ?}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::max()\ :}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::min();}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}}\ !=\ other\_it-\/>\_container)}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}}\ >\ other\_it-\/>\_container\ ?}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::max()\ :}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::numeric\_limits<integer>::min();}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}}\ -\/\ other\_it-\/>\_ptr;}
+\DoxyCodeLine{00270\ \ \ \ \ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a02f11fc29613ec9e0c7ff0b6d8e91254}{original::randomAccessIterator<TYPE,\ ALLOC>::getNext}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad864a88500bbcfd55e69d50accf9a084}{clone}}();}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ it-\/>next();}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad64f306a73a632be931e5a8c156f0f06}{original::randomAccessIterator<TYPE,\ ALLOC>::getPrev}}()\ const\ -\/>\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a63069710838bec217455b4e931ed4cdd}{randomAccessIterator}}*\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad864a88500bbcfd55e69d50accf9a084}{clone}}();}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ it-\/>prev();}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it;}
+\DoxyCodeLine{00286\ \ \ \ \ \}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aebbe2ce9740adf2ab67952bfc57dfabf}{original::randomAccessIterator<TYPE,\ ALLOC>::get}}()\ -\/>\ TYPE\&\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}};}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a2b0d1846b114143705e94b7447f5a7f4}{original::randomAccessIterator<TYPE,\ ALLOC>::set}}(\textcolor{keyword}{const}\ TYPE\&\ data)\ -\/>\ \textcolor{keywordtype}{void}\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ *this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}}\ =\ data;}
+\DoxyCodeLine{00298\ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aebbe2ce9740adf2ab67952bfc57dfabf}{original::randomAccessIterator<TYPE,\ ALLOC>::get}}()\ const\ -\/>\ TYPE}
+\DoxyCodeLine{00302\ \ \ \ \ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{isValid}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}}();}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_aeb90726309a85edfb5e9f8c3619e5731}{\_ptr}};}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_af77077998d66333052fd703de7704488}{original::randomAccessIterator<TYPE,\ ALLOC>::isValid}}()\ const\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\ >=\ 0\ \&\&\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_afcea1de251eab6b1d3ac4a15eb0d73ad}{\_pos}}\ <\ this-\/>\mbox{\hyperlink{classoriginal_1_1randomAccessIterator_ad9d362f48d22cb488bd7965cf4790ded}{\_container}}-\/>size();}
+\DoxyCodeLine{00310\ \ \ \ \ \}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keyword}{typename}\ ALLOC>}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1randomAccessIterator_a0a0faf28f4e97cfee333b4e0146d2d5f}{original::randomAccessIterator<TYPE,\ ALLOC>::className}}()\ const\ -\/>\ std::\textcolor{keywordtype}{string}\ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}RandomAccessIterator"{}};}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//RANDOMACCESSITERATOR\_H}}
+
+\end{DoxyCode}
