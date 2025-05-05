@@ -125,51 +125,39 @@ $(function(){ initResizable(false); });
 <div class="line"> </div>
 <div class="line">target_link_libraries(hello_original PRIVATE original)</div>
 </div><!-- fragment --><p> 方法二 使用Cmake本地构建、安装：</p>
-<p>在该项目文件夹下新建文件夹<code>build</code>并进入： </p><div class="fragment"><div class="line">mkdir build</div>
-<div class="line">cd build</div>
-</div><!-- fragment --><p> 利用cmake构建库： </p><div class="fragment"><div class="line">cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=OFF</div>
-<div class="line">cmake --build . --config Debug</div>
-<div class="line">cmake --install . --config Debug</div>
-</div><!-- fragment --><p> 将生成的<code>build</code>和<code>install</code>文件夹复制到项目<code>hello_original</code>中。</p>
-<p>复制后项目的结构如下： </p><div class="fragment"><div class="line">├─build</div>
-<div class="line">├─install</div>
+<p>在本项目文件夹下运行下列命令： </p><div class="fragment"><div class="line">cmake -P install.cmake</div>
+</div><!-- fragment --><p> 将生成的<code>original</code>文件夹复制到项目<code>hello_original</code>中。</p>
+<p>复制后项目的结构如下： </p><div class="fragment"><div class="line">├─original</div>
 <div class="line">├─CMakeLists.txt</div>
 <div class="line">└─main.cpp</div>
 </div><!-- fragment --><p>配置<code>CMakeLists.txt</code>： </p><div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.30)</div>
 <div class="line">project(hello_original)</div>
 <div class="line"> </div>
 <div class="line">set(CMAKE_CXX_STANDARD 20)</div>
+<div class="line">set(CMAKE_CXX_STANDARD_REQUIRED True)</div>
 <div class="line"> </div>
-<div class="line">set(CMAKE_PREFIX_PATH &quot;${CMAKE_SOURCE_DIR}/install/cmake&quot;)</div>
-<div class="line">list(APPEND CMAKE_PREFIX_PATH &quot;${CMAKE_SOURCE_DIR}/install/cmake/original&quot;)</div>
-<div class="line"> </div>
+<div class="line">list(APPEND CMAKE_PREFIX_PATH &quot;${CMAKE_SOURCE_DIR}/original&quot;)</div>
 <div class="line">find_package(original REQUIRED)</div>
 <div class="line"> </div>
 <div class="line">add_executable(hello_original main.cpp)</div>
-<div class="line"> </div>
-<div class="line">target_link_libraries(hello_original PRIVATE &quot;${ORIGINAL_LIBRARIES}&quot;)</div>
+<div class="line">target_link_libraries(hello_original PRIVATE original)</div>
 </div><!-- fragment --><p>接下来展示测试Demo：</p>
 <p><code>main.cpp</code>： </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="original_8h.html">original.h</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hello, Original!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    <span class="keyword">auto</span> a1 = <a class="code hl_class" href="classoriginal_1_1array.html">original::array</a>({<span class="stringliteral">&quot;Hello, Original!&quot;</span>});</div>
-<div class="line">    std::cout &lt;&lt; a1 &lt;&lt; std::endl;</div>
-<div class="line">    printf(<span class="stringliteral">&quot;%s\n&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(a1));</div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_class" href="classoriginal_1_1array.html">original::array</a> a = {<span class="stringliteral">&quot;hello world!&quot;</span>};</div>
+<div class="line">    std::cout &lt;&lt; a &lt;&lt; std::endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassoriginal_1_1array_html"><div class="ttname"><a href="classoriginal_1_1array.html">original::array</a></div><div class="ttdoc">A fixed-size array container with random access.</div><div class="ttdef"><b>Definition</b> array.h:41</div></div>
 <div class="ttc" id="aoriginal_8h_html"><div class="ttname"><a href="original_8h.html">original.h</a></div><div class="ttdoc">Main header file for Original.</div></div>
-</div><!-- fragment --><p> 输出： </p><div class="fragment"><div class="line">Hello, original!</div>
-<div class="line">array(&quot;Hello, original!&quot;)</div>
-<div class="line">array(&quot;Hello, original!&quot;)</div>
+</div><!-- fragment --><p> 输出： </p><div class="fragment"><div class="line">array(&quot;hello world!&quot;)</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
 模块进度</h1>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Core</h3>
-<p>正在实现中。已实现部分：</p>
+<p>包含基本算法、容器等工具。</p>
 <h4><a class="anchor" id="autotoc_md5"></a>
 容器：</h4>
 <p>定长容器：定长数组 array，位集合 bitSet，变长容器：变长数组 vector，单向链表 forwardChain，双向链表 chain，块状链表 blocksList，关联容器：映射表 hashMap/treeMap，集合 hashSet/treeSet</p>

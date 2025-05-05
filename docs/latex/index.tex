@@ -53,25 +53,16 @@ Original是一个\+C++基础工具库,也是本人的第一个正式项目，用
 \end{DoxyCode}
  方法二 使用\+Cmake本地构建、安装：
 
-在该项目文件夹下新建文件夹{\ttfamily build}并进入： 
+在本项目文件夹下运行下列命令： 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{mkdir\ build}
-\DoxyCodeLine{cd\ build}
+\DoxyCodeLine{cmake\ -\/P\ install.cmake}
 
 \end{DoxyCode}
- 利用cmake构建库： 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{cmake\ ..\ -\/DCMAKE\_BUILD\_TYPE=Debug\ -\/DBUILD\_TESTING=OFF}
-\DoxyCodeLine{cmake\ -\/-\/build\ .\ -\/-\/config\ Debug}
-\DoxyCodeLine{cmake\ -\/-\/install\ .\ -\/-\/config\ Debug}
-
-\end{DoxyCode}
- 将生成的{\ttfamily build}和{\ttfamily install}文件夹复制到项目{\ttfamily hello\+\_\+original}中。
+ 将生成的{\ttfamily original}文件夹复制到项目{\ttfamily hello\+\_\+original}中。
 
 复制后项目的结构如下： 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{├─build}
-\DoxyCodeLine{├─install}
+\DoxyCodeLine{├─original}
 \DoxyCodeLine{├─CMakeLists.txt}
 \DoxyCodeLine{└─main.cpp}
 
@@ -84,15 +75,13 @@ Original是一个\+C++基础工具库,也是本人的第一个正式项目，用
 \DoxyCodeLine{project(hello\_original)}
 \DoxyCodeLine{}
 \DoxyCodeLine{set(CMAKE\_CXX\_STANDARD\ 20)}
+\DoxyCodeLine{set(CMAKE\_CXX\_STANDARD\_REQUIRED\ True)}
 \DoxyCodeLine{}
-\DoxyCodeLine{set(CMAKE\_PREFIX\_PATH\ "{}\$\{CMAKE\_SOURCE\_DIR\}/install/cmake"{})}
-\DoxyCodeLine{list(APPEND\ CMAKE\_PREFIX\_PATH\ "{}\$\{CMAKE\_SOURCE\_DIR\}/install/cmake/original"{})}
-\DoxyCodeLine{}
+\DoxyCodeLine{list(APPEND\ CMAKE\_PREFIX\_PATH\ "{}\$\{CMAKE\_SOURCE\_DIR\}/original"{})}
 \DoxyCodeLine{find\_package(original\ REQUIRED)}
 \DoxyCodeLine{}
 \DoxyCodeLine{add\_executable(hello\_original\ main.cpp)}
-\DoxyCodeLine{}
-\DoxyCodeLine{target\_link\_libraries(hello\_original\ PRIVATE\ "{}\$\{ORIGINAL\_LIBRARIES\}"{})}
+\DoxyCodeLine{target\_link\_libraries(hello\_original\ PRIVATE\ original)}
 
 \end{DoxyCode}
 
@@ -104,26 +93,21 @@ Original是一个\+C++基础工具库,也是本人的第一个正式项目，用
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{original_8h}{original.h}}"{}}}
 \DoxyCodeLine{}
-\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
-\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Hello,\ Original!"{}}\ <<\ std::endl;}
-\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ a1\ =\ \mbox{\hyperlink{classoriginal_1_1array}{original::array}}(\{\textcolor{stringliteral}{"{}Hello,\ Original!"{}}\});}
-\DoxyCodeLine{\ \ \ \ std::cout\ <<\ a1\ <<\ std::endl;}
-\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(a1));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1array}{original::array}}\ a\ =\ \{\textcolor{stringliteral}{"{}hello\ world!"{}}\};}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ a\ <<\ std::endl;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
  输出： 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{Hello,\ original!}
-\DoxyCodeLine{array("{}Hello,\ original!"{})}
-\DoxyCodeLine{array("{}Hello,\ original!"{})}
+\DoxyCodeLine{array("{}hello\ world!"{})}
 
 \end{DoxyCode}
 \hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{模块进度}{模块进度}}\label{index_autotoc_md3}
 \hypertarget{index_autotoc_md4}{}\doxysubsubsection{\texorpdfstring{Core}{Core}}\label{index_autotoc_md4}
-正在实现中。已实现部分：\hypertarget{index_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{容器：}{容器：}}\label{index_autotoc_md5}
+包含基本算法、容器等工具。\hypertarget{index_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{容器：}{容器：}}\label{index_autotoc_md5}
 定长容器：定长数组 array，位集合 bit\+Set，变长容器：变长数组 vector，单向链表 forward\+Chain，双向链表 chain，块状链表 blocks\+List，关联容器：映射表 hash\+Map/tree\+Map，集合 hash\+Set/tree\+Set\hypertarget{index_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{容器接口：}{容器接口：}}\label{index_autotoc_md6}
 格式化输出接口 printable，元素比较接口 comparable，堆对象深拷贝接口 cloneable，可迭代接口 iterable\hypertarget{index_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{算法库：}{算法库：}}\label{index_autotoc_md7}
 布尔算法：all\+Of/any\+Of/none\+Of...，非修改算法 find/count/equal...，修改算法 fill/swap/for\+Each/...，排序算法 sort/stable\+Sort/intro\+Sort...\hypertarget{index_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{容器适配器：}{容器适配器：}}\label{index_autotoc_md8}
