@@ -1,0 +1,166 @@
+\doxysection{thread.\+h}
+\hypertarget{thread_8h_source}{}\label{thread_8h_source}\index{src/vibrant/thread.h@{src/vibrant/thread.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ THREAD\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ THREAD\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}functional"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}pthread.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ownerPtr_8h}{ownerPtr.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }threadBase\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback>}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }threadData}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ Callback\ c;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ threadData(Callback\ c);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ run(\textcolor{keywordtype}{void}*\ arg);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_joinable;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ valid()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ threadBase();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~threadBase();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ threadBase(\textcolor{keyword}{const}\ threadBase\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ threadBase\&\ operator=(\textcolor{keyword}{const}\ threadBase\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ threadBase(threadBase\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ threadBase\&\ operator=(threadBase\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{class\ }pThread\ final\ :\ \textcolor{keyword}{public}\ threadBase\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ pthread\_t\ handle;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ valid()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ pThread(Callback\ c,\ ARGS\&\&...\ args);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ pThread(pThread\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ pThread\&\ operator=(pThread\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ join();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ detach();}
+\DoxyCodeLine{00059\ \ \ \ \ \};}
+\DoxyCodeLine{00060\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback>}
+\DoxyCodeLine{00064\ original::threadBase::threadData<Callback>::threadData(Callback\ c)}
+\DoxyCodeLine{00065\ \ \ \ \ :\ c(std::move(c))\ \{\}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback>}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}*\ original::threadBase::threadData<Callback>::run(\textcolor{keywordtype}{void}*\ arg)}
+\DoxyCodeLine{00069\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{auto}\ self\ =\ \mbox{\hyperlink{classoriginal_1_1ownerPtr}{ownerPtr<threadData>}}(\textcolor{keyword}{static\_cast<}threadData*\textcolor{keyword}{>}(arg));}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ self-\/>c();}
+\DoxyCodeLine{00073\ \ \ \ \ \}\textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\&)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sysError}{sysError}}();}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00077\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{inline}\ original::threadBase::operator\ bool()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00080\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>valid();}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ original::threadBase::operator!()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00085\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>valid();}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{inline}\ original::threadBase::threadBase()}
+\DoxyCodeLine{00090\ \ \ \ \ :\ is\_joinable(true)\ \{\}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{inline}\ original::threadBase::\string~threadBase()\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sysError}{sysError}}();}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
+\DoxyCodeLine{00099\ original::pThread::pThread(Callback\ c,\ ARGS\&\&...\ args)\ :\ handle()}
+\DoxyCodeLine{00100\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{using\ }bound\_callback\ =\ \textcolor{keyword}{decltype}(std::bind(std::forward<Callback>(c),\ std::forward<ARGS>(args)...));}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{using\ }bound\_thread\_data\ =\ \mbox{\hyperlink{classoriginal_1_1threadBase_1_1threadData}{threadData<bound\_callback>}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{auto}\ task\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classoriginal_1_1threadBase_1_1threadData}{threadData<bound\_callback>}}(std::bind(std::forward<Callback>(c),\ std::forward<ARGS>(args)...));}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_create(\&this-\/>handle,\ \textcolor{keyword}{nullptr},\ \&bound\_thread\_data::run,\ task);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ code\ !=\ 0)}
+\DoxyCodeLine{00108\ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError();}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ original::pThread::valid()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00114\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>handle\ !=\ pthread\_t\{\};}
+\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{inline}\ original::pThread::pThread(\mbox{\hyperlink{classoriginal_1_1pThread}{pThread}}\&\&\ other)\ noexcept}
+\DoxyCodeLine{00119\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1threadBase}{threadBase}}(std::move(other)),\ handle()\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ this-\/>operator=(std::move(other));}
+\DoxyCodeLine{00121\ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{inline}\ original::pThread\&\ original::pThread::operator=(\mbox{\hyperlink{classoriginal_1_1pThread}{pThread}}\&\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable\ \&\&\ this-\/>valid())\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ pthread\_detach(this-\/>handle);}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ this-\/>handle\ =\ other.handle;}
+\DoxyCodeLine{00134\ \ \ \ \ other.handle\ =\ \{\};}
+\DoxyCodeLine{00135\ \ \ \ \ this-\/>is\_joinable\ =\ other.is\_joinable;}
+\DoxyCodeLine{00136\ \ \ \ \ other.is\_joinable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ original::pThread::join()\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_join(this-\/>handle,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ code\ !=\ 0)\{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sysError}{sysError}}();}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ this-\/>is\_joinable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ original::pThread::detach()\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_detach(this-\/>handle);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ code\ !=\ 0)\{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sysError}{sysError}}();}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ this-\/>is\_joinable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//THREAD\_H}}
+
+\end{DoxyCode}
