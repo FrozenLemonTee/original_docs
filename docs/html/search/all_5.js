@@ -9,7 +9,7 @@ var searchData=
   ['equalcomparator_6',['equalComparator',['../classoriginal_1_1equalComparator.html',1,'original']]],
   ['equalfilter_7',['equalFilter',['../classoriginal_1_1equalFilter.html',1,'original::equalFilter&lt; TYPE &gt;'],['../classoriginal_1_1equalFilter.html#a52292b0b32c820e3dbd1cba12ed3f477',1,'original::equalFilter::equalFilter()']]],
   ['equalptr_8',['equalPtr',['../classoriginal_1_1iterable_1_1iterAdaptor.html#a93f2bf296872b133f8e89ea4ac6ac2c0',1,'original::iterable::iterAdaptor::equalPtr()'],['../classoriginal_1_1iterator.html#a098c98d026a535a28cf65514fb1e209b',1,'original::iterator::equalPtr()'],['../classoriginal_1_1randomAccessIterator.html#a2d02bd9d9f5a224ef0c549334e14eefa',1,'original::randomAccessIterator::equalPtr()'],['../classoriginal_1_1stepIterator.html#a5d0e1c67b6f6f349765d2b520d864198',1,'original::stepIterator::equalPtr()']]],
-  ['equals_9',['equals',['../classoriginal_1_1hashable.html#a63e3868e6112682b764e7bb1b30cbac6',1,'original::hashable']]],
+  ['equals_9',['equals',['../classoriginal_1_1autoPtr.html#a6be3fd2569710aea64f4fc3d1a5d5d6a',1,'original::autoPtr::equals()'],['../classoriginal_1_1hashable.html#a63e3868e6112682b764e7bb1b30cbac6',1,'original::hashable::equals()']]],
   ['erase_10',['erase',['../classoriginal_1_1hashTable.html#ac4eab9cb5d20601ae4c07d5340387881',1,'original::hashTable::erase()'],['../classoriginal_1_1RBTree.html#a9d17dbb0df36507e941d0b62ef3aa123',1,'original::RBTree::erase()']]],
   ['error_11',['error',['../classoriginal_1_1error.html',1,'original']]],
   ['error_2eh_12',['error.h',['../error_8h.html',1,'']]],

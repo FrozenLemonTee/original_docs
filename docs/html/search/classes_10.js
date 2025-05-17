@@ -21,5 +21,6 @@ var searchData=
   ['staticerror_3c_20original_3a_3avalueerror_2c_20triggering_5fcondition_20_3e_18',['staticError&lt; original::valueError, TRIGGERING_CONDITION &gt;',['../classoriginal_1_1staticError_3_01original_1_1valueError_00_01TRIGGERING__CONDITION_01_4.html',1,'original']]],
   ['stepiterator_19',['stepIterator',['../classoriginal_1_1stepIterator.html',1,'original']]],
   ['strongptr_20',['strongPtr',['../classoriginal_1_1strongPtr.html',1,'original']]],
-  ['strongptr_3c_20original_3a_3afilter_3c_20type_20_3e_20_3e_21',['strongPtr&lt; original::filter&lt; TYPE &gt; &gt;',['../classoriginal_1_1strongPtr.html',1,'original']]]
+  ['strongptr_3c_20original_3a_3afilter_3c_20type_20_3e_20_3e_21',['strongPtr&lt; original::filter&lt; TYPE &gt; &gt;',['../classoriginal_1_1strongPtr.html',1,'original']]],
+  ['syserror_22',['sysError',['../classoriginal_1_1sysError.html',1,'original']]]
 ];

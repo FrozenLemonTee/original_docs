@@ -48,5 +48,6 @@ var searchData=
   ['superof_45',['SuperOf',['../conceptoriginal_1_1SuperOf.html',1,'original']]],
   ['swap_46',['swap',['../classoriginal_1_1algorithms.html#a78d5714e09e5a0564bb9e5c6ea2cfca4',1,'original::algorithms::swap(const iterator&lt; TYPE &gt; &amp;it1, const iterator&lt; TYPE &gt; &amp;it2) noexcept'],['../classoriginal_1_1algorithms.html#a4390bce09cedcb3965052c76316c6aaa',1,'original::algorithms::swap(const strongPtr&lt; iterator&lt; TYPE &gt; &gt; it1, const strongPtr&lt; iterator&lt; TYPE &gt; &gt; it2) noexcept -&gt; void'],['../classoriginal_1_1autoPtr.html#ab57e2635661b24a1dae97887a3c4c11a',1,'original::autoPtr::swap()']]],
   ['swapcolor_47',['swapColor',['../classoriginal_1_1RBTree_1_1RBNode.html#a7206690f757e581c0284f85333de3231',1,'original::RBTree::RBNode']]],
-  ['swapdata_48',['swapData',['../classoriginal_1_1RBTree_1_1RBNode.html#a77a4722167186c76837e954ae48d0552',1,'original::RBTree::RBNode']]]
+  ['swapdata_48',['swapData',['../classoriginal_1_1RBTree_1_1RBNode.html#a77a4722167186c76837e954ae48d0552',1,'original::RBTree::RBNode']]],
+  ['syserror_49',['sysError',['../classoriginal_1_1sysError.html',1,'original']]]
 ];

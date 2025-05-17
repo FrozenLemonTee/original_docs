@@ -92,77 +92,86 @@
 \DoxyCodeLine{00189\ \ \ \ \ \}}
 \DoxyCodeLine{00190\ \};}
 \DoxyCodeLine{00191\ }
-\DoxyCodeLine{00192\ \}\ \textcolor{comment}{//\ namespace\ original}}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00194\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Definitions\ of\ error.h\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00196\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}...\ Args\_TYPE>}
-\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1callBackChecker_ac58a38eb4c6aa5a542533c0e83db3900}{original::callBackChecker::check}}()\ \{}
-\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\ =\ std::is\_invocable\_v<Callback,\ Args\_TYPE...>;}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ !is\_valid)\{}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callbackSignatureError}{callbackSignatureError}}();}
-\DoxyCodeLine{00201\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }result\_type\ =\ std::invoke\_result\_t<Callback,\ Args\_TYPE...>;}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\_return\_type\ =\ std::is\_same\_v<result\_type,\ Ret\_TYPE>;}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ !is\_valid\_return\_type)}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callbackReturnTypeError}{callbackReturnTypeError}}();}
-\DoxyCodeLine{00206\ \ \ \ \ \}}
-\DoxyCodeLine{00207\ \}}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00210\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1error}{error}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00211\ \{}
-\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}A\ static\ assert\ triggered"{}});}
-\DoxyCodeLine{00213\ \};}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00215\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00216\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00217\ \{}
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object"{}});}
-\DoxyCodeLine{00219\ \};}
-\DoxyCodeLine{00220\ }
-\DoxyCodeLine{00221\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00222\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1valueError}{valueError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00223\ \{}
-\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Wrong\ value\ given"{}});}
-\DoxyCodeLine{00225\ \};}
-\DoxyCodeLine{00226\ }
-\DoxyCodeLine{00227\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00228\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1nullPointerError}{nullPointerError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00229\ \{}
-\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer"{}});}
-\DoxyCodeLine{00231\ \};}
-\DoxyCodeLine{00232\ }
-\DoxyCodeLine{00233\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00234\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00235\ \{}
-\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class"{}});}
-\DoxyCodeLine{00237\ \};}
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00239\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00240\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1noElementError}{noElementError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00241\ \{}
-\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}No\ such\ element"{}});}
-\DoxyCodeLine{00243\ \};}
-\DoxyCodeLine{00244\ }
-\DoxyCodeLine{00245\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00246\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callbackSignatureError}{callbackSignatureError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00247\ \{}
-\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch"{}});}
-\DoxyCodeLine{00249\ \};}
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00251\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00252\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callbackReturnTypeError}{callbackReturnTypeError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00253\ \{}
-\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch"{}});}
-\DoxyCodeLine{00255\ \};}
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00257\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00258\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1allocateError}{allocateError}},\ TRIGGERING\_CONDITION>}
-\DoxyCodeLine{00259\ \{}
-\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Can\ not\ allocate\ memory"{}});}
-\DoxyCodeLine{00261\ \};}
-\DoxyCodeLine{00262\ }
-\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ERROR\_H}}
+\DoxyCodeLine{00192\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1sysError}{sysError}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}}
+\DoxyCodeLine{00193\ \{}
+\DoxyCodeLine{00194\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00195\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{auto}\ what()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ -\/>\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00196\ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}A\ sys\ error\ triggered."{}};}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Definitions\ of\ error.h\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ Ret\_TYPE,\ \textcolor{keyword}{typename}...\ Args\_TYPE>}
+\DoxyCodeLine{00206\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1callBackChecker_ac58a38eb4c6aa5a542533c0e83db3900}{original::callBackChecker::check}}()\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\ =\ std::is\_invocable\_v<Callback,\ Args\_TYPE...>;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ !is\_valid)\{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callbackSignatureError}{callbackSignatureError}}();}
+\DoxyCodeLine{00210\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }result\_type\ =\ std::invoke\_result\_t<Callback,\ Args\_TYPE...>;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_valid\_return\_type\ =\ std::is\_same\_v<result\_type,\ Ret\_TYPE>;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ !is\_valid\_return\_type)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1callbackReturnTypeError}{callbackReturnTypeError}}();}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00219\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1error}{error}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00220\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}A\ static\ assert\ triggered"{}});}
+\DoxyCodeLine{00222\ \};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00225\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1outOfBoundError}{outOfBoundError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00226\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Out\ of\ the\ bound\ of\ the\ object"{}});}
+\DoxyCodeLine{00228\ \};}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00231\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1valueError}{valueError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00232\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Wrong\ value\ given"{}});}
+\DoxyCodeLine{00234\ \};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00237\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1nullPointerError}{nullPointerError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00238\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Attempting\ to\ access\ null\ pointer"{}});}
+\DoxyCodeLine{00240\ \};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00243\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1unSupportedMethodError}{unSupportedMethodError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00244\ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Unsupported\ Method\ for\ class"{}});}
+\DoxyCodeLine{00246\ \};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00249\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1noElementError}{noElementError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00250\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}No\ such\ element"{}});}
+\DoxyCodeLine{00252\ \};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00255\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callbackSignatureError}{callbackSignatureError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00256\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Return\ type\ of\ callback\ mismatch"{}});}
+\DoxyCodeLine{00258\ \};}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00261\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1callbackReturnTypeError}{callbackReturnTypeError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00262\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Callback\ signature\ mismatch"{}});}
+\DoxyCodeLine{00264\ \};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{keyword}{template}\ <const\ \textcolor{keywordtype}{bool}\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00267\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1staticError}{original::staticError}}<\mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1allocateError}{allocateError}},\ TRIGGERING\_CONDITION>}
+\DoxyCodeLine{00268\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{static\_assert}(!TRIGGERING\_CONDITION,\ \textcolor{stringliteral}{"{}Can\ not\ allocate\ memory"{}});}
+\DoxyCodeLine{00270\ \};}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ERROR\_H}}
 
 \end{DoxyCode}

@@ -153,6 +153,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1848178701127008797f8f1b32928317" id="r_a1848178701127008797f8f1b32928317"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1848178701127008797f8f1b32928317">operator bool</a> () const</td></tr>
 <tr class="memdesc:a1848178701127008797f8f1b32928317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean conversion operator.  <br /></td></tr>
 <tr class="separator:a1848178701127008797f8f1b32928317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b3dd92a90377f541569fb0ed2af15f1" id="r_a7b3dd92a90377f541569fb0ed2af15f1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b3dd92a90377f541569fb0ed2af15f1">operator!</a> () const</td></tr>
+<tr class="memdesc:a7b3dd92a90377f541569fb0ed2af15f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logical NOT operator.  <br /></td></tr>
+<tr class="separator:a7b3dd92a90377f541569fb0ed2af15f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af019410de78661d25c19d3f2c2d9eac6" id="r_af019410de78661d25c19d3f2c2d9eac6"><td class="memItemLeft" align="right" valign="top">const TYPE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af019410de78661d25c19d3f2c2d9eac6">get</a> () const</td></tr>
 <tr class="memdesc:af019410de78661d25c19d3f2c2d9eac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get managed pointer const version.  <br /></td></tr>
 <tr class="separator:af019410de78661d25c19d3f2c2d9eac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,10 +193,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae425525928c1ce696a19debecf32189a"><td class="mdescLeft">&#160;</td><td class="mdescRight">String representation formatter.  <br /></td></tr>
 <tr class="separator:ae425525928c1ce696a19debecf32189a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab98043c18ea29d5ee0c3112c12419e3c" id="r_ab98043c18ea29d5ee0c3112c12419e3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab98043c18ea29d5ee0c3112c12419e3c">toHash</a> () const noexcept override</td></tr>
-<tr class="memdesc:ab98043c18ea29d5ee0c3112c12419e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the hash of the object.  <br /></td></tr>
+<tr class="memdesc:ab98043c18ea29d5ee0c3112c12419e3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute hash value for the pointer.  <br /></td></tr>
 <tr class="separator:ab98043c18ea29d5ee0c3112c12419e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6be3fd2569710aea64f4fc3d1a5d5d6a" id="r_a6be3fd2569710aea64f4fc3d1a5d5d6a"><td class="memItemLeft" align="right" valign="top"><a id="a6be3fd2569710aea64f4fc3d1a5d5d6a" name="a6be3fd2569710aea64f4fc3d1a5d5d6a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>equals</b> (const <a class="el" href="classoriginal_1_1autoPtr.html">autoPtr</a> &amp;other) const noexcept override</td></tr>
+<tr class="memitem:a6be3fd2569710aea64f4fc3d1a5d5d6a" id="r_a6be3fd2569710aea64f4fc3d1a5d5d6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6be3fd2569710aea64f4fc3d1a5d5d6a">equals</a> (const <a class="el" href="classoriginal_1_1autoPtr.html">autoPtr</a> &amp;other) const noexcept override</td></tr>
+<tr class="memdesc:a6be3fd2569710aea64f4fc3d1a5d5d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison.  <br /></td></tr>
 <tr class="separator:a6be3fd2569710aea64f4fc3d1a5d5d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35e9dc5c91e844446cebb92804faffc6" id="r_a35e9dc5c91e844446cebb92804faffc6"><td class="memItemLeft" align="right" valign="top"><a id="a35e9dc5c91e844446cebb92804faffc6" name="a35e9dc5c91e844446cebb92804faffc6"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~autoPtr</b> () override</td></tr>
@@ -370,7 +373,10 @@ class original::autoPtr&lt; TYPE, DERIVED, DELETER &gt;</div><p>Base smart point
 <p>Provides core resource management capabilities through:</p><ul>
 <li>Strong/weak reference tracking</li>
 <li>Automatic cleanup when references reach zero</li>
-<li>Custom deletion policies via template parameter </li>
+<li>Custom deletion policies via template parameter</li>
+<li><p class="startli">Exception-safe operations</p>
+<p class="startli">For string representation capabilities For comparison operations For hashing support </p>
+</li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acb37ac59f5784a779b22dda3d44aaa4f" name="acb37ac59f5784a779b22dda3d44aaa4f"></a>
@@ -507,6 +513,43 @@ template&lt;typename TYPE, typename DERIVED, typename DELETER&gt; </div>
 
 <p>Destroy reference counter. </p>
 <dl class="section note"><dt>Note</dt><dd>Only destroys counter when both ref counts reach zero </dd></dl>
+
+</div>
+</div>
+<a id="a6be3fd2569710aea64f4fc3d1a5d5d6a" name="a6be3fd2569710aea64f4fc3d1a5d5d6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6be3fd2569710aea64f4fc3d1a5d5d6a">&#9670;&#160;</a></span>equals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TYPE, typename DERIVED, typename DELETER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classoriginal_1_1autoPtr.html">original::autoPtr</a>&lt; TYPE, DERIVED, DELETER &gt;::equals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoriginal_1_1autoPtr.html">autoPtr</a>&lt; TYPE, DERIVED, DELETER &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Equality comparison. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td><a class="el" href="classoriginal_1_1autoPtr.html" title="Base smart pointer with reference counting.">autoPtr</a> to compare with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if both manage same pointer </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Compares pointer addresses, not values </dd></dl>
 
 </div>
 </div>
@@ -673,6 +716,28 @@ template&lt;typename TYPE, typename DERIVED, typename DELETER&gt; </div>
 
 <p>Boolean conversion operator. </p>
 <dl class="section return"><dt>Returns</dt><dd>Equivalent to a non null managed pointer </dd></dl>
+
+</div>
+</div>
+<a id="a7b3dd92a90377f541569fb0ed2af15f1" name="a7b3dd92a90377f541569fb0ed2af15f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b3dd92a90377f541569fb0ed2af15f1">&#9670;&#160;</a></span>operator!()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TYPE, typename DERIVED, typename DELETER&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classoriginal_1_1autoPtr.html">original::autoPtr</a>&lt; TYPE, DERIVED, DELETER &gt;::operator! </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logical NOT operator. </p>
+<dl class="section return"><dt>Returns</dt><dd>Opposite of operator bool() </dd></dl>
 
 </div>
 </div>
@@ -1045,9 +1110,9 @@ template&lt;typename TYPE, typename DERIVED, typename DELETER&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the hash of the object. </p>
-<dl class="section return"><dt>Returns</dt><dd>A hash value</dd></dl>
-<p>Default implementation uses byte-wise hashing of object </p>
+<p>Compute hash value for the pointer. </p>
+<dl class="section return"><dt>Returns</dt><dd>Hash of managed pointer address </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Uses <a class="el" href="classoriginal_1_1hash.html" title="Forward declaration of hash class template.">hash&lt;TYPE&gt;</a> specialization </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classoriginal_1_1hashable.html#a8fc7ef5442083f47dc27c78248e59c63">original::hashable&lt; autoPtr&lt; TYPE, DERIVED, DELETER &gt; &gt;</a>.</p>
 
@@ -1130,7 +1195,7 @@ template&lt;typename T, typename DER, typename DEL&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="namespaceoriginal.html#a1fb35d1af29a0c0be3a17081b9ca9dd0">operator!</a>= </td>
+          <td class="memname">bool <a class="el" href="#a7b3dd92a90377f541569fb0ed2af15f1">operator!</a>= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classoriginal_1_1autoPtr.html">autoPtr</a>&lt; T, DER, DEL &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
         </tr>
@@ -1182,7 +1247,7 @@ template&lt;typename T, typename DER, typename DEL&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="namespaceoriginal.html#a1fb35d1af29a0c0be3a17081b9ca9dd0">operator!</a>= </td>
+          <td class="memname">bool <a class="el" href="#a7b3dd92a90377f541569fb0ed2af15f1">operator!</a>= </td>
           <td>(</td>
           <td class="paramtype">const std::nullptr_t &amp;</td>          <td class="paramname"><span class="paramname"><em>null</em></span>, </td>
         </tr>
