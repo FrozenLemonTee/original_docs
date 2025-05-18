@@ -1,0 +1,200 @@
+\doxysection{skip\+List.\+h}
+\hypertarget{skip_list_8h_source}{}\label{skip_list_8h_source}\index{src/core/skipList.h@{src/core/skipList.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SKIPLIST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SKIPLIST\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comparator_8h}{comparator.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{couple_8h}{couple.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//\ todo}}
+\DoxyCodeLine{00011\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ K\_TYPE,}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ V\_TYPE,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ ALLOC\ =\ allocator<K\_TYPE>,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typename}\ Compare\ =\ increaseComparator<K\_TYPE>>}
+\DoxyCodeLine{00015\ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1skip_list}{skipList}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\ data\_;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1vector}{vector<skipListNode*>}}\ next\_;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_pointer\ =\ \textcolor{keyword}{typename}\ ALLOC::template\ rebind\_alloc<skipListNode*>;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1skip_list}{skipList}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}(\textcolor{keyword}{const}\ K\_TYPE\&\ key\ =\ K\_TYPE\{\},\ \textcolor{keyword}{const}\ V\_TYPE\&\ value\ =\ V\_TYPE\{\},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels\ =\ 1,\ std::initializer\_list<skipListNode*>\ next\ =\ \{\});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\&\ getVal();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<const\ K\_TYPE,\ V\_TYPE>}}\&\ getVal()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ K\_TYPE\&\ getKey()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ V\_TYPE\&\ getValue()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ V\_TYPE\&\ getValue();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ getLevels()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setValue(\textcolor{keyword}{const}\ V\_TYPE\&\ value);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}*\ getPNext(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}*\&\ getPNextRef(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setPNext(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels,\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}*\ next);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ connect(\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels,\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}*\ prev,\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}*\ next);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_node\ =\ \textcolor{keyword}{typename}\ ALLOC::template\ rebind\_alloc<skipListNode>;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }rebind\_alloc\_pointer\ =\ \textcolor{keyword}{typename}\ ALLOC::template\ rebind\_alloc<skipListNode*>;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ cur\_levels\_;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ size\_;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}*\ head\_;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ rebind\_alloc\_node\ rebind\_alloc\{\};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \textcolor{comment}{//\ todo}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1skip_list_1_1_iterator}{Iterator}}\ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1_iterator}{Iterator}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{skipListNode}}*\ createNode(\textcolor{keyword}{const}\ K\_TYPE\&\ key\ =\ K\_TYPE\{\},\ \textcolor{keyword}{const}\ V\_TYPE\&\ value\ =\ V\_TYPE\{\},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels\ =\ 1,\ std::initializer\_list<skipListNode*>\ next\ =\ \{\})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ destroyNode(skipListNode*\ node)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ skipListNode*\ listCopy()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ \ \ \ \};}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00076\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::skipListNode}}(\textcolor{keyword}{const}\ K\_TYPE\&\ key,\ \textcolor{keyword}{const}\ V\_TYPE\&\ value,}
+\DoxyCodeLine{00077\ \ \ \ \ u\_integer\ levels,\ std::initializer\_list<skipListNode*>\ next)}
+\DoxyCodeLine{00078\ \ \ \ \ :\ data\_(\{key,\ value\}),\ next\_(vector<skipListNode*>(levels,\ rebind\_alloc\_pointer\{\},\ \textcolor{keyword}{nullptr}))\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (next.size()\ !=\ 0\ \&\&\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(next.size())\ !=\ levels)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ outOfBoundError();}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\&\ ptr:\ next)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ this-\/>next\_[i]\ =\ ptr;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ i\ +=\ 1;}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00090\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}\&}
+\DoxyCodeLine{00091\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::getVal}}()\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_;}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00096\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1couple}{original::couple<const\ K\_TYPE,\ V\_TYPE>}}\&}
+\DoxyCodeLine{00097\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::getVal}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_;}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00102\ \textcolor{keyword}{const}\ K\_TYPE\&}
+\DoxyCodeLine{00103\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::getKey}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_.template\ get<0>();}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00108\ \textcolor{keyword}{const}\ V\_TYPE\&}
+\DoxyCodeLine{00109\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::getValue}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_.template\ get<1>();}
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00114\ V\_TYPE\&}
+\DoxyCodeLine{00115\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::getValue}}()\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>data\_.template\ get<1>();}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00120\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::getLevels}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>next\_.size();}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::setValue}}(\textcolor{keyword}{const}\ V\_TYPE\&\ value)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ this-\/>data\_.template\ set<1>(value);}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00130\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode}}*}
+\DoxyCodeLine{00131\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,Compare>::skipListNode::getPNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>next\_[levels\ -\/\ 1];}
+\DoxyCodeLine{00133\ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00136\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode}}*\&}
+\DoxyCodeLine{00137\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::getPNextRef}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>next\_[levels\ -\/\ 1];}
+\DoxyCodeLine{00139\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::setPNext}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels,\ skipListNode*\ next)}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ this-\/>next\_[levels\ -\/\ 1]\ =\ next;}
+\DoxyCodeLine{00145\ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode::connect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels,\ skipListNode*\ prev,\ skipListNode*\ next)}
+\DoxyCodeLine{00149\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{if}\ (prev)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ prev-\/>setPNext(levels,\ next);}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00156\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode}}*}
+\DoxyCodeLine{00157\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,Compare>::createNode}}(\textcolor{keyword}{const}\ K\_TYPE\&\ key,\ \textcolor{keyword}{const}\ V\_TYPE\&\ value,\ \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ levels,}
+\DoxyCodeLine{00158\ \ \ \ \ std::initializer\_list<skipListNode*>\ next)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{auto}\ node\ =\ this-\/>rebind\_alloc.allocate(1);}
+\DoxyCodeLine{00160\ \ \ \ \ this-\/>rebind\_alloc.construct(node,\ key,\ value,\ levels,\ next);}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{return}\ node;}
+\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::destroyNode}}(skipListNode*\ node)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00166\ \ \ \ \ this-\/>rebind\_alloc.destroy(node);}
+\DoxyCodeLine{00167\ \ \ \ \ this-\/>rebind\_alloc.deallocate(node,\ 1);}
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ K\_TYPE,\ \textcolor{keyword}{typename}\ V\_TYPE,\ \textcolor{keyword}{typename}\ ALLOC,\ \textcolor{keyword}{typename}\ Compare>}
+\DoxyCodeLine{00171\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classoriginal_1_1skip_list_1_1skip_list_node}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,\ Compare>::skipListNode}}*}
+\DoxyCodeLine{00172\ \mbox{\hyperlink{classoriginal_1_1skip_list}{original::skipList<K\_TYPE,\ V\_TYPE,\ ALLOC,Compare>::listCopy}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{auto}\ copied\_head\ =}
+\DoxyCodeLine{00174\ \ \ \ \ this-\/>createNode(this-\/>head\_-\/>getKey(),\ this-\/>head\_-\/>getValue(),\ this-\/>head\_-\/>getLevels());}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ vector<skipListNode**>\ copied\_curs\{this-\/>head\_-\/>getLevels(),\ rebind\_alloc\_pointer\{\},\ \textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ copied\_head-\/>getLevels();\ ++i)\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ copied\_curs[i]\ =\ \&copied\_head-\/>getPNextRef(i\ +\ 1);}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{auto}\ src\_cur\ =\ this-\/>head\_;}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{while}\ (src\_cur-\/>getPNext(1))\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ src\_next\ =\ src\_cur-\/>getPNext(1);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ copied\_next\ =\ this-\/>createNode(src\_next-\/>getKey(),\ src\_next-\/>getValue(),\ src\_next-\/>getLevels());}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ i\ =\ 0;\ i\ <\ src\_next-\/>getLevels();\ ++i)\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ *copied\_curs[i]\ =\ copied\_next;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ copied\_curs[i]\ =\ \&copied\_next-\/>getPNextRef(i\ +\ 1);}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{return}\ copied\_head;}
+\DoxyCodeLine{00192\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SKIPLIST\_H}}
+
+\end{DoxyCode}

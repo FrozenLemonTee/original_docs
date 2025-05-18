@@ -75,11 +75,11 @@ The map guarantees\+:
 \item Unique keys (no duplicates)
 \item Efficient value lookup by key
 \item Type-\/safe operations
-\item Exception safety (throws \doxylink{classoriginal_1_1noElementError}{no\+Element\+Error} for invalid access)
+\item Exception safety (throws \doxylink{classoriginal_1_1no_element_error}{no\+Element\+Error} for invalid access)
 \end{DoxyItemize}
 
 \begin{DoxyNote}{Note}
-This class is not meant to be instantiated directly -\/ use concrete implementations like \doxylink{classoriginal_1_1hashMap}{hash\+Map} or \doxylink{classoriginal_1_1treeMap}{tree\+Map} instead. 
+This class is not meant to be instantiated directly -\/ use concrete implementations like \doxylink{classoriginal_1_1hash_map}{hash\+Map} or \doxylink{classoriginal_1_1tree_map}{tree\+Map} instead. 
 \end{DoxyNote}
 
 
@@ -88,7 +88,7 @@ This class is not meant to be instantiated directly -\/ use concrete implementat
 \index{map@{map}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{map()}{map()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_aad85e07c580dd0d5e70f265498045743} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::map (\begin{DoxyParamCaption}\item[{ALLOC}]{alloc}{ = {\ttfamily ALLOC\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [protected]}}
 
 
@@ -107,7 +107,7 @@ Constructs a map with the specified allocator.
 \index{add@{add}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{add()}{add()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_ae7fa62a4c08cae5d553f1320e9e70f51} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC  = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
 virtual bool \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::add (\begin{DoxyParamCaption}\item[{const K\+\_\+\+TYPE \&}]{k}{, }\item[{const V\+\_\+\+TYPE \&}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -128,7 +128,7 @@ true if the pair was added successfully, false if the key already exists
 \index{containsKey@{containsKey}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{containsKey()}{containsKey()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_ac06086bcd12f6e2023e33a20506fae45} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC  = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
 virtual bool \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::contains\+Key (\begin{DoxyParamCaption}\item[{const K\+\_\+\+TYPE \&}]{k}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}}
 
 
@@ -147,7 +147,7 @@ true if the key exists, false otherwise
 \index{get@{get}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{get()}{get()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_a29beedb88b3e4f5ef7fcdcf8f88b5d20} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC  = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
 virtual V\+\_\+\+TYPE \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::get (\begin{DoxyParamCaption}\item[{const K\+\_\+\+TYPE \&}]{k}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -164,14 +164,14 @@ The associated value
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em \doxylink{classoriginal_1_1noElementError}{no\+Element\+Error}} & if the key doesn\textquotesingle{}t exist \\
+{\em \doxylink{classoriginal_1_1no_element_error}{no\+Element\+Error}} & if the key doesn\textquotesingle{}t exist \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classoriginal_1_1map_ad4db305ee22dd00bc884e9aa28c65194}\index{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_ad4db305ee22dd00bc884e9aa28c65194} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC  = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
 virtual const V\+\_\+\+TYPE \& \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const K\+\_\+\+TYPE \&}]{k}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -188,7 +188,7 @@ const reference to the mapped value
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em \doxylink{classoriginal_1_1noElementError}{no\+Element\+Error}} & if the key doesn\textquotesingle{}t exist \\
+{\em \doxylink{classoriginal_1_1no_element_error}{no\+Element\+Error}} & if the key doesn\textquotesingle{}t exist \\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyNote}{Note}
@@ -198,7 +198,7 @@ This version is for read-\/only access and will not modify the map
 \index{operator\mbox{[}\mbox{]}@{operator[]}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_a098fb6de7aed4f2528d9926d51aeb091} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC  = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
 virtual V\+\_\+\+TYPE \& \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const K\+\_\+\+TYPE \&}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -224,7 +224,7 @@ If the key doesn\textquotesingle{}t exist, inserts a new key-\/value pair with\+
 \index{remove@{remove}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{remove()}{remove()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_ae76e379a0ed3383109702688ba5d43ce} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC  = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
 virtual bool \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::remove (\begin{DoxyParamCaption}\item[{const K\+\_\+\+TYPE \&}]{k}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -243,7 +243,7 @@ true if the pair was removed, false if the key didn\textquotesingle{}t exist
 \index{update@{update}!original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$@{original::map$<$ K\_TYPE, V\_TYPE, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1map_ae9f7b3f3b9c9ed2e9e78eb3dbcb8cd4e} 
-template$<$typename K\+\_\+\+TYPE, typename V\+\_\+\+TYPE, typename ALLOC = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
+template$<$typename K\+\_\+\+TYPE , typename V\+\_\+\+TYPE , typename ALLOC  = allocator$<$couple$<$const K\+\_\+\+TYPE, V\+\_\+\+TYPE$>$$>$$>$ \\
 virtual bool \mbox{\hyperlink{classoriginal_1_1map}{original\+::map}}$<$ K\+\_\+\+TYPE, V\+\_\+\+TYPE, ALLOC $>$\+::update (\begin{DoxyParamCaption}\item[{const K\+\_\+\+TYPE \&}]{key}{, }\item[{const V\+\_\+\+TYPE \&}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
