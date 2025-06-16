@@ -2,6 +2,15 @@
 \hypertarget{classoriginal_1_1thread_base}{}\label{classoriginal_1_1thread_base}\index{original::threadBase@{original::threadBase}}
 
 
+Base class for thread implementations.  
+
+
+
+
+{\ttfamily \#include $<$thread.\+h$>$}
+
+
+
 Inheritance diagram for original\+::thread\+Base\+:
 \nopagebreak
 \begin{figure}[H]
@@ -24,10 +33,12 @@ Collaboration diagram for original\+::thread\+Base\+:
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{thread\+Data}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Wrapper for thread execution data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+virtual \mbox{\hyperlink{classoriginal_1_1thread_base_a6308153530b558a60ebe6fa9db28768e}{\texorpdfstring{$\sim$}{\string~}thread\+Base}} () noexcept(false)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1thread_base_afb9ca0660679b7a8d43ef87064e3110a}\label{classoriginal_1_1thread_base_afb9ca0660679b7a8d43ef87064e3110a} 
 {\bfseries thread\+Base} (const \mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \&)=delete
 \item 
@@ -40,18 +51,19 @@ class \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{thread\+Data
 \Hypertarget{classoriginal_1_1thread_base_a087f36d79ae3a4e0b612feb0e3ccfe6d}\label{classoriginal_1_1thread_base_a087f36d79ae3a4e0b612feb0e3ccfe6d} 
 \mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \&\&other) noexcept=default
 \item 
-\Hypertarget{classoriginal_1_1thread_base_a19fe3ef5022d5b8d7076262bd8a0bd18}\label{classoriginal_1_1thread_base_a19fe3ef5022d5b8d7076262bd8a0bd18} 
-{\bfseries operator bool} () const
-\item 
-\Hypertarget{classoriginal_1_1thread_base_ad3ff5c5faf3a9e710fde1600564e13a8}\label{classoriginal_1_1thread_base_ad3ff5c5faf3a9e710fde1600564e13a8} 
-bool {\bfseries operator!} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classoriginal_1_1thread_base_a19fe3ef5022d5b8d7076262bd8a0bd18}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em Check if thread is valid. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1thread_base_ad3ff5c5faf3a9e710fde1600564e13a8}{operator!}} () const
+\begin{DoxyCompactList}\small\item\em Check if thread is not valid. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1thread_base_a988bd2fb16e8107d3752ca5d5596d3be}{joinable}} () const
+\begin{DoxyCompactList}\small\item\em Check if thread is joinable. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e}\label{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e} 
-virtual bool {\bfseries valid} () const =0
-\end{DoxyCompactItemize}
+virtual bool \mbox{\hyperlink{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e}{valid}} () const =0
+\begin{DoxyCompactList}\small\item\em Check if thread is valid. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{thread\+Base}} (bool is\+\_\+joinable=false)
+\begin{DoxyCompactList}\small\item\em Construct thread base. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,6 +72,106 @@ bool {\bfseries is\+\_\+joinable}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Base class for thread implementations. 
+
+Provides common thread functionality and interface
+
+Key Features\+:
+\begin{DoxyItemize}
+\item Manages thread joinable state
+\item Provides basic thread validity checks
+\item Non-\/copyable but movable 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}\index{original::threadBase@{original::threadBase}!threadBase@{threadBase}}
+\index{threadBase@{threadBase}!original::threadBase@{original::threadBase}}
+\doxysubsubsection{\texorpdfstring{threadBase()}{threadBase()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c} 
+original\+::thread\+Base\+::thread\+Base (\begin{DoxyParamCaption}\item[{bool}]{is\+\_\+joinable}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [protected]}}
+
+
+
+Construct thread base. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+joinable} & Whether thread is joinable \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classoriginal_1_1thread_base_a6308153530b558a60ebe6fa9db28768e}\index{original::threadBase@{original::threadBase}!````~threadBase@{\texorpdfstring{$\sim$}{\string~}threadBase}}
+\index{````~threadBase@{\texorpdfstring{$\sim$}{\string~}threadBase}!original::threadBase@{original::threadBase}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}threadBase()}{\string~threadBase()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_base_a6308153530b558a60ebe6fa9db28768e} 
+original\+::thread\+Base\+::\texorpdfstring{$\sim$}{\string~}thread\+Base (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if thread is joinable but not joined/detached \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1thread_base_a988bd2fb16e8107d3752ca5d5596d3be}\index{original::threadBase@{original::threadBase}!joinable@{joinable}}
+\index{joinable@{joinable}!original::threadBase@{original::threadBase}}
+\doxysubsubsection{\texorpdfstring{joinable()}{joinable()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_base_a988bd2fb16e8107d3752ca5d5596d3be} 
+bool original\+::thread\+Base\+::joinable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}}
+
+
+
+Check if thread is joinable. 
+
+\begin{DoxyReturn}{Returns}
+true if thread is joinable 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1thread_base_a19fe3ef5022d5b8d7076262bd8a0bd18}\index{original::threadBase@{original::threadBase}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!original::threadBase@{original::threadBase}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_base_a19fe3ef5022d5b8d7076262bd8a0bd18} 
+original\+::thread\+Base\+::operator bool (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Check if thread is valid. 
+
+\begin{DoxyReturn}{Returns}
+true if thread is valid 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1thread_base_ad3ff5c5faf3a9e710fde1600564e13a8}\index{original::threadBase@{original::threadBase}!operator"!@{operator"!}}
+\index{operator"!@{operator"!}!original::threadBase@{original::threadBase}}
+\doxysubsubsection{\texorpdfstring{operator"!()}{operator!()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_base_ad3ff5c5faf3a9e710fde1600564e13a8} 
+bool original\+::thread\+Base\+::operator! (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Check if thread is not valid. 
+
+\begin{DoxyReturn}{Returns}
+true if thread is not valid 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e}\index{original::threadBase@{original::threadBase}!valid@{valid}}
+\index{valid@{valid}!original::threadBase@{original::threadBase}}
+\doxysubsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e} 
+virtual bool original\+::thread\+Base\+::valid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Check if thread is valid. 
+
+\begin{DoxyReturn}{Returns}
+true if thread is valid 
+\end{DoxyReturn}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/vibrant/thread.\+h\end{DoxyCompactItemize}
+src/vibrant/\mbox{\hyperlink{thread_8h}{thread.\+h}}\end{DoxyCompactItemize}

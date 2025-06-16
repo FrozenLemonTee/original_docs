@@ -1,0 +1,81 @@
+\doxysection{src/vibrant/thread.h File Reference}
+\hypertarget{thread_8h}{}\label{thread_8h}\index{src/vibrant/thread.h@{src/vibrant/thread.h}}
+
+
+Thread management utilities.  
+
+
+{\ttfamily \#include "{}error.\+h"{}}\newline
+{\ttfamily \#include "{}functional"{}}\newline
+{\ttfamily \#include "{}pthread.\+h"{}}\newline
+{\ttfamily \#include "{}owner\+Ptr.\+h"{}}\newline
+Include dependency graph for thread.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{thread_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classoriginal_1_1thread_base}{original\+::thread\+Base}}
+\begin{DoxyCompactList}\small\item\em Base class for thread implementations. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{original\+::thread\+Base\+::thread\+Data$<$ Callback $>$}}
+\begin{DoxyCompactList}\small\item\em Wrapper for thread execution data. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1p_thread}{original\+::p\+Thread}}
+\begin{DoxyCompactList}\small\item\em POSIX thread implementation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1thread}{original\+::thread}}
+\begin{DoxyCompactList}\small\item\em High-\/level thread wrapper. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceoriginal}{original}}
+\begin{DoxyCompactList}\small\item\em Main namespace for the project Original. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread management utilities. 
+
+Provides a layered threading abstraction with\+:
+\begin{DoxyItemize}
+\item Low-\/level POSIX thread wrapper (p\+Thread)
+\item High-\/level RAII thread management (thread)
+\item Exception-\/safe thread operations
+\item Flexible join/detach policies
+\end{DoxyItemize}
+
+Key Features\+:
+\begin{DoxyItemize}
+\item Three-\/layer thread abstraction\+:
+\begin{DoxyEnumerate}
+\item thread\+Base -\/ Common interface and state management
+\item p\+Thread -\/ POSIX thread wrapper
+\item thread -\/ High-\/level RAII wrapper
+\end{DoxyEnumerate}
+\item Automatic resource management
+\item Move-\/only semantics
+\item Exception safety (basic guarantee)
+\item Configurable join/detach behavior
+\end{DoxyItemize}
+
+Thread Safety\+:
+\begin{DoxyItemize}
+\item Individual thread objects are not thread-\/safe
+\item External synchronization required for shared access
+\end{DoxyItemize}
+
+Exception Handling\+:
+\begin{DoxyItemize}
+\item Throws sys\+Error for thread operation failures
+\item Destructors may throw if thread is joinable and not joined/detached 
+\end{DoxyItemize}

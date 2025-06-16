@@ -1,6 +1,6 @@
 \doxysection{thread.\+h}
 \hypertarget{thread_8h_source}{}\label{thread_8h_source}\index{src/vibrant/thread.h@{src/vibrant/thread.h}}
-
+\mbox{\hyperlink{thread_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ THREAD\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ THREAD\_H}}
@@ -11,156 +11,266 @@
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{owner_ptr_8h}{ownerPtr.h}}"{}}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\ \{}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{threadData}}}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ Callback\ c;}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{threadData}}(Callback\ c);}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ run(\textcolor{keywordtype}{void}*\ arg);}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_joinable;}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ valid()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}();}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1thread_base}{\string~threadBase}}();}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}(\mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00042\ \ \ \ \ \};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}\ \{}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ pthread\_t\ handle;}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ valid()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}(Callback\ c,\ ARGS\&\&...\ args);}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}(\mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ join();}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ detach();}
-\DoxyCodeLine{00059\ \ \ \ \ \};}
-\DoxyCodeLine{00060\ \}}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{00064\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{original::threadBase::threadData<Callback>::threadData}}(Callback\ c)}
-\DoxyCodeLine{00065\ \ \ \ \ :\ c(std::move(c))\ \{\}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback>}
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{original::threadBase::threadData<Callback>::run}}(\textcolor{keywordtype}{void}*\ arg)}
-\DoxyCodeLine{00069\ \{}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{auto}\ self\ =\ ownerPtr<threadData>(\textcolor{keyword}{static\_cast<}threadData*\textcolor{keyword}{>}(arg));}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ self-\/>c();}
-\DoxyCodeLine{00073\ \ \ \ \ \}\textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ error\&)\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError();}
-\DoxyCodeLine{00075\ \ \ \ \ \}}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00077\ \}}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \textcolor{keyword}{inline}\ original::threadBase::operator\ bool()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00080\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>valid();}
-\DoxyCodeLine{00082\ \}}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ original::threadBase::operator!()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00085\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>valid();}
-\DoxyCodeLine{00087\ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{keyword}{inline}\ original::threadBase::threadBase()}
-\DoxyCodeLine{00090\ \ \ \ \ :\ is\_joinable(true)\ \{\}}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \textcolor{keyword}{inline}\ original::threadBase::\string~threadBase()\ \{}
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\ \{}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError();}
-\DoxyCodeLine{00095\ \ \ \ \ \}}
-\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback>}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data_a699ea60d97382b15212c6f51440dd204}{threadData}}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ Callback\ c;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data_a699ea60d97382b15212c6f51440dd204}{threadData}}(Callback\ c);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data_aa432434cc3308d8a3284ebd0e4b86129}{run}}(\textcolor{keywordtype}{void}*\ arg);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_joinable;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e}{valid}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}(\textcolor{keywordtype}{bool}\ is\_joinable\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a6308153530b558a60ebe6fa9db28768e}{\string~threadBase}}()\ noexcept(false);}
 \DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
-\DoxyCodeLine{00099\ original::pThread::pThread(Callback\ c,\ ARGS\&\&...\ args)\ :\ handle()}
-\DoxyCodeLine{00100\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{using\ }bound\_callback\ =\ \textcolor{keyword}{decltype}(std::bind(std::forward<Callback>(c),\ std::forward<ARGS>(args)...));}
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{using\ }bound\_thread\_data\ =\ threadData<bound\_callback>;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}(const\ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\&)\ =\ delete;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\&\ operator=(const\ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\&)\ =\ delete;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}(\mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\&\&\ other)\ noexcept\ =\ default;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\&\&\ other)\ noexcept\ =\ default;}
 \DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{auto}\ task\ =\ \textcolor{keyword}{new}\ threadData<bound\_callback>(std::bind(std::forward<Callback>(c),\ std::forward<ARGS>(args)...));}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_create(\&this-\/>handle,\ \textcolor{keyword}{nullptr},\ \&bound\_thread\_data::run,\ task);}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ code\ !=\ 0)}
-\DoxyCodeLine{00108\ \ \ \ \ \{}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError();}
-\DoxyCodeLine{00110\ \ \ \ \ \}}
-\DoxyCodeLine{00111\ \}}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ original::pThread::valid()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00114\ \textcolor{keyword}{}\{}
-\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>handle\ !=\ pthread\_t\{\};}
-\DoxyCodeLine{00116\ \}}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{keyword}{inline}\ original::pThread::pThread(pThread\&\&\ other)\ noexcept}
-\DoxyCodeLine{00119\ \ \ \ \ :\ threadBase(std::move(other)),\ handle()\ \{}
-\DoxyCodeLine{00120\ \ \ \ \ this-\/>operator=(std::move(other));}
-\DoxyCodeLine{00121\ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ explicit\ operator\ \textcolor{keywordtype}{bool}()\ const;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!()\ const;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a988bd2fb16e8107d3752ca5d5596d3be}{joinable}}()\ const;}
+\DoxyCodeLine{00121\ \ \ \ \ \};}
 \DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1p_thread}{original::pThread}}\&\ original::pThread::operator=(pThread\&\&\ other)\ \textcolor{keyword}{noexcept}}
-\DoxyCodeLine{00124\ \{}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00127\ \ \ \ \ \}}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable\ \&\&\ this-\/>valid())\ \{}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ pthread\_detach(this-\/>handle);}
-\DoxyCodeLine{00131\ \ \ \ \ \}}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ \ \ this-\/>handle\ =\ other.handle;}
-\DoxyCodeLine{00134\ \ \ \ \ other.handle\ =\ \{\};}
-\DoxyCodeLine{00135\ \ \ \ \ this-\/>is\_joinable\ =\ other.is\_joinable;}
-\DoxyCodeLine{00136\ \ \ \ \ other.is\_joinable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00138\ \}}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ original::pThread::join()\ \{}
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\{}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_join(this-\/>handle,\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ code\ !=\ 0)\{}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError();}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ this-\/>is\_joinable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00147\ \ \ \ \ \}}
-\DoxyCodeLine{00148\ \}}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ original::pThread::detach()\ \{}
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\{}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_detach(this-\/>handle);}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ code\ !=\ 0)\{}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError();}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ this-\/>is\_joinable\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00157\ \ \ \ \ \}}
-\DoxyCodeLine{00158\ \}}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//THREAD\_H}}
+\DoxyCodeLine{00128\ \ \ \ \ class\ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{pThread}}\ final\ :\ public\ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ pthread\_t\ handle;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e}{valid}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{pThread}}();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{pThread}}(Callback\ c,\ ARGS\&\&...\ args);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{pThread}}(\mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{pThread}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{pThread}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{pThread}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1p_thread_aa820e8e15459dc25cb8516ddd900f21f}{join}}();}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1p_thread_a20943b314dbef3893a89598ad7118ba1}{detach}}();}
+\DoxyCodeLine{00163\ \ \ \ \ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\ thread\_;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ will\_join;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}(Callback\ c,\ ARGS\&\&...\ args);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}(Callback\ c,\ \textcolor{keywordtype}{bool}\ will\_join,\ ARGS\&\&...\ args);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}(\mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\ p\_thread,\ \textcolor{keywordtype}{bool}\ will\_join\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}(\mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}(\mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&\&\ other,\ \textcolor{keywordtype}{bool}\ will\_join)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_ad53fe3c5abcb82c334a480d5a4543d1f}{joinable}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_ab600b1fbecbd045b82b266d6902905de}{operator!}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1thread_af9e58dda4e5c6cabe7d7afd3ef45dc47}{join}}();}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1thread_a5ebd4cf1fc2dfc76cf0b37e5e39e8a4d}{detach}}();}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{\string~thread}}();}
+\DoxyCodeLine{00262\ \ \ \ \ \};}
+\DoxyCodeLine{00263\ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback>}
+\DoxyCodeLine{00267\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data_a699ea60d97382b15212c6f51440dd204}{original::threadBase::threadData<Callback>::threadData}}(Callback\ c)}
+\DoxyCodeLine{00268\ \ \ \ \ :\ c(std::move(c))\ \{\}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback>}
+\DoxyCodeLine{00271\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data_aa432434cc3308d8a3284ebd0e4b86129}{original::threadBase::threadData<Callback>::run}}(\textcolor{keywordtype}{void}*\ arg)}
+\DoxyCodeLine{00272\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{auto}\ self\ =\ \mbox{\hyperlink{classoriginal_1_1owner_ptr}{ownerPtr<threadData>}}(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data_a699ea60d97382b15212c6f51440dd204}{threadData}}*\textcolor{keyword}{>}(arg));}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ self-\/>c();}
+\DoxyCodeLine{00276\ \ \ \ \ \}\textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1error}{error}}\&)\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sys_error}{sysError}}();}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00280\ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{keyword}{inline}\ original::threadBase::operator\ bool()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00283\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e}{valid}}();}
+\DoxyCodeLine{00285\ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_base_ad3ff5c5faf3a9e710fde1600564e13a8}{original::threadBase::operator!}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00288\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>\mbox{\hyperlink{classoriginal_1_1thread_base_a0f2b983f5c9eac3b7e04c389b9417b1e}{valid}}();}
+\DoxyCodeLine{00290\ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a988bd2fb16e8107d3752ca5d5596d3be}{original::threadBase::joinable}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>is\_joinable;}
+\DoxyCodeLine{00294\ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{original::threadBase::threadBase}}(\textcolor{keywordtype}{bool}\ is\_joinable)}
+\DoxyCodeLine{00297\ \ \ \ \ :\ is\_joinable(is\_joinable)\ \{\}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread_base_a6308153530b558a60ebe6fa9db28768e}{original::threadBase::\string~threadBase}}()\ noexcept(false)\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sys_error}{sysError}}();}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{original::pThread::pThread}}()\ :\ handle()\ \{\}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ ARGS>}
+\DoxyCodeLine{00308\ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{original::pThread::pThread}}(Callback\ c,\ ARGS\&\&...\ args)\ :\ \mbox{\hyperlink{classoriginal_1_1thread_base_a750b036865a5b428464f35a6223b9b3c}{threadBase}}(true),\ handle()}
+\DoxyCodeLine{00309\ \{}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keyword}{auto}\ bound\_lambda\ =}
+\DoxyCodeLine{00311\ \ \ \ \ [func\ =\ std::forward<Callback>(c),\ ...lambda\_args\ =\ std::forward<ARGS>(args)]()\ \textcolor{keyword}{mutable}\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ std::invoke(std::move(func),\ std::move(lambda\_args)...);}
+\DoxyCodeLine{00313\ \ \ \ \ \};}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keyword}{using\ }bound\_callback\ =\ \textcolor{keyword}{decltype}(bound\_lambda);}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keyword}{using\ }bound\_thread\_data\ =\ \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{threadData<bound\_callback>}};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keyword}{auto}\ task\ =\ \textcolor{keyword}{new}\ bound\_thread\_data(std::move(bound\_lambda));}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_create(\&this-\/>handle,\ \textcolor{keyword}{nullptr},\ \&bound\_thread\_data::run,\ task);\ code\ !=\ 0)}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sys_error}{sysError}}();}
+\DoxyCodeLine{00323\ \ \ \ \ \}}
+\DoxyCodeLine{00324\ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ original::pThread::valid()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00327\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>handle\ !=\ pthread\_t\{\};}
+\DoxyCodeLine{00329\ \}}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1p_thread_ac04890ca1d7523b30f0bb7cf81ed5cec}{original::pThread::pThread}}(\mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\&\&\ other)\ noexcept}
+\DoxyCodeLine{00332\ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1thread_base}{threadBase}}(std::move(other)),\ handle()\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ this-\/>operator=(std::move(other));}
+\DoxyCodeLine{00334\ \}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \textcolor{keyword}{inline}\ original::pThread\&\ original::pThread::operator=(\mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\&\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00337\ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00340\ \ \ \ \ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable\ \&\&\ this-\/>valid())\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ pthread\_detach(this-\/>handle);}
+\DoxyCodeLine{00344\ \ \ \ \ \}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ this-\/>handle\ =\ other.handle;}
+\DoxyCodeLine{00347\ \ \ \ \ other.handle\ =\ \{\};}
+\DoxyCodeLine{00348\ \ \ \ \ this-\/>is\_joinable\ =\ other.is\_joinable;}
+\DoxyCodeLine{00349\ \ \ \ \ other.is\_joinable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00351\ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1p_thread_aa820e8e15459dc25cb8516ddd900f21f}{original::pThread::join}}()\ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_join(this-\/>handle,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ code\ !=\ 0)\{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sys_error}{sysError}}();}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ this-\/>is\_joinable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ this-\/>handle\ =\ \{\};}
+\DoxyCodeLine{00361\ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1p_thread_a20943b314dbef3893a89598ad7118ba1}{original::pThread::detach}}()\ \{}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>is\_joinable)\{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ code\ =\ pthread\_detach(this-\/>handle);}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ code\ !=\ 0)\{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1sys_error}{sysError}}();}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ this-\/>is\_joinable\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ this-\/>handle\ =\ \{\};}
+\DoxyCodeLine{00372\ \ \ \ \ \}}
+\DoxyCodeLine{00373\ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{original::thread::thread}}()}
+\DoxyCodeLine{00376\ \ \ \ \ :\ will\_join(true)\ \{\}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ ...\ ARGS>}
+\DoxyCodeLine{00379\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{original::thread::thread}}(Callback\ c,\ ARGS\&\&...\ args)}
+\DoxyCodeLine{00380\ \ \ \ \ :\ thread\_(std::forward<Callback>(c),\ std::forward<ARGS>(args)...),\ will\_join(true)\ \{\}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ ...\ ARGS>}
+\DoxyCodeLine{00383\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{original::thread::thread}}(Callback\ c,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ will\_join,\ ARGS\&\&...\ args)}
+\DoxyCodeLine{00384\ \ \ \ \ :\ thread\_(std::forward<Callback>(c),\ std::forward<ARGS>(args)...),\ will\_join(will\_join)\ \{\}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{original::thread::thread}}(\mbox{\hyperlink{classoriginal_1_1p_thread}{pThread}}\ p\_thread,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ will\_join)}
+\DoxyCodeLine{00387\ \ \ \ \ :\ thread\_(std::move(p\_thread)),\ will\_join(will\_join)\ \{\}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{original::thread::thread}}(\mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&\&\ other)\ noexcept}
+\DoxyCodeLine{00390\ \ \ \ \ :\ thread\_(std::move(other.thread\_)),\ will\_join(\textcolor{keyword}{true})\ \{\}}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{original::thread::thread}}(\mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}}\&\&\ other,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ will\_join)\ noexcept}
+\DoxyCodeLine{00393\ \ \ \ \ :\ thread\_(std::move(other.thread\_)),\ will\_join(will\_join)\ \{\}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread}{original::thread}}\&\ original::thread::operator=(\mbox{\hyperlink{classoriginal_1_1thread}{thread}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00398\ \ \ \ \ \}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ this-\/>thread\_\ =\ std::move(other.thread\_);}
+\DoxyCodeLine{00401\ \ \ \ \ this-\/>will\_join\ =\ other.will\_join;}
+\DoxyCodeLine{00402\ \ \ \ \ other.will\_join\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00404\ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1thread_af9e58dda4e5c6cabe7d7afd3ef45dc47}{original::thread::join}}()}
+\DoxyCodeLine{00407\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ this-\/>thread\_.\mbox{\hyperlink{classoriginal_1_1thread_af9e58dda4e5c6cabe7d7afd3ef45dc47}{join}}();}
+\DoxyCodeLine{00409\ \}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1thread_a5ebd4cf1fc2dfc76cf0b37e5e39e8a4d}{original::thread::detach}}()}
+\DoxyCodeLine{00412\ \{}
+\DoxyCodeLine{00413\ \ \ \ \ this-\/>thread\_.detach();}
+\DoxyCodeLine{00414\ \}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1thread_a51a21c9f2de431c11a50ede60c59f037}{original::thread::\string~thread}}()}
+\DoxyCodeLine{00417\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>thread\_.joinable())\ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ this-\/>will\_join\ ?\ this-\/>thread\_.join()\ :\ this-\/>thread\_.detach();}
+\DoxyCodeLine{00420\ \ \ \ \ \}}
+\DoxyCodeLine{00421\ \}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_ad53fe3c5abcb82c334a480d5a4543d1f}{original::thread::joinable}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>thread\_.joinable();}
+\DoxyCodeLine{00425\ \}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ original::thread::operator\ bool()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>thread\_.operator\ bool();}
+\DoxyCodeLine{00429\ \}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1thread_ab600b1fbecbd045b82b266d6902905de}{original::thread::operator!}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>thread\_.operator!();}
+\DoxyCodeLine{00433\ \}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//THREAD\_H}}
 
 \end{DoxyCode}

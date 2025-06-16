@@ -2,7 +2,7 @@
 \hypertarget{sets_8h}{}\label{sets_8h}\index{src/core/sets.h@{src/core/sets.h}}
 
 
-Implementation of hash\+Set container.  
+Implementation of set containers.  
 
 
 {\ttfamily \#include "{}allocator.\+h"{}}\newline
@@ -13,6 +13,7 @@ Implementation of hash\+Set container.
 {\ttfamily \#include "{}owner\+Ptr.\+h"{}}\newline
 {\ttfamily \#include "{}comparator.\+h"{}}\newline
 {\ttfamily \#include "{}RBTree.\+h"{}}\newline
+{\ttfamily \#include "{}skip\+List.\+h"{}}\newline
 Include dependency graph for sets.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -31,7 +32,11 @@ class \mbox{\hyperlink{classoriginal_1_1hash_set_1_1_iterator}{original\+::hash\
 class \mbox{\hyperlink{classoriginal_1_1tree_set}{original\+::tree\+Set$<$ TYPE, Compare, ALLOC $>$}}
 \begin{DoxyCompactList}\small\item\em Red-\/\+Black Tree based implementation of the set interface. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1tree_set_1_1_iterator}{original\+::tree\+Set$<$ TYPE, Compare, ALLOC $>$\+::\+Iterator}}
-\begin{DoxyCompactList}\small\item\em Bidirectional iterator for \doxylink{classoriginal_1_1tree_set}{tree\+Set}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Bidirectional iterator for \doxylink{classoriginal_1_1tree_set}{tree\+Set}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet$<$ TYPE, Compare, ALLOC $>$}}
+\begin{DoxyCompactList}\small\item\em Skip List based implementation of the set interface. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1_j_set_1_1_iterator}{original\+::\+JSet$<$ TYPE, Compare, ALLOC $>$\+::\+Iterator}}
+\begin{DoxyCompactList}\small\item\em Forward iterator for \doxylink{classoriginal_1_1_j_set}{JSet}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,21 +45,54 @@ namespace \mbox{\hyperlink{namespaceoriginal}{original}}
 
 
 \doxysubsection{Detailed Description}
-Implementation of hash\+Set container. 
+Implementation of set containers. 
 
-Provides a hash-\/based set implementation with\+:
+Provides three set implementations with different underlying data structures\+:
+\begin{DoxyEnumerate}
+\item hash\+Set -\/ Hash table based implementation
+\item tree\+Set -\/ Red-\/\+Black Tree based implementation
+\item JSet -\/ Skip List based implementation
+\end{DoxyEnumerate}
+
+Common Features\+:
 \begin{DoxyItemize}
-\item Average O(1) time complexity for basic operations
-\item Separate chaining collision resolution
-\item Customizable hash function and allocator
+\item Unique element storage (no duplicates)
 \item Full iterator support
+\item Customizable comparison/hash functions
+\item Customizable allocators
+\item Exception safety guarantees
+\item Polymorphic usage through set interface
 \end{DoxyItemize}
 
-Key Features\+:
+Performance Characteristics\+: \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Container   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Insertion   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Lookup   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Deletion   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Ordered   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Memory Usage    }\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Container   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Insertion   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Lookup   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Deletion   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Ordered   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Memory Usage    }\\\cline{1-6}
+\endhead
+hash\+Set   &O(1) avg   &O(1)   &O(1)   &No   &Medium-\/\+High    \\\cline{1-6}
+tree\+Set   &O(log n)   &O(log n)   &O(log n)   &Yes   &Low    \\\cline{1-6}
+JSet   &O(log n) avg   &O(log n)   &O(log n)   &Yes   &Medium   \\\cline{1-6}
+\end{longtabu}
+
+
+Usage Guidelines\+:
 \begin{DoxyItemize}
-\item Inherits from set interface for polymorphic use
-\item Uses hash\+Table as underlying storage (with bool values)
-\item Provides efficient membership testing
-\item Supports all standard set operations
-\item Exception-\/safe implementation 
+\item Use hash\+Set for maximum performance when order doesn\textquotesingle{}t matter
+\item Use tree\+Set for ordered traversal and consistent performance
+\item Use JSet for concurrent scenarios or when probabilistic balance is preferred
 \end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{set_8h}{set.\+h} For the base interface definition 
+
+\doxylink{hash_table_8h}{hash\+Table.\+h} For hash\+Set implementation details 
+
+\doxylink{_r_b_tree_8h}{RBTree.\+h} For tree\+Set implementation details 
+
+\doxylink{skip_list_8h}{skip\+List.\+h} For JSet implementation details 
+\end{DoxySeeAlso}

@@ -33,7 +33,7 @@ using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+swap} = std\+::false\+\_\
 \Hypertarget{classoriginal_1_1allocator_base_aea9d03adfb2a4fe2801795fa91623f03}\label{classoriginal_1_1allocator_base_aea9d03adfb2a4fe2801795fa91623f03} 
 using {\bfseries propagate\+\_\+on\+\_\+container\+\_\+merge} = std\+::false\+\_\+type
 \begin{DoxyCompactList}\small\item\em No propagation on merge. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename O\+\_\+\+TYPE $>$ }\\using \mbox{\hyperlink{classoriginal_1_1allocator_base_a635799ad6edd53836205d0bd051669af}{rebind\+\_\+alloc}} = DERIVED$<$O\+\_\+\+TYPE$>$
+{\footnotesize template$<$typename O\+\_\+\+TYPE$>$ }\\using \mbox{\hyperlink{classoriginal_1_1allocator_base_a635799ad6edd53836205d0bd051669af}{rebind\+\_\+alloc}} = DERIVED$<$O\+\_\+\+TYPE$>$
 \begin{DoxyCompactList}\small\item\em Rebinds allocator to different type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -44,7 +44,7 @@ virtual TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1alloca
 \begin{DoxyCompactList}\small\item\em Allocates raw memory. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classoriginal_1_1allocator_base_ae39301cebacf88133d4804150be02f7e}{deallocate}} (TYPE \texorpdfstring{$\ast$}{*}ptr, \mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size)=0
 \begin{DoxyCompactList}\small\item\em Deallocates memory. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename O\+\_\+\+TYPE , typename... Args$>$ }\\void \mbox{\hyperlink{classoriginal_1_1allocator_base_abb38e5b205a147709e9357af4fd87c6d}{construct}} (O\+\_\+\+TYPE \texorpdfstring{$\ast$}{*}o\+\_\+ptr, Args \&\&... args)
+{\footnotesize template$<$typename O\+\_\+\+TYPE, typename... Args$>$ }\\void \mbox{\hyperlink{classoriginal_1_1allocator_base_abb38e5b205a147709e9357af4fd87c6d}{construct}} (O\+\_\+\+TYPE \texorpdfstring{$\ast$}{*}o\+\_\+ptr, Args \&\&... args)
 \begin{DoxyCompactList}\small\item\em Constructs an object in allocated memory. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1allocator_base_a6c7074617a3b5fbacecbc0df1913120b}\label{classoriginal_1_1allocator_base_a6c7074617a3b5fbacecbc0df1913120b} 
 virtual {\bfseries \texorpdfstring{$\sim$}{\string~}allocator\+Base} ()=0
@@ -52,7 +52,7 @@ virtual {\bfseries \texorpdfstring{$\sim$}{\string~}allocator\+Base} ()=0
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename O\+\_\+\+TYPE $>$ }\\static void \mbox{\hyperlink{classoriginal_1_1allocator_base_ad7e8d4f7922526e52f176325dfc1996f}{destroy}} (O\+\_\+\+TYPE \texorpdfstring{$\ast$}{*}o\+\_\+ptr)
+{\footnotesize template$<$typename O\+\_\+\+TYPE$>$ }\\static void \mbox{\hyperlink{classoriginal_1_1allocator_base_ad7e8d4f7922526e52f176325dfc1996f}{destroy}} (O\+\_\+\+TYPE \texorpdfstring{$\ast$}{*}o\+\_\+ptr)
 \begin{DoxyCompactList}\small\item\em Destroys an object without deallocating. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -78,10 +78,10 @@ Provides common interface and utilities for memory management\+:
 
 Propagation traits\+:
 \begin{DoxyItemize}
-\item propagate\+\_\+on\+\_\+container\+\_\+copy\+\_\+assignment
-\item propagate\+\_\+on\+\_\+container\+\_\+move\+\_\+assignment
-\item propagate\+\_\+on\+\_\+container\+\_\+swap
-\item propagate\+\_\+on\+\_\+container\+\_\+merge 
+\item \doxylink{classoriginal_1_1allocator_base_a4482f11b43c56841b92c540bf7cb1c1f}{propagate\+\_\+on\+\_\+container\+\_\+copy\+\_\+assignment}
+\item \doxylink{classoriginal_1_1allocator_base_a7c7dfeface4ec23346f30205a27c4dda}{propagate\+\_\+on\+\_\+container\+\_\+move\+\_\+assignment}
+\item \doxylink{classoriginal_1_1allocator_base_a1a901efeff0b73b8505b9d53b9d92cd8}{propagate\+\_\+on\+\_\+container\+\_\+swap}
+\item \doxylink{classoriginal_1_1allocator_base_aea9d03adfb2a4fe2801795fa91623f03}{propagate\+\_\+on\+\_\+container\+\_\+merge} 
 \end{DoxyItemize}
 
 \doxysubsection{Member Typedef Documentation}
@@ -89,8 +89,8 @@ Propagation traits\+:
 \index{rebind\_alloc@{rebind\_alloc}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
 \doxysubsubsection{\texorpdfstring{rebind\_alloc}{rebind\_alloc}}
 {\footnotesize\ttfamily \label{classoriginal_1_1allocator_base_a635799ad6edd53836205d0bd051669af} 
-template$<$typename TYPE , template$<$ typename $>$ typename DERIVED$>$ \\
-template$<$typename O\+\_\+\+TYPE $>$ \\
+template$<$typename TYPE, template$<$ typename $>$ typename DERIVED$>$ \\
+template$<$typename O\+\_\+\+TYPE$>$ \\
 using \mbox{\hyperlink{classoriginal_1_1allocator_base}{original\+::allocator\+Base}}$<$ TYPE, DERIVED $>$\+::rebind\+\_\+alloc = DERIVED$<$O\+\_\+\+TYPE$>$}
 
 
@@ -109,7 +109,7 @@ Rebinds allocator to different type.
 \index{allocatorBase@{allocatorBase}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
 \doxysubsubsection{\texorpdfstring{allocatorBase()}{allocatorBase()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1allocator_base_abf970ff9b43924e472a000db704109a3} 
-template$<$typename TYPE , template$<$ typename $>$ typename DERIVED$>$ \\
+template$<$typename TYPE, template$<$ typename $>$ typename DERIVED$>$ \\
 \mbox{\hyperlink{classoriginal_1_1allocator_base}{original\+::allocator\+Base}}$<$ TYPE, DERIVED $>$\+::allocator\+Base (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
@@ -127,7 +127,7 @@ Performs compile-\/time validation of the allocated type\+:
 \index{allocate@{allocate}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
 \doxysubsubsection{\texorpdfstring{allocate()}{allocate()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1allocator_base_ae5c50e61f8ac4bd512f9cf944b212fa2} 
-template$<$typename TYPE , template$<$ typename $>$ typename DERIVED$>$ \\
+template$<$typename TYPE, template$<$ typename $>$ typename DERIVED$>$ \\
 virtual TYPE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1allocator_base}{original\+::allocator\+Base}}$<$ TYPE, DERIVED $>$\+::allocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -150,8 +150,8 @@ Implemented in \mbox{\hyperlink{classoriginal_1_1allocator_a153716d80bc5812ee0f1
 \index{construct@{construct}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
 \doxysubsubsection{\texorpdfstring{construct()}{construct()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1allocator_base_abb38e5b205a147709e9357af4fd87c6d} 
-template$<$typename TYPE , template$<$ typename $>$ typename DERIVED$>$ \\
-template$<$typename O\+\_\+\+TYPE , typename... Args$>$ \\
+template$<$typename TYPE, template$<$ typename $>$ typename DERIVED$>$ \\
+template$<$typename O\+\_\+\+TYPE, typename... Args$>$ \\
 void \mbox{\hyperlink{classoriginal_1_1allocator_base}{original\+::allocator\+Base}}$<$ TYPE, DERIVED $>$\+::construct (\begin{DoxyParamCaption}\item[{O\+\_\+\+TYPE \texorpdfstring{$\ast$}{*}}]{o\+\_\+ptr}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
 
 
@@ -176,7 +176,7 @@ Constructs an object in allocated memory.
 \index{deallocate@{deallocate}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
 \doxysubsubsection{\texorpdfstring{deallocate()}{deallocate()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1allocator_base_ae39301cebacf88133d4804150be02f7e} 
-template$<$typename TYPE , template$<$ typename $>$ typename DERIVED$>$ \\
+template$<$typename TYPE, template$<$ typename $>$ typename DERIVED$>$ \\
 virtual void \mbox{\hyperlink{classoriginal_1_1allocator_base}{original\+::allocator\+Base}}$<$ TYPE, DERIVED $>$\+::deallocate (\begin{DoxyParamCaption}\item[{TYPE \texorpdfstring{$\ast$}{*}}]{ptr}{, }\item[{\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -198,8 +198,8 @@ Implemented in \mbox{\hyperlink{classoriginal_1_1allocator_a095663b72755dad1749f
 \index{destroy@{destroy}!original::allocatorBase$<$ TYPE, DERIVED $>$@{original::allocatorBase$<$ TYPE, DERIVED $>$}}
 \doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1allocator_base_ad7e8d4f7922526e52f176325dfc1996f} 
-template$<$typename TYPE , template$<$ typename $>$ typename DERIVED$>$ \\
-template$<$typename O\+\_\+\+TYPE $>$ \\
+template$<$typename TYPE, template$<$ typename $>$ typename DERIVED$>$ \\
+template$<$typename O\+\_\+\+TYPE$>$ \\
 void \mbox{\hyperlink{classoriginal_1_1allocator_base}{original\+::allocator\+Base}}$<$ TYPE, DERIVED $>$\+::destroy (\begin{DoxyParamCaption}\item[{O\+\_\+\+TYPE \texorpdfstring{$\ast$}{*}}]{o\+\_\+ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 

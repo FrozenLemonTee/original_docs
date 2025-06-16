@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['valueerror_0',['valueError',['../classoriginal_1_1value_error.html',1,'original']]],
-  ['vector_1',['vector',['../classoriginal_1_1vector.html',1,'original::vector&lt; TYPE, ALLOC &gt;'],['../classoriginal_1_1vector.html#a941e9be4dc192a7b8ac86c0721eb5c33',1,'original::vector::vector(ALLOC alloc=ALLOC{})'],['../classoriginal_1_1vector.html#a9221b857490be15c86dbd85b8b71c19f',1,'original::vector::vector(u_integer size, ALLOC alloc, ARGS &amp;&amp;... args)'],['../classoriginal_1_1vector.html#aea3c3fafa37dc7406e4129244977cae8',1,'original::vector::vector(const vector &amp;other)'],['../classoriginal_1_1vector.html#a19e018ea5eb2fddd3706a11de391de11',1,'original::vector::vector(const std::initializer_list&lt; TYPE &gt; &amp;list)'],['../classoriginal_1_1vector.html#a203a06d8301c25ab5e5a657e04d7803b',1,'original::vector::vector(const array&lt; TYPE &gt; &amp;arr)'],['../classoriginal_1_1vector.html#a2685a75b397fb8009a4cca1a56a39acc',1,'original::vector::vector(vector &amp;&amp;other) noexcept']]],
-  ['vector_2eh_2',['vector.h',['../vector_8h.html',1,'']]],
-  ['vector_3c_20hashnode_20_2a_2c_20rebind_5falloc_5fpointer_20_3e_3',['vector&lt; hashNode *, rebind_alloc_pointer &gt;',['../classoriginal_1_1vector.html',1,'original']]],
-  ['vector_3c_20original_3a_3ahashtable_3a_3ahashnode_20_2a_2c_20rebind_5falloc_5fpointer_20_3e_4',['vector&lt; original::hashTable::hashNode *, rebind_alloc_pointer &gt;',['../classoriginal_1_1vector.html',1,'original']]],
-  ['vector_3c_20original_3a_3askiplist_3a_3askiplistnode_20_2a_20_3e_5',['vector&lt; original::skipList::skipListNode * &gt;',['../classoriginal_1_1vector.html',1,'original']]],
-  ['vector_3c_20type_20_2a_20_3e_6',['vector&lt; TYPE * &gt;',['../classoriginal_1_1vector.html',1,'original']]]
+  ['u_5finteger_0',['u_integer',['../namespaceoriginal.html#a2d678ae654034cea391c946ada41bd2e',1,'original']]],
+  ['unlock_1',['unlock',['../classoriginal_1_1owner_ptr.html#a9f8942a67bf3975838029f3c05269c9d',1,'original::ownerPtr']]],
+  ['unsupportedmethoderror_2',['unSupportedMethodError',['../classoriginal_1_1un_supported_method_error.html',1,'original']]],
+  ['update_3',['update',['../classoriginal_1_1map.html#ae9f7b3f3b9c9ed2e9e78eb3dbcb8cd4e',1,'original::map::update()'],['../classoriginal_1_1hash_map.html#abfdfc799aac745d491afafb43a53ee04',1,'original::hashMap::update()'],['../classoriginal_1_1tree_map.html#ada65947ca79903861b445fac43b8b6f4',1,'original::treeMap::update()'],['../classoriginal_1_1_j_map.html#a1cd0a56ebdf28100816b1c211aa9dc55',1,'original::JMap::update()']]]
 ];

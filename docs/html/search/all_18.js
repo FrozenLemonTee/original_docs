@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['安装_0',['安装',['../index.html#autotoc_md2',1,'']]]
+  ['内存管理：_0',['内存管理：',['../index.html#autotoc_md12',1,'']]]
 ];
