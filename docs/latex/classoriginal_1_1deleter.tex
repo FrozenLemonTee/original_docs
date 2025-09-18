@@ -11,7 +11,8 @@ Default deletion policy for single objects.
 
 
 
-Inheritance diagram for original\+::deleter\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Inheritance diagram for original\+::deleter\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,7 +21,8 @@ Inheritance diagram for original\+::deleter\texorpdfstring{$<$}{<} TYPE \texorpd
 \end{figure}
 
 
-Collaboration diagram for original\+::deleter\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::deleter\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,15 +32,27 @@ Collaboration diagram for original\+::deleter\texorpdfstring{$<$}{<} TYPE \texor
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{classoriginal_1_1deleter_a6f5f61d99955e88da8c29b9871c1469e}\label{classoriginal_1_1deleter_a6f5f61d99955e88da8c29b9871c1469e} 
+constexpr {\bfseries deleter} () noexcept=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1deleter_a0d16c52142e22d9274494bcd6d279987}\label{classoriginal_1_1deleter_a0d16c52142e22d9274494bcd6d279987} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}deleter} () override=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classoriginal_1_1deleter_aa82fd2d3e47b9b068725142ef7c3cdc7}{operator()}} (const TYPE \texorpdfstring{$\ast$}{*}ptr) const noexcept override
 \begin{DoxyCompactList}\small\item\em Deletes a single object. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1deleter_base}{original\+::deleter\+Base$<$ TYPE $>$}}}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1deleter_base}{original\+::deleter\+Base$<$ TYPE, deleter $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-constexpr \mbox{\hyperlink{classoriginal_1_1deleter_base_af1b9d0e1938d0fba7c38b77fa6438d77}{deleter\+Base}} () noexcept=default
+constexpr \mbox{\hyperlink{classoriginal_1_1deleter_base_a97b09d462278c42cd791cacda98f104e}{deleter\+Base}} () noexcept=default
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{classoriginal_1_1deleter_base_a8a60c5e2af38f3ccab457d283c9c72fe}{\texorpdfstring{$\sim$}{\string~}deleter\+Base}} ()=0
+virtual \mbox{\hyperlink{classoriginal_1_1deleter_base_a7fb252d586eebdf2003da86ddad41da1}{\texorpdfstring{$\sim$}{\string~}deleter\+Base}} ()=0
 \begin{DoxyCompactList}\small\item\em Pure virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classoriginal_1_1deleter_base}{original\+::deleter\+Base$<$ TYPE, deleter $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classoriginal_1_1deleter_base_ac37940d7e8ee90b3a540407202386760}{rebound\+\_\+deleter}}
+\begin{DoxyCompactList}\small\item\em Rebound deleter type for type transformation scenarios. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -55,19 +69,27 @@ Specialization for array deletion.
 \end{DoxyTemplParams}
 Invokes standard delete operator on the managed pointer. Suitable for use with non-\/array types allocated with new.
 
+\texorpdfstring{$<$}{<}TYPE, deleter\texorpdfstring{$>$}{>} \begin{DoxyNote}{Note}
+This is the default deleter for single objects in smart pointer implementations.
+\end{DoxyNote}
 
 \begin{DoxyTemplParams}{Template Parameters}
 {\em TYPE\mbox{[}$\,$\mbox{]}} & Element type of array\\
 \hline
 \end{DoxyTemplParams}
-Invokes array delete\mbox{[}\mbox{]} operator for proper array cleanup. Must be used with array types allocated with new\mbox{[}\mbox{]}. 
+Invokes array delete\mbox{[}\mbox{]} operator for proper array cleanup. Must be used with array types allocated with new\mbox{[}\mbox{]}.
+
+\texorpdfstring{$<$}{<}TYPE\mbox{[}\mbox{]}, deleter\texorpdfstring{$>$}{>} \begin{DoxyNote}{Note}
+This is the default deleter for array objects in smart pointer implementations. 
+\end{DoxyNote}
+
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classoriginal_1_1deleter_aa82fd2d3e47b9b068725142ef7c3cdc7}\index{original::deleter$<$ TYPE $>$@{original::deleter$<$ TYPE $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!original::deleter$<$ TYPE $>$@{original::deleter$<$ TYPE $>$}}
 \doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1deleter_aa82fd2d3e47b9b068725142ef7c3cdc7} 
-template$<$typename TYPE$>$ \\
+template$<$typename TYPE $>$ \\
 void \mbox{\hyperlink{classoriginal_1_1deleter}{original\+::deleter}}$<$ TYPE $>$\+::operator() (\begin{DoxyParamCaption}\item[{const TYPE \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
 
 
@@ -83,8 +105,13 @@ Deletes a single object.
 Uses standard delete operator. Do not use with array types. 
 \end{DoxyNote}
 
+\begin{DoxyExceptions}{Exceptions}
+{\em Nothing} & -\/ operation is noexcept \\
+\hline
+\end{DoxyExceptions}
 
-Implements \mbox{\hyperlink{classoriginal_1_1deleter_base_a00a5faafa7d27b7af289c273bcf507ef}{original\+::deleter\+Base$<$ TYPE $>$}}.
+
+Implements \mbox{\hyperlink{classoriginal_1_1deleter_base_abbe2ee44f95a9c8eadf299c53e067685}{original\+::deleter\+Base$<$ TYPE, deleter $>$}}.
 
 
 

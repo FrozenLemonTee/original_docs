@@ -1,0 +1,40 @@
+\doxysection{original\+::Printable Concept Reference}
+\hypertarget{conceptoriginal_1_1_printable}{}\label{conceptoriginal_1_1_printable}\index{original::Printable@{original::Printable}}
+
+
+Requires type to support output stream insertion.  
+
+
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsection{Concept definition}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_printable}{original::Printable}}\ =\ \ \textcolor{keyword}{requires}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ TYPE\&\ t)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ os\ <<\ t\ \}\ -\/>\ std::same\_as<std::ostream\&>;}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Detailed Description}
+Requires type to support output stream insertion. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & The type to check.\\
+\hline
+\end{DoxyTemplParams}
+Ensures the type can be written to std\+::ostream using the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(Printable<int>);\ \ \textcolor{comment}{//\ Succeeds}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }NoOutput\ \{\};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!Printable<NoOutput>);\ \textcolor{comment}{//\ Fails}}
+
+\end{DoxyCode}
+ 

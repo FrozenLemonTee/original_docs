@@ -21,7 +21,7 @@ Collaboration diagram for original\+::call\+Back\+Checker\+:\nopagebreak
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Callback, typename Ret\+\_\+\+TYPE, typename ... Args\+\_\+\+TYPE$>$ }\\static void \mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{check}} ()
+{\footnotesize template$<$typename Callback , typename Ret\+\_\+\+TYPE , typename ... Args\+\_\+\+TYPE$>$ }\\static void \mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{check}} ()
 \begin{DoxyCompactList}\small\item\em Validates a callback\textquotesingle{}s signature and return type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -35,7 +35,7 @@ Provides compile-\/time and runtime checks for callback function signatures, ens
 \index{check@{check}!original::callBackChecker@{original::callBackChecker}}
 \doxysubsubsection{\texorpdfstring{check()}{check()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900} 
-template$<$typename Callback, typename Ret\+\_\+\+TYPE, typename... Args\+\_\+\+TYPE$>$ \\
+template$<$typename Callback , typename Ret\+\_\+\+TYPE , typename... Args\+\_\+\+TYPE$>$ \\
 void original\+::call\+Back\+Checker\+::check (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
@@ -44,25 +44,25 @@ Validates a callback\textquotesingle{}s signature and return type.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Callback} & Type of the callback to check \\
+{\em Callback} & Type of the callback to check. \\
 \hline
-{\em Ret\+\_\+\+TYPE} & Expected return type \\
+{\em Ret\+\_\+\+TYPE} & Expected return type. \\
 \hline
-{\em Args\+\_\+\+TYPE} & Expected argument types \\
+{\em Args\+\_\+\+TYPE} & Expected argument types. \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em Callback\+Signature\+Error} & If arguments don\textquotesingle{}t match \\
+{\em \doxylink{classoriginal_1_1callback_signature_error}{callback\+Signature\+Error}} & If arguments don\textquotesingle{}t match. \\
 \hline
-{\em Callback\+Return\+Type\+Error} & If return type doesn\textquotesingle{}t match\\
+{\em \doxylink{classoriginal_1_1callback_return_type_error}{callback\+Return\+Type\+Error}} & If return type doesn\textquotesingle{}t match.\\
 \hline
 \end{DoxyExceptions}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ callback\ =\ [](\textcolor{keywordtype}{int}\ x)\ \{\ \textcolor{keywordflow}{return}\ x\ *\ 1.5f;\ \};}
-\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{callBackChecker::check<decltype(callback),\ float,\ int>}}();\ \ \textcolor{comment}{//\ Valid}}
-\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{callBackChecker::check<decltype(callback),\ int,\ int>}}();\ \ \ \ \textcolor{comment}{//\ Throws\ callbackReturnTypeError}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ cb\ =\ [](\textcolor{keywordtype}{int}\ x)\ \{\ \textcolor{keywordflow}{return}\ x\ +\ 1.0f;\ \};}
+\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{callBackChecker::check<decltype(cb),\ float,\ int>}}();\ \textcolor{comment}{//\ OK}}
+\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1call_back_checker_ac58a38eb4c6aa5a542533c0e83db3900}{callBackChecker::check<decltype(cb),\ int,\ int>}}();\ \ \ \textcolor{comment}{//\ Throws\ callbackReturnTypeError}}
 
 \end{DoxyCode}
  

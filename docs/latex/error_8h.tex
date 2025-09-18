@@ -6,12 +6,14 @@ Custom exception classes and callback validation utilities.
 
 
 {\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include "{}printable.\+h"{}}\newline
 {\ttfamily \#include "{}types.\+h"{}}\newline
-Include dependency graph for error.\+h\+:\nopagebreak
+Include dependency graph for error.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=246pt]{error_8h__incl}
+\includegraphics[width=350pt]{error_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -28,9 +30,9 @@ This graph shows which files directly or indirectly include this file\+:
 class \mbox{\hyperlink{classoriginal_1_1call_back_checker}{original\+::call\+Back\+Checker}}
 \begin{DoxyCompactList}\small\item\em Static utility for validating callback signatures. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1error}{original\+::error}}
-\begin{DoxyCompactList}\small\item\em Base interface for all exception types in Original. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Base class for all exceptions in the Original project. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ ERR, TRIGGERING\+\_\+\+CONDITION $>$}}
-\begin{DoxyCompactList}\small\item\em Compile-\/time error assertion utility. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compile-\/time error triggering utility. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1out_of_bound_error}{original\+::out\+Of\+Bound\+Error}}
 \begin{DoxyCompactList}\small\item\em Exception for container index out-\/of-\/range errors. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1value_error}{original\+::value\+Error}}
@@ -48,33 +50,68 @@ class \mbox{\hyperlink{classoriginal_1_1callback_return_type_error}{original\+::
 class \mbox{\hyperlink{classoriginal_1_1allocate_error}{original\+::allocate\+Error}}
 \begin{DoxyCompactList}\small\item\em Exception for memory allocation failures. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1sys_error}{original\+::sys\+Error}}
+\begin{DoxyCompactList}\small\item\em Exception for generic system failure. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1out_of_bound_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::out\+Of\+Bound\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::out\+Of\+Bound\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1value_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::value\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::value\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1null_pointer_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::null\+Pointer\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::null\+Pointer\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1un_supported_method_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::un\+Supported\+Method\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::un\+Supported\+Method\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1no_element_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::no\+Element\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::no\+Element\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1callback_signature_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::callback\+Signature\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::callback\+Signature\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1callback_return_type_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::callback\+Return\+Type\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::callback\+Return\+Type\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1allocate_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::allocate\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1static_error}{original\+::static\+Error$<$ original\+::allocate\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
+class \mbox{\hyperlink{classoriginal_1_1static_error_3_01original_1_1sys_error_00_01_t_r_i_g_g_e_r_i_n_g___c_o_n_d_i_t_i_o_n_01_4}{original\+::static\+Error$<$ original\+::sys\+Error, TRIGGERING\+\_\+\+CONDITION $>$}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceoriginal}{original}}
 \begin{DoxyCompactList}\small\item\em Main namespace for the project Original. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{error_8h_af18e6b39e33d123da8d00c28307cc787}\label{error_8h_af18e6b39e33d123da8d00c28307cc787} 
+\#define {\bfseries ORIGINAL\+\_\+\+ERROR\+\_\+\+MSG}~"{}An error thrown"{}
+\item 
+\Hypertarget{error_8h_aa8a5753bd4df8c39122e938df6d44293}\label{error_8h_aa8a5753bd4df8c39122e938df6d44293} 
+\#define {\bfseries ORIGINAL\+\_\+\+OUT\+\_\+\+OF\+\_\+\+BOUND\+\_\+\+ERROR\+\_\+\+MSG}~"{}Wrong value given"{}
+\item 
+\Hypertarget{error_8h_a20a8bc9ca8f4637aff88fc8cc7a66f7d}\label{error_8h_a20a8bc9ca8f4637aff88fc8cc7a66f7d} 
+\#define {\bfseries ORIGINAL\+\_\+\+VALUE\+\_\+\+ERROR\+\_\+\+ERROR\+\_\+\+MSG}~"{}Wrong value given"{}
+\item 
+\Hypertarget{error_8h_a31bc55200a6ef45daa903f82c8cd121f}\label{error_8h_a31bc55200a6ef45daa903f82c8cd121f} 
+\#define {\bfseries ORIGINAL\+\_\+\+NULL\+\_\+\+POINTER\+\_\+\+ERROR\+\_\+\+MSG}~"{}Attempting to access null pointer"{}
+\item 
+\Hypertarget{error_8h_a8490c483ab37441eb7055098c5c1183d}\label{error_8h_a8490c483ab37441eb7055098c5c1183d} 
+\#define {\bfseries ORIGINAL\+\_\+\+UNSUPPORTED\+\_\+\+METHOD\+\_\+\+ERROR\+\_\+\+MSG}~"{}Unsupported Method for the call"{}
+\item 
+\Hypertarget{error_8h_a734aa224081b1260fd0b487fe2d9ee0f}\label{error_8h_a734aa224081b1260fd0b487fe2d9ee0f} 
+\#define {\bfseries ORIGINAL\+\_\+\+NO\+\_\+\+ELEMENT\+\_\+\+ERROR\+\_\+\+MSG}~"{}No such element"{}
+\item 
+\Hypertarget{error_8h_ab4c316c469e4a0d8e55f01890e6c0366}\label{error_8h_ab4c316c469e4a0d8e55f01890e6c0366} 
+\#define {\bfseries ORIGINAL\+\_\+\+CALLBACK\+\_\+\+SIGNATURE\+\_\+\+ERROR\+\_\+\+MSG}~"{}Callback signature mismatch"{}
+\item 
+\Hypertarget{error_8h_a524bdaee2d4834991ef03bf045acb137}\label{error_8h_a524bdaee2d4834991ef03bf045acb137} 
+\#define {\bfseries ORIGINAL\+\_\+\+CALLBACK\+\_\+\+RETURN\+\_\+\+TYPE\+\_\+\+ERROR\+\_\+\+MSG}~"{}Return type of callback mismatch"{}
+\item 
+\Hypertarget{error_8h_aba2c18bf3ee5d026f8bf380965dd5361}\label{error_8h_aba2c18bf3ee5d026f8bf380965dd5361} 
+\#define {\bfseries ORIGINAL\+\_\+\+ALLOCATE\+\_\+\+ERROR\+\_\+\+MSG}~"{}Can not allocate memory"{}
+\item 
+\Hypertarget{error_8h_a84adcba528c5b083a8d35b5ff1ce5447}\label{error_8h_a84adcba528c5b083a8d35b5ff1ce5447} 
+\#define {\bfseries ORIGINAL\+\_\+\+SYS\+\_\+\+ERROR\+\_\+\+MSG}~"{}A system error triggered"{}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Custom exception classes and callback validation utilities. 
 
-This header defines a collection of exception types for error handling and a template-\/based callback signature checker for interface validation. 
+This header defines domain-\/specific exception types for the Original project, along with compile-\/time and runtime validation utilities for callback signatures. 

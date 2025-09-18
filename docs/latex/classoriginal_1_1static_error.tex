@@ -2,7 +2,7 @@
 \hypertarget{classoriginal_1_1static_error}{}\label{classoriginal_1_1static_error}\index{original::staticError$<$ ERR, TRIGGERING\_CONDITION $>$@{original::staticError$<$ ERR, TRIGGERING\_CONDITION $>$}}
 
 
-Compile-\/time error assertion utility.  
+Compile-\/time error triggering utility.  
 
 
 
@@ -11,39 +11,38 @@ Compile-\/time error assertion utility.
 
 
 
-Collaboration diagram for original\+::static\+Error\texorpdfstring{$<$}{<} ERR, TRIGGERING\+\_\+\+CONDITION \texorpdfstring{$>$}{>}\+:\nopagebreak
+Collaboration diagram for original\+::static\+Error\texorpdfstring{$<$}{<} ERR, TRIGGERING\+\_\+\+CONDITION \texorpdfstring{$>$}{>}\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=259pt]{classoriginal_1_1static_error__coll__graph}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1static_error_aacdb60c696d81a2d6a9644c3b29e09e7}\label{classoriginal_1_1static_error_aacdb60c696d81a2d6a9644c3b29e09e7} 
+static void {\bfseries asserts} ()
+\begin{DoxyCompactList}\small\item\em Triggers static assertion if the condition is true. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename ERR, const bool TRIGGERING\+\_\+\+CONDITION$>$\newline
 requires Extends\+Of$<$\mbox{\hyperlink{classoriginal_1_1error}{error}}, ERR$>$\newline
 class original\+::static\+Error$<$ ERR, TRIGGERING\+\_\+\+CONDITION $>$}
-Compile-\/time error assertion utility. 
+Compile-\/time error triggering utility. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em ERR} & Exception type to associate with the static assertion (must inherit from error) \\
+{\em ERR} & Exception class to represent the error. \\
 \hline
-{\em TRIGGERING\+\_\+\+CONDITION} & Boolean condition triggering the assertion when true\\
+{\em TRIGGERING\+\_\+\+CONDITION} & Whether to trigger the static assertion. @requires ERR must inherit from error.\\
 \hline
 \end{DoxyTemplParams}
-Enforces compile-\/time constraints by triggering static assertions with exception-\/specific error messages. The assertion fires when TRIGGERING\+\_\+\+CONDITION evaluates to true.
-
-@requires Extends\+Of$<$error, ERR$>$ (ERR must inherit from error)
-
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ validate()\ \{}
-\DoxyCodeLine{\ \ \ \ staticError<valueError,\ !std::is\_arithmetic\_v<T>>();}
-\DoxyCodeLine{\}}
-\DoxyCodeLine{\textcolor{comment}{//\ Triggers\ "{}Wrong\ value\ given"{}\ static\ assertion\ if\ T\ isn't\ arithmetic}}
+\DoxyCodeLine{staticError<valueError,\ !std::is\_integral\_v<integer>>\mbox{\hyperlink{classoriginal_1_1static_error_aacdb60c696d81a2d6a9644c3b29e09e7}{::asserts}}();}
 
 \end{DoxyCode}
  

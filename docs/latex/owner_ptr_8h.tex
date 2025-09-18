@@ -8,7 +8,8 @@ Exclusive-\/ownership smart pointer implementation.
 {\ttfamily \#include $<$utility$>$}\newline
 {\ttfamily \#include "{}auto\+Ptr.\+h"{}}\newline
 {\ttfamily \#include "{}deleter.\+h"{}}\newline
-Include dependency graph for owner\+Ptr.\+h\+:\nopagebreak
+Include dependency graph for owner\+Ptr.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -36,13 +37,22 @@ namespace \mbox{\hyperlink{namespaceoriginal}{original}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T$>$, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a5bebb9ab61ff7783b0fb2c90704246a1}{original\+::make\+Owner\+Ptr}} (Args \&\&... args)
+{\footnotesize template$<$typename T , typename DEL  = deleter$<$\+T$>$, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a5bebb9ab61ff7783b0fb2c90704246a1}{original\+::make\+Owner\+Ptr}} (Args \&\&... args)
 \begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1owner_ptr}{owner\+Ptr} managing a dynamically allocated object. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T, typename DEL = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a84c2ad6f571fb457b96abd1ab2dd660f}{original\+::make\+Owner\+Ptr\+Array}} (\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size, Args \&\&... args)
+{\footnotesize template$<$typename T , typename DEL  = deleter$<$\+T\mbox{[}$\,$\mbox{]}$>$, typename... Args$>$ }\\\mbox{\hyperlink{classoriginal_1_1owner_ptr}{owner\+Ptr}}$<$ T, DEL $>$ \mbox{\hyperlink{namespaceoriginal_a84c2ad6f571fb457b96abd1ab2dd660f}{original\+::make\+Owner\+Ptr\+Array}} (\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} size, Args \&\&... args)
 \begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classoriginal_1_1owner_ptr}{owner\+Ptr} managing a dynamically allocated array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Exclusive-\/ownership smart pointer implementation. 
 
-Provides move-\/only semantics for dynamic object ownership management. Enforces single ownership through deleted copy operations and supports custom deleters. Inherits reference counting infrastructure from auto\+Ptr base class. 
+Provides move-\/only semantics for dynamic object ownership management. Enforces single ownership through deleted copy operations and supports custom deleters. Inherits reference counting infrastructure from auto\+Ptr base class.
+
+Key Features\+:
+\begin{DoxyItemize}
+\item Move-\/only semantics ensuring unique ownership
+\item Customizable deletion policies
+\item Type-\/safe pointer casting operations
+\item Factory functions for safe object creation
+\item RAII-\/compliant resource management 
+\end{DoxyItemize}

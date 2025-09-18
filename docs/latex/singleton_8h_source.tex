@@ -1,0 +1,82 @@
+\doxysection{singleton.\+h}
+\hypertarget{singleton_8h_source}{}\label{singleton_8h_source}\index{src/core/singleton.h@{src/core/singleton.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ORIGINAL\_SINGLETON\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ORIGINAL\_SINGLETON\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{owner_ptr_8h}{ownerPtr.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classoriginal_1_1owner_ptr}{ownerPtr<TYPE>}}\ instance\_;\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1singleton}{\string~singleton}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1singleton_a16918dcf2f6290f38b173f749ad884d9}{singleton}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}\&\ \mbox{\hyperlink{classoriginal_1_1singleton_a782988adc9ef4996a009f524bcda8001}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1singleton_a07b889312f801ddcc4eafe41a96c2107}{singleton}}(\mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}\&\ \mbox{\hyperlink{classoriginal_1_1singleton_ad1eb21395ffbfa0d391e926819ef7b9b}{operator=}}(\mbox{\hyperlink{classoriginal_1_1singleton}{singleton}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1singleton_a4217545b1118e4359b7687d17593cc34}{exist}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1singleton_afdd576c6e2e0a8a22c03157ffd609fe9}{init}}(Args\&\&...\ args);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f}{instance}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1singleton_a293af5eaf27ed7906aad9283ee75a8d6}{clear}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1singleton_a99f468725c0a31d4b424b8fd1b79dc63}{reset}}(Args\&\&...\ args);}
+\DoxyCodeLine{00109\ \ \ \ \ \};}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00113\ \mbox{\hyperlink{classoriginal_1_1owner_ptr}{original::ownerPtr<TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1singleton}{original::singleton<TYPE>::instance\_}}\ =\ \mbox{\hyperlink{classoriginal_1_1owner_ptr}{original::ownerPtr<TYPE>}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classoriginal_1_1singleton_a4217545b1118e4359b7687d17593cc34}{original::singleton<TYPE>::exist}}()\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ instance\_\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00118\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00121\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ...\ Args>}
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1singleton_afdd576c6e2e0a8a22c03157ffd609fe9}{original::singleton<TYPE>::init}}(Args\&\&...\ args)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (instance\_\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ instance\_\ =\ std::move(makeOwnerPtr<TYPE>(std::forward<Args>(args)...));}
+\DoxyCodeLine{00125\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1value_error}{valueError}}(\textcolor{stringliteral}{"{}Instance\ already\ exists,\ do\ you\ mean\ reset(args...)?"{}});}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00131\ TYPE\&\ \mbox{\hyperlink{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f}{original::singleton<TYPE>::instance}}()\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (instance\_\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1null_pointer_error}{nullPointerError}}(\textcolor{stringliteral}{"{}Instance\ not\ exist,\ call\ init(args...)\ first"{}});}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ *instance\_;}
+\DoxyCodeLine{00136\ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1singleton_a293af5eaf27ed7906aad9283ee75a8d6}{original::singleton<TYPE>::clear}}()\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{if}\ (instance\_\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ instance\_\ =\ std::move(\mbox{\hyperlink{classoriginal_1_1owner_ptr}{original::ownerPtr<TYPE>}}());}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00146\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ ...\ Args>}
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1singleton_a99f468725c0a31d4b424b8fd1b79dc63}{original::singleton<TYPE>::reset}}(Args\&\&...\ args)\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ instance\_\ =\ std::move(makeOwnerPtr<TYPE>(std::forward<Args>(args)...));}
+\DoxyCodeLine{00149\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ORIGINAL\_SINGLETON\_H}}
+
+\end{DoxyCode}

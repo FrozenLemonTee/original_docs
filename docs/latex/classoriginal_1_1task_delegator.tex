@@ -1,0 +1,286 @@
+\doxysection{original\+::task\+Delegator Class Reference}
+\hypertarget{classoriginal_1_1task_delegator}{}\label{classoriginal_1_1task_delegator}\index{original::taskDelegator@{original::taskDelegator}}
+
+
+Thread pool for managing and executing tasks with priority.  
+
+
+
+
+{\ttfamily \#include $<$tasks.\+h$>$}
+
+
+
+Collaboration diagram for original\+::task\+Delegator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classoriginal_1_1task_delegator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}} \+: u\+\_\+integer \{ \newline
+\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accae35884a2445bc4ae2df52f188763273c}{IMMEDIATE}} = 0
+, \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accab89de3b4b81c4facfac906edf29aec8c}{HIGH}} = 1
+, \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acca1e23852820b9154316c7c06e2b7ba051}{NORMAL}} = 2
+, \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acca41bc94cbd8eebea13ce0491b2ac11b88}{LOW}} = 3
+, \newline
+\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accae3d9a2ed4146353ae729818f8bcc329d}{DEFERRED}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Task priority levels for execution scheduling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoriginal_1_1task_delegator_a98d730f7b0112bcc29221b908cf4e98f}{task\+Delegator}} (\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} thread\+\_\+cnt=8)
+\begin{DoxyCompactList}\small\item\em Constructs a task delegator with specified thread count. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Callback , typename... Args$>$ }\\auto \mbox{\hyperlink{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}{submit}} (Callback \&\&c, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Submits a task with normal priority. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Callback , typename... Args$>$ }\\auto \mbox{\hyperlink{classoriginal_1_1task_delegator_a837aebfd9658b2fffd9600c8a61ec42e}{submit}} (\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}} \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}, Callback \&\&c, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Submits a task with specified priority. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\\mbox{\hyperlink{classoriginal_1_1async_1_1future}{async\+::future}}$<$ TYPE $>$ \mbox{\hyperlink{classoriginal_1_1task_delegator_a17d543d068fcca15fc56ee4061ef6998}{submit}} (\mbox{\hyperlink{classoriginal_1_1strong_ptr}{strong\+Ptr}}$<$ \mbox{\hyperlink{classoriginal_1_1task}{task}}$<$ TYPE $>$ $>$ \&t)
+\begin{DoxyCompactList}\small\item\em Submits a pre-\/created task with normal priority. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\\mbox{\hyperlink{classoriginal_1_1async_1_1future}{async\+::future}}$<$ TYPE $>$ \mbox{\hyperlink{classoriginal_1_1task_delegator_a92ec80d69d3270931b7155094ba705b1}{submit}} (\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}} \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}, \mbox{\hyperlink{classoriginal_1_1strong_ptr}{strong\+Ptr}}$<$ \mbox{\hyperlink{classoriginal_1_1task}{task}}$<$ TYPE $>$ $>$ \&t)
+\begin{DoxyCompactList}\small\item\em Submits a pre-\/created task with specified priority. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1task_delegator_ae6bf68df936fd4f982eb5dad8b41b670}\label{classoriginal_1_1task_delegator_ae6bf68df936fd4f982eb5dad8b41b670} 
+void {\bfseries run\+Deferred} ()
+\begin{DoxyCompactList}\small\item\em Moves one deferred task to the waiting queue. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1task_delegator_a3b6b05891d404337500c3b302e5831ca}\label{classoriginal_1_1task_delegator_a3b6b05891d404337500c3b302e5831ca} 
+void {\bfseries run\+All\+Deferred} ()
+\begin{DoxyCompactList}\small\item\em Moves all deferred tasks to the waiting queue. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1task_delegator_a27cff6ae339bde224bc64f660e37d440}\label{classoriginal_1_1task_delegator_a27cff6ae339bde224bc64f660e37d440} 
+void {\bfseries stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the task delegator and waits for completion. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1task_delegator_a5af6beb484e43a65521e0b051fc1d5db}{active\+Threads}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the number of active threads. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1task_delegator_a4da8486119cc498826e62dc81121863b}{idle\+Threads}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the number of idle threads. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1task_delegator_ac6b3036157e130782eacad2331f66467}\label{classoriginal_1_1task_delegator_ac6b3036157e130782eacad2331f66467} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}task\+Delegator} ()
+\begin{DoxyCompactList}\small\item\em Destructor -\/ automatically stops if not already stopped. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1task_delegator_abc7187f99926ff134edbe7ba365b8d23}\label{classoriginal_1_1task_delegator_abc7187f99926ff134edbe7ba365b8d23} 
+{\footnotesize template$<$typename TYPE $>$ }\\\mbox{\hyperlink{classoriginal_1_1async_1_1future}{original\+::async\+::future}}$<$ TYPE $>$ {\bfseries submit} (\mbox{\hyperlink{classoriginal_1_1strong_ptr}{strong\+Ptr}}$<$ \mbox{\hyperlink{classoriginal_1_1task}{task}}$<$ TYPE $>$ $>$ \&t)
+\item 
+\Hypertarget{classoriginal_1_1task_delegator_a0ed72cf88c736e598762295dc8b2ad52}\label{classoriginal_1_1task_delegator_a0ed72cf88c736e598762295dc8b2ad52} 
+{\footnotesize template$<$typename TYPE $>$ }\\\mbox{\hyperlink{classoriginal_1_1async_1_1future}{original\+::async\+::future}}$<$ TYPE $>$ {\bfseries submit} (const \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}} \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}, \mbox{\hyperlink{classoriginal_1_1strong_ptr}{strong\+Ptr}}$<$ \mbox{\hyperlink{classoriginal_1_1task}{task}}$<$ TYPE $>$ $>$ \&t)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1task_delegator_a5f14d1847b5ed415c6f73eb4501f3cfa}\label{classoriginal_1_1task_delegator_a5f14d1847b5ed415c6f73eb4501f3cfa} 
+static constexpr auto {\bfseries IMMEDIATE} = priority\+::\+IMMEDIATE
+\item 
+\Hypertarget{classoriginal_1_1task_delegator_a8112c1b349863e58bd81ed430791edd7}\label{classoriginal_1_1task_delegator_a8112c1b349863e58bd81ed430791edd7} 
+static constexpr auto {\bfseries HIGH} = priority\+::\+HIGH
+\item 
+\Hypertarget{classoriginal_1_1task_delegator_a7e718fb958fb51efdb8449b6e2163718}\label{classoriginal_1_1task_delegator_a7e718fb958fb51efdb8449b6e2163718} 
+static constexpr auto {\bfseries NORMAL} = priority\+::\+NORMAL
+\item 
+\Hypertarget{classoriginal_1_1task_delegator_ae67e47d578c84eb6ee09cf00e89c0bb7}\label{classoriginal_1_1task_delegator_ae67e47d578c84eb6ee09cf00e89c0bb7} 
+static constexpr auto {\bfseries LOW} = priority\+::\+LOW
+\item 
+\Hypertarget{classoriginal_1_1task_delegator_a16898e53e90bad84d2a6f70b2f0d53ed}\label{classoriginal_1_1task_delegator_a16898e53e90bad84d2a6f70b2f0d53ed} 
+static constexpr auto {\bfseries DEFERRED} = priority\+::\+DEFERRED
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread pool for managing and executing tasks with priority. 
+
+Provides a managed thread pool with task prioritization, deferred execution, and resource monitoring 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}\index{original::taskDelegator@{original::taskDelegator}!priority@{priority}}
+\index{priority@{priority}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{priority}{priority}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc} 
+enum class \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{original\+::task\+Delegator\+::priority}} \+: \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Task priority levels for execution scheduling. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IMMEDIATE@{IMMEDIATE}!original::taskDelegator@{original::taskDelegator}}\index{original::taskDelegator@{original::taskDelegator}!IMMEDIATE@{IMMEDIATE}}}\Hypertarget{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accae35884a2445bc4ae2df52f188763273c}\label{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc} 
+IMMEDIATE&Execute immediately if threads available. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIGH@{HIGH}!original::taskDelegator@{original::taskDelegator}}\index{original::taskDelegator@{original::taskDelegator}!HIGH@{HIGH}}}\Hypertarget{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accab89de3b4b81c4facfac906edf29aec8c}\label{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc} 
+HIGH&High priority task. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NORMAL@{NORMAL}!original::taskDelegator@{original::taskDelegator}}\index{original::taskDelegator@{original::taskDelegator}!NORMAL@{NORMAL}}}\Hypertarget{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acca1e23852820b9154316c7c06e2b7ba051}\label{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc} 
+NORMAL&Normal priority task (default) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOW@{LOW}!original::taskDelegator@{original::taskDelegator}}\index{original::taskDelegator@{original::taskDelegator}!LOW@{LOW}}}\Hypertarget{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acca41bc94cbd8eebea13ce0491b2ac11b88}\label{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc} 
+LOW&Low priority task. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DEFERRED@{DEFERRED}!original::taskDelegator@{original::taskDelegator}}\index{original::taskDelegator@{original::taskDelegator}!DEFERRED@{DEFERRED}}}\Hypertarget{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accae3d9a2ed4146353ae729818f8bcc329d}\label{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc} 
+DEFERRED&Deferred execution (manual activation) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1task_delegator_a98d730f7b0112bcc29221b908cf4e98f}\index{original::taskDelegator@{original::taskDelegator}!taskDelegator@{taskDelegator}}
+\index{taskDelegator@{taskDelegator}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{taskDelegator()}{taskDelegator()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a98d730f7b0112bcc29221b908cf4e98f} 
+original\+::task\+Delegator\+::task\+Delegator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}}}]{thread\+\_\+cnt}{ = {\ttfamily 8}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a task delegator with specified thread count. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread\+\_\+cnt} & Number of worker threads (default\+: 8) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1task_delegator_a5af6beb484e43a65521e0b051fc1d5db}\index{original::taskDelegator@{original::taskDelegator}!activeThreads@{activeThreads}}
+\index{activeThreads@{activeThreads}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{activeThreads()}{activeThreads()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a5af6beb484e43a65521e0b051fc1d5db} 
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{original\+::u\+\_\+integer}} original\+::task\+Delegator\+::active\+Threads (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the number of active threads. 
+
+\begin{DoxyReturn}{Returns}
+Count of currently active threads 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1task_delegator_a4da8486119cc498826e62dc81121863b}\index{original::taskDelegator@{original::taskDelegator}!idleThreads@{idleThreads}}
+\index{idleThreads@{idleThreads}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{idleThreads()}{idleThreads()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a4da8486119cc498826e62dc81121863b} 
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{original\+::u\+\_\+integer}} original\+::task\+Delegator\+::idle\+Threads (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the number of idle threads. 
+
+\begin{DoxyReturn}{Returns}
+Count of currently idle threads 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}\index{original::taskDelegator@{original::taskDelegator}!submit@{submit}}
+\index{submit@{submit}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719} 
+template$<$typename Callback , typename ... Args$>$ \\
+auto original\+::task\+Delegator\+::submit (\begin{DoxyParamCaption}\item[{Callback \&\&}]{c}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Submits a task with normal priority. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callback} & Type of the callable \\
+\hline
+{\em Args} & Types of the arguments \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Callable to execute \\
+\hline
+{\em args} & Arguments to forward to the callable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Future for the task result 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1task_delegator_a837aebfd9658b2fffd9600c8a61ec42e}\index{original::taskDelegator@{original::taskDelegator}!submit@{submit}}
+\index{submit@{submit}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a837aebfd9658b2fffd9600c8a61ec42e} 
+template$<$typename Callback , typename ... Args$>$ \\
+auto original\+::task\+Delegator\+::submit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}}]{priority}{, }\item[{Callback \&\&}]{c}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Submits a task with specified priority. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Callback} & Type of the callable \\
+\hline
+{\em Args} & Types of the arguments \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & Task priority level \\
+\hline
+{\em c} & Callable to execute \\
+\hline
+{\em args} & Arguments to forward to the callable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Future for the task result 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1task_delegator_a92ec80d69d3270931b7155094ba705b1}\index{original::taskDelegator@{original::taskDelegator}!submit@{submit}}
+\index{submit@{submit}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a92ec80d69d3270931b7155094ba705b1} 
+template$<$typename TYPE $>$ \\
+\mbox{\hyperlink{classoriginal_1_1async_1_1future}{async\+::future}}$<$ TYPE $>$ original\+::task\+Delegator\+::submit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}}]{priority}{, }\item[{\mbox{\hyperlink{classoriginal_1_1strong_ptr}{strong\+Ptr}}$<$ \mbox{\hyperlink{classoriginal_1_1task}{task}}$<$ TYPE $>$ $>$ \&}]{t}{}\end{DoxyParamCaption})}
+
+
+
+Submits a pre-\/created task with specified priority. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Task result type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & Task priority level \\
+\hline
+{\em t} & Shared pointer to the task \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Future for the task result 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1task_delegator_a17d543d068fcca15fc56ee4061ef6998}\index{original::taskDelegator@{original::taskDelegator}!submit@{submit}}
+\index{submit@{submit}!original::taskDelegator@{original::taskDelegator}}
+\doxysubsubsection{\texorpdfstring{submit()}{submit()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1task_delegator_a17d543d068fcca15fc56ee4061ef6998} 
+template$<$typename TYPE $>$ \\
+\mbox{\hyperlink{classoriginal_1_1async_1_1future}{async\+::future}}$<$ TYPE $>$ original\+::task\+Delegator\+::submit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1strong_ptr}{strong\+Ptr}}$<$ \mbox{\hyperlink{classoriginal_1_1task}{task}}$<$ TYPE $>$ $>$ \&}]{t}{}\end{DoxyParamCaption})}
+
+
+
+Submits a pre-\/created task with normal priority. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Task result type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Shared pointer to the task \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Future for the task result 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vibrant/tasks.\+h\end{DoxyCompactItemize}

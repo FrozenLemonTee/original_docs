@@ -1,0 +1,319 @@
+\doxysection{tasks.\+h}
+\hypertarget{tasks_8h_source}{}\label{tasks_8h_source}\index{src/vibrant/tasks.h@{src/vibrant/tasks.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ORIGINAL\_TASKS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ORIGINAL\_TASKS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}async.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}atomic.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{queue_8h}{queue.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ref_cnt_ptr_8h}{refCntPtr.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{array_8h}{array.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{prique_8h}{prique.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ ====================\ Task\ Base\ Interface\ ====================}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1task_base}{taskBase}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_base_aed8174b5398cafddbbc510f07ffe72d4}{run}}()\ =\ 0;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classoriginal_1_1task_base_a219d87c3a95f3f72387fb595838dfe34}{\string~taskBase}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ \ \ \ \ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ ====================\ Concrete\ Task\ Class\ ====================}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1task}{task}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1task_base}{taskBase}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1async_1_1promise}{async::promise}}<TYPE,\ std::function<TYPE()>>\ p;\ \ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Disable\ copying}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task_affbcc498eaaad759cfbf7b35f19cb738}{task}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1task}{task}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task}{task}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1task}{task}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Allow\ moving}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task_affbcc498eaaad759cfbf7b35f19cb738}{task}}(\mbox{\hyperlink{classoriginal_1_1task}{task}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task}{task}}\&\ operator=(\mbox{\hyperlink{classoriginal_1_1task}{task}}\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task_affbcc498eaaad759cfbf7b35f19cb738}{task}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1task_affbcc498eaaad759cfbf7b35f19cb738}{task}}(Callback\&\&\ c,\ Args\&\&...\ args);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_a8ee1d373f210def6e8e8456f5a250fb5}{run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1async_1_1future}{async::future<TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1task_ac2b0acc7de92ba758fad9a63c493b6d9}{getFuture}}();}
+\DoxyCodeLine{00080\ \ \ \ \ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ ====================\ Task\ Delegator\ (Thread\ Pool)\ ====================}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1task_delegator}{taskDelegator}}\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}\ :\ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ IMMEDIATE\ =\ 0,\ \ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ HIGH\ =\ 1,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ NORMAL\ =\ 2,\ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ LOW\ =\ 3,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ DEFERRED\ =\ 4,\ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Priority\ constants\ for\ convenience}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ IMMEDIATE\ =\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accae35884a2445bc4ae2df52f188763273c}{priority::IMMEDIATE}};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ HIGH\ =\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accab89de3b4b81c4facfac906edf29aec8c}{priority::HIGH}};}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ NORMAL\ =\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acca1e23852820b9154316c7c06e2b7ba051}{priority::NORMAL}};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ LOW\ =\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acca41bc94cbd8eebea13ce0491b2ac11b88}{priority::LOW}};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ DEFERRED\ =\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543accae3d9a2ed4146353ae729818f8bcc329d}{priority::DEFERRED}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Internal\ type\ definitions}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }priorityTask\ =\ \mbox{\hyperlink{classoriginal_1_1couple}{couple<strongPtr<taskBase>}},\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}>;\ \ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ COUPLE>}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }taskComparator\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ COUPLE\&\ lhs,\ \textcolor{keyword}{const}\ COUPLE\&\ rhs)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }priorityTaskQueue\ =\ prique<priorityTask,\ taskComparator,\ vector>;\ \ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Member\ variables}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ array<thread>\ threads\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ priorityTaskQueue\ tasks\_waiting\_;\ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ queue<strongPtr<taskBase>>\ task\_immediate\_;\ \ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ queue<strongPtr<taskBase>>\ tasks\_deferred\_;\ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ pCondition\ condition\_;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ pMutex\ mutex\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ stopped\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ active\_threads\_;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ idle\_threads\_;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a98d730f7b0112bcc29221b908cf4e98f}{taskDelegator}}(\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ thread\_cnt\ =\ 8);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}{submit}}(Callback\&\&\ c,\ Args\&\&...\ args);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}{submit}}(\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}},\ Callback\&\&\ c,\ Args\&\&...\ args);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1async_1_1future}{async::future<TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a17d543d068fcca15fc56ee4061ef6998}{submit}}(\mbox{\hyperlink{classoriginal_1_1strong_ptr}{strongPtr}}<\mbox{\hyperlink{classoriginal_1_1task}{task<TYPE>}}>\&\ t);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1async_1_1future}{async::future<TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a92ec80d69d3270931b7155094ba705b1}{submit}}(\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}},\ \mbox{\hyperlink{classoriginal_1_1strong_ptr}{strongPtr}}<\mbox{\hyperlink{classoriginal_1_1task}{task<TYPE>}}>\&\ t);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_ae6bf68df936fd4f982eb5dad8b41b670}{runDeferred}}();}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a3b6b05891d404337500c3b302e5831ca}{runAllDeferred}}();}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a27cff6ae339bde224bc64f660e37d440}{stop}}();}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a5af6beb484e43a65521e0b051fc1d5db}{activeThreads}}()\ const\ noexcept;}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a4da8486119cc498826e62dc81121863b}{idleThreads}}()\ const\ noexcept;}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \string~\mbox{\hyperlink{classoriginal_1_1task_delegator}{taskDelegator}}();}
+\DoxyCodeLine{00224\ \ \ \ \ \};}
+\DoxyCodeLine{00225\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ template\ <typename\ TYPE>}
+\DoxyCodeLine{00228\ template\ <typename\ Callback,\ typename...\ Args>}
+\DoxyCodeLine{00229\ \mbox{\hyperlink{namespaceoriginal}{original}}::\mbox{\hyperlink{classoriginal_1_1task}{task}}<TYPE>::\mbox{\hyperlink{classoriginal_1_1task}{task}}(Callback\&\&\ c,\ Args\&\&...\ args)}
+\DoxyCodeLine{00230\ \ \ \ \ :\ p([c\ =\ std::forward<Callback>(c),\ ...args\ =\ std::forward<Args>(args)]()\ mutable\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c(args...);}
+\DoxyCodeLine{00232\ \ \ \ \ \})\ \{\}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00235\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_a8ee1d373f210def6e8e8456f5a250fb5}{original::task<TYPE>::run}}()}
+\DoxyCodeLine{00236\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ this-\/>p.\mbox{\hyperlink{classoriginal_1_1task_a8ee1d373f210def6e8e8456f5a250fb5}{run}}();}
+\DoxyCodeLine{00238\ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00241\ \mbox{\hyperlink{classoriginal_1_1async_1_1future}{original::async::future<TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1task_ac2b0acc7de92ba758fad9a63c493b6d9}{original::task<TYPE>::getFuture}}()}
+\DoxyCodeLine{00242\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>p.getFuture();}
+\DoxyCodeLine{00244\ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ COUPLE>}
+\DoxyCodeLine{00247\ \textcolor{keywordtype}{bool}\ original::taskDelegator::taskComparator<COUPLE>::operator()(\textcolor{keyword}{const}\ COUPLE\&\ lhs,\ \textcolor{keyword}{const}\ COUPLE\&\ rhs)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00248\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(lhs.second())\ <\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\textcolor{keyword}{>}(rhs.second());}
+\DoxyCodeLine{00250\ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a98d730f7b0112bcc29221b908cf4e98f}{original::taskDelegator::taskDelegator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ thread\_cnt)}
+\DoxyCodeLine{00253\ \ \ \ \ :\ threads\_(thread\_cnt),}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ stopped\_(false),}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ active\_threads\_(0),}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ idle\_threads\_(0)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ thread\_\ :\ this-\/>threads\_)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ thread\_\ =\ \mbox{\hyperlink{classoriginal_1_1thread}{thread}}\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this}]\{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1strong_ptr}{strongPtr<taskBase>}}\ \mbox{\hyperlink{classoriginal_1_1task}{task}};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>idle\_threads\_\ +=\ 1;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>condition\_.wait(this-\/>mutex\_,\ [\textcolor{keyword}{this}]\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>stopped\_\ ||\ !this-\/>tasks\_waiting\_.empty()\ ||\ !this-\/>task\_immediate\_.empty();}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>stopped\_\ \&\&}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>tasks\_waiting\_.empty()\ \&\&}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>tasks\_deferred\_.empty()\ \&\&}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>task\_immediate\_.empty())\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>idle\_threads\_\ -\/=\ 1;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>task\_immediate\_.empty())\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task}{task}}\ =\ std::move(this-\/>task\_immediate\_.pop());}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task}{task}}\ =\ std::move(this-\/>tasks\_waiting\_.pop().first());}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>idle\_threads\_\ -\/=\ 1;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>active\_threads\_\ +=\ 1;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1task}{task}}-\/>\mbox{\hyperlink{classoriginal_1_1task_a8ee1d373f210def6e8e8456f5a250fb5}{run}}();}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>active\_threads\_\ -\/=\ 1;}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00297\ \ \ \ \ \}}
+\DoxyCodeLine{00298\ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ ...\ Args>}
+\DoxyCodeLine{00301\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}{original::taskDelegator::submit}}(Callback\&\&\ c,\ Args\&\&...\ args)}
+\DoxyCodeLine{00302\ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>submit(priority::NORMAL,\ std::forward<Callback>(c),\ std::forward<Args>(args)...);}
+\DoxyCodeLine{00304\ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ ...\ Args>}
+\DoxyCodeLine{00307\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}{original::taskDelegator::submit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}},\ Callback\&\&\ c,\ Args\&\&...\ args)}
+\DoxyCodeLine{00308\ \{}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keyword}{using\ }ReturnType\ =\ \textcolor{keyword}{decltype}(c(args...));}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keyword}{auto}\ new\_task\ =\ \mbox{\hyperlink{namespaceoriginal_ab3a918750a407487641ef6924df40d8d}{makeStrongPtr<task<ReturnType>}}>(}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ std::forward<Callback>(c),}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ std::forward<Args>(args)...}
+\DoxyCodeLine{00313\ \ \ \ \ );}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>submit<ReturnType>(\mbox{\hyperlink{classoriginal_1_1task_delegator_a424a70e720767d02c6bb7c7118543acc}{priority}},\ new\_task);}
+\DoxyCodeLine{00315\ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00318\ \mbox{\hyperlink{classoriginal_1_1async_1_1future}{original::async::future<TYPE>}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}{original::taskDelegator::submit}}(\mbox{\hyperlink{classoriginal_1_1strong_ptr}{strongPtr}}<\mbox{\hyperlink{classoriginal_1_1task}{task<TYPE>}}>\&\ t)}
+\DoxyCodeLine{00319\ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>submit(priority::NORMAL,\ t);}
+\DoxyCodeLine{00321\ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00324\ \mbox{\hyperlink{classoriginal_1_1async_1_1future}{original::async::future<TYPE>}}}
+\DoxyCodeLine{00325\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a886d0685bf402887fc6ce7ef274cd719}{original::taskDelegator::submit}}(\textcolor{keyword}{const}\ priority\ priority,\ strongPtr<task<TYPE>>\&\ t)}
+\DoxyCodeLine{00326\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keyword}{auto}\ f\ =\ t-\/>getFuture();}
+\DoxyCodeLine{00328\ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ uniqueLock\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>stopped\_)\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError(\textcolor{stringliteral}{"{}taskDelegator\ already\ stopped"{}});}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (priority)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ priority::IMMEDIATE:}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>idle\_threads\_\ ==\ 0)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError(\textcolor{stringliteral}{"{}No\ idle\ threads\ now"{}});}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>task\_immediate\_.push(std::move(t.template\ dynamicCastTo<taskBase>()));}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ priority::HIGH:}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ priority::NORMAL:}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ priority::LOW:}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>tasks\_waiting\_.push(priorityTask\{t.template\ dynamicCastTo<taskBase>(),\ priority\});}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ priority::DEFERRED:}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>tasks\_deferred\_.push(t.template\ dynamicCastTo<taskBase>());}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ f;}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ sysError(\textcolor{stringliteral}{"{}Unknown\ priority"{}});}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00351\ \ \ \ \ \}}
+\DoxyCodeLine{00352\ \ \ \ \ this-\/>condition\_.notify();}
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordflow}{return}\ f;}
+\DoxyCodeLine{00354\ \}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_ae6bf68df936fd4f982eb5dad8b41b670}{original::taskDelegator::runDeferred}}()}
+\DoxyCodeLine{00357\ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>tasks\_deferred\_.empty())\ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>tasks\_waiting\_.push(\mbox{\hyperlink{classoriginal_1_1couple}{priorityTask}}\{this-\/>tasks\_deferred\_.pop(),\ priority::DEFERRED\});}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00365\ \ \ \ \ \}}
+\DoxyCodeLine{00366\ \ \ \ \ this-\/>condition\_.notify();}
+\DoxyCodeLine{00367\ \}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a3b6b05891d404337500c3b302e5831ca}{original::taskDelegator::runAllDeferred}}()}
+\DoxyCodeLine{00370\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>tasks\_deferred\_.empty())\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!this-\/>tasks\_deferred\_.empty())\ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>tasks\_waiting\_.push(\mbox{\hyperlink{classoriginal_1_1couple}{priorityTask}}\{this-\/>tasks\_deferred\_.pop(),\ priority::DEFERRED\});}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00379\ \ \ \ \ \}}
+\DoxyCodeLine{00380\ \ \ \ \ this-\/>condition\_.notifyAll();}
+\DoxyCodeLine{00381\ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a27cff6ae339bde224bc64f660e37d440}{original::taskDelegator::stop}}()}
+\DoxyCodeLine{00384\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ this-\/>stopped\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00388\ \ \ \ \ \}}
+\DoxyCodeLine{00389\ \ \ \ \ this-\/>condition\_.notifyAll();}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ thread\_\ :\ this-\/>threads\_)\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (thread\_.joinable())\ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ thread\_.join();}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \}}
+\DoxyCodeLine{00396\ \}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a5af6beb484e43a65521e0b051fc1d5db}{original::taskDelegator::activeThreads}}()\ const\ noexcept}
+\DoxyCodeLine{00399\ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>active\_threads\_;}
+\DoxyCodeLine{00402\ \}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{original::u\_integer}}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_a4da8486119cc498826e62dc81121863b}{original::taskDelegator::idleThreads}}()\ const\ noexcept}
+\DoxyCodeLine{00405\ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>idle\_threads\_;}
+\DoxyCodeLine{00408\ \}}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classoriginal_1_1task_delegator_ac6b3036157e130782eacad2331f66467}{original::taskDelegator::\string~taskDelegator}}()}
+\DoxyCodeLine{00411\ \{}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keywordtype}{bool}\ stopped;}
+\DoxyCodeLine{00413\ \ \ \ \ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1unique_lock}{uniqueLock}}\ lock(this-\/>mutex\_);}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ stopped\ =\ this-\/>stopped\_;}
+\DoxyCodeLine{00416\ \ \ \ \ \}}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordflow}{if}\ (!stopped)\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ this-\/>stop();}
+\DoxyCodeLine{00419\ \ \ \ \ \}}
+\DoxyCodeLine{00420\ \}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//ORIGINAL\_TASKS\_H}}
+
+\end{DoxyCode}

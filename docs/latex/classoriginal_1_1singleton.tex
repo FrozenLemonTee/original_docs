@@ -1,0 +1,201 @@
+\doxysection{original\+::singleton\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classoriginal_1_1singleton}{}\label{classoriginal_1_1singleton}\index{original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}}
+
+
+Thread-\/safe singleton pattern implementation with ownership management.  
+
+
+
+
+{\ttfamily \#include $<$singleton.\+h$>$}
+
+
+
+Collaboration diagram for original\+::singleton\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classoriginal_1_1singleton__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1singleton_a16918dcf2f6290f38b173f749ad884d9}\label{classoriginal_1_1singleton_a16918dcf2f6290f38b173f749ad884d9} 
+{\bfseries singleton} (const \mbox{\hyperlink{classoriginal_1_1singleton}{singleton}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor to prevent copying. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1singleton_a782988adc9ef4996a009f524bcda8001}\label{classoriginal_1_1singleton_a782988adc9ef4996a009f524bcda8001} 
+\mbox{\hyperlink{classoriginal_1_1singleton}{singleton}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1singleton}{singleton}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator to prevent copying. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1singleton_a07b889312f801ddcc4eafe41a96c2107}\label{classoriginal_1_1singleton_a07b889312f801ddcc4eafe41a96c2107} 
+{\bfseries singleton} (\mbox{\hyperlink{classoriginal_1_1singleton}{singleton}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move constructor to prevent moving. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1singleton_ad1eb21395ffbfa0d391e926819ef7b9b}\label{classoriginal_1_1singleton_ad1eb21395ffbfa0d391e926819ef7b9b} 
+\mbox{\hyperlink{classoriginal_1_1singleton}{singleton}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1singleton}{singleton}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator to prevent moving. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classoriginal_1_1singleton_a4217545b1118e4359b7687d17593cc34}{exist}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the singleton instance exists. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\static void \mbox{\hyperlink{classoriginal_1_1singleton_afdd576c6e2e0a8a22c03157ffd609fe9}{init}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Initializes the singleton instance with provided arguments. \end{DoxyCompactList}\item 
+static TYPE \& \mbox{\hyperlink{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f}{instance}} ()
+\begin{DoxyCompactList}\small\item\em Provides access to the singleton instance. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classoriginal_1_1singleton_a293af5eaf27ed7906aad9283ee75a8d6}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the singleton instance. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\static void \mbox{\hyperlink{classoriginal_1_1singleton_a99f468725c0a31d4b424b8fd1b79dc63}{reset}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Resets the singleton instance with new arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::singleton$<$ TYPE $>$}
+Thread-\/safe singleton pattern implementation with ownership management. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of the singleton instance\\
+\hline
+\end{DoxyTemplParams}
+Provides a global point of access to a single instance of TYPE while ensuring proper initialization, destruction, and ownership semantics. Uses \doxylink{classoriginal_1_1owner_ptr}{owner\+Ptr} for exclusive ownership and automatic cleanup.
+
+Key Features\+:
+\begin{DoxyItemize}
+\item Lazy initialization with thread safety
+\item Exclusive ownership using \doxylink{classoriginal_1_1owner_ptr}{owner\+Ptr}
+\item Controlled initialization and destruction
+\item Prevention of copy and move operations
+\item Exception-\/safe operations
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This implementation is not thread-\/safe for simultaneous \doxylink{classoriginal_1_1singleton_afdd576c6e2e0a8a22c03157ffd609fe9}{init()}/reset() calls. For thread-\/safe usage, ensure proper synchronization at the application level. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1singleton_a293af5eaf27ed7906aad9283ee75a8d6}\index{original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}!clear@{clear}}
+\index{clear@{clear}!original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1singleton_a293af5eaf27ed7906aad9283ee75a8d6} 
+template$<$typename TYPE $>$ \\
+void \mbox{\hyperlink{classoriginal_1_1singleton}{original\+::singleton}}$<$ TYPE $>$\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Clears the singleton instance. 
+
+\begin{DoxyPostcond}{Postcondition}
+instance\+\_\+ becomes nullptr, existing instance is destroyed 
+\end{DoxyPostcond}
+\begin{DoxyNote}{Note}
+Safe to call even if instance doesn\textquotesingle{}t exist 
+\end{DoxyNote}
+\Hypertarget{classoriginal_1_1singleton_a4217545b1118e4359b7687d17593cc34}\index{original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}!exist@{exist}}
+\index{exist@{exist}!original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{exist()}{exist()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1singleton_a4217545b1118e4359b7687d17593cc34} 
+template$<$typename TYPE $>$ \\
+bool \mbox{\hyperlink{classoriginal_1_1singleton}{original\+::singleton}}$<$ TYPE $>$\+::exist (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks if the singleton instance exists. 
+
+\begin{DoxyReturn}{Returns}
+true if instance is initialized, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1singleton_afdd576c6e2e0a8a22c03157ffd609fe9}\index{original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}!init@{init}}
+\index{init@{init}!original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1singleton_afdd576c6e2e0a8a22c03157ffd609fe9} 
+template$<$typename TYPE $>$ \\
+template$<$typename ... Args$>$ \\
+void \mbox{\hyperlink{classoriginal_1_1singleton}{original\+::singleton}}$<$ TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes the singleton instance with provided arguments. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Argument types for TYPE constructor \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to forward to TYPE constructor \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1value_error}{value\+Error}} & if instance already exists\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1singleton_afdd576c6e2e0a8a22c03157ffd609fe9}{singleton<MyClass>::init}}(arg1,\ arg2);\ \textcolor{comment}{//\ Initialize\ with\ constructor\ arguments}}
+
+\end{DoxyCode}
+ \Hypertarget{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f}\index{original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}!instance@{instance}}
+\index{instance@{instance}!original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f} 
+template$<$typename TYPE $>$ \\
+TYPE \& \mbox{\hyperlink{classoriginal_1_1singleton}{original\+::singleton}}$<$ TYPE $>$\+::instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Provides access to the singleton instance. 
+
+\begin{DoxyReturn}{Returns}
+Reference to the singleton instance of TYPE 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1null_pointer_error}{null\+Pointer\+Error}} & if instance not initialized\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\&\ \mbox{\hyperlink{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f}{instance}}\ =\ \mbox{\hyperlink{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f}{singleton<MyClass>::instance}}();\ \textcolor{comment}{//\ Access\ the\ instance}}
+\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1singleton_ac0da86e4f87297c252a298e55c1c9d6f}{instance}}.someMethod();}
+
+\end{DoxyCode}
+ \Hypertarget{classoriginal_1_1singleton_a99f468725c0a31d4b424b8fd1b79dc63}\index{original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}!reset@{reset}}
+\index{reset@{reset}!original::singleton$<$ TYPE $>$@{original::singleton$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1singleton_a99f468725c0a31d4b424b8fd1b79dc63} 
+template$<$typename TYPE $>$ \\
+template$<$typename ... Args$>$ \\
+void \mbox{\hyperlink{classoriginal_1_1singleton}{original\+::singleton}}$<$ TYPE $>$\+::reset (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Resets the singleton instance with new arguments. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Args} & Argument types for TYPE constructor \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Arguments to forward to TYPE constructor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Destroys existing instance and creates a new one
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1singleton_a99f468725c0a31d4b424b8fd1b79dc63}{singleton<MyClass>::reset}}(newArg1,\ newArg2);\ \textcolor{comment}{//\ Replace\ existing\ instance}}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/core/singleton.\+h\end{DoxyCompactItemize}

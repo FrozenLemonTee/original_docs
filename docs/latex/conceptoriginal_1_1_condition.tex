@@ -28,7 +28,7 @@ Constraint for predicate callbacks.
 {\em TYPE} & Input type for predicate\\
 \hline
 \end{DoxyTemplParams}
-Requires a callback that takes a TYPE reference and returns bool.
+Requires a callback that takes a TYPE reference and returns bool. Useful for filtering and conditional operations.
 
 
 \begin{DoxyCode}{0}
@@ -38,7 +38,7 @@ Requires a callback that takes a TYPE reference and returns bool.
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ Invalid\ example\ (parameter\ type\ mismatch)}}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ string\_check\ =\ [](std::string\ s)\ \{\ \textcolor{keywordflow}{return}\ !s.empty();\ \};}
-\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!Condition<\textcolor{keyword}{decltype}(string\_check),\ \textcolor{keyword}{const}\ std::string\&>);\ \ \textcolor{comment}{//\ Fails:\ requires\ const\ reference}}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!Condition<\textcolor{keyword}{decltype}(string\_check),\ \textcolor{keyword}{const}\ std::string\&>);\ \ \textcolor{comment}{//\ Fails}}
 
 \end{DoxyCode}
  

@@ -47,7 +47,7 @@ class \mbox{\hyperlink{classoriginal_1_1_j_set_1_1_iterator}{Iterator}}
 \begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1_j_set}{JSet}} \& \mbox{\hyperlink{classoriginal_1_1_j_set_a36f624e6fb201f4de2de4ea8aada4cb2}{operator=}} (\mbox{\hyperlink{classoriginal_1_1_j_set}{JSet}} \&\&other) noexcept
 \begin{DoxyCompactList}\small\item\em Move assignment operator. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1_j_set_ad3b039844d49e6cdd9eb312cecd35979}{size}} () const override
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1_j_set_ad3b039844d49e6cdd9eb312cecd35979}{size}} () const override
 \begin{DoxyCompactList}\small\item\em Gets number of elements. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classoriginal_1_1_j_set_aeae72cd65afbc29015419876a57e69dd}{contains}} (const TYPE \&e) const override
 \begin{DoxyCompactList}\small\item\em Checks if element exists. \end{DoxyCompactList}\item 
@@ -67,10 +67,6 @@ std\+::string \mbox{\hyperlink{classoriginal_1_1_j_set_a95f726b57a44238172fcec9e
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1iterable}{original\+::iterable$<$ const TYPE $>$}}}
 \begin{DoxyCompactItemize}
-\item 
-auto {\bfseries for\+Each} (Callback operation) -\/$>$ void
-\item 
-auto {\bfseries for\+Each} (const Callback \&operation) const -\/$>$ void
 \item 
 iter\+Adaptor \mbox{\hyperlink{classoriginal_1_1iterable_abbe2b7be21e8c971b9b548c46d394014}{begin}} ()
 \begin{DoxyCompactList}\small\item\em Returns an iterator adapter pointing to the beginning of the container. \end{DoxyCompactList}\item 
@@ -105,13 +101,13 @@ auto {\bfseries for\+Each} (const Callback \&operation) const -\/$>$ void
 \begin{DoxyCompactList}\small\item\em Explicit conversion to C-\/style string. \end{DoxyCompactList}\item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{to\+CString}} (bool enter) const
 \begin{DoxyCompactList}\small\item\em Direct C-\/string access with formatting control. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -123,13 +119,17 @@ class {\bfseries Iterator}
 \doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a461bd9d3e53d5738875e2bfae91f35b6}{format\+String}} (const TYPE \&t)
 \begin{DoxyCompactList}\small\item\em Universal value-\/to-\/string conversion. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{format\+String}} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
+{\footnotesize template$<$Printable TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Specialization for printable types. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Enum\+Type TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Specialization for enum types. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{format\+String}} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
 \begin{DoxyCompactList}\small\item\em Pointer-\/specific formatting. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{format\+CString}} (const TYPE \&t)
+{\footnotesize template$<$typename TYPE $>$ }\\static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{format\+CString}} (const TYPE \&t)
 \begin{DoxyCompactList}\small\item\em C-\/string cache for temporary usage. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{format\+Enum}} (const TYPE \&t)
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{format\+Enum}} (const TYPE \&t)
 \begin{DoxyCompactList}\small\item\em Enum formatting utility. \end{DoxyCompactList}\item 
 template$<$$>$ auto {\bfseries format\+String} (const char \&t) -\/$>$ std\+::string
 \item 
@@ -181,7 +181,7 @@ The implementation guarantees\+:
 \index{JSet@{JSet}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{JSet()}{JSet()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a37b2c0f92718cc0e79b416b9f83370ff} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::\+JSet (\begin{DoxyParamCaption}\item[{Compare}]{comp}{ = {\ttfamily Compare\{\}}, }\item[{ALLOC}]{alloc}{ = {\ttfamily ALLOC\{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
@@ -199,7 +199,7 @@ Constructs empty \doxylink{classoriginal_1_1_j_set}{JSet}.
 \index{JSet@{JSet}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{JSet()}{JSet()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_ae823af60767070d75d5244ff4a693833} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::\+JSet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1_j_set}{JSet}}$<$ TYPE, Compare, ALLOC $>$ \&}]{other}{}\end{DoxyParamCaption})}
 
 
@@ -218,7 +218,7 @@ Allocator is copied if propagate\+\_\+on\+\_\+container\+\_\+copy\+\_\+assignmen
 \index{JSet@{JSet}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{JSet()}{JSet()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a3b24ea8a9ff9b8cd5793ba23ba804d0e} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::\+JSet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1_j_set}{JSet}}$<$ TYPE, Compare, ALLOC $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
@@ -237,7 +237,7 @@ Leaves other in valid but unspecified state
 \index{````~JSet@{\texorpdfstring{$\sim$}{\string~}JSet}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}JSet()}{\string~JSet()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a7a476e64a9ea5efd7237c513044ad43c} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classoriginal_1_1_j_set}{JSet}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [default]}}
 
 
@@ -254,7 +254,7 @@ O(n) time complexity
 \index{add@{add}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{add()}{add()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a961617f7efa46b7ba61e1faa9484f726} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 bool \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::add (\begin{DoxyParamCaption}\item[{const TYPE \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
 
@@ -273,7 +273,7 @@ true if added, false if element existed
 \index{begins@{begins}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{begins()}{begins()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a8c71cf51d842ea647bc20d5ee40715eb} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::\+Iterator \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::begins (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
@@ -294,7 +294,7 @@ Implements \mbox{\hyperlink{classoriginal_1_1iterable_a82918c322a679ddad8897440f
 \index{className@{className}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{className()}{className()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a4c598100c1157fe327851be21db3adef} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 std\+::string \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::class\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
@@ -312,7 +312,7 @@ Reimplemented from \mbox{\hyperlink{classoriginal_1_1printable_a964ede666275c3d0
 \index{contains@{contains}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{contains()}{contains()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_aeae72cd65afbc29015419876a57e69dd} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 bool \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::contains (\begin{DoxyParamCaption}\item[{const TYPE \&}]{e}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
 
 
@@ -331,7 +331,7 @@ true if element exists
 \index{ends@{ends}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{ends()}{ends()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_aeeb9a34e36d8262a4dc8d669ea66a154} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::\+Iterator \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::ends (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
@@ -352,7 +352,7 @@ Implements \mbox{\hyperlink{classoriginal_1_1iterable_af986250dbca5b4ef7c0a60bb4
 \index{operator=@{operator=}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a87cb245b77aed723c05eea5fce8bf581} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$ \& \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1_j_set}{JSet}}$<$ TYPE, Compare, ALLOC $>$ \&}]{other}{}\end{DoxyParamCaption})}
 
 
@@ -374,7 +374,7 @@ Allocator is copied if propagate\+\_\+on\+\_\+container\+\_\+copy\+\_\+assignmen
 \index{operator=@{operator=}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a36f624e6fb201f4de2de4ea8aada4cb2} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$ \& \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1_j_set}{JSet}}$<$ TYPE, Compare, ALLOC $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
 
 
@@ -398,7 +398,7 @@ Allocator is moved if propagate\+\_\+on\+\_\+container\+\_\+move\+\_\+assignment
 \index{remove@{remove}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{remove()}{remove()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_ac8577e62e687be1e3835a8a1343f9b0d} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 bool \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::remove (\begin{DoxyParamCaption}\item[{const TYPE \&}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
 
@@ -420,8 +420,8 @@ Average O(log n), worst case O(n) time complexity
 \index{size@{size}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_ad3b039844d49e6cdd9eb312cecd35979} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
-\mbox{\hyperlink{namespaceoriginal_a2d678ae654034cea391c946ada41bd2e}{original\+::u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}}
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{original\+::u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}}
 
 
 
@@ -434,7 +434,7 @@ Current size
 \index{toString@{toString}!original::JSet$<$ TYPE, Compare, ALLOC $>$@{original::JSet$<$ TYPE, Compare, ALLOC $>$}}
 \doxysubsubsection{\texorpdfstring{toString()}{toString()}}
 {\footnotesize\ttfamily \label{classoriginal_1_1_j_set_a95f726b57a44238172fcec9ea5b29cfa} 
-template$<$typename TYPE, typename Compare, typename ALLOC$>$ \\
+template$<$typename TYPE , typename Compare , typename ALLOC $>$ \\
 std\+::string \mbox{\hyperlink{classoriginal_1_1_j_set}{original\+::\+JSet}}$<$ TYPE, Compare, ALLOC $>$\+::to\+String (\begin{DoxyParamCaption}\item[{bool}]{enter}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 

@@ -5,13 +5,16 @@
 Core type system foundations and concept definitions.  
 
 
-{\ttfamily \#include "{}type\+\_\+traits"{}}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
 {\ttfamily \#include $<$concepts$>$}\newline
-Include dependency graph for types.\+h\+:\nopagebreak
+{\ttfamily \#include $<$iosfwd$>$}\newline
+{\ttfamily \#include "{}config.\+h"{}}\newline
+Include dependency graph for types.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=216pt]{types_8h__incl}
+\includegraphics[width=347pt]{types_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -22,6 +25,25 @@ This graph shows which files directly or indirectly include this file\+:
 \includegraphics[width=350pt]{types_8h__dep__incl}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classoriginal_1_1none}{original\+::none}}
+\begin{DoxyCompactList}\small\item\em A placeholder type representing the absence of a value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1index_sequence}{original\+::index\+Sequence$<$ INTS $>$}}
+\begin{DoxyCompactList}\small\item\em Compile-\/time sequence of unsigned integers. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1make_index_sequence}{original\+::make\+Index\+Sequence}}
+\begin{DoxyCompactList}\small\item\em Utility for generating index sequences. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structoriginal_1_1function_traits_3_01_r_07_5_08_07_args_8_8_8_08_4}{original\+::function\+Traits$<$ R(\texorpdfstring{$\ast$}{*})(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for function pointers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structoriginal_1_1function_traits_3_01_r_07_args_8_8_8_08_4}{original\+::function\+Traits$<$ R(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for function types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structoriginal_1_1function_traits}{original\+::function\+Traits$<$ C $>$}}
+\begin{DoxyCompactList}\small\item\em Primary template for general callable types. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structoriginal_1_1function_traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_01const_01_4}{original\+::function\+Traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})(\+Args...) const $>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for const member function pointers. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structoriginal_1_1function_traits_3_01_r_07_c_1_1_5_08_07_args_8_8_8_08_4}{original\+::function\+Traits$<$ R(\+C\+::\texorpdfstring{$\ast$}{*})(\+Args...)$>$}}
+\begin{DoxyCompactList}\small\item\em Specialization for non-\/const member function pointers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,8 +54,12 @@ namespace \mbox{\hyperlink{namespaceoriginal}{original}}
 \item 
 concept \mbox{\hyperlink{conceptoriginal_1_1_not_null}{original\+::\+Not\+Null}}
 \begin{DoxyCompactList}\small\item\em Ensures the parameter pack is not empty. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{conceptoriginal_1_1_enum_type}{original\+::\+Enum\+Type}}
+\begin{DoxyCompactList}\small\item\em Requires type to be an enumeration. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptoriginal_1_1_comparable}{original\+::\+Comparable}}
 \begin{DoxyCompactList}\small\item\em Requires type to support all comparison operators. \end{DoxyCompactList}\item 
+concept \mbox{\hyperlink{conceptoriginal_1_1_printable}{original\+::\+Printable}}
+\begin{DoxyCompactList}\small\item\em Requires type to support output stream insertion. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptoriginal_1_1_callback_of}{original\+::\+Callback\+Of}}
 \begin{DoxyCompactList}\small\item\em Validates callback signature compatibility. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptoriginal_1_1_compare}{original\+::\+Compare}}
@@ -45,7 +71,19 @@ concept \mbox{\hyperlink{conceptoriginal_1_1_operation}{original\+::\+Operation}
 concept \mbox{\hyperlink{conceptoriginal_1_1_super_of}{original\+::\+Super\+Of}}
 \begin{DoxyCompactList}\small\item\em Checks inheritance or type equality. \end{DoxyCompactList}\item 
 concept \mbox{\hyperlink{conceptoriginal_1_1_extends_of}{original\+::\+Extends\+Of}}
-\begin{DoxyCompactList}\small\item\em Checks derivation or type identity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks derivation or type identity using std\+::derived\+\_\+from. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} N$>$ }\\using \mbox{\hyperlink{namespaceoriginal_a8ab3736b243dfb8d501324dea0d574fd}{original\+::make\+Reverse\+Sequence}}
+\begin{DoxyCompactList}\small\item\em Creates a reversed index sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} NUM$>$ }\\consteval auto \mbox{\hyperlink{namespaceoriginal_a37c53f51722c2f4a30958a1b4e9e943c}{original\+::make\+Sequence}} ()
+\begin{DoxyCompactList}\small\item\em Creates an index sequence of given length. \end{DoxyCompactList}\item 
+{\footnotesize template$<$u\+\_\+integer... Indices$>$ }\\consteval auto \mbox{\hyperlink{namespaceoriginal_a4e51ab2bbc2425bdb4429bd3b2e87a14}{original\+::reverse\+Index\+Sequence\+Impl}} (\mbox{\hyperlink{classoriginal_1_1index_sequence}{index\+Sequence}}$<$ Indices... $>$ seq)
+\begin{DoxyCompactList}\small\item\em Implementation detail for reversing an index sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

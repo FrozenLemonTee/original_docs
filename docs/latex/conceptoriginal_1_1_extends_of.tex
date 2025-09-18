@@ -2,7 +2,7 @@
 \hypertarget{conceptoriginal_1_1_extends_of}{}\label{conceptoriginal_1_1_extends_of}\index{original::ExtendsOf@{original::ExtendsOf}}
 
 
-Checks derivation or type identity.  
+Checks derivation or type identity using std\+::derived\+\_\+from.  
 
 
 
@@ -19,7 +19,7 @@ Checks derivation or type identity.
 
 
 \doxysubsection{Detailed Description}
-Checks derivation or type identity. 
+Checks derivation or type identity using std\+::derived\+\_\+from. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -28,7 +28,7 @@ Checks derivation or type identity.
 {\em Derive} & Derived class or same type\\
 \hline
 \end{DoxyTemplParams}
-Uses std\+::derived\+\_\+from for explicit inheritance checking, allowing for clearer intent than Super\+Of in some contexts.
+Uses std\+::derived\+\_\+from for explicit inheritance checking, which is stricter than is\+\_\+base\+\_\+of\+\_\+v in some cases.
 
 
 \begin{DoxyCode}{0}
@@ -37,7 +37,7 @@ Uses std\+::derived\+\_\+from for explicit inheritance checking, allowing for cl
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{static\_assert}(ExtendsOf<Animal,\ Cat>);\ \ \ \ \textcolor{comment}{//\ Passes:\ valid\ inheritance}}
 \DoxyCodeLine{\textcolor{keyword}{static\_assert}(ExtendsOf<int,\ int>);\ \ \ \ \ \ \ \textcolor{comment}{//\ Passes:\ same\ type}}
-\DoxyCodeLine{\textcolor{keyword}{static\_assert}(ExtendsOf<Cat,\ int>);\ \ \ \textcolor{comment}{//\ Fails:\ invalid\ inheritance}}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!ExtendsOf<Cat,\ Animal>);\ \ \ \textcolor{comment}{//\ Fails:\ invalid\ inheritance}}
 
 \end{DoxyCode}
  

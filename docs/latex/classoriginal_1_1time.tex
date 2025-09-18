@@ -1,0 +1,166 @@
+\doxysection{original\+::time Class Reference}
+\hypertarget{classoriginal_1_1time}{}\label{classoriginal_1_1time}\index{original::time@{original::time}}
+
+
+Namespace-\/like class containing time-\/related utilities.  
+
+
+
+
+{\ttfamily \#include $<$zeit.\+h$>$}
+
+
+
+Collaboration diagram for original\+::time\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{classoriginal_1_1time__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classoriginal_1_1time_1_1duration}{duration}}
+\begin{DoxyCompactList}\small\item\em Represents a time duration with nanosecond precision. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1time_1_1point}{point}}
+\begin{DoxyCompactList}\small\item\em Represents a point in time with nanosecond precision. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classoriginal_1_1time_1_1_u_t_c_time}{UTCTime}}
+\begin{DoxyCompactList}\small\item\em Represents a UTC calendar date and time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7}{unit}} \{ \newline
+\mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7aeb8c6d69310ffef899148b680e672652}{NANOSECOND}}
+, \mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a52a3ae8e5d772e28d4e2105fefd2eed1}{MICROSECOND}}
+, \mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a241d7907de05ad50c011812e927cd671}{MILLISECOND}}
+, \mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a2200becb80f0019c4a2ccecec350d0db}{SECOND}}
+, \newline
+\mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a46bda4cde2f10bdb9e51e3bbefa4a2bf}{MINUTE}}
+, \mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7add3f965174e8bb2f64523981626ced1a}{HOUR}}
+, \mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a5b1d59b5451c06afb65ab1bc2713cfb4}{DAY}}
+ \}
+\begin{DoxyCompactList}\small\item\em Time units supported by the library. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_ac876058544747caee0f24703ab252636}\label{classoriginal_1_1time_ac876058544747caee0f24703ab252636} 
+using {\bfseries time\+\_\+val\+\_\+type} = \mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}
+\begin{DoxyCompactList}\small\item\em Type used for storing time values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1time_a17042db1ec79b876b5060aac0b8e6796}\label{classoriginal_1_1time_a17042db1ec79b876b5060aac0b8e6796} 
+static constexpr auto {\bfseries NANOSECOND} = unit\+::\+NANOSECOND
+\begin{DoxyCompactList}\small\item\em Constant for nanosecond unit. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a8de13d7852adfe933fea67372b666308}\label{classoriginal_1_1time_a8de13d7852adfe933fea67372b666308} 
+static constexpr auto {\bfseries MICROSECOND} = unit\+::\+MICROSECOND
+\begin{DoxyCompactList}\small\item\em Constant for microsecond unit. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a41d7e0f61b5aadb77cccb67c892430af}\label{classoriginal_1_1time_a41d7e0f61b5aadb77cccb67c892430af} 
+static constexpr auto {\bfseries MILLISECOND} = unit\+::\+MILLISECOND
+\begin{DoxyCompactList}\small\item\em Constant for millisecond unit. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a7d348991d4c6eb61f53e5ddb145cc894}\label{classoriginal_1_1time_a7d348991d4c6eb61f53e5ddb145cc894} 
+static constexpr auto {\bfseries SECOND} = unit\+::\+SECOND
+\begin{DoxyCompactList}\small\item\em Constant for second unit. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a4f67127114cee4e2ebac997a72ee29e8}\label{classoriginal_1_1time_a4f67127114cee4e2ebac997a72ee29e8} 
+static constexpr auto {\bfseries MINUTE} = unit\+::\+MINUTE
+\begin{DoxyCompactList}\small\item\em Constant for minute unit. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a262b8c68041006c620a5dae0654b550d}\label{classoriginal_1_1time_a262b8c68041006c620a5dae0654b550d} 
+static constexpr auto {\bfseries HOUR} = unit\+::\+HOUR
+\begin{DoxyCompactList}\small\item\em Constant for hour unit. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a240104d24193a30f3a8ef2f003aa230e}\label{classoriginal_1_1time_a240104d24193a30f3a8ef2f003aa230e} 
+static constexpr auto {\bfseries DAY} = unit\+::\+DAY
+\begin{DoxyCompactList}\small\item\em Constant for day unit. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a60858cb33bc594690ea9127752b94a61}\label{classoriginal_1_1time_a60858cb33bc594690ea9127752b94a61} 
+static constexpr \mbox{\hyperlink{classoriginal_1_1time_ac876058544747caee0f24703ab252636}{time\+\_\+val\+\_\+type}} {\bfseries FACTOR\+\_\+\+NANOSECOND} = UNIT\+\_\+\+FACTOR\mbox{[}static\+\_\+cast$<$\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}}$>$(\mbox{\hyperlink{classoriginal_1_1time_a17042db1ec79b876b5060aac0b8e6796}{NANOSECOND}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Conversion factor for nanoseconds. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_af3e76b6d0f1c4a996061335fe86f7543}\label{classoriginal_1_1time_af3e76b6d0f1c4a996061335fe86f7543} 
+static constexpr \mbox{\hyperlink{classoriginal_1_1time_ac876058544747caee0f24703ab252636}{time\+\_\+val\+\_\+type}} {\bfseries FACTOR\+\_\+\+MICROSECOND} = UNIT\+\_\+\+FACTOR\mbox{[}static\+\_\+cast$<$\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}}$>$(\mbox{\hyperlink{classoriginal_1_1time_a8de13d7852adfe933fea67372b666308}{MICROSECOND}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Conversion factor for microseconds. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a1470b64d97fa83831764473c51b731ea}\label{classoriginal_1_1time_a1470b64d97fa83831764473c51b731ea} 
+static constexpr \mbox{\hyperlink{classoriginal_1_1time_ac876058544747caee0f24703ab252636}{time\+\_\+val\+\_\+type}} {\bfseries FACTOR\+\_\+\+MILLISECOND} = UNIT\+\_\+\+FACTOR\mbox{[}static\+\_\+cast$<$\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}}$>$(\mbox{\hyperlink{classoriginal_1_1time_a41d7e0f61b5aadb77cccb67c892430af}{MILLISECOND}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Conversion factor for milliseconds. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_ad3b1612aa84f8fb0cb6631e2a31ea036}\label{classoriginal_1_1time_ad3b1612aa84f8fb0cb6631e2a31ea036} 
+static constexpr \mbox{\hyperlink{classoriginal_1_1time_ac876058544747caee0f24703ab252636}{time\+\_\+val\+\_\+type}} {\bfseries FACTOR\+\_\+\+SECOND} = UNIT\+\_\+\+FACTOR\mbox{[}static\+\_\+cast$<$\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}}$>$(\mbox{\hyperlink{classoriginal_1_1time_a7d348991d4c6eb61f53e5ddb145cc894}{SECOND}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Conversion factor for seconds. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_ac75c9abb72d2c404aa0e2b1fe9e86d12}\label{classoriginal_1_1time_ac75c9abb72d2c404aa0e2b1fe9e86d12} 
+static constexpr \mbox{\hyperlink{classoriginal_1_1time_ac876058544747caee0f24703ab252636}{time\+\_\+val\+\_\+type}} {\bfseries FACTOR\+\_\+\+MINUTE} = UNIT\+\_\+\+FACTOR\mbox{[}static\+\_\+cast$<$\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}}$>$(\mbox{\hyperlink{classoriginal_1_1time_a4f67127114cee4e2ebac997a72ee29e8}{MINUTE}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Conversion factor for minutes. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_ad6e5fe9bf436aa4da8b47fde04b0424e}\label{classoriginal_1_1time_ad6e5fe9bf436aa4da8b47fde04b0424e} 
+static constexpr \mbox{\hyperlink{classoriginal_1_1time_ac876058544747caee0f24703ab252636}{time\+\_\+val\+\_\+type}} {\bfseries FACTOR\+\_\+\+HOUR} = UNIT\+\_\+\+FACTOR\mbox{[}static\+\_\+cast$<$\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}}$>$(\mbox{\hyperlink{classoriginal_1_1time_a262b8c68041006c620a5dae0654b550d}{HOUR}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Conversion factor for hours. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a89742306c723aaef21b42434eefebe5d}\label{classoriginal_1_1time_a89742306c723aaef21b42434eefebe5d} 
+static constexpr \mbox{\hyperlink{classoriginal_1_1time_ac876058544747caee0f24703ab252636}{time\+\_\+val\+\_\+type}} {\bfseries FACTOR\+\_\+\+DAY} = UNIT\+\_\+\+FACTOR\mbox{[}static\+\_\+cast$<$\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}}$>$(\mbox{\hyperlink{classoriginal_1_1time_a240104d24193a30f3a8ef2f003aa230e}{DAY}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Conversion factor for days. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_accd832a841b879783874217702d73fec}\label{classoriginal_1_1time_accd832a841b879783874217702d73fec} 
+static constexpr \mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}} {\bfseries DAYS\+\_\+\+LEAP\+\_\+\+YEAR} = 366
+\begin{DoxyCompactList}\small\item\em Days in a leap year. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a8d0f3a37ed9050c7ac7b75527fd55b07}\label{classoriginal_1_1time_a8d0f3a37ed9050c7ac7b75527fd55b07} 
+static constexpr \mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}} {\bfseries DAYS\+\_\+\+COMMON\+\_\+\+YEAR} = 365
+\begin{DoxyCompactList}\small\item\em Days in a common year. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_aeff06959a12a7ae55240d8be05c9002b}\label{classoriginal_1_1time_aeff06959a12a7ae55240d8be05c9002b} 
+static constexpr \mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}} {\bfseries EPOCH\+\_\+\+YEAR} = 1970
+\begin{DoxyCompactList}\small\item\em Epoch year (Unix epoch) \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a28357cf0f2305796be0b0ea20c6d846c}\label{classoriginal_1_1time_a28357cf0f2305796be0b0ea20c6d846c} 
+static constexpr \mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}} {\bfseries EPOCH\+\_\+\+MONTH} = 1
+\begin{DoxyCompactList}\small\item\em Epoch month (Unix epoch) \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a1ba56c985888d89177537b54bf3ee180}\label{classoriginal_1_1time_a1ba56c985888d89177537b54bf3ee180} 
+static constexpr \mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}} {\bfseries EPOCH\+\_\+\+DAY} = 1
+\begin{DoxyCompactList}\small\item\em Epoch day (Unix epoch) \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_affab4080cf0d1996d9bbb5b36631e886}\label{classoriginal_1_1time_affab4080cf0d1996d9bbb5b36631e886} 
+static constexpr auto {\bfseries MONTH} = UTCTime\+::calendar\+::\+MONTH
+\begin{DoxyCompactList}\small\item\em Constant for month calendar component. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1time_a272dbadbd45b55f779398ac18324d2c7}\label{classoriginal_1_1time_a272dbadbd45b55f779398ac18324d2c7} 
+static constexpr auto {\bfseries YEAR} = UTCTime\+::calendar\+::\+YEAR
+\begin{DoxyCompactList}\small\item\em Constant for year calendar component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Namespace-\/like class containing time-\/related utilities. 
+
+Contains duration, point, and \doxylink{classoriginal_1_1time_1_1_u_t_c_time}{UTCTime} classes along with unit definitions and conversion factors. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7}\index{original::time@{original::time}!unit@{unit}}
+\index{unit@{unit}!original::time@{original::time}}
+\doxysubsubsection{\texorpdfstring{unit}{unit}}
+{\footnotesize\ttfamily \label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+enum class \mbox{\hyperlink{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7}{original\+::time\+::unit}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Time units supported by the library. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NANOSECOND@{NANOSECOND}!original::time@{original::time}}\index{original::time@{original::time}!NANOSECOND@{NANOSECOND}}}\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7aeb8c6d69310ffef899148b680e672652}\label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+NANOSECOND&Nanoseconds (1e-\/9 seconds) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MICROSECOND@{MICROSECOND}!original::time@{original::time}}\index{original::time@{original::time}!MICROSECOND@{MICROSECOND}}}\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a52a3ae8e5d772e28d4e2105fefd2eed1}\label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+MICROSECOND&Microseconds (1e-\/6 seconds) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MILLISECOND@{MILLISECOND}!original::time@{original::time}}\index{original::time@{original::time}!MILLISECOND@{MILLISECOND}}}\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a241d7907de05ad50c011812e927cd671}\label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+MILLISECOND&Milliseconds (1e-\/3 seconds) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SECOND@{SECOND}!original::time@{original::time}}\index{original::time@{original::time}!SECOND@{SECOND}}}\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a2200becb80f0019c4a2ccecec350d0db}\label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+SECOND&Seconds. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MINUTE@{MINUTE}!original::time@{original::time}}\index{original::time@{original::time}!MINUTE@{MINUTE}}}\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a46bda4cde2f10bdb9e51e3bbefa4a2bf}\label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+MINUTE&Minutes (60 seconds) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HOUR@{HOUR}!original::time@{original::time}}\index{original::time@{original::time}!HOUR@{HOUR}}}\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7add3f965174e8bb2f64523981626ced1a}\label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+HOUR&Hours (3600 seconds) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DAY@{DAY}!original::time@{original::time}}\index{original::time@{original::time}!DAY@{DAY}}}\Hypertarget{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7a5b1d59b5451c06afb65ab1bc2713cfb4}\label{classoriginal_1_1time_a7c6d4c350e388122d967565afbfb54b7} 
+DAY&Days (86400 seconds) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vibrant/\mbox{\hyperlink{zeit_8h}{zeit.\+h}}\end{DoxyCompactItemize}

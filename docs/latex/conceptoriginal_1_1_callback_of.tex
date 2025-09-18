@@ -13,9 +13,9 @@ Validates callback signature compatibility.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Callback,\ \textcolor{keyword}{typename}\ ReturnType,\ \textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_callback_of}{original::CallbackOf}}\ =\ \ \textcolor{keyword}{requires}(Callback\ callback,\ Args\&\&...\ args)\{}
-\DoxyCodeLine{\ \ \ \ \{\ callback(std::forward<Args>(args)...)\ \}\ -\/>\ std::same\_as<ReturnType>;}
-\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_callback_of}{original::CallbackOf}}\ =\ \ \textcolor{keyword}{requires}(Callback\ callback,\ Args\&\&...\ args)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ callback(std::forward<Args>(args)...)\ \}\ -\/>\ std::same\_as<ReturnType>;}
+\DoxyCodeLine{\ \ \ \ \}}
 
 \end{DoxyCode}
 
@@ -32,12 +32,13 @@ Validates callback signature compatibility.
 {\em Args} & Expected argument types\\
 \hline
 \end{DoxyTemplParams}
-Ensures the callback can be invoked with specified arguments and returns the specified type.
+Ensures the callback can be invoked with specified arguments and returns the specified type. Supports perfect forwarding of arguments.
 
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ lambda\ =\ [](\textcolor{keywordtype}{int}\ x)\ \{\ \textcolor{keywordflow}{return}\ x\ *\ 2;\ \};}
-\DoxyCodeLine{\textcolor{keyword}{static\_assert}(CallbackOf<\textcolor{keyword}{decltype}(lambda),\ double,\ \textcolor{keywordtype}{int}>);\ \ \textcolor{comment}{//\ Fails\ (return\ type\ mismatch)}}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(CallbackOf<\textcolor{keyword}{decltype}(lambda),\ int,\ \textcolor{keywordtype}{int}>);\ \ \ \ \textcolor{comment}{//\ Succeeds}}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(CallbackOf<\textcolor{keyword}{decltype}(lambda),\ double,\ \textcolor{keywordtype}{int}>);\ \textcolor{comment}{//\ Fails\ (return\ type\ mismatch)}}
 
 \end{DoxyCode}
  

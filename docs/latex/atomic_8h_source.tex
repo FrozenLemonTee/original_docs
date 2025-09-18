@@ -1,0 +1,326 @@
+\doxysection{atomic.\+h}
+\hypertarget{atomic_8h_source}{}\label{atomic_8h_source}\index{src/vibrant/atomic.h@{src/vibrant/atomic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ORIGINAL\_ATOMIC\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ORIGINAL\_ATOMIC\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{optional_8h}{optional.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mutex_8h}{mutex.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ ORIGINAL\_COMPILER\_GCC}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ ====================\ Memory\ Order\ Enumeration\ ====================}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{enum\ class}\ memOrder\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ RELAXED\ =\ \_\_ATOMIC\_RELAXED,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ ACQUIRE\ =\ \_\_ATOMIC\_ACQUIRE,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ RELEASE\ =\ \_\_ATOMIC\_RELEASE,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ ACQ\_REL\ =\ \_\_ATOMIC\_ACQ\_REL,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ SEQ\_CST\ =\ \_\_ATOMIC\_SEQ\_CST,}
+\DoxyCodeLine{00031\ \ \ \ \ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ ====================\ Forward\ Declarations\ ====================}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,\ \textcolor{keywordtype}{bool}\ USE\_LOCK>}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{class\ }atomicImpl;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{using\ }atomic\ =\ atomicImpl<}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ TYPE,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ !(\ std::is\_trivially\_copyable\_v<TYPE>\ \&\&}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ std::is\_trivially\_destructible\_v<TYPE>\ \&\&}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \_\_atomic\_always\_lock\_free(\textcolor{keyword}{sizeof}(TYPE),\ \textcolor{keyword}{nullptr})\ )}
+\DoxyCodeLine{00052\ \ \ \ \ >;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ ====================\ Lock-\/Free\ Implementation\ ====================}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{class\ }atomicImpl<TYPE,\ false>\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{alignas}(TYPE)\ \textcolor{keywordtype}{byte}\ data\_[\textcolor{keyword}{sizeof}(TYPE)];\ \ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ atomicImpl();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ atomicImpl(TYPE\ value,\ memOrder\ order\ =\ SEQ\_CST);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Memory\ ordering\ constants\ for\ convenience}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ RELAXED\ =\ memOrder::RELAXED;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ ACQUIRE\ =\ memOrder::ACQUIRE;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ RELEASE\ =\ memOrder::RELEASE;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ ACQ\_REL\ =\ memOrder::ACQ\_REL;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ SEQ\_CST\ =\ memOrder::SEQ\_CST;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Disable\ copying\ and\ moving}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ atomicImpl(\textcolor{keyword}{const}\ atomicImpl\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ atomicImpl(atomicImpl\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator=(\textcolor{keyword}{const}\ atomicImpl\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator=(atomicImpl\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ isLockFree()\ noexcept;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ store(TYPE\ value,\ memOrder\ order\ =\ SEQ\_CST);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ TYPE\ load(memOrder\ order\ =\ SEQ\_CST)\ const\ noexcept;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ TYPE\ operator*()\ const\ noexcept;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ explicit\ operator\ TYPE()\ const\ noexcept;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(TYPE\ value)\ noexcept;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator+=(TYPE\ value)\ noexcept;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator-\/=(TYPE\ value)\ noexcept;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ TYPE\ exchange(TYPE\ value,\ memOrder\ order\ =\ SEQ\_CST)\ noexcept;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exchangeCmp(TYPE\&\ expected,\ TYPE\ desired,\ memOrder\ order\ =\ SEQ\_CST)\ noexcept;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \string~atomicImpl()\ =\ default;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Friend\ factory\ functions}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ friend\ auto\ makeAtomic();}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ friend\ auto\ makeAtomic(T\ value);}
+\DoxyCodeLine{00171\ \ \ \ \ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{//\ ====================\ Mutex-\/Based\ Implementation\ ====================}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00182\ \ \ \ \ template<typename\ TYPE>}
+\DoxyCodeLine{00183\ \ \ \ \ class\ atomicImpl<TYPE,\ true>\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ pMutex\ mutex\_;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ alternative<TYPE>\ data\_;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ atomicImpl()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ atomicImpl(TYPE\ value,\ memOrder\ order\ =\ RELEASE);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Memory\ ordering\ constants\ (for\ API\ compatibility)}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ RELAXED\ =\ memOrder::RELAXED;}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ ACQUIRE\ =\ memOrder::ACQUIRE;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ RELEASE\ =\ memOrder::RELEASE;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ ACQ\_REL\ =\ memOrder::ACQ\_REL;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ SEQ\_CST\ =\ memOrder::SEQ\_CST;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Disable\ copying\ and\ moving}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ atomicImpl(\textcolor{keyword}{const}\ atomicImpl\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ atomicImpl(atomicImpl\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator=(\textcolor{keyword}{const}\ atomicImpl\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator=(atomicImpl\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ isLockFree()\ noexcept;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ store(TYPE\ value,\ memOrder\ order\ =\ SEQ\_CST);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ TYPE\ load(memOrder\ order\ =\ SEQ\_CST)\ const\ noexcept;}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ TYPE\ operator*()\ const\ noexcept;}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ explicit\ operator\ TYPE()\ const\ noexcept;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(TYPE\ value)\ noexcept;}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator+=(TYPE\ value)\ noexcept;}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ atomicImpl\&\ operator-\/=(TYPE\ value)\ noexcept;}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ TYPE\ exchange(const\ TYPE\&\ value,\ memOrder\ order\ =\ SEQ\_CST)\ noexcept;}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ exchangeCmp(TYPE\&\ expected,\ const\ TYPE\&\ desired,\ memOrder\ order\ =\ SEQ\_CST)\ noexcept;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \string~atomicImpl()\ =\ default;}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Friend\ factory\ functions}}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ friend\ auto\ makeAtomic();}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ template<typename\ T>}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ friend\ auto\ makeAtomic(T\ value);}
+\DoxyCodeLine{00291\ \ \ \ \ \};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{comment}{//\ ====================\ Factory\ Functions\ ====================}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00300\ \ \ \ \ template<typename\ TYPE>}
+\DoxyCodeLine{00301\ \ \ \ \ auto\ makeAtomic();}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00309\ \ \ \ \ template<typename\ TYPE>}
+\DoxyCodeLine{00310\ \ \ \ \ auto\ makeAtomic(TYPE\ value);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \}\ \textcolor{comment}{//\ namespace\ original}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ template\ <typename\ TYPE>}
+\DoxyCodeLine{00315\ \mbox{\hyperlink{namespaceoriginal}{original}}::atomicImpl<TYPE,\ false>::atomicImpl()\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ std::memset(this-\/>data\_,\ \textcolor{keywordtype}{byte}\{\},\ \textcolor{keyword}{sizeof}(TYPE));}
+\DoxyCodeLine{00317\ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00320\ original::atomicImpl<TYPE,\ false>::atomicImpl(TYPE\ value,\ memOrder\ order)\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \_\_atomic\_store(\textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(this-\/>data\_),\ \&value,\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(order));}
+\DoxyCodeLine{00322\ \}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00325\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ original::atomicImpl<TYPE,\ false>::isLockFree()\ noexcept\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00327\ \}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00330\ \textcolor{keywordtype}{void}\ original::atomicImpl<TYPE,\ false>::store(TYPE\ value,\ memOrder\ order)\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \_\_atomic\_store(\textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(this-\/>data\_),\ \&value,\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(order));}
+\DoxyCodeLine{00332\ \}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00335\ TYPE\ original::atomicImpl<TYPE,\ false>::load(memOrder\ order)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ TYPE\ result;}
+\DoxyCodeLine{00337\ \ \ \ \ \_\_atomic\_load(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }TYPE*\textcolor{keyword}{>}(this-\/>data\_),\ \&result,\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(order));}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00339\ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00342\ TYPE\ original::atomicImpl<TYPE,\ false>::operator*()\ const\ noexcept}
+\DoxyCodeLine{00343\ \{}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>load();}
+\DoxyCodeLine{00345\ \}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00348\ original::atomicImpl<TYPE,\ false>::operator\ TYPE()\ const\ noexcept}
+\DoxyCodeLine{00349\ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>load();}
+\DoxyCodeLine{00351\ \}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00354\ \textcolor{keywordtype}{void}\ original::atomicImpl<TYPE,\ false>::operator=(TYPE\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00355\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ this-\/>store(std::move(value));}
+\DoxyCodeLine{00357\ \}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00360\ original::atomicImpl<TYPE,\ false>\&\ original::atomicImpl<TYPE,\ false>::operator+=(TYPE\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00361\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \_\_atomic\_fetch\_add(\textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(this-\/>data\_),\ value,\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(memOrder::SEQ\_CST));}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00364\ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00367\ original::atomicImpl<TYPE,\ false>\&\ original::atomicImpl<TYPE,\ false>::operator-\/=(TYPE\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00368\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \_\_atomic\_fetch\_sub(\textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(this-\/>data\_),\ value,\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(memOrder::SEQ\_CST));}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00371\ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00374\ TYPE\ original::atomicImpl<TYPE,\ false>::exchange(TYPE\ value,\ memOrder\ order)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00375\ \ \ \ \ TYPE\ result;}
+\DoxyCodeLine{00376\ \ \ \ \ \_\_atomic\_exchange(\textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(this-\/>data\_),\ \&value,}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&result,\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(order));}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00379\ \}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00382\ \textcolor{keywordtype}{bool}\ original::atomicImpl<TYPE,\ false>::exchangeCmp(TYPE\&\ expected,\ TYPE\ desired,\ memOrder\ order)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00383\ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordflow}{return}\ \_\_atomic\_compare\_exchange\_n(\textcolor{keyword}{reinterpret\_cast<}TYPE*\textcolor{keyword}{>}(this-\/>data\_),}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&expected,\ std::move(desired),\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(order),\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}}\textcolor{keyword}{>}(order));}
+\DoxyCodeLine{00387\ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00390\ original::atomicImpl<TYPE,\ true>::atomicImpl(TYPE\ value,\ memOrder)\ \{}
+\DoxyCodeLine{00391\ \ \ \ \ uniqueLock\ lock\{this-\/>mutex\_\};}
+\DoxyCodeLine{00392\ \ \ \ \ this-\/>data\_.set(value);}
+\DoxyCodeLine{00393\ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00396\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ original::atomicImpl<TYPE,\ true>::isLockFree()\ noexcept\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00398\ \}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00401\ \textcolor{keywordtype}{void}\ original::atomicImpl<TYPE,\ true>::store(TYPE\ value,\ memOrder)\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ uniqueLock\ lock\{this-\/>mutex\_\};}
+\DoxyCodeLine{00403\ \ \ \ \ this-\/>data\_.set(value);}
+\DoxyCodeLine{00404\ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00407\ TYPE\ original::atomicImpl<TYPE,\ true>::load(memOrder)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ uniqueLock\ lock\{this-\/>mutex\_\};}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordflow}{return}\ *this-\/>data\_;}
+\DoxyCodeLine{00410\ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00413\ TYPE\ original::atomicImpl<TYPE,\ true>::operator*()\ const\ noexcept}
+\DoxyCodeLine{00414\ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>load();}
+\DoxyCodeLine{00416\ \}}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00419\ original::atomicImpl<TYPE,\ true>::operator\ TYPE()\ const\ noexcept}
+\DoxyCodeLine{00420\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>load();}
+\DoxyCodeLine{00422\ \}}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00425\ \textcolor{keywordtype}{void}\ original::atomicImpl<TYPE,\ true>::operator=(TYPE\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00426\ \{}
+\DoxyCodeLine{00427\ \ \ \ \ this-\/>store(std::move(value));}
+\DoxyCodeLine{00428\ \}}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00431\ original::atomicImpl<TYPE,\ true>\&\ original::atomicImpl<TYPE,\ true>::operator+=(TYPE\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00432\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ uniqueLock\ lock\{this-\/>mutex\_\};}
+\DoxyCodeLine{00434\ \ \ \ \ TYPE\ result\ =\ *this-\/>data\_\ +\ value;}
+\DoxyCodeLine{00435\ \ \ \ \ this-\/>data\_.set(result);}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00437\ \}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00440\ original::atomicImpl<TYPE,\ true>\&\ original::atomicImpl<TYPE,\ true>::operator-\/=(TYPE\ value)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00441\ \{}
+\DoxyCodeLine{00442\ \ \ \ \ uniqueLock\ lock\{this-\/>mutex\_\};}
+\DoxyCodeLine{00443\ \ \ \ \ TYPE\ result\ =\ *this-\/>data\_\ -\/\ value;}
+\DoxyCodeLine{00444\ \ \ \ \ this-\/>data\_.set(result);}
+\DoxyCodeLine{00445\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00446\ \}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00449\ TYPE\ original::atomicImpl<TYPE,\ true>::exchange(\textcolor{keyword}{const}\ TYPE\&\ value,\ memOrder)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00450\ \ \ \ \ uniqueLock\ lock\{this-\/>mutex\_\};}
+\DoxyCodeLine{00451\ \ \ \ \ TYPE\ result\ =\ *this-\/>data\_;}
+\DoxyCodeLine{00452\ \ \ \ \ this-\/>data\_.set(value);}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00454\ \}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00457\ \textcolor{keywordtype}{bool}\ original::atomicImpl<TYPE,\ true>::exchangeCmp(TYPE\&\ expected,\ \textcolor{keyword}{const}\ TYPE\&\ desired,\ memOrder)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00458\ \ \ \ \ uniqueLock\ lock\{this-\/>mutex\_\};}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordflow}{if}\ (*this-\/>data\_\ ==\ expected)\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ this-\/>data\_.set(desired);}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00462\ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \ \ \ \ expected\ =\ *this-\/>data\_;}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00465\ \}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00468\ \textcolor{keyword}{auto}\ original::makeAtomic()}
+\DoxyCodeLine{00469\ \{}
+\DoxyCodeLine{00470\ \ \ \ \ \textcolor{keywordflow}{return}\ atomic<TYPE>\{\};}
+\DoxyCodeLine{00471\ \}}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00474\ \textcolor{keyword}{auto}\ original::makeAtomic(TYPE\ value)}
+\DoxyCodeLine{00475\ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordflow}{return}\ atomic<TYPE>\{std::move(value)\};}
+\DoxyCodeLine{00477\ \}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

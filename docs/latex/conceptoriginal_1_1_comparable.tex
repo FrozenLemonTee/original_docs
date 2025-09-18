@@ -14,13 +14,13 @@ Requires type to support all comparison operators.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE>}
 \DoxyCodeLine{\textcolor{keyword}{concept\ }\mbox{\hyperlink{conceptoriginal_1_1_comparable}{original::Comparable}}\ =\ \ \textcolor{keyword}{requires}(\textcolor{keyword}{const}\ TYPE\&\ t1,\ \textcolor{keyword}{const}\ TYPE\&\ t2)\ \{}
-\DoxyCodeLine{\ \ \ \ \{\ t1\ ==\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \{\ t1\ !=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \{\ t1\ <\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \{\ t1\ <=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \{\ t1\ >\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\ \ \ \ \{\ t1\ >=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
-\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ ==\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ !=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ <\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ <=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ >\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ t1\ >=\ t2\ \}\ -\/>\ std::same\_as<bool>;}
+\DoxyCodeLine{\ \ \ \ \}}
 
 \end{DoxyCode}
 
@@ -38,6 +38,8 @@ Enforces that the type provides all standard comparison operators (==, !=, \texo
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{keyword}{static\_assert}(Comparable<int>);\ \ \textcolor{comment}{//\ Succeeds}}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }NoCompare\ \{\};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(!Comparable<NoCompare>);\ \textcolor{comment}{//\ Fails}}
 
 \end{DoxyCode}
  

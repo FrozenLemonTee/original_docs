@@ -5,7 +5,6 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PRIQUE\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PRIQUE\_H}}
 \DoxyCodeLine{00003\ }
-\DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{algorithms_8h}{algorithms.h}}"{}}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{blocks_list_8h}{blocksList.h}}"{}}}
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{comparator_8h}{comparator.h}}"{}}}
@@ -15,11 +14,11 @@
 \DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceoriginal}{original}}}
 \DoxyCodeLine{00019\ \{}
 \DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ Callback\ =\ \mbox{\hyperlink{classoriginal_1_1increase_comparator}{increaseComparator}},}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ \mbox{\hyperlink{classoriginal_1_1blocks_list}{blocksList}},}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC\ =\ \mbox{\hyperlink{classoriginal_1_1allocator}{allocator}}>}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{Compare<Callback<TYPE>}},\ TYPE>}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a79dcd4a72002ecf42ab5eb8ac4e86822}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ Callback\ =\ increaseComparator,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL\ =\ blocksList,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC\ =\ allocator>}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{requires}\ Compare<Callback<TYPE>,\ TYPE>}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classoriginal_1_1container_adapter}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>}
 \DoxyCodeLine{00048\ \ \ \ \ \{}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ Callback<TYPE>\ compare\_;\ }
 \DoxyCodeLine{00050\ }
@@ -27,16 +26,16 @@
 \DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}(\textcolor{keyword}{const}\ SERIAL<TYPE,\ ALLOC<TYPE>>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}}\ =\ SERIAL<TYPE,\ ALLOC<TYPE>>\{\},}
 \DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare\ =\ Callback<TYPE>\{\});}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a02bf19545ba5042e5ef7838ac04eb4f8}{prique}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst,}
 \DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare\ =\ Callback<TYPE>\{\});}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\ other);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_adb3d4b6b3d7185b73a658ae856cf578f}{prique}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other);}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\ \mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\ other);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ \mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other);}
 \DoxyCodeLine{00086\ }
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}(\mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a472698df1c23595a1b9db3b7980421a4}{prique}}(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00094\ }
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\ \mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{operator=}}(\mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ \mbox{\hyperlink{classoriginal_1_1prique_af5abf43edb35c45dc281f3c3d629e609}{operator=}}(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{00103\ }
 \DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classoriginal_1_1prique_a452e288a6cb273d5fef1c047f9d43b56}{push}}(\textcolor{keyword}{const}\ TYPE\&\ e);}
 \DoxyCodeLine{00111\ }
@@ -55,9 +54,9 @@
 \DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
 \DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::prique}}(\textcolor{keyword}{const}\ SERIAL<TYPE,\ ALLOC<TYPE>>\&\ \mbox{\hyperlink{classoriginal_1_1serial}{serial}},\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare)}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a79dcd4a72002ecf42ab5eb8ac4e86822}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>(\mbox{\hyperlink{classoriginal_1_1serial}{serial}}),\ compare\_(compare)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>(\mbox{\hyperlink{classoriginal_1_1serial}{serial}}),\ compare\_(compare)}
 \DoxyCodeLine{00144\ \ \ \ \ \{}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a2336bd54f1be8f54d604af00af47bfeb}{algorithms::heapInit}}(this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.begin(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a2336bd54f1be8f54d604af00af47bfeb}{algorithms::heapInit}}(this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.\mbox{\hyperlink{classoriginal_1_1iterable_abbe2b7be21e8c971b9b548c46d394014}{begin}}(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
 \DoxyCodeLine{00146\ \ \ \ \ \}}
 \DoxyCodeLine{00147\ }
 \DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
@@ -66,25 +65,25 @@
 \DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
 \DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::prique}}(\textcolor{keyword}{const}\ std::initializer\_list<TYPE>\&\ lst,\ \textcolor{keyword}{const}\ Callback<TYPE>\&\ compare)}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}(SERIAL<TYPE,\ ALLOC<TYPE>>(lst),\ compare)\ \{\}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}(SERIAL<TYPE,\ ALLOC<TYPE>>(lst),\ compare)\ \{\}}
 \DoxyCodeLine{00155\ }
 \DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
 \DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ Callback,}
 \DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
 \DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
-\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::prique}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\ other)}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter_a79dcd4a72002ecf42ab5eb8ac4e86822}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>(other.\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}),\ compare\_(other.compare\_)\ \{\}}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::prique}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other)}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classoriginal_1_1container_adapter}{containerAdapter}}<TYPE,\ SERIAL,\ ALLOC>(other.serial\_),\ compare\_(other.compare\_)\ \{\}}
 \DoxyCodeLine{00163\ }
 \DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
 \DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ Callback,}
 \DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
 \DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
-\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\ other)\ -\/>\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&}
 \DoxyCodeLine{00170\ \ \ \ \ \{}
 \DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}\ =\ other.serial\_;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ other.serial\_;}
 \DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ compare\_\ =\ other.compare\_;}
 \DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00175\ \ \ \ \ \}}
@@ -94,9 +93,9 @@
 \DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
 \DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
-\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::prique}}(\mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}()}
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::prique}}(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}()}
 \DoxyCodeLine{00183\ \ \ \ \ \{}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{operator=}}(std::move(other));}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ this-\/>operator=(std::move(other));}
 \DoxyCodeLine{00185\ \ \ \ \ \}}
 \DoxyCodeLine{00186\ }
 \DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
@@ -104,12 +103,12 @@
 \DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ SERIAL,}
 \DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}>\ \textcolor{keyword}{typename}\ ALLOC>}
 \DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
-\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::operator=}}(\mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1prique_a3fee5465e74ad89b4721c8f71aebba70}{prique}}\&}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique_a49f02d9315ab5beb3f65c67886f7cb2d}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::operator=}}(\mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ -\/>\ \mbox{\hyperlink{classoriginal_1_1prique}{prique}}\&}
 \DoxyCodeLine{00193\ \ \ \ \ \{}
 \DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
 \DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00196\ }
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}\ =\ std::move(other.serial\_);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ this-\/>serial\_\ =\ std::move(other.serial\_);}
 \DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ this-\/>compare\_\ =\ std::move(other.compare\_);}
 \DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
 \DoxyCodeLine{00200\ \ \ \ \ \}}
@@ -121,8 +120,8 @@
 \DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
 \DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique_a452e288a6cb273d5fef1c047f9d43b56}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::push}}(\textcolor{keyword}{const}\ TYPE\&\ e)\ -\/>\ \textcolor{keywordtype}{void}}
 \DoxyCodeLine{00208\ \ \ \ \ \{}
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.pushEnd(e);}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a7d8ce5945945f02fa1b4095bbff19f0c}{algorithms::heapAdjustUp}}(this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.begin(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ this-\/>serial\_.pushEnd(e);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a7d8ce5945945f02fa1b4095bbff19f0c}{algorithms::heapAdjustUp}}(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>compare\_);}
 \DoxyCodeLine{00211\ \ \ \ \ \}}
 \DoxyCodeLine{00212\ }
 \DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}
@@ -132,11 +131,11 @@
 \DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
 \DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique_af4eab90567304087bf6aa8bb7575c574}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::pop}}()\ -\/>\ TYPE}
 \DoxyCodeLine{00219\ \ \ \ \ \{}
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\mbox{\hyperlink{classoriginal_1_1container_a581486065c2b4b2046d3afa422ed477b}{empty}}())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>empty())\ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classoriginal_1_1no_element_error}{noElementError}}();}
 \DoxyCodeLine{00221\ }
-\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}{algorithms::swap}}(this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.begin(),\ this-\/>serial\_.last());}
-\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.popEnd();}
-\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_ae9a4b125bd1e64db8e2eae368e94b013}{algorithms::heapAdjustDown}}(this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.begin(),\ this-\/>serial\_.last(),\ this-\/>serial\_.begin(),\ this-\/>compare\_);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_a78d5714e09e5a0564bb9e5c6ea2cfca4}{algorithms::swap}}(this-\/>serial\_.begin(),\ this-\/>serial\_.last());}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ TYPE\ res\ =\ this-\/>serial\_.popEnd();}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classoriginal_1_1algorithms_ae9a4b125bd1e64db8e2eae368e94b013}{algorithms::heapAdjustDown}}(this-\/>serial\_.begin(),\ this-\/>serial\_.last(),\ this-\/>serial\_.begin(),\ this-\/>compare\_);}
 \DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
 \DoxyCodeLine{00226\ \ \ \ \ \}}
 \DoxyCodeLine{00227\ }
@@ -147,7 +146,7 @@
 \DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{requires}\ \mbox{\hyperlink{conceptoriginal_1_1_compare}{original::Compare<Callback<TYPE>}},\ TYPE>}
 \DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classoriginal_1_1prique_a07e5b4bd1a0a78f9b0f3c9e45ae289ac}{original::prique<TYPE,\ Callback,\ SERIAL,\ ALLOC>::top}}()\ const\ -\/>\ TYPE}
 \DoxyCodeLine{00234\ \ \ \ \ \{}
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classoriginal_1_1container_adapter_a6ae73dfe5e34e47871cd2f8a43b479b6}{serial\_}}.getBegin();}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>serial\_.getBegin();}
 \DoxyCodeLine{00236\ \ \ \ \ \}}
 \DoxyCodeLine{00237\ }
 \DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TYPE,}

@@ -11,171 +11,342 @@ High-\/level thread wrapper.
 
 
 
+Inheritance diagram for original\+::thread\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classoriginal_1_1thread__inherit__graph}
+\end{center}
+\end{figure}
+
+
 Collaboration diagram for original\+::thread\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=160pt]{classoriginal_1_1thread__coll__graph}
+\includegraphics[height=550pt]{classoriginal_1_1thread__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}\label{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841} 
-{\bfseries thread} ()
+\mbox{\hyperlink{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}{thread}} ()
 \begin{DoxyCompactList}\small\item\em Construct empty thread. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Callback, typename... ARGS$>$ }\\\mbox{\hyperlink{classoriginal_1_1thread_a3884be11170e7675bf480a44be50720d}{thread}} (Callback c, ARGS \&\&... args)
-\begin{DoxyCompactList}\small\item\em Construct and start thread with callback. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Callback, typename... ARGS$>$ }\\\mbox{\hyperlink{classoriginal_1_1thread_ad001d60f7366a6fe4cbfe02577809fc8}{thread}} (Callback c, bool will\+\_\+join, ARGS \&\&... args)
-\begin{DoxyCompactList}\small\item\em Construct and start thread with callback and join policy. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classoriginal_1_1thread_ae6045febf5888099ca67387f5ad04430}{thread}} (\mbox{\hyperlink{classoriginal_1_1p_thread}{p\+Thread}} p\+\_\+thread, bool will\+\_\+join=true)
-\begin{DoxyCompactList}\small\item\em Construct from existing \doxylink{classoriginal_1_1p_thread}{p\+Thread}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Callback , typename... ARGS$>$ }\\\mbox{\hyperlink{classoriginal_1_1thread_a3884be11170e7675bf480a44be50720d}{thread}} (Callback c, ARGS \&\&... args)
+\begin{DoxyCompactList}\small\item\em Construct and start thread with callback (AUTO\+\_\+\+JOIN policy) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Callback , typename... ARGS$>$ }\\\mbox{\hyperlink{classoriginal_1_1thread_a16e3488104d816eef937ad8a0c70a198}{thread}} (Callback c, join\+Policy policy, ARGS \&\&... args)
+\begin{DoxyCompactList}\small\item\em Construct and start a thread with the given callback and join policy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread_a69e36e210fd1ef5a8c8b66fc344a9edf}{thread}} (\mbox{\hyperlink{classoriginal_1_1p_thread}{p\+Thread}} p\+\_\+thread, join\+Policy policy=\mbox{\hyperlink{classoriginal_1_1thread_a08865d781c37141b6b4bf63ac602c9b7}{AUTO\+\_\+\+JOIN}})
+\begin{DoxyCompactList}\small\item\em Construct a thread from an existing \doxylink{classoriginal_1_1p_thread}{p\+Thread} with a join policy. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1thread_a7ad587d03a2191f62f30a1732c88d790}\label{classoriginal_1_1thread_a7ad587d03a2191f62f30a1732c88d790} 
 {\bfseries thread} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
 \Hypertarget{classoriginal_1_1thread_a63f60c4b2a2f7f25dc3ce0c0e435ce9c}\label{classoriginal_1_1thread_a63f60c4b2a2f7f25dc3ce0c0e435ce9c} 
 \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&)=delete
-\item 
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classoriginal_1_1thread_af28776a1ad2d6481fbb018b7f9ceec21}{thread}} (\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&other) noexcept
-\begin{DoxyCompactList}\small\item\em Move constructor. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classoriginal_1_1thread_a20833328517c82c851603d5852e02b5d}{thread}} (\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&other, bool will\+\_\+join) noexcept
-\begin{DoxyCompactList}\small\item\em Move constructor with explicit join policy. \end{DoxyCompactList}\item 
-\Hypertarget{classoriginal_1_1thread_af55217e978c0f9a4a91615d77ff36bf5}\label{classoriginal_1_1thread_af55217e978c0f9a4a91615d77ff36bf5} 
-\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&other) noexcept
-\item 
-bool \mbox{\hyperlink{classoriginal_1_1thread_ad53fe3c5abcb82c334a480d5a4543d1f}{joinable}} () const
+\begin{DoxyCompactList}\small\item\em Move constructor (defaults to AUTO\+\_\+\+JOIN) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread_a70b11cebb4c2a36c31ebc448b210efe0}{thread}} (\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&other, join\+Policy policy) noexcept
+\begin{DoxyCompactList}\small\item\em Move constructor with specified join policy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \& \mbox{\hyperlink{classoriginal_1_1thread_af55217e978c0f9a4a91615d77ff36bf5}{operator=}} (\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Move assignment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1thread_aba7758353440756cab0c0074f8c87b3d}{id}} () const override
+\begin{DoxyCompactList}\small\item\em Get thread identifier. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1thread_a98e041b6543c83f282bb6077f7a52bb3}{joinable}} () const override
 \begin{DoxyCompactList}\small\item\em Check if thread is joinable. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classoriginal_1_1thread_ae386b490b8889db5e094b644c9045389}{operator bool}} () const
-\begin{DoxyCompactList}\small\item\em Check if thread is valid. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classoriginal_1_1thread_ab600b1fbecbd045b82b266d6902905de}{operator!}} () const
-\begin{DoxyCompactList}\small\item\em Check if thread is not valid. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classoriginal_1_1thread_af9e58dda4e5c6cabe7d7afd3ef45dc47}{join}} ()
+\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{integer}} \mbox{\hyperlink{classoriginal_1_1thread_a6ab8296ea880019692d8006325a1af6d}{compare\+To}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const override
+\begin{DoxyCompactList}\small\item\em Compares the current object with another of the same type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1thread_ac149095cecee133c885a736df2f2d458}{to\+Hash}} () const noexcept override
+\begin{DoxyCompactList}\small\item\em Computes the hash of the object. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classoriginal_1_1thread_ae5253a124c96654623894d8c13f7a352}{class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the class name for type identification. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1thread_a4a16251d2bc52ee29d2eda413e8b6f97}{join}} () override
 \begin{DoxyCompactList}\small\item\em Wait for thread to complete. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classoriginal_1_1thread_a5ebd4cf1fc2dfc76cf0b37e5e39e8a4d}{detach}} ()
+void \mbox{\hyperlink{classoriginal_1_1thread_a3da0ff160c257d08889a480e326350b0}{detach}} () override
 \begin{DoxyCompactList}\small\item\em Detach thread (allow it to run independently) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classoriginal_1_1thread_a51a21c9f2de431c11a50ede60c59f037}{\texorpdfstring{$\sim$}{\string~}thread}} ()
+\mbox{\hyperlink{classoriginal_1_1thread_adada6e4ef754169b5c304299957af923}{\texorpdfstring{$\sim$}{\string~}thread}} () override
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1thread_base}{original\+::thread\+Base$<$ thread $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoriginal_1_1thread_base_ac9f6f5d16f80b84084e400aee4047086}{thread\+Base}} () noexcept=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+{\bfseries thread\+Base} (const \mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+{\bfseries thread\+Base} (\mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \&\&other) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread_base_ae5445b2d8aada72436b43b443afc8985}{\texorpdfstring{$\sim$}{\string~}thread\+Base}} () noexcept override=default
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1thread_base}{thread\+Base}} \&\&other) noexcept=default
+\begin{DoxyCompactList}\small\item\em Default move assignment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1thread_base_a28474edae1dd941ff201d8120bc11034}{operator bool}} () const
+\begin{DoxyCompactList}\small\item\em Check if thread is valid. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1thread_base_a8c08691fe1fbd373c49f01af2e243e77}{operator!}} () const
+\begin{DoxyCompactList}\small\item\em Check if thread is not valid. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classoriginal_1_1thread_base_a8d1902290149265ab28a77ad75138551}{class\+Name}} () const override
+\begin{DoxyCompactList}\small\item\em Gets the class name for type identification. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classoriginal_1_1thread_base_a1afa8ae1d3b4bfa628e06d60947e55c4}{to\+String}} (bool enter) const override
+\begin{DoxyCompactList}\small\item\em Generates formatted string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1comparable}{original\+::comparable$<$ thread $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a84244853f46e0ba1243e5707bfbf73bb}{operator==}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is equal to another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a1169a9b25fffa972dd5fa367ae7902fa}{operator!=}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is not equal to another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_ad83119b5b12ee88ecaa4036d4eb9739c}{operator$<$}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is less than another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_ad4ab8c29bc8416a3068aac138a821b95}{operator$>$}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is greater than another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a0888fb1bca62c77d10756a177f8e678e}{operator$<$=}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is less than or equal to another. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1comparable_a28e05e7b5ee65cd29f3bb6be336de2c2}{operator$>$=}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const
+\begin{DoxyCompactList}\small\item\em Checks if the current object is greater than or equal to another. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}comparable} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor for proper cleanup of derived objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1hashable}{original\+::hashable$<$ thread $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1hashable_a63e3868e6112682b764e7bb1b30cbac6}{equals}} (const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&other) const noexcept
+\begin{DoxyCompactList}\small\item\em Compares two objects for equality. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classoriginal_1_1hashable_a655fb2bf0e6cb58992eae103fe3cc0a8}{\texorpdfstring{$\sim$}{\string~}hashable}} ()=0
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoriginal_1_1printable_a25115aca8a3414062cac9d6027c9c525}{operator std\+::string}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion to std\+::string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1printable_ae90d2e1d35c97ccf92c283f1a7158da8}{operator const char \texorpdfstring{$\ast$}{*}}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion to C-\/style string. \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_a0177ad2994931423fe8b72b288e0238b}{to\+CString}} (bool enter) const
+\begin{DoxyCompactList}\small\item\em Direct C-\/string access with formatting control. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (const TYPE \&t) -\/$>$ std\+::string
+\item 
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+CString} (const TYPE \&t) -\/$>$ const char \texorpdfstring{$\ast$}{*}
+\item 
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+Enum} (const TYPE \&t) -\/$>$ std\+::string
+\item 
+{\footnotesize template$<$typename TYPE $>$ }\\auto {\bfseries format\+String} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1thread_a3a7be8a7bfbe76e628f9db447aeb74b6}\label{classoriginal_1_1thread_a3a7be8a7bfbe76e628f9db447aeb74b6} 
+static \mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}} {\bfseries this\+Id} ()
+\item 
+static void \mbox{\hyperlink{classoriginal_1_1thread_a10324f0558d16588929896b0de73b024}{sleep}} (const \mbox{\hyperlink{classoriginal_1_1time_1_1duration}{time\+::duration}} \&d)
+\begin{DoxyCompactList}\small\item\em Puts the current thread to sleep for a specified duration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1printable}{original\+::printable}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a461bd9d3e53d5738875e2bfae91f35b6}{format\+String}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Universal value-\/to-\/string conversion. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Printable TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Specialization for printable types. \end{DoxyCompactList}\item 
+{\footnotesize template$<$Enum\+Type TYPE$>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_af9c95c33d1f0abc8188d2c594e879fb6}{format\+String}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Specialization for enum types. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_a4bf2a2858408f5bac18b5ef37e8def97}{format\+String}} (TYPE \texorpdfstring{$\ast$}{*}const \&ptr)
+\begin{DoxyCompactList}\small\item\em Pointer-\/specific formatting. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1printable_add55e1dfceb5c3f8129f4288acb369ce}{format\+CString}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em C-\/string cache for temporary usage. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE $>$ }\\static std\+::string \mbox{\hyperlink{classoriginal_1_1printable_ae855a42c7ce42173f1821938d433d29f}{format\+Enum}} (const TYPE \&t)
+\begin{DoxyCompactList}\small\item\em Enum formatting utility. \end{DoxyCompactList}\item 
+template$<$$>$ auto {\bfseries format\+String} (const char \&t) -\/$>$ std\+::string
+\item 
+template$<$$>$ auto {\bfseries format\+String} (const bool \&t) -\/$>$ std\+::string
+\item 
+template$<$$>$ auto {\bfseries format\+String} (const char \texorpdfstring{$\ast$}{*}const \&ptr) -\/$>$ std\+::string
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classoriginal_1_1thread_a08865d781c37141b6b4bf63ac602c9b7}{AUTO\+\_\+\+JOIN}} = join\+Policy\+::\+AUTO\+\_\+\+JOIN
+\begin{DoxyCompactList}\small\item\em Alias for join\+Policy\+::\+AUTO\+\_\+\+JOIN. \end{DoxyCompactList}\item 
+static constexpr auto \mbox{\hyperlink{classoriginal_1_1thread_acab77175fc0ca73ce0c4bf19cf6ef31f}{AUTO\+\_\+\+DETACH}} = join\+Policy\+::\+AUTO\+\_\+\+DETACH
+\begin{DoxyCompactList}\small\item\em Alias for join\+Policy\+::\+AUTO\+\_\+\+DETACH. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1thread_base}{original\+::thread\+Base$<$ thread $>$}}}
 
 
 \doxysubsection{Detailed Description}
 High-\/level thread wrapper. 
 
-Manages thread lifetime with automatic join/detach 
+Manages thread lifetime with automatic join/detach. Provides RAII semantics for thread management with configurable join policy. Implements \doxylink{classoriginal_1_1thread_base}{thread\+Base} interface while wrapping a \doxylink{classoriginal_1_1p_thread}{p\+Thread} instance.
+
+Key Features\+:
+\begin{DoxyItemize}
+\item Wraps low-\/level \doxylink{classoriginal_1_1p_thread}{p\+Thread} with automatic cleanup
+\item Configurable join policy (AUTO\+\_\+\+JOIN or AUTO\+\_\+\+DETACH)
+\item Implements \doxylink{classoriginal_1_1thread_base}{thread\+Base} interface
+\item Delegates all thread operations to contained \doxylink{classoriginal_1_1p_thread}{p\+Thread} instance
+\end{DoxyItemize}
+
+Join Policy\+:
+\begin{DoxyItemize}
+\item join\+Policy\+::\+AUTO\+\_\+\+JOIN\+: join the thread in destructor
+\item join\+Policy\+::\+AUTO\+\_\+\+DETACH\+: detach the thread in destructor
+\end{DoxyItemize}
+
+Example usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classoriginal_1_1thread}{original::thread}}\ t([]()\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ thread\ work}}
+\DoxyCodeLine{\},\ \mbox{\hyperlink{classoriginal_1_1thread_acab77175fc0ca73ce0c4bf19cf6ef31f}{original::thread::AUTO\_DETACH}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classoriginal_1_1p_thread}{original\+::p\+Thread} 
+
+\doxylink{classoriginal_1_1thread_base}{original\+::thread\+Base} 
+
+original\+::thread\+::join\+Policy 
+\end{DoxySeeAlso}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841}\index{original::thread@{original::thread}!thread@{thread}}
+\index{thread@{thread}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_aba3279070ea86f607e6be5dd50e1d841} 
+original\+::thread\+::thread (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Construct empty thread. 
+
+\begin{DoxyPostcond}{Postcondition}
+Creates an invalid thread object (not associated with any execution) 
+\end{DoxyPostcond}
 \Hypertarget{classoriginal_1_1thread_a3884be11170e7675bf480a44be50720d}\index{original::thread@{original::thread}!thread@{thread}}
 \index{thread@{thread}!original::thread@{original::thread}}
-\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1thread_a3884be11170e7675bf480a44be50720d} 
-template$<$typename Callback, typename ... ARGS$>$ \\
+template$<$typename Callback , typename ... ARGS$>$ \\
 original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{Callback}]{c}{, }\item[{ARGS \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
-Construct and start thread with callback. 
+Construct and start thread with callback (AUTO\+\_\+\+JOIN policy) 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Callback} & Callback function type \\
+{\em Callback} & Callable type \\
 \hline
-{\em ARGS} & Argument types for callback \\
+{\em ARGS} & Argument types \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em c} & Callback function \\
+{\em c} & Callable to execute in thread \\
 \hline
-{\em args} & Arguments to forward to callback \\
+{\em args} & Arguments forwarded to the callable \\
 \hline
 \end{DoxyParams}
-\begin{DoxyNote}{Note}
-Will automatically join on destruction 
-\end{DoxyNote}
-\Hypertarget{classoriginal_1_1thread_ad001d60f7366a6fe4cbfe02577809fc8}\index{original::thread@{original::thread}!thread@{thread}}
+\begin{DoxyPostcond}{Postcondition}
+Thread starts and will be joined on destruction 
+\end{DoxyPostcond}
+\Hypertarget{classoriginal_1_1thread_a16e3488104d816eef937ad8a0c70a198}\index{original::thread@{original::thread}!thread@{thread}}
 \index{thread@{thread}!original::thread@{original::thread}}
-\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_ad001d60f7366a6fe4cbfe02577809fc8} 
-template$<$typename Callback, typename ... ARGS$>$ \\
-original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{Callback}]{c}{, }\item[{bool}]{will\+\_\+join}{, }\item[{ARGS \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a16e3488104d816eef937ad8a0c70a198} 
+template$<$typename Callback , typename ... ARGS$>$ \\
+original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{Callback}]{c}{, }\item[{join\+Policy}]{policy}{, }\item[{ARGS \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
-Construct and start thread with callback and join policy. 
+Construct and start a thread with the given callback and join policy. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em Callback} & Callback function type \\
+{\em Callback} & Type of the callable object \\
 \hline
-{\em ARGS} & Argument types for callback \\
+{\em ARGS} & Types of arguments to pass to the callable \\
 \hline
 \end{DoxyTemplParams}
 
 \begin{DoxyParams}{Parameters}
-{\em c} & Callback function \\
+{\em c} & Callable object to run in the new thread \\
 \hline
-{\em will\+\_\+join} & Whether to join on destruction \\
+{\em policy} & Join policy (AUTO\+\_\+\+JOIN or AUTO\+\_\+\+DETACH) \\
 \hline
-{\em args} & Arguments to forward to callback \\
+{\em args} & Arguments forwarded to the callable \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classoriginal_1_1thread_ae6045febf5888099ca67387f5ad04430}\index{original::thread@{original::thread}!thread@{thread}}
+\begin{DoxyPostcond}{Postcondition}
+Starts a new thread and applies the specified join policy
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+join\+Policy 
+\end{DoxySeeAlso}
+\Hypertarget{classoriginal_1_1thread_a69e36e210fd1ef5a8c8b66fc344a9edf}\index{original::thread@{original::thread}!thread@{thread}}
 \index{thread@{thread}!original::thread@{original::thread}}
-\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_ae6045febf5888099ca67387f5ad04430} 
-original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1p_thread}{p\+Thread}}}]{p\+\_\+thread}{, }\item[{bool}]{will\+\_\+join}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a69e36e210fd1ef5a8c8b66fc344a9edf} 
+original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1p_thread}{p\+Thread}}}]{p\+\_\+thread}{, }\item[{join\+Policy}]{policy}{ = {\ttfamily \mbox{\hyperlink{classoriginal_1_1thread_a08865d781c37141b6b4bf63ac602c9b7}{AUTO\+\_\+\+JOIN}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 
 
-Construct from existing \doxylink{classoriginal_1_1p_thread}{p\+Thread}. 
+Construct a thread from an existing \doxylink{classoriginal_1_1p_thread}{p\+Thread} with a join policy. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em p\+\_\+thread} & Thread to wrap \\
+{\em p\+\_\+thread} & The POSIX thread wrapper to take ownership of \\
 \hline
-{\em will\+\_\+join} & Whether to join on destruction \\
+{\em policy} & Join policy (AUTO\+\_\+\+JOIN or AUTO\+\_\+\+DETACH) \\
 \hline
 \end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Takes ownership of the thread and applies the specified join policy 
+\end{DoxyPostcond}
 \Hypertarget{classoriginal_1_1thread_af28776a1ad2d6481fbb018b7f9ceec21}\index{original::thread@{original::thread}!thread@{thread}}
 \index{thread@{thread}!original::thread@{original::thread}}
-\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
 {\footnotesize\ttfamily \label{classoriginal_1_1thread_af28776a1ad2d6481fbb018b7f9ceec21} 
 original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
 
 
-Move constructor. 
+Move constructor (defaults to AUTO\+\_\+\+JOIN) 
 
 
 \begin{DoxyParams}{Parameters}
 {\em other} & Thread to move from \\
 \hline
 \end{DoxyParams}
-\begin{DoxyNote}{Note}
-Defaults to join policy of source thread 
-\end{DoxyNote}
-\Hypertarget{classoriginal_1_1thread_a20833328517c82c851603d5852e02b5d}\index{original::thread@{original::thread}!thread@{thread}}
+\begin{DoxyPostcond}{Postcondition}
+Ownership transferred; will join on destruction 
+\end{DoxyPostcond}
+\Hypertarget{classoriginal_1_1thread_a70b11cebb4c2a36c31ebc448b210efe0}\index{original::thread@{original::thread}!thread@{thread}}
 \index{thread@{thread}!original::thread@{original::thread}}
-\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_a20833328517c82c851603d5852e02b5d} 
-original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&}]{other}{, }\item[{bool}]{will\+\_\+join}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+\doxysubsubsection{\texorpdfstring{thread()}{thread()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a70b11cebb4c2a36c31ebc448b210efe0} 
+original\+::thread\+::thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&}]{other}{, }\item[{join\+Policy}]{policy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
 
 
-Move constructor with explicit join policy. 
+Move constructor with specified join policy. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em other} & Thread to move from \\
 \hline
-{\em will\+\_\+join} & Override join policy \\
+{\em policy} & Join policy (AUTO\+\_\+\+JOIN or AUTO\+\_\+\+DETACH) \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classoriginal_1_1thread_a51a21c9f2de431c11a50ede60c59f037}\index{original::thread@{original::thread}!````~thread@{\texorpdfstring{$\sim$}{\string~}thread}}
+\begin{DoxyPostcond}{Postcondition}
+Ownership transferred and join behavior follows policy 
+\end{DoxyPostcond}
+\Hypertarget{classoriginal_1_1thread_adada6e4ef754169b5c304299957af923}\index{original::thread@{original::thread}!````~thread@{\texorpdfstring{$\sim$}{\string~}thread}}
 \index{````~thread@{\texorpdfstring{$\sim$}{\string~}thread}!original::thread@{original::thread}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}thread()}{\string~thread()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_a51a21c9f2de431c11a50ede60c59f037} 
-original\+::thread\+::\texorpdfstring{$\sim$}{\string~}thread (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_adada6e4ef754169b5c304299957af923} 
+original\+::thread\+::\texorpdfstring{$\sim$}{\string~}thread (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
 
 
 
@@ -183,45 +354,120 @@ Destructor.
 
 \begin{DoxyNote}{Note}
 Automatically joins or detaches based on will\+\_\+join policy 
+
+Terminates program if join/detach operation fails 
 \end{DoxyNote}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classoriginal_1_1thread_a5ebd4cf1fc2dfc76cf0b37e5e39e8a4d}\index{original::thread@{original::thread}!detach@{detach}}
+\Hypertarget{classoriginal_1_1thread_ae5253a124c96654623894d8c13f7a352}\index{original::thread@{original::thread}!className@{className}}
+\index{className@{className}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{className()}{className()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_ae5253a124c96654623894d8c13f7a352} 
+std\+::string original\+::thread\+::class\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the class name for type identification. 
+
+\begin{DoxyReturn}{Returns}
+Class name as string.
+\end{DoxyReturn}
+Override in derived classes to provide accurate type names.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }MyClass\ :\ \textcolor{keyword}{public}\ printable\ \{}
+\DoxyCodeLine{\ \ \ \ std::string\ className()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}MyClass"{}};\ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+
+Reimplemented from \mbox{\hyperlink{classoriginal_1_1printable_a964ede666275c3d0884df1c8a6e9f720}{original\+::printable}}.
+
+\Hypertarget{classoriginal_1_1thread_a6ab8296ea880019692d8006325a1af6d}\index{original::thread@{original::thread}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a6ab8296ea880019692d8006325a1af6d} 
+\mbox{\hyperlink{group___type_definitions_ga583969b2c4869f07ee4fedb102e587cd}{original\+::integer}} original\+::thread\+::compare\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Compares the current object with another of the same type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The object to compare against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A negative value if less than, zero if equal, and positive if greater than. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1comparable_a2d23e08b034cda29c2854121f3e700d7}{original\+::comparable$<$ thread $>$}}.
+
+\Hypertarget{classoriginal_1_1thread_a3da0ff160c257d08889a480e326350b0}\index{original::thread@{original::thread}!detach@{detach}}
 \index{detach@{detach}!original::thread@{original::thread}}
 \doxysubsubsection{\texorpdfstring{detach()}{detach()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_a5ebd4cf1fc2dfc76cf0b37e5e39e8a4d} 
-void original\+::thread\+::detach (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a3da0ff160c257d08889a480e326350b0} 
+void original\+::thread\+::detach (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Detach thread (allow it to run independently) 
 
+\begin{DoxyNote}{Note}
+Terminates program if detach fails 
 
-\begin{DoxyExceptions}{Exceptions}
-{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if detach fails \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classoriginal_1_1thread_af9e58dda4e5c6cabe7d7afd3ef45dc47}\index{original::thread@{original::thread}!join@{join}}
+After detach, the thread object no longer represents the thread 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1thread_base_ae52074bbba857025c19e8c82e9bbb01f}{original\+::thread\+Base$<$ thread $>$}}.
+
+\Hypertarget{classoriginal_1_1thread_aba7758353440756cab0c0074f8c87b3d}\index{original::thread@{original::thread}!id@{id}}
+\index{id@{id}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_aba7758353440756cab0c0074f8c87b3d} 
+\mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{original\+::ul\+\_\+integer}} original\+::thread\+::id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get thread identifier. 
+
+\begin{DoxyReturn}{Returns}
+Unique identifier for the thread 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1thread_base_a44564eeac08a84616320d59fc71e1807}{original\+::thread\+Base$<$ thread $>$}}.
+
+\Hypertarget{classoriginal_1_1thread_a4a16251d2bc52ee29d2eda413e8b6f97}\index{original::thread@{original::thread}!join@{join}}
 \index{join@{join}!original::thread@{original::thread}}
 \doxysubsubsection{\texorpdfstring{join()}{join()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_af9e58dda4e5c6cabe7d7afd3ef45dc47} 
-void original\+::thread\+::join (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a4a16251d2bc52ee29d2eda413e8b6f97} 
+void original\+::thread\+::join (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
 Wait for thread to complete. 
 
+\begin{DoxyNote}{Note}
+Terminates program if join fails 
 
-\begin{DoxyExceptions}{Exceptions}
-{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if join fails \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{classoriginal_1_1thread_ad53fe3c5abcb82c334a480d5a4543d1f}\index{original::thread@{original::thread}!joinable@{joinable}}
+Blocks until the thread completes execution 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1thread_base_a6ae033122ce1705b43fdc5aa00f2946c}{original\+::thread\+Base$<$ thread $>$}}.
+
+\Hypertarget{classoriginal_1_1thread_a98e041b6543c83f282bb6077f7a52bb3}\index{original::thread@{original::thread}!joinable@{joinable}}
 \index{joinable@{joinable}!original::thread@{original::thread}}
 \doxysubsubsection{\texorpdfstring{joinable()}{joinable()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_ad53fe3c5abcb82c334a480d5a4543d1f} 
-bool original\+::thread\+::joinable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a98e041b6543c83f282bb6077f7a52bb3} 
+bool original\+::thread\+::joinable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -230,33 +476,104 @@ Check if thread is joinable.
 \begin{DoxyReturn}{Returns}
 true if thread is joinable 
 \end{DoxyReturn}
-\Hypertarget{classoriginal_1_1thread_ae386b490b8889db5e094b644c9045389}\index{original::thread@{original::thread}!operator bool@{operator bool}}
-\index{operator bool@{operator bool}!original::thread@{original::thread}}
-\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_ae386b490b8889db5e094b644c9045389} 
-original\+::thread\+::operator bool (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [explicit]}}
+\begin{DoxyNote}{Note}
+Implementation of \doxylink{classoriginal_1_1thread_base_af830ede1ab770b0336eb617ea0b5f519}{thread\+Base\+::joinable()} 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1thread_base_af830ede1ab770b0336eb617ea0b5f519}{original\+::thread\+Base$<$ thread $>$}}.
+
+\Hypertarget{classoriginal_1_1thread_af55217e978c0f9a4a91615d77ff36bf5}\index{original::thread@{original::thread}!operator=@{operator=}}
+\index{operator=@{operator=}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_af55217e978c0f9a4a91615d77ff36bf5} 
+\mbox{\hyperlink{classoriginal_1_1thread}{original\+::thread}} \& original\+::thread\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1thread}{thread}} \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
 
 
 
-Check if thread is valid. 
+Move assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Thread to move from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to this object 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Ownership and join policy transferred 
+\end{DoxyPostcond}
+\Hypertarget{classoriginal_1_1thread_a10324f0558d16588929896b0de73b024}\index{original::thread@{original::thread}!sleep@{sleep}}
+\index{sleep@{sleep}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{sleep()}{sleep()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a10324f0558d16588929896b0de73b024} 
+void original\+::thread\+::sleep (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classoriginal_1_1time_1_1duration}{time\+::duration}} \&}]{d}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Puts the current thread to sleep for a specified duration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Duration to sleep \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is a platform-\/independent sleep function\+:
+\begin{DoxyItemize}
+\item On GCC/\+Linux uses clock\+\_\+nanosleep with CLOCK\+\_\+\+REALTIME
+\item On Windows uses Sleep() with millisecond precision
+\item Handles EINTR interruptions automatically
+\item Negative durations result in no sleep 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if sleep operation fails (except on Windows) \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classoriginal_1_1thread_ac149095cecee133c885a736df2f2d458}\index{original::thread@{original::thread}!toHash@{toHash}}
+\index{toHash@{toHash}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{toHash()}{toHash()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_ac149095cecee133c885a736df2f2d458} 
+\mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{original\+::u\+\_\+integer}} original\+::thread\+::to\+Hash (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Computes the hash of the object. 
 
 \begin{DoxyReturn}{Returns}
-true if thread is valid 
+A hash value
 \end{DoxyReturn}
-\Hypertarget{classoriginal_1_1thread_ab600b1fbecbd045b82b266d6902905de}\index{original::thread@{original::thread}!operator"!@{operator"!}}
-\index{operator"!@{operator"!}!original::thread@{original::thread}}
-\doxysubsubsection{\texorpdfstring{operator"!()}{operator!()}}
-{\footnotesize\ttfamily \label{classoriginal_1_1thread_ab600b1fbecbd045b82b266d6902905de} 
-bool original\+::thread\+::operator! (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+Default implementation uses byte-\/wise hashing of object 
+
+Reimplemented from \mbox{\hyperlink{classoriginal_1_1hashable_a8fc7ef5442083f47dc27c78248e59c63}{original\+::hashable$<$ thread $>$}}.
 
 
 
-Check if thread is not valid. 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classoriginal_1_1thread_acab77175fc0ca73ce0c4bf19cf6ef31f}\index{original::thread@{original::thread}!AUTO\_DETACH@{AUTO\_DETACH}}
+\index{AUTO\_DETACH@{AUTO\_DETACH}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{AUTO\_DETACH}{AUTO\_DETACH}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_acab77175fc0ca73ce0c4bf19cf6ef31f} 
+auto original\+::thread\+::\+AUTO\+\_\+\+DETACH = join\+Policy\+::\+AUTO\+\_\+\+DETACH\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
 
-\begin{DoxyReturn}{Returns}
-true if thread is not valid 
-\end{DoxyReturn}
 
+
+Alias for join\+Policy\+::\+AUTO\+\_\+\+DETACH. 
+
+The thread is detached in the destructor (non-\/blocking cleanup). \Hypertarget{classoriginal_1_1thread_a08865d781c37141b6b4bf63ac602c9b7}\index{original::thread@{original::thread}!AUTO\_JOIN@{AUTO\_JOIN}}
+\index{AUTO\_JOIN@{AUTO\_JOIN}!original::thread@{original::thread}}
+\doxysubsubsection{\texorpdfstring{AUTO\_JOIN}{AUTO\_JOIN}}
+{\footnotesize\ttfamily \label{classoriginal_1_1thread_a08865d781c37141b6b4bf63ac602c9b7} 
+auto original\+::thread\+::\+AUTO\+\_\+\+JOIN = join\+Policy\+::\+AUTO\+\_\+\+JOIN\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Alias for join\+Policy\+::\+AUTO\+\_\+\+JOIN. 
+
+The thread is joined in the destructor (blocking cleanup). 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

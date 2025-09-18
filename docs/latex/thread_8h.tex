@@ -9,6 +9,7 @@ Thread management utilities.
 {\ttfamily \#include "{}functional"{}}\newline
 {\ttfamily \#include "{}pthread.\+h"{}}\newline
 {\ttfamily \#include "{}owner\+Ptr.\+h"{}}\newline
+{\ttfamily \#include "{}zeit.\+h"{}}\newline
 Include dependency graph for thread.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -22,15 +23,15 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=182pt]{thread_8h__dep__incl}
+\includegraphics[width=257pt]{thread_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classoriginal_1_1thread_base}{original\+::thread\+Base}}
+class \mbox{\hyperlink{classoriginal_1_1thread_base}{original\+::thread\+Base$<$ DERIVED $>$}}
 \begin{DoxyCompactList}\small\item\em Base class for thread implementations. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{original\+::thread\+Base\+::thread\+Data$<$ Callback $>$}}
+class \mbox{\hyperlink{classoriginal_1_1thread_base_1_1thread_data}{original\+::thread\+Base$<$ DERIVED $>$\+::thread\+Data$<$ Callback $>$}}
 \begin{DoxyCompactList}\small\item\em Wrapper for thread execution data. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classoriginal_1_1p_thread}{original\+::p\+Thread}}
 \begin{DoxyCompactList}\small\item\em POSIX thread implementation. \end{DoxyCompactList}\item 
@@ -51,31 +52,5 @@ Provides a layered threading abstraction with\+:
 \item Low-\/level POSIX thread wrapper (p\+Thread)
 \item High-\/level RAII thread management (thread)
 \item Exception-\/safe thread operations
-\item Flexible join/detach policies
-\end{DoxyItemize}
-
-Key Features\+:
-\begin{DoxyItemize}
-\item Three-\/layer thread abstraction\+:
-\begin{DoxyEnumerate}
-\item thread\+Base -\/ Common interface and state management
-\item p\+Thread -\/ POSIX thread wrapper
-\item thread -\/ High-\/level RAII wrapper
-\end{DoxyEnumerate}
-\item Automatic resource management
-\item Move-\/only semantics
-\item Exception safety (basic guarantee)
-\item Configurable join/detach behavior
-\end{DoxyItemize}
-
-Thread Safety\+:
-\begin{DoxyItemize}
-\item Individual thread objects are not thread-\/safe
-\item External synchronization required for shared access
-\end{DoxyItemize}
-
-Exception Handling\+:
-\begin{DoxyItemize}
-\item Throws sys\+Error for thread operation failures
-\item Destructors may throw if thread is joinable and not joined/detached 
+\item Flexible join/detach policies 
 \end{DoxyItemize}

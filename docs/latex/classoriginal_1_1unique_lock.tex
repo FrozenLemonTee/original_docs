@@ -1,0 +1,201 @@
+\doxysection{original\+::unique\+Lock Class Reference}
+\hypertarget{classoriginal_1_1unique_lock}{}\label{classoriginal_1_1unique_lock}\index{original::uniqueLock@{original::uniqueLock}}
+
+
+RAII wrapper for single mutex locking.  
+
+
+
+
+{\ttfamily \#include $<$mutex.\+h$>$}
+
+
+
+Inheritance diagram for original\+::unique\+Lock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classoriginal_1_1unique_lock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for original\+::unique\+Lock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classoriginal_1_1unique_lock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classoriginal_1_1unique_lock_a9606458f2d26c37b9af3ddfbbdbe338b}{unique\+Lock}} (\mbox{\hyperlink{classoriginal_1_1p_mutex}{p\+Mutex}} \&p\+\_\+mutex, \mbox{\hyperlink{classoriginal_1_1lock_guard_a48219501f5d945d87439fa13d9564f43}{lock\+Policy}} policy=\mbox{\hyperlink{classoriginal_1_1lock_guard_a3bc2c9879c07cc5c3b50008d901cd998}{AUTO\+\_\+\+LOCK}})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classoriginal_1_1unique_lock}{unique\+Lock} with specified policy. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1unique_lock_a89f9935c05809c5701bb1a9b907ea994}\label{classoriginal_1_1unique_lock_a89f9935c05809c5701bb1a9b907ea994} 
+{\bfseries unique\+Lock} (\mbox{\hyperlink{classoriginal_1_1unique_lock}{unique\+Lock}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1unique_lock_a187527d7fc10279792c321d7a19325fa}\label{classoriginal_1_1unique_lock_a187527d7fc10279792c321d7a19325fa} 
+\mbox{\hyperlink{classoriginal_1_1unique_lock}{unique\+Lock}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1unique_lock}{unique\+Lock}} \&\&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted move assignment operator. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1unique_lock_aa550ec6e85ee681de98b9940c26cf7f8}{is\+Locked}} () const noexcept override
+\begin{DoxyCompactList}\small\item\em Checks if the lock is currently held. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1unique_lock_a751360ab6c040dfa009be50f70443bee}{lock}} () override
+\begin{DoxyCompactList}\small\item\em Locks the associated mutex. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1unique_lock_ab6a083406607e75f78975111ccac050e}{try\+Lock}} () override
+\begin{DoxyCompactList}\small\item\em Attempts to lock the associated mutex without blocking. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classoriginal_1_1unique_lock_a098cc3546c1052fdf8922f023f7b5d8a}{unlock}} () override
+\begin{DoxyCompactList}\small\item\em Unlocks the associated mutex. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1unique_lock_aef71157c2217fc8f48603554e58240bd}\label{classoriginal_1_1unique_lock_aef71157c2217fc8f48603554e58240bd} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}unique\+Lock} () override
+\begin{DoxyCompactList}\small\item\em Destructor -\/ automatically unlocks if locked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1lock_guard}{original\+::lock\+Guard}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries lock\+Guard} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+{\bfseries lock\+Guard} (const \mbox{\hyperlink{classoriginal_1_1lock_guard}{lock\+Guard}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classoriginal_1_1lock_guard}{lock\+Guard}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1lock_guard}{lock\+Guard}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}lock\+Guard} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classoriginal_1_1lock_guard}{original\+::lock\+Guard}}}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classoriginal_1_1lock_guard_a48219501f5d945d87439fa13d9564f43}{lock\+Policy}} \{ \mbox{\hyperlink{classoriginal_1_1lock_guard_a48219501f5d945d87439fa13d9564f43a31b7a076d9c3d6848760831404398b39}{MANUAL\+\_\+\+LOCK}}
+, \mbox{\hyperlink{classoriginal_1_1lock_guard_a48219501f5d945d87439fa13d9564f43a78e33cc4149eaf06204ed0424eab8f93}{AUTO\+\_\+\+LOCK}}
+, \mbox{\hyperlink{classoriginal_1_1lock_guard_a48219501f5d945d87439fa13d9564f43a48f18069f109aff6ab0f293c5dc64518}{TRY\+\_\+\+LOCK}}
+, \mbox{\hyperlink{classoriginal_1_1lock_guard_a48219501f5d945d87439fa13d9564f43a5c49f24d86c7eb615d388d72637d95b7}{ADOPT\+\_\+\+LOCK}}
+ \}
+\begin{DoxyCompactList}\small\item\em Locking policies for guard construction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classoriginal_1_1lock_guard}{original\+::lock\+Guard}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto {\bfseries MANUAL\+\_\+\+LOCK} = lock\+Policy\+::\+MANUAL\+\_\+\+LOCK
+\begin{DoxyCompactList}\small\item\em Constant for manual lock policy. \end{DoxyCompactList}\item 
+static constexpr auto {\bfseries AUTO\+\_\+\+LOCK} = lock\+Policy\+::\+AUTO\+\_\+\+LOCK
+\begin{DoxyCompactList}\small\item\em Constant for automatic lock policy. \end{DoxyCompactList}\item 
+static constexpr auto {\bfseries TRY\+\_\+\+LOCK} = lock\+Policy\+::\+TRY\+\_\+\+LOCK
+\begin{DoxyCompactList}\small\item\em Constant for try-\/lock policy. \end{DoxyCompactList}\item 
+static constexpr auto {\bfseries ADOPT\+\_\+\+LOCK} = lock\+Policy\+::\+ADOPT\+\_\+\+LOCK
+\begin{DoxyCompactList}\small\item\em Constant for adopt lock policy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classoriginal_1_1lock_guard}{original\+::lock\+Guard}}}
+
+
+\doxysubsection{Detailed Description}
+RAII wrapper for single mutex locking. 
+
+Provides scoped lock management for a single \doxylink{classoriginal_1_1p_mutex}{p\+Mutex} with various locking policies. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classoriginal_1_1unique_lock_a9606458f2d26c37b9af3ddfbbdbe338b}\index{original::uniqueLock@{original::uniqueLock}!uniqueLock@{uniqueLock}}
+\index{uniqueLock@{uniqueLock}!original::uniqueLock@{original::uniqueLock}}
+\doxysubsubsection{\texorpdfstring{uniqueLock()}{uniqueLock()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1unique_lock_a9606458f2d26c37b9af3ddfbbdbe338b} 
+original\+::unique\+Lock\+::unique\+Lock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1p_mutex}{p\+Mutex}} \&}]{p\+\_\+mutex}{, }\item[{\mbox{\hyperlink{classoriginal_1_1lock_guard_a48219501f5d945d87439fa13d9564f43}{lock\+Policy}}}]{policy}{ = {\ttfamily \mbox{\hyperlink{classoriginal_1_1lock_guard_a3bc2c9879c07cc5c3b50008d901cd998}{AUTO\+\_\+\+LOCK}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructs a \doxylink{classoriginal_1_1unique_lock}{unique\+Lock} with specified policy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+mutex} & Mutex to manage \\
+\hline
+{\em policy} & Locking policy (default\+: AUTO\+\_\+\+LOCK) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if locking fails \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1unique_lock_aa550ec6e85ee681de98b9940c26cf7f8}\index{original::uniqueLock@{original::uniqueLock}!isLocked@{isLocked}}
+\index{isLocked@{isLocked}!original::uniqueLock@{original::uniqueLock}}
+\doxysubsubsection{\texorpdfstring{isLocked()}{isLocked()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1unique_lock_aa550ec6e85ee681de98b9940c26cf7f8} 
+bool original\+::unique\+Lock\+::is\+Locked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [nodiscard]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Checks if the lock is currently held. 
+
+\begin{DoxyReturn}{Returns}
+true if locked, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1lock_guard_a89dec0ae869b590a6e00ed38463a27aa}{original\+::lock\+Guard}}.
+
+\Hypertarget{classoriginal_1_1unique_lock_a751360ab6c040dfa009be50f70443bee}\index{original::uniqueLock@{original::uniqueLock}!lock@{lock}}
+\index{lock@{lock}!original::uniqueLock@{original::uniqueLock}}
+\doxysubsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1unique_lock_a751360ab6c040dfa009be50f70443bee} 
+void original\+::unique\+Lock\+::lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Locks the associated mutex. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if already locked or locking fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1lock_guard_aa4f416aca653f39bd62a0ce5fc407a79}{original\+::lock\+Guard}}.
+
+\Hypertarget{classoriginal_1_1unique_lock_ab6a083406607e75f78975111ccac050e}\index{original::uniqueLock@{original::uniqueLock}!tryLock@{tryLock}}
+\index{tryLock@{tryLock}!original::uniqueLock@{original::uniqueLock}}
+\doxysubsubsection{\texorpdfstring{tryLock()}{tryLock()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1unique_lock_ab6a083406607e75f78975111ccac050e} 
+bool original\+::unique\+Lock\+::try\+Lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Attempts to lock the associated mutex without blocking. 
+
+\begin{DoxyReturn}{Returns}
+true if lock was acquired, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if already locked or operation fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1lock_guard_a83c3f5858d4814bb7856cc99b3d4edd9}{original\+::lock\+Guard}}.
+
+\Hypertarget{classoriginal_1_1unique_lock_a098cc3546c1052fdf8922f023f7b5d8a}\index{original::uniqueLock@{original::uniqueLock}!unlock@{unlock}}
+\index{unlock@{unlock}!original::uniqueLock@{original::uniqueLock}}
+\doxysubsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1unique_lock_a098cc3546c1052fdf8922f023f7b5d8a} 
+void original\+::unique\+Lock\+::unlock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Unlocks the associated mutex. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if not locked or unlock fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{classoriginal_1_1lock_guard_a884071c6b891ea2aa95d1985fdc2a3a6}{original\+::lock\+Guard}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vibrant/\mbox{\hyperlink{mutex_8h}{mutex.\+h}}\end{DoxyCompactItemize}

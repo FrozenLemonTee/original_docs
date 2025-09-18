@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['serial_5f_0',['serial_',['../classoriginal_1_1container_adapter.html#a6ae73dfe5e34e47871cd2f8a43b479b6',1,'original::containerAdapter']]],
-  ['size_5f_1',['size_',['../classoriginal_1_1_r_b_tree.html#a95113a44029c61915e541319d6ad6a03',1,'original::RBTree::size_'],['../classoriginal_1_1skip_list.html#a1585ef117e3df7dccba92a6990e245ca',1,'original::skipList::size_']]]
+  ['pi_0',['PI',['../namespaceoriginal.html#a4c0f6145cd40bdb0d2a15907ab0a010d',1,'original']]]
 ];

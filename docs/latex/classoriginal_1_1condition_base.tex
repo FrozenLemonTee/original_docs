@@ -1,0 +1,243 @@
+\doxysection{original\+::condition\+Base Class Reference}
+\hypertarget{classoriginal_1_1condition_base}{}\label{classoriginal_1_1condition_base}\index{original::conditionBase@{original::conditionBase}}
+
+
+Abstract base class for condition variable implementations.  
+
+
+
+
+{\ttfamily \#include $<$condition.\+h$>$}
+
+
+
+Inheritance diagram for original\+::condition\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classoriginal_1_1condition_base__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for original\+::condition\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classoriginal_1_1condition_base__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1condition_base_adf6979e53c6a92a885e92047c6869791}\label{classoriginal_1_1condition_base_adf6979e53c6a92a885e92047c6869791} 
+{\bfseries condition\+Base} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1condition_base_a2ac0950db5c27758b56b890d45ac0801}{wait}} (\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&mutex)=0
+\begin{DoxyCompactList}\small\item\em Waits for notification while holding the mutex. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1condition_base_a51be87dab4d9635d3cd41c687801a850}{wait\+For}} (\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&mutex, \mbox{\hyperlink{classoriginal_1_1time_1_1duration}{time\+::duration}} d)=0
+\begin{DoxyCompactList}\small\item\em Waits for notification with timeout. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Pred $>$ }\\void \mbox{\hyperlink{classoriginal_1_1condition_base_a8146693ddba2ead5704fa9e1ce8033fb}{wait}} (\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&mutex, Pred predicate) noexcept(noexcept(predicate()))
+\begin{DoxyCompactList}\small\item\em Waits until predicate becomes true. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Pred $>$ }\\bool \mbox{\hyperlink{classoriginal_1_1condition_base_a5f12903a96388f07ae25d83c114041a3}{wait\+For}} (\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&mutex, const \mbox{\hyperlink{classoriginal_1_1time_1_1duration}{time\+::duration}} \&d, Pred predicate) noexcept(noexcept(predicate()))
+\begin{DoxyCompactList}\small\item\em Waits with timeout until predicate becomes true. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1condition_base_af6da92ee7c2ffc8ee47bb1c05f5e94c5}{notify}} ()=0
+\begin{DoxyCompactList}\small\item\em Notifies one waiting thread. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1condition_base_a1ea75a0ed4722899b83fb00f212350d3}{notify\+All}} ()=0
+\begin{DoxyCompactList}\small\item\em Notifies all waiting threads. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1condition_base_ac9977a4aad533f7c30827ebcc936e0c4}\label{classoriginal_1_1condition_base_ac9977a4aad533f7c30827ebcc936e0c4} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}condition\+Base} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1condition_base_a4882d940c094c9c4e9ad8e4943e7a968}\label{classoriginal_1_1condition_base_a4882d940c094c9c4e9ad8e4943e7a968} 
+{\bfseries condition\+Base} (const \mbox{\hyperlink{classoriginal_1_1condition_base}{condition\+Base}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1condition_base_a2755dcc1e2a11f16087d79f2fa5afe0f}\label{classoriginal_1_1condition_base_a2755dcc1e2a11f16087d79f2fa5afe0f} 
+\mbox{\hyperlink{classoriginal_1_1condition_base}{condition\+Base}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1condition_base}{condition\+Base}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for condition variable implementations. 
+
+Provides the interface for thread synchronization operations\+:
+\begin{DoxyItemize}
+\item Waiting with mutex protection
+\item Timed waiting with duration support
+\item Notification of waiting threads
+\item Predicate-\/based waiting templates
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This is an abstract base class and cannot be instantiated directly. Derived classes must implement all pure virtual methods. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1condition_base_af6da92ee7c2ffc8ee47bb1c05f5e94c5}\index{original::conditionBase@{original::conditionBase}!notify@{notify}}
+\index{notify@{notify}!original::conditionBase@{original::conditionBase}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1condition_base_af6da92ee7c2ffc8ee47bb1c05f5e94c5} 
+virtual void original\+::condition\+Base\+::notify (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Notifies one waiting thread. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if notification fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_condition_a7408202d500da5671a6f29b5de98825b}{original\+::p\+Condition}}.
+
+\Hypertarget{classoriginal_1_1condition_base_a1ea75a0ed4722899b83fb00f212350d3}\index{original::conditionBase@{original::conditionBase}!notifyAll@{notifyAll}}
+\index{notifyAll@{notifyAll}!original::conditionBase@{original::conditionBase}}
+\doxysubsubsection{\texorpdfstring{notifyAll()}{notifyAll()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1condition_base_a1ea75a0ed4722899b83fb00f212350d3} 
+virtual void original\+::condition\+Base\+::notify\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Notifies all waiting threads. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if notification fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_condition_a48e2d2b12add548a9259aa11f692d829}{original\+::p\+Condition}}.
+
+\Hypertarget{classoriginal_1_1condition_base_a2ac0950db5c27758b56b890d45ac0801}\index{original::conditionBase@{original::conditionBase}!wait@{wait}}
+\index{wait@{wait}!original::conditionBase@{original::conditionBase}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1condition_base_a2ac0950db5c27758b56b890d45ac0801} 
+virtual void original\+::condition\+Base\+::wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&}]{mutex}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Waits for notification while holding the mutex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & Locked mutex to wait on \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if wait operation fails \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The mutex must be locked by the calling thread 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_condition_a2b174f0f4a01344e989cd32a0a639657}{original\+::p\+Condition}}.
+
+\Hypertarget{classoriginal_1_1condition_base_a8146693ddba2ead5704fa9e1ce8033fb}\index{original::conditionBase@{original::conditionBase}!wait@{wait}}
+\index{wait@{wait}!original::conditionBase@{original::conditionBase}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1condition_base_a8146693ddba2ead5704fa9e1ce8033fb} 
+template$<$typename Pred $>$ \\
+void original\+::condition\+Base\+::wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&}]{mutex}{, }\item[{Pred}]{predicate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Waits until predicate becomes true. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Pred} & Predicate type (must be callable and return bool) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & Locked mutex to wait on \\
+\hline
+{\em predicate} & \doxylink{conceptoriginal_1_1_condition}{Condition} predicate to check \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if wait operation fails \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+Implements the "{}wait with predicate"{} pattern to avoid spurious wakeups 
+\end{DoxyNote}
+\Hypertarget{classoriginal_1_1condition_base_a5f12903a96388f07ae25d83c114041a3}\index{original::conditionBase@{original::conditionBase}!waitFor@{waitFor}}
+\index{waitFor@{waitFor}!original::conditionBase@{original::conditionBase}}
+\doxysubsubsection{\texorpdfstring{waitFor()}{waitFor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1condition_base_a5f12903a96388f07ae25d83c114041a3} 
+template$<$typename Pred $>$ \\
+bool original\+::condition\+Base\+::wait\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&}]{mutex}{, }\item[{const \mbox{\hyperlink{classoriginal_1_1time_1_1duration}{time\+::duration}} \&}]{d}{, }\item[{Pred}]{predicate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Waits with timeout until predicate becomes true. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Pred} & Predicate type (must be callable and return bool) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & Locked mutex to wait on \\
+\hline
+{\em d} & Maximum duration to wait \\
+\hline
+{\em predicate} & \doxylink{conceptoriginal_1_1_condition}{Condition} predicate to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if predicate became true, false if timeout occurred 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if wait operation fails \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classoriginal_1_1condition_base_a51be87dab4d9635d3cd41c687801a850}\index{original::conditionBase@{original::conditionBase}!waitFor@{waitFor}}
+\index{waitFor@{waitFor}!original::conditionBase@{original::conditionBase}}
+\doxysubsubsection{\texorpdfstring{waitFor()}{waitFor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classoriginal_1_1condition_base_a51be87dab4d9635d3cd41c687801a850} 
+virtual bool original\+::condition\+Base\+::wait\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&}]{mutex}{, }\item[{\mbox{\hyperlink{classoriginal_1_1time_1_1duration}{time\+::duration}}}]{d}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Waits for notification with timeout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & Locked mutex to wait on \\
+\hline
+{\em d} & Maximum duration to wait \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if notified, false if timeout occurred 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if wait operation fails \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The mutex must be locked by the calling thread 
+\end{DoxyNote}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_condition_a2f756b10141f5144cc1ce9b8e62ad6dc}{original\+::p\+Condition}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vibrant/\mbox{\hyperlink{condition_8h}{condition.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,176 @@
+\doxysection{original\+::mutex\+Base Class Reference}
+\hypertarget{classoriginal_1_1mutex_base}{}\label{classoriginal_1_1mutex_base}\index{original::mutexBase@{original::mutexBase}}
+
+
+Abstract base class for mutex implementations.  
+
+
+
+
+{\ttfamily \#include $<$mutex.\+h$>$}
+
+
+
+Inheritance diagram for original\+::mutex\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classoriginal_1_1mutex_base__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for original\+::mutex\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{classoriginal_1_1mutex_base__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1mutex_base_afec72e95448bb6e96fa9160889eab344}\label{classoriginal_1_1mutex_base_afec72e95448bb6e96fa9160889eab344} 
+{\bfseries mutex\+Base} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1mutex_base_a5a368896328e65f3952a5ffde8974848}\label{classoriginal_1_1mutex_base_a5a368896328e65f3952a5ffde8974848} 
+{\bfseries mutex\+Base} (const \mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1mutex_base_a6e7e2e3ec7d061c9a43d044ec4784deb}\label{classoriginal_1_1mutex_base_a6e7e2e3ec7d061c9a43d044ec4784deb} 
+\mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1mutex_base}{mutex\+Base}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Deleted copy assignment operator. \end{DoxyCompactList}\item 
+virtual void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classoriginal_1_1mutex_base_a381bf9c31287847ba56baf918d8b61db}{native\+Handle}} () noexcept=0
+\begin{DoxyCompactList}\small\item\em Gets the native handle of the mutex. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1mutex_base_a69beb1c80281fce394c1bf7411a76637}\label{classoriginal_1_1mutex_base_a69beb1c80281fce394c1bf7411a76637} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}mutex\+Base} ()=default
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1mutex_base_a725ec7ed76b1bb9668b0e7011f1f497f}{lock}} ()=0
+\begin{DoxyCompactList}\small\item\em Locks the mutex, blocking if necessary. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classoriginal_1_1mutex_base_a85def8c30345e211b92eb68660d2e0b6}{try\+Lock}} ()=0
+\begin{DoxyCompactList}\small\item\em Attempts to lock the mutex without blocking. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classoriginal_1_1mutex_base_a1f9b94f7e04e063e8f26798c26846dc2}{unlock}} ()=0
+\begin{DoxyCompactList}\small\item\em Unlocks the mutex. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}} \mbox{\hyperlink{classoriginal_1_1mutex_base_a8987f7e6a9f7e46999a18d3cdb15d1a5}{id}} () const =0
+\begin{DoxyCompactList}\small\item\em Gets a unique identifier for the mutex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for mutex implementations. 
+
+Provides the interface for mutex operations including\+:
+\begin{DoxyItemize}
+\item Lock/unlock functionality
+\item Try-\/lock capability
+\item Access to native handle
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This is an abstract base class and cannot be instantiated directly. Derived classes must implement all pure virtual methods. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1mutex_base_a8987f7e6a9f7e46999a18d3cdb15d1a5}\index{original::mutexBase@{original::mutexBase}!id@{id}}
+\index{id@{id}!original::mutexBase@{original::mutexBase}}
+\doxysubsubsection{\texorpdfstring{id()}{id()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1mutex_base_a8987f7e6a9f7e46999a18d3cdb15d1a5} 
+virtual \mbox{\hyperlink{group___type_definitions_gaf0f87a0c4c1d285e954fc8695153b2be}{ul\+\_\+integer}} original\+::mutex\+Base\+::id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Gets a unique identifier for the mutex. 
+
+\begin{DoxyReturn}{Returns}
+Unique identifier based on mutex internal state 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_mutex_ac09863148578649b26325fbcd03b16ae}{original\+::p\+Mutex}}.
+
+\Hypertarget{classoriginal_1_1mutex_base_a725ec7ed76b1bb9668b0e7011f1f497f}\index{original::mutexBase@{original::mutexBase}!lock@{lock}}
+\index{lock@{lock}!original::mutexBase@{original::mutexBase}}
+\doxysubsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1mutex_base_a725ec7ed76b1bb9668b0e7011f1f497f} 
+virtual void original\+::mutex\+Base\+::lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Locks the mutex, blocking if necessary. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if the lock operation fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_mutex_af9af421b5a2e6fbaf3420256e3f5e5bb}{original\+::p\+Mutex}}.
+
+\Hypertarget{classoriginal_1_1mutex_base_a381bf9c31287847ba56baf918d8b61db}\index{original::mutexBase@{original::mutexBase}!nativeHandle@{nativeHandle}}
+\index{nativeHandle@{nativeHandle}!original::mutexBase@{original::mutexBase}}
+\doxysubsubsection{\texorpdfstring{nativeHandle()}{nativeHandle()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1mutex_base_a381bf9c31287847ba56baf918d8b61db} 
+virtual void \texorpdfstring{$\ast$}{*} original\+::mutex\+Base\+::native\+Handle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [pure virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the native handle of the mutex. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the native mutex handle 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_mutex_ae68be5ab6f6b5e3c687697ca859ed01b}{original\+::p\+Mutex}}.
+
+\Hypertarget{classoriginal_1_1mutex_base_a85def8c30345e211b92eb68660d2e0b6}\index{original::mutexBase@{original::mutexBase}!tryLock@{tryLock}}
+\index{tryLock@{tryLock}!original::mutexBase@{original::mutexBase}}
+\doxysubsubsection{\texorpdfstring{tryLock()}{tryLock()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1mutex_base_a85def8c30345e211b92eb68660d2e0b6} 
+virtual bool original\+::mutex\+Base\+::try\+Lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Attempts to lock the mutex without blocking. 
+
+\begin{DoxyReturn}{Returns}
+true if lock was acquired, false otherwise 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if the operation fails (other than EBUSY) \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_mutex_a83f23808ef09f21b1e2fbc8652ecbafe}{original\+::p\+Mutex}}.
+
+\Hypertarget{classoriginal_1_1mutex_base_a1f9b94f7e04e063e8f26798c26846dc2}\index{original::mutexBase@{original::mutexBase}!unlock@{unlock}}
+\index{unlock@{unlock}!original::mutexBase@{original::mutexBase}}
+\doxysubsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1mutex_base_a1f9b94f7e04e063e8f26798c26846dc2} 
+virtual void original\+::mutex\+Base\+::unlock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Unlocks the mutex. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{classoriginal_1_1sys_error}{sys\+Error}} & if the unlock operation fails \\
+\hline
+\end{DoxyExceptions}
+
+
+Implemented in \mbox{\hyperlink{classoriginal_1_1p_mutex_a1bd8c267994ae4e505bf6d5e6a47eace}{original\+::p\+Mutex}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vibrant/\mbox{\hyperlink{mutex_8h}{mutex.\+h}}\end{DoxyCompactItemize}

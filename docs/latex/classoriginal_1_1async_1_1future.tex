@@ -1,0 +1,118 @@
+\doxysection{original\+::async\+::future\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classoriginal_1_1async_1_1future}{}\label{classoriginal_1_1async_1_1future}\index{original::async::future$<$ TYPE $>$@{original::async::future$<$ TYPE $>$}}
+
+
+Represents a future result of an asynchronous computation.  
+
+
+
+
+{\ttfamily \#include $<$async.\+h$>$}
+
+
+
+Collaboration diagram for original\+::async\+::future\texorpdfstring{$<$}{<} TYPE \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{classoriginal_1_1async_1_1future__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1async_1_1future_a6ab247fc7f2985ed70814d1fc40521df}\label{classoriginal_1_1async_1_1future_a6ab247fc7f2985ed70814d1fc40521df} 
+{\bfseries future} (const \mbox{\hyperlink{classoriginal_1_1async_1_1future}{future}} \&)=delete
+\item 
+\Hypertarget{classoriginal_1_1async_1_1future_afa17d98d836f5c5ed16d724e7ea48cfc}\label{classoriginal_1_1async_1_1future_afa17d98d836f5c5ed16d724e7ea48cfc} 
+\mbox{\hyperlink{classoriginal_1_1async_1_1future}{future}} \& {\bfseries operator=} (const \mbox{\hyperlink{classoriginal_1_1async_1_1future}{future}} \&)=delete
+\item 
+\Hypertarget{classoriginal_1_1async_1_1future_a9b2e485586f52a01a3acd64627a0776c}\label{classoriginal_1_1async_1_1future_a9b2e485586f52a01a3acd64627a0776c} 
+{\bfseries future} (\mbox{\hyperlink{classoriginal_1_1async_1_1future}{future}} \&\&)=default
+\item 
+\Hypertarget{classoriginal_1_1async_1_1future_a73c69afbea49b2813e72c2fecab83346}\label{classoriginal_1_1async_1_1future_a73c69afbea49b2813e72c2fecab83346} 
+\mbox{\hyperlink{classoriginal_1_1async_1_1future}{future}} \& {\bfseries operator=} (\mbox{\hyperlink{classoriginal_1_1async_1_1future}{future}} \&\&)=default
+\item 
+TYPE \mbox{\hyperlink{classoriginal_1_1async_1_1future_ae7f0d998027d3ceec6ecc754ef8c86db}{result}} ()
+\begin{DoxyCompactList}\small\item\em Gets the result (blocks until ready) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classoriginal_1_1async_1_1future_a7a73e60107cca321aed9ea6cd0a3366c}{ready}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the result is ready. \end{DoxyCompactList}\item 
+std\+::exception\+\_\+ptr \mbox{\hyperlink{classoriginal_1_1async_1_1future_abe78824e2320669c51afab1d76c0911f}{exception}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Gets the exception if computation failed. \end{DoxyCompactList}\item 
+\Hypertarget{classoriginal_1_1async_1_1future_af206230a4c764b127491d88edeab4cc4}\label{classoriginal_1_1async_1_1future_af206230a4c764b127491d88edeab4cc4} 
+void {\bfseries wait} ()
+\begin{DoxyCompactList}\small\item\em Waits until the result becomes ready. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classoriginal_1_1async_1_1future_a8a531c9710b86ca4ca175cf6a5cb5f6b}\label{classoriginal_1_1async_1_1future_a8a531c9710b86ca4ca175cf6a5cb5f6b} 
+class {\bfseries async}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TYPE$>$\newline
+class original\+::async\+::future$<$ TYPE $>$}
+Represents a future result of an asynchronous computation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & The result type of the computation\\
+\hline
+\end{DoxyTemplParams}
+Provides access to the result of an asynchronous operation. The result can be retrieved only once. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classoriginal_1_1async_1_1future_abe78824e2320669c51afab1d76c0911f}\index{original::async::future$<$ TYPE $>$@{original::async::future$<$ TYPE $>$}!exception@{exception}}
+\index{exception@{exception}!original::async::future$<$ TYPE $>$@{original::async::future$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{exception()}{exception()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1async_1_1future_abe78824e2320669c51afab1d76c0911f} 
+template$<$typename TYPE $>$ \\
+std\+::exception\+\_\+ptr \mbox{\hyperlink{classoriginal_1_1async_1_1future}{original\+::async\+::future}}$<$ TYPE $>$\+::exception (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}, {\ttfamily [noexcept]}}
+
+
+
+Gets the exception if computation failed. 
+
+\begin{DoxyReturn}{Returns}
+Exception pointer (nullptr if no exception) 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1async_1_1future_a7a73e60107cca321aed9ea6cd0a3366c}\index{original::async::future$<$ TYPE $>$@{original::async::future$<$ TYPE $>$}!ready@{ready}}
+\index{ready@{ready}!original::async::future$<$ TYPE $>$@{original::async::future$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{ready()}{ready()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1async_1_1future_a7a73e60107cca321aed9ea6cd0a3366c} 
+template$<$typename TYPE $>$ \\
+bool \mbox{\hyperlink{classoriginal_1_1async_1_1future}{original\+::async\+::future}}$<$ TYPE $>$\+::ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [nodiscard]}}
+
+
+
+Checks if the result is ready. 
+
+\begin{DoxyReturn}{Returns}
+True if result is available 
+\end{DoxyReturn}
+\Hypertarget{classoriginal_1_1async_1_1future_ae7f0d998027d3ceec6ecc754ef8c86db}\index{original::async::future$<$ TYPE $>$@{original::async::future$<$ TYPE $>$}!result@{result}}
+\index{result@{result}!original::async::future$<$ TYPE $>$@{original::async::future$<$ TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}}
+{\footnotesize\ttfamily \label{classoriginal_1_1async_1_1future_ae7f0d998027d3ceec6ecc754ef8c86db} 
+template$<$typename TYPE $>$ \\
+TYPE \mbox{\hyperlink{classoriginal_1_1async_1_1future}{original\+::async\+::future}}$<$ TYPE $>$\+::result (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the result (blocks until ready) 
+
+\begin{DoxyReturn}{Returns}
+The computed result 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::exception} & if the computation threw an exception \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/vibrant/async.\+h\end{DoxyCompactItemize}

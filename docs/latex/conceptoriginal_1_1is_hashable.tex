@@ -2,7 +2,7 @@
 \hypertarget{conceptoriginal_1_1is_hashable}{}\label{conceptoriginal_1_1is_hashable}\index{original::isHashable@{original::isHashable}}
 
 
-Concept checking for hashable types.  
+Concept checking for types that can be hashed.  
 
 
 
@@ -23,15 +23,26 @@ Concept checking for hashable types.
 
 
 \doxysubsection{Detailed Description}
-Concept checking for hashable types. 
+Concept checking for types that can be hashed. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
 {\em DERIVED} & The type to be checked\\
 \hline
 \end{DoxyTemplParams}
-Requires\+:
+Requires the type to implement\+:
 \begin{DoxyItemize}
 \item to\+Hash() method returning u\+\_\+integer
-\item equals() method taking const DERIVED\& and returning bool 
+\item equals() method taking const DERIVED\& and returning bool
 \end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }MyHashable\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{group___type_definitions_ga2d678ae654034cea391c946ada41bd2e}{u\_integer}}\ toHash()\ const\ noexcept\ \{\ \textcolor{keywordflow}{return}\ 42;\ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ equals(\textcolor{keyword}{const}\ MyHashable\&)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{static\_assert}(isHashable<MyHashable>);\ \ \textcolor{comment}{//\ Passes}}
+
+\end{DoxyCode}
+ 
