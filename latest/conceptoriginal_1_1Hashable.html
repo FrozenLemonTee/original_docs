@@ -85,9 +85,10 @@ $(function() {
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1Hashable.html">original::Hashable</a> = </div>
 <div class="line">        <span class="keyword">requires</span>(<span class="keyword">const</span> T&amp; obj) {</div>
-<div class="line">            { std::hash&lt;T&gt;{}(obj) } -&gt; std::convertible_to&lt;std::size_t&gt;;</div>
+<div class="line">            { std::hash&lt;T&gt;{}(<a class="code hl_class" href="classoriginal_1_1ownerPtr.html">obj</a>) } -&gt; std::convertible_to&lt;std::size_t&gt;;</div>
 <div class="line">        }</div>
-<div class="ttc" id="aconceptoriginal_1_1Hashable_html"><div class="ttname"><a href="conceptoriginal_1_1Hashable.html">original::Hashable</a></div><div class="ttdoc">Concept checking for types that can be hashed.</div><div class="ttdef"><b>Definition</b> types.h:222</div></div>
+<div class="ttc" id="aclassoriginal_1_1ownerPtr_html"><div class="ttname"><a href="classoriginal_1_1ownerPtr.html">original::ownerPtr</a></div><div class="ttdoc">Unique ownership smart pointer with move semantics.</div><div class="ttdef"><b>Definition</b> ownerPtr.h:37</div></div>
+<div class="ttc" id="aconceptoriginal_1_1Hashable_html"><div class="ttname"><a href="conceptoriginal_1_1Hashable.html">original::Hashable</a></div><div class="ttdoc">Concept checking for types that can be hashed.</div><div class="ttdef"><b>Definition</b> types.h:252</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept checking for types that can be hashed. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -96,14 +97,15 @@ $(function() {
   </table>
   </dd>
 </dl>
-<p>The type must satisfy the concept in this case: By having <a class="el" href="structstd_1_1hash_3_01T_01_4.html" title="std::hash specialization for derived types of hashable">std::hash&lt;T&gt;</a> specialization</p>
-<div class="fragment"><div class="line"><span class="keyword">namespace </span>std {</div>
+<p>The type must satisfy the concept in this case: By having <a class="el" href="structstd_1_1hash_3_01T_01_4.html" title="std::hash specialization for HashTraits types">std::hash&lt;T&gt;</a> specialization</p>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a> {</div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span>hash&lt;MyHashable1&gt; {</div>
 <div class="line">        <span class="keywordtype">size_t</span> operator()(<span class="keyword">const</span> MyHashable1&amp; obj)<span class="keyword"> const </span>{</div>
-<div class="line">            <span class="keywordflow">return</span> std::hash&lt;int&gt;{}(obj.value);</div>
+<div class="line">            <span class="keywordflow">return</span> std::hash&lt;int&gt;{}(<a class="code hl_class" href="classoriginal_1_1ownerPtr.html">obj</a>.value);</div>
 <div class="line">        }</div>
 <div class="line">    };</div>
 <div class="line">}</div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">Standard namespace extensions for original::alternative.</div><div class="ttdef"><b>Definition</b> allocator.h:351</div></div>
 </div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

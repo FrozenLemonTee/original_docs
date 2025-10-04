@@ -86,7 +86,7 @@ $(function() {
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptoriginal_1_1CallbackOf.html">original::CallbackOf</a> =  <span class="keyword">requires</span>(Callback callback, Args&amp;&amp;... args) {</div>
 <div class="line">        { callback(std::forward&lt;Args&gt;(args)...) } -&gt; std::convertible_to&lt;ReturnType&gt;;</div>
 <div class="line">    }</div>
-<div class="ttc" id="aconceptoriginal_1_1CallbackOf_html"><div class="ttname"><a href="conceptoriginal_1_1CallbackOf.html">original::CallbackOf</a></div><div class="ttdoc">Validates callback signature compatibility.</div><div class="ttdef"><b>Definition</b> types.h:277</div></div>
+<div class="ttc" id="aconceptoriginal_1_1CallbackOf_html"><div class="ttname"><a href="conceptoriginal_1_1CallbackOf.html">original::CallbackOf</a></div><div class="ttdoc">Validates callback signature compatibility.</div><div class="ttdef"><b>Definition</b> types.h:345</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Validates callback signature compatibility. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
@@ -99,8 +99,9 @@ $(function() {
 </dl>
 <p>Ensures the callback can be invoked with specified arguments and returns the specified type. Supports perfect forwarding of arguments.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> lambda = [](<span class="keywordtype">int</span> x) { <span class="keywordflow">return</span> x * 2; };</div>
-<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_concept" href="conceptoriginal_1_1CallbackOf.html">CallbackOf</a>&lt;<span class="keyword">decltype</span>(lambda), <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;);    <span class="comment">// Succeeds</span></div>
-<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_concept" href="conceptoriginal_1_1CallbackOf.html">CallbackOf</a>&lt;<span class="keyword">decltype</span>(lambda), <span class="keywordtype">double</span>, <span class="keywordtype">int</span>&gt;); <span class="comment">// Fails (return type mismatch)</span></div>
+<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_concept" href="conceptoriginal_1_1CallbackOf.html">CallbackOf</a>&lt;<span class="keyword">decltype</span>(<a class="code hl_class" href="classoriginal_1_1ownerPtr.html">lambda</a>), <span class="keywordtype">int</span>, <span class="keywordtype">int</span>&gt;);    <span class="comment">// Succeeds</span></div>
+<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_concept" href="conceptoriginal_1_1CallbackOf.html">CallbackOf</a>&lt;<span class="keyword">decltype</span>(<a class="code hl_class" href="classoriginal_1_1ownerPtr.html">lambda</a>), <span class="keywordtype">double</span>, <span class="keywordtype">int</span>&gt;); <span class="comment">// Fails (return type mismatch)</span></div>
+<div class="ttc" id="aclassoriginal_1_1ownerPtr_html"><div class="ttname"><a href="classoriginal_1_1ownerPtr.html">original::ownerPtr</a></div><div class="ttdoc">Unique ownership smart pointer with move semantics.</div><div class="ttdef"><b>Definition</b> ownerPtr.h:37</div></div>
 </div><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

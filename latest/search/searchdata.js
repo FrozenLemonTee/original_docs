@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "_abcdefghijklmnopqrstuvwyz~临任内历原容异快文时最模消稳简算线编跨通🏷📊📋📖📚🔥🚀",
   1: "abcdefghijlmnopqrstuvw",
-  2: "lo",
+  2: "los",
   3: "abcdefhimopqrstvwz",
   4: "_abcdefghijlmnopqrstuvwz~",
   5: "_abcdefghlmnprstwyz",

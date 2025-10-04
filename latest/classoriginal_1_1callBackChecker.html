@@ -95,28 +95,42 @@ Collaboration diagram for original::callBackChecker:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac58a38eb4c6aa5a542533c0e83db3900" id="r_ac58a38eb4c6aa5a542533c0e83db3900"><td class="memTemplParams" colspan="2">template&lt;typename Callback , typename Ret_TYPE , typename ... Args_TYPE&gt; </td></tr>
-<tr class="memitem:ac58a38eb4c6aa5a542533c0e83db3900"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classoriginal_1_1callBackChecker.html#ac58a38eb4c6aa5a542533c0e83db3900">check</a> ()</td></tr>
+<tr class="memitem:ac58a38eb4c6aa5a542533c0e83db3900" id="r_ac58a38eb4c6aa5a542533c0e83db3900"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">Callback</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">Ret_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> ... Args_TYPE&gt; </td></tr>
+<tr class="memitem:ac58a38eb4c6aa5a542533c0e83db3900"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">static</a> <a class="el" href="classoriginal_1_1ownerPtr.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classoriginal_1_1callBackChecker.html#ac58a38eb4c6aa5a542533c0e83db3900">check</a> ()</td></tr>
 <tr class="memdesc:ac58a38eb4c6aa5a542533c0e83db3900"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a callback's signature and return type.  <br /></td></tr>
 <tr class="separator:ac58a38eb4c6aa5a542533c0e83db3900"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Static utility for validating callback signatures. </p>
-<p>Provides compile-time and runtime checks for callback function signatures, ensuring they match expected parameter types and return types. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<p>Provides compile-time and runtime checks for callback function signatures, ensuring they match expected parameter types and return types.</p>
+<h1><a class="anchor" id="Usage_Examples"></a>
+Usage Examples</h1>
+<div class="fragment"><div class="line"><span class="comment">// Valid callback check</span></div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">valid_cb</a> = [](<span class="keywordtype">int</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">x</a>, <span class="keywordtype">float</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">y</a>) -&gt; <span class="keywordtype">double</span> { <span class="keywordflow">return</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">x</a> + <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">y</a>; };</div>
+<div class="line">callBackChecker::check&lt;decltype(valid_cb), double, int, float&gt;(); <span class="comment">// OK</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Invalid callback check - throws callbackSignatureError</span></div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">invalid_cb</a> = [](<span class="keywordtype">int</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">x</a>) { <span class="keywordflow">return</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">x</a>; };</div>
+<div class="line">callBackChecker::check&lt;decltype(invalid_cb), int, std::string&gt;(); <span class="comment">// Throws</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Invalid return type - throws callbackReturnTypeError</span></div>
+<div class="line"><span class="keyword">auto</span> wrong_return_cb = [](<span class="keywordtype">int</span> x) -&gt; <span class="keywordtype">float</span> { <span class="keywordflow">return</span> x; };</div>
+<div class="line">callBackChecker::check&lt;decltype(wrong_return_cb), int, int&gt;(); <span class="comment">// Throws</span></div>
+<div class="ttc" id="aclassoriginal_1_1ownerPtr_html"><div class="ttname"><a href="classoriginal_1_1ownerPtr.html">original::ownerPtr</a></div><div class="ttdoc">Unique ownership smart pointer with move semantics.</div><div class="ttdef"><b>Definition</b> ownerPtr.h:37</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac58a38eb4c6aa5a542533c0e83db3900" name="ac58a38eb4c6aa5a542533c0e83db3900"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac58a38eb4c6aa5a542533c0e83db3900">&#9670;&#160;</a></span>check()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Callback , typename Ret_TYPE , typename... Args_TYPE&gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">Callback</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">Ret_TYPE</a> , typename... Args_TYPE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void original::callBackChecker::check </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">void</a> original::callBackChecker::check </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -145,7 +159,7 @@ template&lt;typename Callback , typename Ret_TYPE , typename... Args_TYPE&gt; </
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> cb = [](<span class="keywordtype">int</span> x) { <span class="keywordflow">return</span> x + 1.0f; };</div>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">cb</a> = [](<span class="keywordtype">int</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">x</a>) { <span class="keywordflow">return</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">x</a> + 1.0f; };</div>
 <div class="line">callBackChecker::check&lt;decltype(cb), float, int&gt;(); <span class="comment">// OK</span></div>
 <div class="line">callBackChecker::check&lt;decltype(cb), int, int&gt;();   <span class="comment">// Throws callbackReturnTypeError</span></div>
 </div><!-- fragment --> 

@@ -102,7 +102,7 @@ Collaboration diagram for original::hashTable&lt; K_TYPE, V_TYPE, ALLOC, HASH &g
 <area shape="poly" title=" " alt="" coords="137,649,180,768,175,770,132,651"/>
 <area shape="rect" href="classoriginal_1_1container.html" title="Abstract base class for containers." alt="" coords="19,5,151,245"/>
 <area shape="poly" title=" " alt="" coords="87,259,87,377,82,377,82,259"/>
-<area shape="rect" href="classoriginal_1_1iterationStream.html" title="A stream class that allows iteration, comparison, and printing." alt="" coords="363,809,537,969"/>
+<area shape="rect" href="classoriginal_1_1iterationStream.html" title="A stream class that allows iteration, comparison, hashing and printing." alt="" coords="363,809,537,969"/>
 <area shape="poly" title=" " alt="" coords="415,983,366,1102,361,1100,410,981"/>
 <area shape="rect" href="classoriginal_1_1printable.html" title="Base class providing polymorphic string conversion capabilities." alt="" coords="189,295,365,720"/>
 <area shape="poly" title=" " alt="" coords="373,713,416,808,412,810,368,715"/>
@@ -129,66 +129,66 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
 Protected Types</h2></td></tr>
 <tr class="memitem:ad63b1f0955ad8ead27e7bfa2f6cab94a" id="r_ad63b1f0955ad8ead27e7bfa2f6cab94a"><td class="memItemLeft" align="right" valign="top"><a id="ad63b1f0955ad8ead27e7bfa2f6cab94a" name="ad63b1f0955ad8ead27e7bfa2f6cab94a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>rebind_alloc_node</b> = typename ALLOC::template rebind_alloc&lt; <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> &gt;</td></tr>
+<a class="el" href="classoriginal_1_1ownerPtr.html">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rebind_alloc_node</b> = <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> ALLOC::template rebind_alloc&lt; <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> &gt;</td></tr>
 <tr class="memdesc:ad63b1f0955ad8ead27e7bfa2f6cab94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebound allocator type for node storage. <br /></td></tr>
 <tr class="separator:ad63b1f0955ad8ead27e7bfa2f6cab94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa00430ee2be197eccaf29b225d86291e" id="r_aa00430ee2be197eccaf29b225d86291e"><td class="memItemLeft" align="right" valign="top"><a id="aa00430ee2be197eccaf29b225d86291e" name="aa00430ee2be197eccaf29b225d86291e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>rebind_alloc_pointer</b> = typename ALLOC::template rebind_alloc&lt; <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> * &gt;</td></tr>
+<a class="el" href="classoriginal_1_1ownerPtr.html">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rebind_alloc_pointer</b> = <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> ALLOC::template rebind_alloc&lt; <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> * &gt;</td></tr>
 <tr class="memdesc:aa00430ee2be197eccaf29b225d86291e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebound allocator type for pointer storage. <br /></td></tr>
 <tr class="separator:aa00430ee2be197eccaf29b225d86291e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac487f6776ce6681b80b3959b9d09d692" id="r_ac487f6776ce6681b80b3959b9d09d692"><td class="memItemLeft" align="right" valign="top"><a id="ac487f6776ce6681b80b3959b9d09d692" name="ac487f6776ce6681b80b3959b9d09d692"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>buckets_type</b> = <a class="el" href="classoriginal_1_1vector.html">vector</a>&lt; <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *, <a class="el" href="classoriginal_1_1hashTable.html#aa00430ee2be197eccaf29b225d86291e">rebind_alloc_pointer</a> &gt;</td></tr>
+<a class="el" href="classoriginal_1_1ownerPtr.html">using</a>&#160;</td><td class="memItemRight" valign="bottom"><b>buckets_type</b> = <a class="el" href="classoriginal_1_1vector.html">vector</a>&lt; <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *, <a class="el" href="classoriginal_1_1hashTable.html#aa00430ee2be197eccaf29b225d86291e">rebind_alloc_pointer</a> &gt;</td></tr>
 <tr class="memdesc:ac487f6776ce6681b80b3959b9d09d692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing the hash table buckets container. <br /></td></tr>
 <tr class="separator:ac487f6776ce6681b80b3959b9d09d692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a88b1e7ef259a20722f264b3fc80a5acb" id="r_a88b1e7ef259a20722f264b3fc80a5acb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">buckets_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a88b1e7ef259a20722f264b3fc80a5acb">bucketsCopy</a> (const <a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">buckets_type</a> &amp;old_buckets) const</td></tr>
+<tr class="memitem:a88b1e7ef259a20722f264b3fc80a5acb" id="r_a88b1e7ef259a20722f264b3fc80a5acb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">buckets_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a88b1e7ef259a20722f264b3fc80a5acb">bucketsCopy</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">buckets_type</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">old_buckets</a>) <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:a88b1e7ef259a20722f264b3fc80a5acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a deep copy of the hash table's bucket array.  <br /></td></tr>
 <tr class="separator:a88b1e7ef259a20722f264b3fc80a5acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1186aae1a84a125368c23008eb37a9cd" id="r_a1186aae1a84a125368c23008eb37a9cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a1186aae1a84a125368c23008eb37a9cd">createNode</a> (const K_TYPE &amp;key=K_TYPE{}, const V_TYPE &amp;value=V_TYPE{}, <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *next=nullptr) const</td></tr>
+<tr class="memitem:a1186aae1a84a125368c23008eb37a9cd" id="r_a1186aae1a84a125368c23008eb37a9cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a1186aae1a84a125368c23008eb37a9cd">createNode</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">key</a>=<a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>{}, <a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> &amp;value=<a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>{}, <a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *next=<a class="el" href="classoriginal_1_1ownerPtr.html">nullptr</a>) <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:a1186aae1a84a125368c23008eb37a9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new hash node.  <br /></td></tr>
 <tr class="separator:a1186aae1a84a125368c23008eb37a9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3894ce2a87fb47f9e6ed38c79ceb3ef" id="r_ab3894ce2a87fb47f9e6ed38c79ceb3ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ab3894ce2a87fb47f9e6ed38c79ceb3ef">destroyNode</a> (<a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *node) noexcept</td></tr>
+<tr class="memitem:ab3894ce2a87fb47f9e6ed38c79ceb3ef" id="r_ab3894ce2a87fb47f9e6ed38c79ceb3ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ab3894ce2a87fb47f9e6ed38c79ceb3ef">destroyNode</a> (<a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *<a class="el" href="classoriginal_1_1ownerPtr.html">node</a>) <a class="el" href="classoriginal_1_1ownerPtr.html">noexcept</a></td></tr>
 <tr class="memdesc:ab3894ce2a87fb47f9e6ed38c79ceb3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a hash node.  <br /></td></tr>
 <tr class="separator:ab3894ce2a87fb47f9e6ed38c79ceb3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5efa7b38f10726b165d6b2c9f1fd67a1" id="r_a5efa7b38f10726b165d6b2c9f1fd67a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a5efa7b38f10726b165d6b2c9f1fd67a1">getHashCode</a> (const K_TYPE &amp;key) const</td></tr>
+<tr class="memitem:a5efa7b38f10726b165d6b2c9f1fd67a1" id="r_a5efa7b38f10726b165d6b2c9f1fd67a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a5efa7b38f10726b165d6b2c9f1fd67a1">getHashCode</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">key</a>) <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:a5efa7b38f10726b165d6b2c9f1fd67a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes hash code for a key.  <br /></td></tr>
 <tr class="separator:a5efa7b38f10726b165d6b2c9f1fd67a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9d7dab4d4dbce5eafb6766f7d120d38" id="r_ac9d7dab4d4dbce5eafb6766f7d120d38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ac9d7dab4d4dbce5eafb6766f7d120d38">getBucketCount</a> () const</td></tr>
+<tr class="memitem:ac9d7dab4d4dbce5eafb6766f7d120d38" id="r_ac9d7dab4d4dbce5eafb6766f7d120d38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ac9d7dab4d4dbce5eafb6766f7d120d38">getBucketCount</a> () <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:ac9d7dab4d4dbce5eafb6766f7d120d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current number of buckets.  <br /></td></tr>
 <tr class="separator:ac9d7dab4d4dbce5eafb6766f7d120d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa52d3ddd77329850a9541cbc903766c8" id="r_aa52d3ddd77329850a9541cbc903766c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#aa52d3ddd77329850a9541cbc903766c8">getBucket</a> (const K_TYPE &amp;key) const</td></tr>
+<tr class="memitem:aa52d3ddd77329850a9541cbc903766c8" id="r_aa52d3ddd77329850a9541cbc903766c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#aa52d3ddd77329850a9541cbc903766c8">getBucket</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">key</a>) <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:aa52d3ddd77329850a9541cbc903766c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets bucket head for a key.  <br /></td></tr>
 <tr class="separator:aa52d3ddd77329850a9541cbc903766c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd52c574bb7adf1b32b312ab0a673642" id="r_abd52c574bb7adf1b32b312ab0a673642"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">floating</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#abd52c574bb7adf1b32b312ab0a673642">loadFactor</a> () const</td></tr>
+<tr class="memitem:abd52c574bb7adf1b32b312ab0a673642" id="r_abd52c574bb7adf1b32b312ab0a673642"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">floating</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#abd52c574bb7adf1b32b312ab0a673642">loadFactor</a> () <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:abd52c574bb7adf1b32b312ab0a673642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates current load factor.  <br /></td></tr>
 <tr class="separator:abd52c574bb7adf1b32b312ab0a673642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87ac7743bcd27d2efb7955553bf3df1a" id="r_a87ac7743bcd27d2efb7955553bf3df1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a87ac7743bcd27d2efb7955553bf3df1a">getNextSize</a> () const</td></tr>
+<tr class="memitem:a87ac7743bcd27d2efb7955553bf3df1a" id="r_a87ac7743bcd27d2efb7955553bf3df1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a87ac7743bcd27d2efb7955553bf3df1a">getNextSize</a> () <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:a87ac7743bcd27d2efb7955553bf3df1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets next appropriate bucket size for expansion.  <br /></td></tr>
 <tr class="separator:a87ac7743bcd27d2efb7955553bf3df1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4780d63dc725c590952e1e82b709fab7" id="r_a4780d63dc725c590952e1e82b709fab7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a4780d63dc725c590952e1e82b709fab7">getPrevSize</a> () const</td></tr>
+<tr class="memitem:a4780d63dc725c590952e1e82b709fab7" id="r_a4780d63dc725c590952e1e82b709fab7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a4780d63dc725c590952e1e82b709fab7">getPrevSize</a> () <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:a4780d63dc725c590952e1e82b709fab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets previous appropriate bucket size for shrinking.  <br /></td></tr>
 <tr class="separator:a4780d63dc725c590952e1e82b709fab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a808f94119b853be882b401cd3fe0c981" id="r_a808f94119b853be882b401cd3fe0c981"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a808f94119b853be882b401cd3fe0c981">rehash</a> (<a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> new_bucket_count)</td></tr>
+<tr class="memitem:a808f94119b853be882b401cd3fe0c981" id="r_a808f94119b853be882b401cd3fe0c981"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a808f94119b853be882b401cd3fe0c981">rehash</a> (<a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> <a class="el" href="classoriginal_1_1ownerPtr.html">new_bucket_count</a>)</td></tr>
 <tr class="memdesc:a808f94119b853be882b401cd3fe0c981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rehashes table to new bucket count.  <br /></td></tr>
 <tr class="separator:a808f94119b853be882b401cd3fe0c981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab79956faae7da34f484b7ba5fc1c1da3" id="r_ab79956faae7da34f484b7ba5fc1c1da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ab79956faae7da34f484b7ba5fc1c1da3">adjust</a> ()</td></tr>
+<tr class="memitem:ab79956faae7da34f484b7ba5fc1c1da3" id="r_ab79956faae7da34f484b7ba5fc1c1da3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ab79956faae7da34f484b7ba5fc1c1da3">adjust</a> ()</td></tr>
 <tr class="memdesc:ab79956faae7da34f484b7ba5fc1c1da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts table size based on load factor.  <br /></td></tr>
 <tr class="separator:ab79956faae7da34f484b7ba5fc1c1da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3dd6e73252d45ed71e99f89999b86d3" id="r_aa3dd6e73252d45ed71e99f89999b86d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#aa3dd6e73252d45ed71e99f89999b86d3">hashTable</a> (HASH <a class="el" href="classoriginal_1_1hash.html">hash</a>=HASH{})</td></tr>
+<tr class="memitem:aa3dd6e73252d45ed71e99f89999b86d3" id="r_aa3dd6e73252d45ed71e99f89999b86d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#aa3dd6e73252d45ed71e99f89999b86d3">hashTable</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> <a class="el" href="classoriginal_1_1hash.html">hash</a>=<a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a>{})</td></tr>
 <tr class="memdesc:aa3dd6e73252d45ed71e99f89999b86d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs empty <a class="el" href="classoriginal_1_1hashTable.html" title="Hash table implementation with separate chaining.">hashTable</a>.  <br /></td></tr>
 <tr class="separator:aa3dd6e73252d45ed71e99f89999b86d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f1bdbd8c7a0d6a173f228d62770331f" id="r_a9f1bdbd8c7a0d6a173f228d62770331f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a9f1bdbd8c7a0d6a173f228d62770331f">find</a> (const K_TYPE &amp;key) const</td></tr>
+<tr class="memitem:a9f1bdbd8c7a0d6a173f228d62770331f" id="r_a9f1bdbd8c7a0d6a173f228d62770331f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a9f1bdbd8c7a0d6a173f228d62770331f">find</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">key</a>) <a class="el" href="classoriginal_1_1ownerPtr.html">const</a></td></tr>
 <tr class="memdesc:a9f1bdbd8c7a0d6a173f228d62770331f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds node for given key.  <br /></td></tr>
 <tr class="separator:a9f1bdbd8c7a0d6a173f228d62770331f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39942008ba378af1d5edf8a9230b96e3" id="r_a39942008ba378af1d5edf8a9230b96e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a39942008ba378af1d5edf8a9230b96e3">modify</a> (const K_TYPE &amp;key, const V_TYPE &amp;value)</td></tr>
+<tr class="memitem:a39942008ba378af1d5edf8a9230b96e3" id="r_a39942008ba378af1d5edf8a9230b96e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a39942008ba378af1d5edf8a9230b96e3">modify</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">key</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> &amp;value)</td></tr>
 <tr class="memdesc:a39942008ba378af1d5edf8a9230b96e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifies value for existing key.  <br /></td></tr>
 <tr class="separator:a39942008ba378af1d5edf8a9230b96e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f35ac196bfe8887316cea1f9aae9d81" id="r_a8f35ac196bfe8887316cea1f9aae9d81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a8f35ac196bfe8887316cea1f9aae9d81">insert</a> (const K_TYPE &amp;key, const V_TYPE &amp;value)</td></tr>
+<tr class="memitem:a8f35ac196bfe8887316cea1f9aae9d81" id="r_a8f35ac196bfe8887316cea1f9aae9d81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a8f35ac196bfe8887316cea1f9aae9d81">insert</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">key</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> &amp;value)</td></tr>
 <tr class="memdesc:a8f35ac196bfe8887316cea1f9aae9d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts new key-value pair.  <br /></td></tr>
 <tr class="separator:a8f35ac196bfe8887316cea1f9aae9d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4eab9cb5d20601ae4c07d5340387881" id="r_ac4eab9cb5d20601ae4c07d5340387881"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ac4eab9cb5d20601ae4c07d5340387881">erase</a> (const K_TYPE &amp;key)</td></tr>
+<tr class="memitem:ac4eab9cb5d20601ae4c07d5340387881" id="r_ac4eab9cb5d20601ae4c07d5340387881"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#ac4eab9cb5d20601ae4c07d5340387881">erase</a> (<a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;<a class="el" href="classoriginal_1_1ownerPtr.html">key</a>)</td></tr>
 <tr class="memdesc:ac4eab9cb5d20601ae4c07d5340387881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes key-value pair.  <br /></td></tr>
 <tr class="separator:ac4eab9cb5d20601ae4c07d5340387881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e772987816536a98aaed29523a7107d" id="r_a3e772987816536a98aaed29523a7107d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#a3e772987816536a98aaed29523a7107d">~hashTable</a> ()</td></tr>
@@ -204,7 +204,7 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">buckets_type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>buckets</b></td></tr>
 <tr class="separator:a53bbeb950f2ea45970a70463bf5b4929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b5c707afa172c8a9627dbc8f0f3822" id="r_a59b5c707afa172c8a9627dbc8f0f3822"><td class="memItemLeft" align="right" valign="top"><a id="a59b5c707afa172c8a9627dbc8f0f3822" name="a59b5c707afa172c8a9627dbc8f0f3822"></a>
-HASH&#160;</td><td class="memItemRight" valign="bottom"><b>hash_</b></td></tr>
+<a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a>&#160;</td><td class="memItemRight" valign="bottom"><b>hash_</b></td></tr>
 <tr class="separator:a59b5c707afa172c8a9627dbc8f0f3822"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4176770004e7d9ba94b54345b0eb1338" id="r_a4176770004e7d9ba94b54345b0eb1338"><td class="memItemLeft" align="right" valign="top"><a id="a4176770004e7d9ba94b54345b0eb1338" name="a4176770004e7d9ba94b54345b0eb1338"></a>
 <a class="el" href="classoriginal_1_1hashTable.html#ad63b1f0955ad8ead27e7bfa2f6cab94a">rebind_alloc_node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rebind_alloc</b> {}</td></tr>
@@ -213,23 +213,23 @@ HASH&#160;</td><td class="memItemRight" valign="bottom"><b>hash_</b></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
 <tr class="memitem:a7b7ec83955ed3dc49dab38e5f9265ec7" id="r_a7b7ec83955ed3dc49dab38e5f9265ec7"><td class="memItemLeft" align="right" valign="top"><a id="a7b7ec83955ed3dc49dab38e5f9265ec7" name="a7b7ec83955ed3dc49dab38e5f9265ec7"></a>
-static constexpr <a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">floating</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LOAD_FACTOR_MIN</b> = 0.25</td></tr>
+<a class="el" href="classoriginal_1_1ownerPtr.html">static</a> <a class="el" href="classoriginal_1_1ownerPtr.html">constexpr</a> <a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">floating</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LOAD_FACTOR_MIN</b> = 0.25</td></tr>
 <tr class="memdesc:a7b7ec83955ed3dc49dab38e5f9265ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum load factor before shrinking. <br /></td></tr>
 <tr class="separator:a7b7ec83955ed3dc49dab38e5f9265ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e78784de456b8508c739698f74f47be" id="r_a4e78784de456b8508c739698f74f47be"><td class="memItemLeft" align="right" valign="top"><a id="a4e78784de456b8508c739698f74f47be" name="a4e78784de456b8508c739698f74f47be"></a>
-static constexpr <a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">floating</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LOAD_FACTOR_MAX</b> = 0.75</td></tr>
+<a class="el" href="classoriginal_1_1ownerPtr.html">static</a> <a class="el" href="classoriginal_1_1ownerPtr.html">constexpr</a> <a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">floating</a>&#160;</td><td class="memItemRight" valign="bottom"><b>LOAD_FACTOR_MAX</b> = 0.75</td></tr>
 <tr class="memdesc:a4e78784de456b8508c739698f74f47be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum load factor before expanding. <br /></td></tr>
 <tr class="separator:a4e78784de456b8508c739698f74f47be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a676193075374f62769b826613b7704eb" id="r_a676193075374f62769b826613b7704eb"><td class="memItemLeft" align="right" valign="top"><a id="a676193075374f62769b826613b7704eb" name="a676193075374f62769b826613b7704eb"></a>
-static constexpr <a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>BUCKETS_SIZES_COUNT</b> = 30</td></tr>
+<a class="el" href="classoriginal_1_1ownerPtr.html">static</a> <a class="el" href="classoriginal_1_1ownerPtr.html">constexpr</a> <a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>BUCKETS_SIZES_COUNT</b> = 30</td></tr>
 <tr class="memdesc:a676193075374f62769b826613b7704eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of BUCKETS_SIZES <a class="el" href="classoriginal_1_1hashTable.html#af2771177863c0be4896fe63e23f38aeb">BUCKETS_SIZES</a>. <br /></td></tr>
 <tr class="separator:a676193075374f62769b826613b7704eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2771177863c0be4896fe63e23f38aeb" id="r_af2771177863c0be4896fe63e23f38aeb"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#af2771177863c0be4896fe63e23f38aeb">BUCKETS_SIZES</a> []</td></tr>
+<tr class="memitem:af2771177863c0be4896fe63e23f38aeb" id="r_af2771177863c0be4896fe63e23f38aeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classoriginal_1_1ownerPtr.html">static</a> <a class="el" href="classoriginal_1_1ownerPtr.html">constexpr</a> <a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1hashTable.html#af2771177863c0be4896fe63e23f38aeb">BUCKETS_SIZES</a> []</td></tr>
 <tr class="memdesc:af2771177863c0be4896fe63e23f38aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Predefined bucket sizes for hash table resizing.  <br /></td></tr>
 <tr class="separator:af2771177863c0be4896fe63e23f38aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename K_TYPE, typename V_TYPE, typename ALLOC = allocator&lt;K_TYPE&gt;, typename HASH = hash&lt;K_TYPE&gt;&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> = allocator&lt;K_TYPE&gt;, <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> = hash&lt;K_TYPE&gt;&gt;<br />
 class original::hashTable&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;</div><p>Hash table implementation with separate chaining. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -262,16 +262,16 @@ class original::hashTable&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;</div><p>Hash tabl
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::hashTable </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::hashTable </td>
           <td>(</td>
-          <td class="paramtype">HASH&#160;</td>
-          <td class="paramname"><em>hash</em> = <code>HASH{}</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a>&#160;</td>
+          <td class="paramname"><em>hash</em> = <code><a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a>{}</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -298,13 +298,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::~<a class="el" href="classoriginal_1_1hashTable.html">hashTable</a> </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::~<a class="el" href="classoriginal_1_1hashTable.html">hashTable</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -329,13 +329,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::adjust </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">void</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::adjust </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -362,15 +362,15 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;<a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">::buckets_type</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::bucketsCopy </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;<a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">::buckets_type</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::bucketsCopy </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">buckets_type</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1hashTable.html#ac487f6776ce6681b80b3959b9d09d692">buckets_type</a> &amp;&#160;</td>
           <td class="paramname"><em>old_buckets</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -417,28 +417,28 @@ Uses allocator rebound to allocate memory for the new nodes. </dd></dl>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::hashNode * <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::createNode </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::hashNode * <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::createNode </td>
           <td>(</td>
-          <td class="paramtype">const K_TYPE &amp;&#160;</td>
-          <td class="paramname"><em>key</em> = <code>K_TYPE{}</code>, </td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em> = <code><a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>{}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const V_TYPE &amp;&#160;</td>
-          <td class="paramname"><em>value</em> = <code>V_TYPE{}</code>, </td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em> = <code><a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>{}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td>
-          <td class="paramname"><em>next</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramname"><em>next</em> = <code><a class="el" href="classoriginal_1_1ownerPtr.html">nullptr</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -473,13 +473,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::destroyNode </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">void</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::destroyNode </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classoriginal_1_1hashTable_1_1hashNode.html">hashNode</a> *&#160;</td>
           <td class="paramname"><em>node</em></td><td>)</td>
@@ -510,15 +510,15 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::erase </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">bool</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::erase </td>
           <td>(</td>
-          <td class="paramtype">const K_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
@@ -548,15 +548,15 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::hashNode * <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::find </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::hashNode * <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::find </td>
           <td>(</td>
-          <td class="paramtype">const K_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -585,15 +585,15 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::hashNode * <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::getBucket </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::hashNode * <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::getBucket </td>
           <td>(</td>
-          <td class="paramtype">const K_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -622,13 +622,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::getBucketCount </td>
+          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::getBucketCount </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -652,15 +652,15 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::getHashCode </td>
+          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::getHashCode </td>
           <td>(</td>
-          <td class="paramtype">const K_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -689,13 +689,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::getNextSize </td>
+          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::getNextSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -725,13 +725,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::getPrevSize </td>
+          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::getPrevSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -755,21 +755,21 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::insert </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">bool</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::insert </td>
           <td>(</td>
-          <td class="paramtype">const K_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const V_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -804,13 +804,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">original::floating</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::loadFactor </td>
+          <td class="memname"><a class="el" href="group__TypeDefinitions.html#ga93c0703adcef0d6e6c1a35f44c357a24">original::floating</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::loadFactor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -834,21 +834,21 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::modify </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">bool</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::modify </td>
           <td>(</td>
-          <td class="paramtype">const K_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const V_TYPE &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classoriginal_1_1ownerPtr.html">const</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -882,13 +882,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::rehash </td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">void</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::rehash </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a>&#160;</td>
           <td class="paramname"><em>new_bucket_count</em></td><td>)</td>
@@ -925,13 +925,13 @@ template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC , typename HASH &
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename K_TYPE , typename V_TYPE , typename ALLOC  = allocator&lt;K_TYPE&gt;, typename HASH  = hash&lt;K_TYPE&gt;&gt; </div>
+template&lt;<a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a> , <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>  = allocator&lt;K_TYPE&gt;, <a class="el" href="classoriginal_1_1ownerPtr.html">typename</a> <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a>  = hash&lt;K_TYPE&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; K_TYPE, V_TYPE, ALLOC, HASH &gt;::BUCKETS_SIZES[]</td>
+          <td class="memname"><a class="el" href="classoriginal_1_1ownerPtr.html">constexpr</a> <a class="el" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> <a class="el" href="classoriginal_1_1hashTable.html">original::hashTable</a>&lt; <a class="el" href="classoriginal_1_1ownerPtr.html">K_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">V_TYPE</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">ALLOC</a>, <a class="el" href="classoriginal_1_1ownerPtr.html">HASH</a> &gt;::BUCKETS_SIZES[]</td>
         </tr>
       </table>
   </td>

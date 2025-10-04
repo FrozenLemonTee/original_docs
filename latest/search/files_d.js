@@ -5,7 +5,8 @@ var searchData=
   ['set_2eh_2',['set.h',['../set_8h.html',1,'']]],
   ['sets_2eh_3',['sets.h',['../sets_8h.html',1,'']]],
   ['singledirectioniterator_2eh_4',['singleDirectionIterator.h',['../singleDirectionIterator_8h.html',1,'']]],
-  ['skiplist_2eh_5',['skipList.h',['../skipList_8h.html',1,'']]],
-  ['stack_2eh_6',['stack.h',['../stack_8h.html',1,'']]],
-  ['stepiterator_2eh_7',['stepIterator.h',['../stepIterator_8h.html',1,'']]]
+  ['singleton_2eh_5',['singleton.h',['../singleton_8h.html',1,'']]],
+  ['skiplist_2eh_6',['skipList.h',['../skipList_8h.html',1,'']]],
+  ['stack_2eh_7',['stack.h',['../stack_8h.html',1,'']]],
+  ['stepiterator_2eh_8',['stepIterator.h',['../stepIterator_8h.html',1,'']]]
 ];

@@ -69,7 +69,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>std</b></li><li class="navelem"><a class="el" href="structstd_1_1formatter_3_01T_01_4.html">formatter&lt; T &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacestd.html">std</a></li><li class="navelem"><a class="el" href="structstd_1_1formatter_3_01T_01_4.html">formatter&lt; T &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -96,10 +96,10 @@ Collaboration diagram for std::formatter&lt; T &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a70b5011eae88a964e0534ef4a49f84b4" id="r_a70b5011eae88a964e0534ef4a49f84b4"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1formatter_3_01T_01_4.html#a70b5011eae88a964e0534ef4a49f84b4">parse</a> (format_parse_context &amp;ctx)</td></tr>
-<tr class="memdesc:a70b5011eae88a964e0534ef4a49f84b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the format specification.  <br /></td></tr>
+<tr class="memdesc:a70b5011eae88a964e0534ef4a49f84b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the format specification for printable types.  <br /></td></tr>
 <tr class="separator:a70b5011eae88a964e0534ef4a49f84b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3aceca4dff3d895c8ef0117d82ebcb3d" id="r_a3aceca4dff3d895c8ef0117d82ebcb3d"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1formatter_3_01T_01_4.html#a3aceca4dff3d895c8ef0117d82ebcb3d">format</a> (const T &amp;p, format_context &amp;ctx)</td></tr>
-<tr class="memdesc:a3aceca4dff3d895c8ef0117d82ebcb3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the printable object.  <br /></td></tr>
+<tr class="memdesc:a3aceca4dff3d895c8ef0117d82ebcb3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the printable object using its string conversion.  <br /></td></tr>
 <tr class="separator:a3aceca4dff3d895c8ef0117d82ebcb3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -112,10 +112,13 @@ struct std::formatter&lt; T &gt;</div><p>std::formatter specialization for print
   </table>
   </dd>
 </dl>
-<p>Enables use of printable-derived types with std::format. Uses the toString() method for formatting.</p>
-<div class="fragment"><div class="line">MyClass obj;</div>
-<div class="line"><span class="keyword">auto</span> s = std::format(<span class="stringliteral">&quot;{}&quot;</span>, obj); <span class="comment">// &quot;printable(@0x7ffd)&quot;</span></div>
-</div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
+<p>Enables use of printable-derived types with C++20 std::format. Uses the object's string conversion operators for consistent formatting across all output mechanisms.</p>
+<p>Example usage: </p><div class="fragment"><div class="line">MyClass obj;</div>
+<div class="line"><span class="keyword">auto</span> s1 = std::format(<span class="stringliteral">&quot;Object: {}&quot;</span>, obj);       <span class="comment">// Basic formatting</span></div>
+<div class="line"><span class="keyword">auto</span> s2 = std::format(<span class="stringliteral">&quot;Object: {:&lt;20}&quot;</span>, obj);   <span class="comment">// With format spec</span></div>
+<div class="line"><span class="keyword">auto</span> s3 = std::format(<span class="stringliteral">&quot;Object: {:.10}&quot;</span>, obj);   <span class="comment">// With precision</span></div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The formatter delegates to std::string formatter after converting the printable object to string. </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3aceca4dff3d895c8ef0117d82ebcb3d" name="a3aceca4dff3d895c8ef0117d82ebcb3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3aceca4dff3d895c8ef0117d82ebcb3d">&#9670;&#160;</a></span>format()</h2>
 
@@ -152,7 +155,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Formats the printable object. </p>
+<p>Formats the printable object using its string conversion. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>Printable object to format </td></tr>
@@ -160,7 +163,8 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Iterator past the formatted output </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator past the formatted output</dd></dl>
+<p>Converts the printable object to string using its explicit conversion operator, then delegates to the std::string formatter for actual formatting. </p>
 
 </div>
 </div>
@@ -190,14 +194,15 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Parses the format specification. </p>
+<p>Parses the format specification for printable types. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ctx</td><td>Format parse context </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Iterator past the parsed format specification </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Iterator past the parsed format specification</dd></dl>
+<p>Currently accepts any format specification and delegates parsing to the underlying string formatter. </p>
 
 </div>
 </div>

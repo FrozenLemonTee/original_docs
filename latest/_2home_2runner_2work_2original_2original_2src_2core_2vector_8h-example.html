@@ -244,13 +244,13 @@ $(function() {
 <div class="line">    vector&lt;T&gt; makeVector(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> size, ARGS&amp;&amp;... args);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>std {</div>
+<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a> {</div>
 <div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keywordtype">void</span> swap(<a id="_a25" name="_a25"></a><a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; lhs, <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; rhs) <span class="keyword">noexcept</span>; <span class="comment">// NOLINT</span></div>
+<div class="line">    <span class="keywordtype">void</span> <a id="a25" name="a25"></a><a class="code hl_function" href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">swap</a>(<a id="_a26" name="_a26"></a><a class="code hl_class" href="classoriginal_1_1ownerPtr.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; lhs, <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; rhs) <span class="keyword">noexcept</span>; <span class="comment">// NOLINT</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vectorInit</a>() -&gt; <span class="keywordtype">void</span></div>
+<div class="line">    <span class="keyword">auto</span> <a id="_a27" name="_a27"></a><a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vectorInit</a>() -&gt; <span class="keywordtype">void</span></div>
 <div class="line">    {</div>
 <div class="line">        this-&gt;size_ = 0;</div>
 <div class="line">        this-&gt;max_size = INNER_SIZE_INIT;</div>
@@ -262,7 +262,7 @@ $(function() {
 <div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vectorArrayDestroy</a>() noexcept -&gt; <span class="keywordtype">void</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;body) {</div>
-<div class="line">            <span class="keywordflow">for</span> (u_integer i = 0; i &lt; this-&gt;max_size; ++i) {</div>
+<div class="line">            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> i = 0; i &lt; this-&gt;max_size; ++i) {</div>
 <div class="line">                this-&gt;destroy(&amp;this-&gt;body[i]);</div>
 <div class="line">            }</div>
 <div class="line">            this-&gt;deallocate(this-&gt;body, this-&gt;max_size);</div>
@@ -271,16 +271,16 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vectorArrayInit</a>(<span class="keyword">const</span> u_integer size) -&gt; TYPE* {</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vectorArrayInit</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> size) -&gt; TYPE* {</div>
 <div class="line">        <span class="keyword">auto</span> arr = this-&gt;allocate(size);</div>
-<div class="line">        <span class="keywordflow">for</span> (u_integer i = 0; i &lt; size; i++) {</div>
+<div class="line">        <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> i = 0; i &lt; size; i++) {</div>
 <div class="line">            this-&gt;construct(&amp;arr[i]);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">return</span> arr;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    TYPE <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::getElem</a>(integer pos)<span class="keyword"> const</span></div>
+<div class="line">    TYPE <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::getElem</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> pos)<span class="keyword"> const</span></div>
 <div class="line"><span class="keyword">    </span>{</div>
 <div class="line">        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_copy_constructible_v&lt;TYPE&gt;) {</div>
 <div class="line">            <span class="keywordflow">return</span> this-&gt;body[pos];</div>
@@ -293,13 +293,13 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::setElem</a>(<span class="keyword">const</span> integer pos, <span class="keyword">const</span> TYPE&amp; e)</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::setElem</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> pos, <span class="keyword">const</span> TYPE&amp; e)</div>
 <div class="line">    {</div>
 <div class="line">        setBufElem(this-&gt;body, pos, e);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::setBufElem</a>(TYPE* buf, integer pos, <span class="keyword">const</span> TYPE&amp; e)</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::setBufElem</a>(TYPE* buf, <a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> pos, <span class="keyword">const</span> TYPE&amp; e)</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_copy_assignable_v&lt;TYPE&gt;) {</div>
 <div class="line">            buf[pos] = e;</div>
@@ -311,17 +311,17 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::moveElements</a>(TYPE* old_body, <span class="keyword">const</span> u_integer inner_idx,</div>
-<div class="line">                                              <span class="keyword">const</span> u_integer len, TYPE* new_body, <span class="keyword">const</span> integer offset) -&gt; <span class="keywordtype">void</span>{</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::moveElements</a>(TYPE* old_body, <span class="keyword">const</span> <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> inner_idx,</div>
+<div class="line">                                              <span class="keyword">const</span> <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> len, TYPE* new_body, <span class="keyword">const</span> <a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> offset) -&gt; <span class="keywordtype">void</span>{</div>
 <div class="line">        <span class="keywordflow">if</span> (offset &gt; 0)</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">for</span> (u_integer i = 0; i &lt; len; i += 1)</div>
+<div class="line">            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> i = 0; i &lt; len; i += 1)</div>
 <div class="line">            {</div>
 <div class="line">                setBufElem(new_body, inner_idx + offset + len - 1 - i, old_body[inner_idx + len - 1 - i]);</div>
 <div class="line">            }</div>
 <div class="line">        }<span class="keywordflow">else</span></div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">for</span> (u_integer i = 0; i &lt; len; i += 1)</div>
+<div class="line">            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> i = 0; i &lt; len; i += 1)</div>
 <div class="line">            {</div>
 <div class="line">                setBufElem(new_body, inner_idx + offset + i, old_body[inner_idx + i]);</div>
 <div class="line">            }</div>
@@ -329,19 +329,19 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::toInnerIdx</a>(integer index) <span class="keyword">const</span> -&gt; <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a></div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::toInnerIdx</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> index) <span class="keyword">const</span> -&gt; <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">return</span> this-&gt;inner_begin + index;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::outOfMaxSize</a>(u_integer increment) <span class="keyword">const</span> -&gt; <span class="keywordtype">bool</span></div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::outOfMaxSize</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> increment) <span class="keyword">const</span> -&gt; <span class="keywordtype">bool</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">return</span> this-&gt;inner_begin + this-&gt;size() + increment &gt; this-&gt;max_size - 1 || <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a><span class="keyword">&gt;</span>(this-&gt;inner_begin) - <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a><span class="keyword">&gt;</span>(increment) &lt; 0;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::grow</a>(<span class="keyword">const</span> u_integer new_size) -&gt; <span class="keywordtype">void</span></div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::grow</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> new_size) -&gt; <span class="keywordtype">void</span></div>
 <div class="line">    {</div>
 <div class="line">        TYPE* new_body = vector::vectorArrayInit(new_size);</div>
 <div class="line">        <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> new_begin = (new_size - 1) / 4;</div>
@@ -355,7 +355,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::adjust</a>(u_integer increment) -&gt; <span class="keywordtype">void</span> {</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::adjust</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> increment) -&gt; <span class="keywordtype">void</span> {</div>
 <div class="line">        <span class="keywordflow">if</span> (!this-&gt;outOfMaxSize(increment)) {</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">        }</div>
@@ -372,7 +372,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::Iterator::Iterator</a>(TYPE* ptr, <span class="keyword">const</span> vector* container, integer pos)</div>
+<div class="line">    <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::Iterator::Iterator</a>(TYPE* ptr, <span class="keyword">const</span> vector* container, <a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> pos)</div>
 <div class="line">        : randomAccessIterator&lt;TYPE, ALLOC&gt;(ptr, container, pos) {}</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
@@ -410,13 +410,13 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector_1_1Iterator.html#a3ebda9c1b49776389811f534dc114753">original::vector&lt;TYPE, ALLOC&gt;::Iterator::className</a>() const -&gt; std::<span class="keywordtype">string</span> {</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector_1_1Iterator.html#a3ebda9c1b49776389811f534dc114753">original::vector&lt;TYPE, ALLOC&gt;::Iterator::className</a>() const -&gt; <a class="code hl_namespace" href="namespacestd.html">std</a>::<span class="keywordtype">string</span> {</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="stringliteral">&quot;vector::Iterator&quot;</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
 <div class="line">    <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vector</a>(ALLOC alloc)</div>
-<div class="line">        : baseList&lt;TYPE, ALLOC&gt;(std::move(alloc)), size_(), max_size(), inner_begin()</div>
+<div class="line">        : baseList&lt;TYPE, ALLOC&gt;(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(alloc)), size_(), max_size(), inner_begin()</div>
 <div class="line">    {</div>
 <div class="line">        this-&gt;vectorInit();</div>
 <div class="line">    }</div>
@@ -424,7 +424,7 @@ $(function() {
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... ARGS&gt;</div>
 <div class="line"><a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vector</a>(u_integer size, ALLOC alloc, ARGS&amp;&amp;... args)</div>
-<div class="line">    : vector(size, std::move(alloc)) {</div>
+<div class="line">    : vector(size, <a class="code hl_namespace" href="namespacestd.html">std</a>::move(alloc)) {</div>
 <div class="line">    this-&gt;body = this-&gt;allocate(this-&gt;max_size);</div>
 <div class="line">    <span class="keywordflow">for</span> (u_integer i = 0; i &lt; this-&gt;size_; ++i) {</div>
 <div class="line">        this-&gt;construct(&amp;this-&gt;body[this-&gt;toInnerIdx(i)], std::forward&lt;ARGS&gt;(args)...);</div>
@@ -433,7 +433,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
 <div class="line">    <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;::vector</a>(<span class="keyword">const</span> u_integer size, ALLOC alloc)</div>
-<div class="line">    : baseList&lt;TYPE, ALLOC&gt;(std::move(alloc)), size_(size),</div>
+<div class="line">    : baseList&lt;TYPE, ALLOC&gt;(<a class="code hl_namespace" href="namespacestd.html">std</a>::move(alloc)), size_(size),</div>
 <div class="line">      max_size(size * 4 / 3), inner_begin(size / 3 &gt;= 1 ? size / 3 - 1 : 0), body(nullptr) {</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -529,36 +529,36 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#aa66e9ae1266ff33c584732d70ac85216">original::vector&lt;TYPE, ALLOC&gt;::get</a>(integer index) <span class="keyword">const</span> -&gt; TYPE</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#aa66e9ae1266ff33c584732d70ac85216">original::vector&lt;TYPE, ALLOC&gt;::get</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> index) <span class="keyword">const</span> -&gt; TYPE</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;indexOutOfBound(index))</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + std::to_string(this-&gt;parseNegIndex(index)) +</div>
-<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + std::to_string(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + <a id="a28" name="a28"></a><a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;parseNegIndex(index)) +</div>
+<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line">        }</div>
 <div class="line">        index = this-&gt;toInnerIdx(this-&gt;parseNegIndex(index));</div>
 <div class="line">        <span class="keywordflow">return</span> this-&gt;getElem(index);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#acb2c05f1c9deb9dfd1e0aba88f8c3189">original::vector&lt;TYPE, ALLOC&gt;::operator[]</a>(integer index) -&gt; TYPE&amp;</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#acb2c05f1c9deb9dfd1e0aba88f8c3189">original::vector&lt;TYPE, ALLOC&gt;::operator[]</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> index) -&gt; TYPE&amp;</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;indexOutOfBound(index))</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + std::to_string(this-&gt;parseNegIndex(index)) +</div>
-<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + std::to_string(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;parseNegIndex(index)) +</div>
+<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line">        }</div>
 <div class="line">        index = this-&gt;toInnerIdx(this-&gt;parseNegIndex(index));</div>
 <div class="line">        <span class="keywordflow">return</span> this-&gt;body[index];</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a id="a26" name="a26"></a><a class="code hl_function" href="classoriginal_1_1vector.html#ac0a269982d475faa2ad213f6a3848319">original::vector&lt;TYPE, ALLOC&gt;::set</a>(integer index, <span class="keyword">const</span> TYPE &amp;e) -&gt; <span class="keywordtype">void</span></div>
+<div class="line">    <span class="keyword">auto</span> <a id="a29" name="a29"></a><a class="code hl_function" href="classoriginal_1_1vector.html#ac0a269982d475faa2ad213f6a3848319">original::vector&lt;TYPE, ALLOC&gt;::set</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> index, <span class="keyword">const</span> TYPE &amp;e) -&gt; <span class="keywordtype">void</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;indexOutOfBound(index))</div>
 <div class="line">        {</div>
-<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + std::to_string(this-&gt;parseNegIndex(index)) +</div>
-<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + std::to_string(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;parseNegIndex(index)) +</div>
+<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line">        }</div>
 <div class="line">        index = this-&gt;toInnerIdx(this-&gt;parseNegIndex(index));</div>
 <div class="line">        this-&gt;setElem(index, e);</div>
@@ -568,9 +568,9 @@ $(function() {
 <div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#aa3d378954fc227ee411cc7ac40db3a5a">original::vector&lt;TYPE, ALLOC&gt;::indexOf</a>(<span class="keyword">const</span> TYPE &amp;e) <span class="keyword">const</span> -&gt; <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (Comparable&lt;TYPE&gt;) {</div>
-<div class="line">            <span class="keywordflow">for</span> (u_integer i = 0; i &lt; this-&gt;size(); i += 1)</div>
+<div class="line">            <span class="keywordflow">for</span> (<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> i = 0; i &lt; this-&gt;size(); i += 1)</div>
 <div class="line">            {</div>
-<div class="line">                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="couple_8h.html#aa80128e7b1e8116b414d264264c7848f">get</a>(i) == e)</div>
+<div class="line">                <span class="keywordflow">if</span> (this-&gt;<a class="code hl_function" href="namespacestd.html#aa80128e7b1e8116b414d264264c7848f">get</a>(i) == e)</div>
 <div class="line">                {</div>
 <div class="line">                    <span class="keywordflow">return</span> i;</div>
 <div class="line">                }</div>
@@ -591,7 +591,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#a25095f3ad72c2e5645e4760fc64856ae">original::vector&lt;TYPE, ALLOC&gt;::push</a>(integer index, <span class="keyword">const</span> TYPE &amp;e) -&gt; <span class="keywordtype">void</span></div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#a25095f3ad72c2e5645e4760fc64856ae">original::vector&lt;TYPE, ALLOC&gt;::push</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> index, <span class="keyword">const</span> TYPE &amp;e) -&gt; <span class="keywordtype">void</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;parseNegIndex(index) == this-&gt;size())</div>
 <div class="line">        {</div>
@@ -603,8 +603,8 @@ $(function() {
 <div class="line">        {</div>
 <div class="line">            <span class="keywordflow">if</span> (this-&gt;indexOutOfBound(index))</div>
 <div class="line">            {</div>
-<div class="line">                <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + std::to_string(this-&gt;parseNegIndex(index)) +</div>
-<div class="line">                                      <span class="stringliteral">&quot; out of bound max index &quot;</span> + std::to_string(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;parseNegIndex(index)) +</div>
+<div class="line">                                      <span class="stringliteral">&quot; out of bound max index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line">            }</div>
 <div class="line">            this-&gt;adjust(1);</div>
 <div class="line">            index = this-&gt;toInnerIdx(this-&gt;parseNegIndex(index));</div>
@@ -638,14 +638,14 @@ $(function() {
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;size() == 0){</div>
 <div class="line">            <span class="keywordflow">throw</span> noElementError();</div>
 <div class="line">        }</div>
-<div class="line">        TYPE res = this-&gt;<a class="code hl_function" href="couple_8h.html#aa80128e7b1e8116b414d264264c7848f">get</a>(0);</div>
+<div class="line">        TYPE res = this-&gt;<a class="code hl_function" href="namespacestd.html#aa80128e7b1e8116b414d264264c7848f">get</a>(0);</div>
 <div class="line">        this-&gt;inner_begin += 1;</div>
 <div class="line">        this-&gt;size_ -= 1;</div>
 <div class="line">        <span class="keywordflow">return</span> res;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#a99d56a5427cfcb67f53eb0d56f7f4c03">original::vector&lt;TYPE, ALLOC&gt;::pop</a>(integer index) -&gt; TYPE</div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#a99d56a5427cfcb67f53eb0d56f7f4c03">original::vector&lt;TYPE, ALLOC&gt;::pop</a>(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">integer</a> index) -&gt; TYPE</div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;parseNegIndex(index) == 0)</div>
 <div class="line">        {</div>
@@ -656,10 +656,10 @@ $(function() {
 <div class="line">            <span class="keywordflow">return</span> this-&gt;popEnd();</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;indexOutOfBound(index)){</div>
-<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + std::to_string(this-&gt;parseNegIndex(index)) +</div>
-<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + std::to_string(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">throw</span> outOfBoundError(<span class="stringliteral">&quot;Index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;parseNegIndex(index)) +</div>
+<div class="line">                                  <span class="stringliteral">&quot; out of bound max index &quot;</span> + <a class="code hl_function" href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a>(this-&gt;size() - 1) + <span class="stringliteral">&quot;.&quot;</span>);</div>
 <div class="line">        }</div>
-<div class="line">        TYPE res = this-&gt;<a class="code hl_function" href="couple_8h.html#aa80128e7b1e8116b414d264264c7848f">get</a>(index);</div>
+<div class="line">        TYPE res = this-&gt;<a class="code hl_function" href="namespacestd.html#aa80128e7b1e8116b414d264264c7848f">get</a>(index);</div>
 <div class="line">        index = this-&gt;toInnerIdx(this-&gt;parseNegIndex(index));</div>
 <div class="line">        <a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> rel_idx = index - this-&gt;inner_begin;</div>
 <div class="line">        <span class="keywordflow">if</span> (index - this-&gt;inner_begin &lt;= (this-&gt;size() - 1) / 2)</div>
@@ -682,7 +682,7 @@ $(function() {
 <div class="line">        <span class="keywordflow">if</span> (this-&gt;size() == 0){</div>
 <div class="line">            <span class="keywordflow">throw</span> noElementError();</div>
 <div class="line">        }</div>
-<div class="line">        TYPE res = this-&gt;<a class="code hl_function" href="couple_8h.html#aa80128e7b1e8116b414d264264c7848f">get</a>(this-&gt;size() - 1);</div>
+<div class="line">        TYPE res = this-&gt;<a class="code hl_function" href="namespacestd.html#aa80128e7b1e8116b414d264264c7848f">get</a>(this-&gt;size() - 1);</div>
 <div class="line">        this-&gt;size_ -= 1;</div>
 <div class="line">        <span class="keywordflow">return</span> res;</div>
 <div class="line">    }</div>
@@ -698,7 +698,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#a806ebf50c96a24a18a8bcaf4c9c142f9">original::vector&lt;TYPE, ALLOC&gt;::className</a>() const -&gt; std::<span class="keywordtype">string</span></div>
+<div class="line">    <span class="keyword">auto</span> <a class="code hl_function" href="classoriginal_1_1vector.html#a806ebf50c96a24a18a8bcaf4c9c142f9">original::vector&lt;TYPE, ALLOC&gt;::className</a>() const -&gt; <a class="code hl_namespace" href="namespacestd.html">std</a>::<span class="keywordtype">string</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="stringliteral">&quot;vector&quot;</span>;</div>
 <div class="line">    }</div>
@@ -714,30 +714,31 @@ $(function() {
 <div class="line">        <span class="keywordflow">if</span> (<span class="keyword">this</span> == &amp;other)</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line"> </div>
-<div class="line">        std::swap(this-&gt;size_, other.size_);</div>
-<div class="line">        std::swap(this-&gt;max_size, other.max_size);</div>
-<div class="line">        std::swap(this-&gt;inner_begin, other.inner_begin);</div>
-<div class="line">        std::swap(this-&gt;body, other.body);</div>
+<div class="line">        <a class="code hl_function" href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">std::swap</a>(this-&gt;size_, other.size_);</div>
+<div class="line">        <a class="code hl_function" href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">std::swap</a>(this-&gt;max_size, other.max_size);</div>
+<div class="line">        <a class="code hl_function" href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">std::swap</a>(this-&gt;inner_begin, other.inner_begin);</div>
+<div class="line">        <a class="code hl_function" href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">std::swap</a>(this-&gt;body, other.body);</div>
 <div class="line">        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (ALLOC::propagate_on_container_swap::value) {</div>
-<div class="line">            std::swap(this-&gt;allocator, other.allocator);</div>
+<div class="line">            <a class="code hl_function" href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">std::swap</a>(this-&gt;allocator, other.allocator);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... ARGS&gt;</div>
-<div class="line">    <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;T&gt;</a> original::makeVector(u_integer size, ARGS &amp;&amp;... args) {</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;T&gt;</a>(size, <a id="_a27" name="_a27"></a><a class="code hl_class" href="classoriginal_1_1allocator.html">original::allocator&lt;T&gt;</a>{}, std::forward&lt;ARGS&gt;(args)...);</div>
+<div class="line">    <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">original::vector&lt;T&gt;</a> original::makeVector(<a class="code hl_typedef" href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">u_integer</a> size, ARGS &amp;&amp;... args) {</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">original::vector&lt;T&gt;</a>(size, <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">original::allocator&lt;T&gt;</a>{}, std::forward&lt;ARGS&gt;(args)...);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TYPE, <span class="keyword">typename</span> ALLOC&gt;</div>
-<div class="line">    <span class="keywordtype">void</span> std::swap(<a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; lhs, <a class="code hl_class" href="classoriginal_1_1vector.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; rhs) <span class="keyword">noexcept</span> <span class="comment">// NOLINT</span></div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">std::swap</a>(<a class="code hl_class" href="classoriginal_1_1ownerPtr.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; lhs, <a class="code hl_class" href="classoriginal_1_1ownerPtr.html">original::vector&lt;TYPE, ALLOC&gt;</a>&amp; rhs) <span class="keyword">noexcept</span> <span class="comment">// NOLINT</span></div>
 <div class="line">    {</div>
-<div class="line">        lhs.swap(rhs);</div>
+<div class="line">        lhs.<a id="a30" name="a30"></a><a class="code hl_function" href="classoriginal_1_1autoPtr.html#ab57e2635661b24a1dae97887a3c4c11a">swap</a>(rhs);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">//VECTOR_H</span></div>
 <div class="ttc" id="aarray_8h_html"><div class="ttname"><a href="array_8h.html">array.h</a></div><div class="ttdoc">Provides the array class for a fixed-size container with random access.</div></div>
 <div class="ttc" id="abaseList_8h_html"><div class="ttname"><a href="baseList_8h.html">baseList.h</a></div><div class="ttdoc">Provides a base class for variable-size serial containers.</div></div>
-<div class="ttc" id="aclassoriginal_1_1allocator_html"><div class="ttname"><a href="classoriginal_1_1allocator.html">original::allocator</a></div><div class="ttdoc">Default memory allocator using allocators utilities.</div><div class="ttdef"><b>Definition</b> allocator.h:154</div></div>
+<div class="ttc" id="aclassoriginal_1_1autoPtr_html_ab57e2635661b24a1dae97887a3c4c11a"><div class="ttname"><a href="classoriginal_1_1autoPtr.html#ab57e2635661b24a1dae97887a3c4c11a">original::autoPtr::swap</a></div><div class="ttdeci">void swap(autoPtr &amp;other) noexcept</div><div class="ttdoc">Swaps the reference counters between two autoPtr instances.</div><div class="ttdef"><b>Definition</b> autoPtr.h:703</div></div>
+<div class="ttc" id="aclassoriginal_1_1ownerPtr_html"><div class="ttname"><a href="classoriginal_1_1ownerPtr.html">original::ownerPtr</a></div><div class="ttdoc">Unique ownership smart pointer with move semantics.</div><div class="ttdef"><b>Definition</b> ownerPtr.h:37</div></div>
 <div class="ttc" id="aclassoriginal_1_1vector_1_1Iterator_html_a0efdff463b1c005b645ffbd859586f89"><div class="ttname"><a href="classoriginal_1_1vector_1_1Iterator.html#a0efdff463b1c005b645ffbd859586f89">original::vector::Iterator::clone</a></div><div class="ttdeci">Iterator * clone() const override</div><div class="ttdoc">Clones the iterator.</div><div class="ttdef"><b>Definition</b> vector.h:609</div></div>
 <div class="ttc" id="aclassoriginal_1_1vector_1_1Iterator_html_a2a6b065e8940ec2e7162d05f9a751e99"><div class="ttname"><a href="classoriginal_1_1vector_1_1Iterator.html#a2a6b065e8940ec2e7162d05f9a751e99">original::vector::Iterator::operator=</a></div><div class="ttdeci">Iterator &amp; operator=(const Iterator &amp;other)</div><div class="ttdoc">Assignment operator for the iterator.</div><div class="ttdef"><b>Definition</b> vector.h:599</div></div>
 <div class="ttc" id="aclassoriginal_1_1vector_1_1Iterator_html_a3ebda9c1b49776389811f534dc114753"><div class="ttname"><a href="classoriginal_1_1vector_1_1Iterator.html#a3ebda9c1b49776389811f534dc114753">original::vector::Iterator::className</a></div><div class="ttdeci">std::string className() const override</div><div class="ttdoc">Gets the class name of the iterator.</div><div class="ttdef"><b>Definition</b> vector.h:626</div></div>
@@ -762,12 +763,15 @@ $(function() {
 <div class="ttc" id="aclassoriginal_1_1vector_html_ac263bbc5d1b41c898b247bd972dc2136"><div class="ttname"><a href="classoriginal_1_1vector.html#ac263bbc5d1b41c898b247bd972dc2136">original::vector::begins</a></div><div class="ttdeci">Iterator * begins() const override</div><div class="ttdoc">Gets an iterator to the beginning of the vector.</div><div class="ttdef"><b>Definition</b> vector.h:904</div></div>
 <div class="ttc" id="aclassoriginal_1_1vector_html_acb2c05f1c9deb9dfd1e0aba88f8c3189"><div class="ttname"><a href="classoriginal_1_1vector.html#acb2c05f1c9deb9dfd1e0aba88f8c3189">original::vector::operator[]</a></div><div class="ttdeci">TYPE &amp; operator[](integer index) override</div><div class="ttdoc">Gets a reference to the element at the specified index.</div><div class="ttdef"><b>Definition</b> vector.h:757</div></div>
 <div class="ttc" id="aclassoriginal_1_1vector_html_ad0d843ba5e17aa00cdb954548dc3ab72"><div class="ttname"><a href="classoriginal_1_1vector.html#ad0d843ba5e17aa00cdb954548dc3ab72">original::vector::popEnd</a></div><div class="ttdeci">TYPE popEnd() override</div><div class="ttdoc">Removes and returns the last element in the vector.</div><div class="ttdef"><b>Definition</b> vector.h:893</div></div>
-<div class="ttc" id="acouple_8h_html_aa80128e7b1e8116b414d264264c7848f"><div class="ttname"><a href="couple_8h.html#aa80128e7b1e8116b414d264264c7848f">std::get</a></div><div class="ttdeci">constexpr auto &amp; get(original::couple&lt; F, S &gt; &amp;c) noexcept</div><div class="ttdoc">Structured binding support - get for non-const lvalue reference.</div><div class="ttdef"><b>Definition</b> couple.h:390</div></div>
 <div class="ttc" id="agroup__TypeDefinitions_html_ga00034df66aefa8043fc1bf5f02ec9392"><div class="ttname"><a href="group__TypeDefinitions.html#ga00034df66aefa8043fc1bf5f02ec9392">original::u_integer</a></div><div class="ttdeci">std::uint32_t u_integer</div><div class="ttdoc">32-bit unsigned integer type for sizes and indexes</div><div class="ttdef"><b>Definition</b> config.h:263</div></div>
 <div class="ttc" id="agroup__TypeDefinitions_html_ga7016f36aa0d4425ae6207f689a421784"><div class="ttname"><a href="group__TypeDefinitions.html#ga7016f36aa0d4425ae6207f689a421784">original::integer</a></div><div class="ttdeci">std::int64_t integer</div><div class="ttdoc">64-bit signed integer type for arithmetic operations</div><div class="ttdef"><b>Definition</b> config.h:254</div></div>
-<div class="ttc" id="aiterationStream_8h_html"><div class="ttname"><a href="iterationStream_8h.html">iterationStream.h</a></div><div class="ttdoc">Provides functionality for an iteration stream.</div></div>
+<div class="ttc" id="aiterationStream_8h_html"><div class="ttname"><a href="iterationStream_8h.html">iterationStream.h</a></div><div class="ttdoc">Provides functionality for an iteration stream with comparison, hashing and printing.</div></div>
 <div class="ttc" id="anamespaceoriginal_html"><div class="ttname"><a href="namespaceoriginal.html">original</a></div><div class="ttdoc">Main namespace for the project Original.</div><div class="ttdef"><b>Definition</b> algorithms.h:21</div></div>
 <div class="ttc" id="anamespaceoriginal_html_aeec02bedf05dad00be37632abf5d63f3"><div class="ttname"><a href="namespaceoriginal.html#aeec02bedf05dad00be37632abf5d63f3">original::list</a></div><div class="ttdeci">SERIAL&lt; TYPE &gt; list(coroutine::generator&lt; TYPE &gt; gen)</div><div class="ttdoc">Collects generator elements into a list container.</div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">Standard namespace extensions for original::alternative.</div><div class="ttdef"><b>Definition</b> allocator.h:351</div></div>
+<div class="ttc" id="anamespacestd_html_a391a6e156f7ea8f190172447d612ab61"><div class="ttname"><a href="namespacestd.html#a391a6e156f7ea8f190172447d612ab61">std::to_string</a></div><div class="ttdeci">std::string to_string(const T &amp;t)</div><div class="ttdoc">std::to_string overload for printable-derived types</div><div class="ttdef"><b>Definition</b> printable.h:415</div></div>
+<div class="ttc" id="anamespacestd_html_a866ac38af9827bdc8fe4b2bfa00a16c3"><div class="ttname"><a href="namespacestd.html#a866ac38af9827bdc8fe4b2bfa00a16c3">std::swap</a></div><div class="ttdeci">void swap(original::objPoolAllocator&lt; TYPE &gt; &amp;lhs, original::objPoolAllocator&lt; TYPE &gt; &amp;rhs) noexcept</div><div class="ttdoc">Specialization of std::swap for objPoolAllocator.</div><div class="ttdef"><b>Definition</b> allocator.h:635</div></div>
+<div class="ttc" id="anamespacestd_html_aa80128e7b1e8116b414d264264c7848f"><div class="ttname"><a href="namespacestd.html#aa80128e7b1e8116b414d264264c7848f">std::get</a></div><div class="ttdeci">constexpr auto &amp; get(original::couple&lt; F, S &gt; &amp;c) noexcept</div><div class="ttdoc">Structured binding support - get for non-const lvalue reference.</div><div class="ttdef"><b>Definition</b> couple.h:426</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

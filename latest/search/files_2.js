@@ -9,5 +9,6 @@ var searchData=
   ['container_2eh_6',['container.h',['../container_8h.html',1,'']]],
   ['containeradapter_2eh_7',['containerAdapter.h',['../containerAdapter_8h.html',1,'']]],
   ['core_2eh_8',['core.h',['../core_8h.html',1,'']]],
-  ['couple_2eh_9',['couple.h',['../couple_8h.html',1,'']]]
+  ['coroutines_2eh_9',['coroutines.h',['../coroutines_8h.html',1,'']]],
+  ['couple_2eh_10',['couple.h',['../couple_8h.html',1,'']]]
 ];
