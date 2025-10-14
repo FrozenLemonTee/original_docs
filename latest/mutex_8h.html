@@ -82,63 +82,81 @@ $(function() {
 
 <p>Cross-platform mutex and lock management utilities.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;pthread.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="config_8h_source.html">config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="error_8h_source.html">error.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tuple_8h_source.html">tuple.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="zeit_8h_source.html">zeit.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for mutex.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="mutex_8h__incl.png" border="0" usemap="#asrc_2vibrant_2mutex_8h" alt=""/></div>
 <map name="asrc_2vibrant_2mutex_8h" id="asrc_2vibrant_2mutex_8h">
-<area shape="rect" title="Cross&#45;platform mutex and lock management utilities." alt="" coords="145,5,295,31"/>
-<area shape="rect" title=" " alt="" coords="38,79,122,104"/>
-<area shape="poly" title=" " alt="" coords="199,33,116,75,114,70,196,28"/>
-<area shape="rect" href="error_8h.html" title="Custom exception classes and callback validation utilities." alt="" coords="277,225,341,251"/>
-<area shape="poly" title=" " alt="" coords="223,30,233,95,244,136,261,176,290,214,285,217,256,179,239,138,227,96,218,31"/>
-<area shape="rect" href="tuple_8h.html" title="Heterogeneous tuple container implementation." alt="" coords="247,79,313,104"/>
-<area shape="poly" title=" " alt="" coords="232,29,264,66,259,70,228,33"/>
-<area shape="rect" title=" " alt="" coords="337,79,417,104"/>
-<area shape="poly" title=" " alt="" coords="246,28,340,71,338,75,244,33"/>
-<area shape="rect" title=" " alt="" coords="203,299,290,324"/>
-<area shape="poly" title=" " alt="" coords="301,253,268,290,264,286,297,249"/>
-<area shape="rect" href="printable_8h.html" title="Interface for polymorphic string formatting and output." alt="" coords="87,299,179,324"/>
-<area shape="poly" title=" " alt="" coords="282,253,176,296,174,291,280,248"/>
-<area shape="rect" href="types_8h.html" title="Core type system foundations and concept definitions." alt="" coords="369,372,439,397"/>
-<area shape="poly" title=" " alt="" coords="318,250,362,323,389,359,384,363,358,325,314,252"/>
-<area shape="rect" title=" " alt="" coords="195,372,272,397"/>
-<area shape="poly" title=" " alt="" coords="151,322,207,362,204,366,148,326"/>
-<area shape="rect" title=" " alt="" coords="5,372,72,397"/>
-<area shape="poly" title=" " alt="" coords="120,326,67,366,64,361,117,322"/>
-<area shape="poly" title=" " alt="" coords="177,321,356,368,354,373,176,327"/>
-<area shape="rect" title=" " alt="" coords="96,372,171,397"/>
-<area shape="poly" title=" " alt="" coords="136,324,136,358,131,358,131,324"/>
-<area shape="rect" title=" " alt="" coords="267,445,359,471"/>
-<area shape="poly" title=" " alt="" coords="391,399,341,439,337,434,388,395"/>
-<area shape="rect" title=" " alt="" coords="384,445,464,471"/>
-<area shape="poly" title=" " alt="" coords="410,397,420,431,415,433,405,398"/>
-<area shape="rect" title=" " alt="" coords="488,445,552,471"/>
-<area shape="poly" title=" " alt="" coords="424,395,491,436,488,440,421,400"/>
-<area shape="rect" title=" " alt="" coords="157,445,243,471"/>
-<area shape="poly" title=" " alt="" coords="372,400,247,443,245,438,370,395"/>
-<area shape="rect" href="config_8h.html" title="Platform&#45;independent type definitions and compiler/platform detection." alt="" coords="587,445,661,471"/>
-<area shape="poly" title=" " alt="" coords="440,395,576,439,575,444,439,400"/>
-<area shape="rect" title=" " alt="" coords="591,519,657,544"/>
-<area shape="poly" title=" " alt="" coords="627,471,627,505,621,505,621,471"/>
-<area shape="poly" title=" " alt="" coords="274,106,151,288,147,285,270,103"/>
-<area shape="poly" title=" " alt="" coords="304,102,334,122,362,150,377,176,389,204,403,262,408,316,408,358,403,358,403,316,398,262,384,206,372,178,358,154,331,126,301,106"/>
-<area shape="rect" href="comparable_8h.html" title="Interface for objects that can be compared." alt="" coords="467,225,578,251"/>
-<area shape="poly" title=" " alt="" coords="314,100,389,124,449,150,484,180,510,212,506,216,480,184,447,154,387,129,313,105"/>
-<area shape="rect" href="couple_8h.html" title="Generic pair container implementation." alt="" coords="271,152,348,177"/>
-<area shape="poly" title=" " alt="" coords="287,103,302,138,297,140,282,105"/>
-<area shape="poly" title=" " alt="" coords="537,249,561,284,567,305,561,325,539,348,512,364,482,375,454,381,453,376,481,370,509,360,536,344,556,323,561,305,556,286,532,253"/>
-<area shape="poly" title=" " alt="" coords="539,249,562,270,582,297,599,332,611,369,624,431,618,432,605,370,594,334,578,300,558,274,536,253"/>
-<area shape="rect" title=" " alt="" coords="467,299,546,324"/>
-<area shape="poly" title=" " alt="" coords="523,252,515,286,510,285,517,250"/>
-<area shape="poly" title=" " alt="" coords="312,178,312,212,307,212,307,178"/>
-<area shape="poly" title=" " alt="" coords="297,180,210,253,161,292,157,288,206,249,294,176"/>
-<area shape="poly" title=" " alt="" coords="322,176,339,197,356,224,384,296,401,358,396,359,379,297,351,227,335,200,318,179"/>
-<area shape="poly" title=" " alt="" coords="344,175,476,218,474,223,343,180"/>
+<area shape="rect" title="Cross&#45;platform mutex and lock management utilities." alt="" coords="547,5,697,31"/>
+<area shape="rect" href="config_8h.html" title="Platform&#45;independent type definitions and compiler/platform detection." alt="" coords="595,445,668,471"/>
+<area shape="poly" title=" " alt="" coords="697,22,767,35,803,46,837,60,867,78,891,101,907,130,913,163,913,313,906,348,888,378,861,402,827,420,790,434,752,444,682,456,682,450,751,439,789,429,825,415,858,397,884,374,901,347,907,312,907,164,902,131,887,105,863,83,834,65,801,51,766,40,696,28"/>
+<area shape="rect" href="error_8h.html" title="Custom exception classes and callback validation utilities." alt="" coords="470,225,534,251"/>
+<area shape="poly" title=" " alt="" coords="618,32,517,214,513,212,613,30"/>
+<area shape="rect" href="tuple_8h.html" title="Heterogeneous tuple container implementation." alt="" coords="323,79,390,104"/>
+<area shape="poly" title=" " alt="" coords="580,33,404,80,403,75,579,28"/>
+<area shape="rect" href="zeit_8h.html" title="Time and date handling utilities." alt="" coords="593,152,651,177"/>
+<area shape="poly" title=" " alt="" coords="625,31,625,138,619,138,619,31"/>
+<area shape="rect" title=" " alt="" coords="947,79,1027,104"/>
+<area shape="poly" title=" " alt="" coords="681,28,934,77,933,82,680,33"/>
+<area shape="rect" title=" " alt="" coords="598,519,665,544"/>
+<area shape="poly" title=" " alt="" coords="634,471,634,505,629,505,629,471"/>
+<area shape="rect" title=" " alt="" coords="507,299,593,324"/>
+<area shape="poly" title=" " alt="" coords="512,250,537,286,532,289,508,253"/>
+<area shape="rect" href="printable_8h.html" title="Interface for polymorphic string formatting and output." alt="" coords="391,299,483,324"/>
+<area shape="poly" title=" " alt="" coords="493,253,458,290,455,287,489,249"/>
+<area shape="rect" href="types_8h.html" title="Core type system foundations and concept definitions." alt="" coords="181,372,252,397"/>
+<area shape="poly" title=" " alt="" coords="478,253,379,301,251,368,249,363,377,296,476,248"/>
+<area shape="rect" title=" " alt="" coords="517,372,594,397"/>
+<area shape="poly" title=" " alt="" coords="457,322,525,362,523,367,454,326"/>
+<area shape="rect" title=" " alt="" coords="327,372,394,397"/>
+<area shape="poly" title=" " alt="" coords="426,326,385,364,381,361,423,322"/>
+<area shape="poly" title=" " alt="" coords="402,327,266,370,264,365,401,321"/>
+<area shape="rect" title=" " alt="" coords="418,372,493,397"/>
+<area shape="poly" title=" " alt="" coords="442,324,451,358,446,360,437,325"/>
+<area shape="poly" title=" " alt="" coords="253,391,272,395,581,446,580,452,271,400,252,396"/>
+<area shape="rect" title=" " alt="" coords="116,445,208,471"/>
+<area shape="poly" title=" " alt="" coords="210,399,181,436,177,433,206,396"/>
+<area shape="rect" title=" " alt="" coords="233,445,313,471"/>
+<area shape="poly" title=" " alt="" coords="228,396,257,433,253,436,224,399"/>
+<area shape="rect" title=" " alt="" coords="337,445,401,471"/>
+<area shape="poly" title=" " alt="" coords="242,395,333,437,331,442,240,400"/>
+<area shape="rect" title=" " alt="" coords="5,445,92,471"/>
+<area shape="poly" title=" " alt="" coords="191,400,90,442,88,437,189,395"/>
+<area shape="poly" title=" " alt="" coords="372,102,392,123,410,151,423,186,431,222,439,285,433,285,426,223,418,187,405,153,387,127,368,106"/>
+<area shape="poly" title=" " alt="" coords="336,106,263,153,222,187,185,227,167,252,155,274,151,296,158,323,171,344,189,361,185,365,167,347,153,325,146,296,150,272,163,249,181,224,218,183,260,149,333,102"/>
+<area shape="rect" href="comparable_8h.html" title="Interface for objects that can be compared." alt="" coords="229,225,340,251"/>
+<area shape="poly" title=" " alt="" coords="346,106,326,127,308,153,297,183,290,212,285,211,292,182,304,151,322,124,342,102"/>
+<area shape="rect" href="couple_8h.html" title="Generic pair container implementation." alt="" coords="318,152,395,177"/>
+<area shape="poly" title=" " alt="" coords="359,104,359,138,354,138,354,104"/>
+<area shape="poly" title=" " alt="" coords="286,251,284,280,285,319,295,361,304,379,317,395,335,408,362,418,432,435,511,445,581,451,581,457,511,451,432,440,360,423,333,412,314,399,300,382,290,362,280,320,278,280,280,251"/>
+<area shape="poly" title=" " alt="" coords="241,253,204,271,188,284,175,300,171,315,174,331,195,360,191,363,169,333,166,315,170,297,184,280,201,267,239,248"/>
+<area shape="rect" title=" " alt="" coords="185,299,264,324"/>
+<area shape="poly" title=" " alt="" coords="277,253,245,290,241,286,273,249"/>
+<area shape="poly" title=" " alt="" coords="381,175,467,217,465,222,379,180"/>
+<area shape="poly" title=" " alt="" coords="366,176,426,285,421,288,361,179"/>
+<area shape="poly" title=" " alt="" coords="318,179,268,198,218,227,185,259,175,276,166,299,163,311,166,323,177,343,193,361,189,364,173,346,161,325,158,311,161,298,170,273,181,255,215,223,266,193,316,174"/>
+<area shape="poly" title=" " alt="" coords="347,180,308,218,304,214,343,176"/>
+<area shape="poly" title=" " alt="" coords="625,177,633,431,628,432,620,177"/>
+<area shape="poly" title=" " alt="" coords="604,180,535,220,532,216,601,175"/>
+<area shape="poly" title=" " alt="" coords="616,179,588,214,548,253,512,277,477,295,474,291,510,272,544,249,584,210,612,176"/>
+<area shape="poly" title=" " alt="" coords="593,175,353,225,352,220,592,170"/>
+<area shape="rect" title=" " alt="" coords="660,225,723,251"/>
+<area shape="poly" title=" " alt="" coords="635,176,673,214,669,217,632,180"/>
+<area shape="rect" href="hash_8h.html" title="Provides a generic hashing utility and interface for hashable types." alt="" coords="728,299,793,324"/>
+<area shape="poly" title=" " alt="" coords="653,172,696,191,718,205,737,224,753,254,761,284,756,285,748,255,733,227,715,210,694,196,651,177"/>
+<area shape="rect" title=" " alt="" coords="798,225,873,251"/>
+<area shape="poly" title=" " alt="" coords="653,173,789,218,787,224,651,178"/>
+<area shape="poly" title=" " alt="" coords="784,322,806,336,826,355,837,376,837,388,832,399,818,415,801,428,762,446,721,456,682,460,682,455,720,451,760,441,798,423,814,411,828,396,832,387,832,377,822,358,802,341,781,326"/>
+<area shape="poly" title=" " alt="" coords="728,320,266,380,265,374,728,314"/>
+<area shape="rect" title=" " alt="" coords="751,372,818,397"/>
+<area shape="poly" title=" " alt="" coords="767,323,779,358,774,360,762,325"/>
+<area shape="rect" title=" " alt="" coords="669,372,727,397"/>
+<area shape="poly" title=" " alt="" coords="752,326,719,363,715,360,748,323"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -146,111 +164,107 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="mutex_8h__dep__incl.png" border="0" usemap="#asrc_2vibrant_2mutex_8hdep" alt=""/></div>
 <map name="asrc_2vibrant_2mutex_8hdep" id="asrc_2vibrant_2mutex_8hdep">
-<area shape="rect" title="Cross&#45;platform mutex and lock management utilities." alt="" coords="2308,5,2457,31"/>
-<area shape="rect" href="atomic_8h_source.html" title=" " alt="" coords="2072,79,2224,104"/>
-<area shape="poly" title=" " alt="" coords="2333,37,2187,81,2185,76,2331,32"/>
-<area shape="rect" href="vibrant_8h_source.html" title=" " alt="" coords="2093,841,2246,867"/>
-<area shape="poly" title=" " alt="" coords="2353,40,2324,62,2295,90,2273,125,2266,144,2264,163,2264,709,2262,730,2255,751,2234,789,2208,821,2185,843,2181,839,2204,817,2230,786,2250,749,2256,729,2259,709,2259,163,2261,142,2268,122,2291,87,2320,58,2350,36"/>
-<area shape="rect" href="condition_8h.html" title="Condition variable implementation for thread synchronization." alt="" coords="2299,541,2466,566"/>
-<area shape="poly" title=" " alt="" coords="2385,44,2385,163,2385,393,2385,540,2380,540,2380,393,2380,163,2380,44"/>
-<area shape="rect" href="semaphores_8h.html" title="Semaphore synchronization primitives and guards." alt="" coords="2349,621,2536,647"/>
-<area shape="poly" title=" " alt="" coords="2416,36,2445,58,2475,87,2497,122,2504,142,2507,163,2507,474,2505,503,2501,526,2481,574,2454,622,2449,620,2476,572,2495,524,2500,502,2501,474,2501,163,2499,144,2493,125,2470,90,2442,62,2413,40"/>
-<area shape="rect" href="syncPoint_8h_source.html" title=" " alt="" coords="2560,621,2731,647"/>
-<area shape="poly" title=" " alt="" coords="2452,32,2502,50,2551,76,2572,94,2588,114,2599,137,2603,163,2603,474,2607,517,2618,558,2642,620,2637,622,2613,560,2602,518,2597,474,2597,164,2594,139,2583,117,2568,97,2548,81,2500,54,2450,37"/>
-<area shape="rect" href="autoPtr_8h.html" title="Base class for reference&#45;counted smart pointers." alt="" coords="1525,152,1659,177"/>
-<area shape="poly" title=" " alt="" coords="2059,107,1660,157,1659,152,2058,101"/>
-<area shape="poly" title=" " alt="" coords="2167,114,2197,168,2209,201,2213,236,2213,709,2209,748,2200,786,2178,842,2173,840,2195,784,2204,747,2208,709,2208,237,2204,203,2192,170,2162,117"/>
-<area shape="rect" href="tasks_8h.html" title="Thread pool and task management utilities." alt="" coords="1837,768,1979,793"/>
-<area shape="poly" title=" " alt="" coords="2083,110,2034,128,1987,155,1968,171,1952,190,1942,212,1939,237,1939,474,1935,563,1928,649,1912,768,1907,767,1923,649,1930,563,1933,474,1933,236,1937,211,1948,188,1964,167,1984,150,2032,123,2081,105"/>
-<area shape="rect" href="async_8h_source.html" title=" " alt="" coords="2027,621,2173,647"/>
-<area shape="poly" title=" " alt="" coords="2154,117,2160,172,2163,237,2163,474,2161,503,2156,526,2137,574,2111,622,2106,620,2132,572,2151,524,2156,502,2157,474,2157,237,2154,172,2149,118"/>
-<area shape="rect" href="core_8h.html" title="Core module header file." alt="" coords="740,768,857,793"/>
-<area shape="poly" title=" " alt="" coords="1583,191,1564,245,1556,277,1553,310,1553,555,1551,605,1543,626,1527,648,1493,682,1459,700,1374,723,1303,740,1231,754,1086,772,957,780,857,783,857,777,957,775,1086,767,1230,749,1302,735,1373,717,1457,695,1490,677,1523,645,1538,623,1546,604,1548,555,1548,310,1551,276,1559,243,1578,189"/>
-<area shape="rect" href="ownerPtr_8h.html" title="Exclusive&#45;ownership smart pointer implementation." alt="" coords="1005,225,1152,251"/>
-<area shape="poly" title=" " alt="" coords="1511,180,1153,229,1152,224,1511,175"/>
-<area shape="rect" href="refCntPtr_8h.html" title="Reference&#45;counted smart pointer hierarchy." alt="" coords="1588,541,1735,566"/>
-<area shape="poly" title=" " alt="" coords="1606,189,1625,244,1632,276,1635,310,1635,393,1638,436,1645,478,1660,540,1655,541,1639,479,1632,437,1629,393,1629,310,1626,277,1619,245,1600,191"/>
-<area shape="rect" href="original_8h.html" title="Main header file for Original." alt="" coords="1688,915,1795,940"/>
-<area shape="poly" title=" " alt="" coords="872,790,1688,915,1687,920,871,796"/>
-<area shape="poly" title=" " alt="" coords="992,245,730,259,568,270,403,286,250,305,124,330,75,343,39,359,16,374,8,391,8,635,10,656,17,671,28,682,42,691,79,704,122,717,175,732,246,744,419,761,599,771,740,776,740,781,598,776,419,766,245,749,174,737,121,723,77,709,40,696,25,686,13,674,5,657,3,635,3,390,12,371,36,354,74,338,123,324,250,300,402,281,567,265,730,253,992,240"/>
-<area shape="rect" href="maps_8h.html" title="Implementation of map containers with different underlying data structures." alt="" coords="1015,695,1140,720"/>
-<area shape="poly" title=" " alt="" coords="1081,264,1081,391,1081,555,1080,695,1075,695,1076,555,1076,391,1076,264"/>
-<area shape="rect" href="sets_8h.html" title="Implementation of set containers with different underlying data structures." alt="" coords="1209,695,1325,720"/>
-<area shape="poly" title=" " alt="" coords="1149,252,1203,270,1255,298,1277,317,1295,338,1306,363,1311,390,1311,555,1307,596,1297,636,1275,695,1270,694,1292,635,1301,595,1305,555,1305,391,1301,364,1290,341,1273,320,1252,303,1201,275,1148,257"/>
-<area shape="rect" href="singleton_8h.html" title="Thread&#45;safe singleton pattern implementation with ownership management." alt="" coords="43,379,192,405"/>
-<area shape="poly" title=" " alt="" coords="992,248,780,268,528,301,322,343,161,382,160,377,321,338,528,296,780,263,992,243"/>
-<area shape="rect" href="stepIterator_8h.html" title="Step iterator base class for single&#45;step iterators." alt="" coords="539,299,703,324"/>
-<area shape="poly" title=" " alt="" coords="992,255,695,301,695,296,991,250"/>
-<area shape="rect" href="thread_8h.html" title="Thread management utilities." alt="" coords="1973,541,2123,566"/>
-<area shape="poly" title=" " alt="" coords="1148,251,1327,296,1537,363,1740,433,2020,538,2018,543,1738,438,1536,368,1326,301,1146,256"/>
-<area shape="poly" title=" " alt="" coords="1020,726,844,770,843,765,1019,721"/>
-<area shape="rect" href="generators_8h_source.html" title=" " alt="" coords="1397,768,1574,793"/>
-<area shape="poly" title=" " alt="" coords="1316,722,1451,765,1449,770,1314,727"/>
-<area shape="poly" title=" " alt="" coords="1588,790,2093,842,2092,847,1587,795"/>
-<area shape="poly" title=" " alt="" coords="2088,872,1795,920,1795,915,2087,866"/>
-<area shape="poly" title=" " alt="" coords="120,419,120,552,120,635,120,662,124,683,133,701,151,718,183,730,240,741,406,757,591,769,740,775,740,780,590,774,405,763,240,746,181,735,148,722,129,704,119,684,115,662,115,635,115,552,115,419"/>
-<area shape="poly" title=" " alt="" coords="526,324,414,344,355,362,298,385,248,415,207,452,192,474,180,498,173,524,171,552,171,635,173,663,182,684,197,701,220,718,261,736,318,750,387,760,463,768,616,776,740,777,740,783,616,781,462,773,387,766,317,755,259,741,217,722,193,705,177,687,168,664,165,635,165,552,168,523,175,496,187,471,203,449,245,411,296,380,353,357,413,339,525,318"/>
-<area shape="rect" href="doubleDirectionIterator_8h.html" title="Double&#45;direction iterator base class." alt="" coords="435,372,615,412"/>
-<area shape="poly" title=" " alt="" coords="598,335,550,374,547,370,595,331"/>
-<area shape="rect" href="singleDirectionIterator_8h.html" title="Single&#45;direction iterator base class." alt="" coords="662,533,837,573"/>
-<area shape="poly" title=" " alt="" coords="636,335,742,532,737,534,632,338"/>
-<area shape="poly" title=" " alt="" coords="422,407,353,423,319,436,288,451,261,470,240,493,226,520,221,552,221,635,223,683,231,700,247,718,273,728,320,738,456,755,740,774,740,779,456,760,319,744,271,734,244,722,226,703,218,684,216,635,216,552,221,519,236,490,258,466,285,447,317,431,352,418,421,402"/>
-<area shape="rect" href="chain_8h.html" title="Non&#45;cyclic doubly linked list implementation." alt="" coords="463,460,587,485"/>
-<area shape="poly" title=" " alt="" coords="528,426,528,460,523,460,523,426"/>
-<area shape="poly" title=" " alt="" coords="527,499,530,548,541,609,551,640,565,669,583,696,606,718,637,737,672,752,740,770,739,775,670,757,635,742,602,722,579,699,560,672,546,641,536,610,525,549,522,500"/>
-<area shape="rect" href="deque_8h.html" title="Double&#45;ended queue (deque) container adapter implementation." alt="" coords="257,695,386,720"/>
-<area shape="poly" title=" " alt="" coords="502,496,459,535,383,626,331,696,327,693,379,623,455,531,498,492"/>
-<area shape="rect" href="filterStream_8h.html" title="Composite filter operations with logical chaining." alt="" coords="1346,621,1513,647"/>
-<area shape="poly" title=" " alt="" coords="601,478,785,499,1003,531,1220,577,1388,619,1387,624,1219,582,1002,536,784,504,601,484"/>
-<area shape="rect" href="queue_8h.html" title="Queue container adapter implementation." alt="" coords="861,541,990,566"/>
-<area shape="poly" title=" " alt="" coords="602,484,850,531,881,538,880,543,849,536,601,489"/>
-<area shape="rect" href="stack_8h.html" title="Stack container adapter implementation." alt="" coords="410,695,534,720"/>
-<area shape="poly" title=" " alt="" coords="503,496,487,514,476,534,465,579,464,625,472,694,467,695,458,625,460,578,471,532,483,511,499,493"/>
-<area shape="rect" href="transformStream_8h.html" title="Transform pipeline composition and execution." alt="" coords="580,621,780,647"/>
-<area shape="poly" title=" " alt="" coords="548,493,670,619,667,623,544,497"/>
-<area shape="poly" title=" " alt="" coords="400,718,740,768,740,773,399,723"/>
-<area shape="poly" title=" " alt="" coords="1414,660,1382,693,1361,709,1338,722,1298,736,1244,747,1111,764,972,775,858,780,857,775,972,769,1111,759,1243,742,1297,731,1336,718,1358,705,1378,689,1410,656"/>
-<area shape="poly" title=" " alt="" coords="868,572,850,576,785,582,701,587,621,598,591,608,570,623,566,634,570,645,586,669,606,690,654,725,705,749,752,765,750,770,703,754,651,729,603,694,582,673,566,648,561,633,566,620,588,604,620,593,700,581,785,577,849,571,867,567"/>
-<area shape="rect" href="RBTree_8h.html" title="Red&#45;Black Tree implementation header." alt="" coords="906,621,1041,647"/>
-<area shape="poly" title=" " alt="" coords="942,576,968,620,964,623,937,579"/>
-<area shape="poly" title=" " alt="" coords="1004,554,1206,560,1458,573,1685,592,1765,604,1812,619,1832,634,1850,653,1878,695,1897,736,1907,767,1902,769,1892,738,1874,698,1846,656,1829,638,1809,624,1764,609,1684,597,1458,578,1206,566,1004,559"/>
-<area shape="poly" title=" " alt="" coords="972,661,963,692,945,722,925,739,902,752,855,770,854,765,900,748,922,734,941,718,958,690,967,659"/>
-<area shape="poly" title=" " alt="" coords="1003,652,1062,692,1059,697,1000,657"/>
-<area shape="poly" title=" " alt="" coords="1034,647,1220,692,1219,697,1033,652"/>
-<area shape="poly" title=" " alt="" coords="1964,794,2128,839,2126,844,1962,799"/>
-<area shape="poly" title=" " alt="" coords="538,720,746,765,745,770,537,726"/>
-<area shape="poly" title=" " alt="" coords="683,660,688,690,701,719,715,734,732,747,767,766,765,770,729,751,711,738,696,721,683,691,678,661"/>
-<area shape="poly" title=" " alt="" coords="794,579,823,600,853,627,880,658,901,694,904,707,902,720,886,741,861,758,834,770,832,765,859,753,883,737,897,718,899,707,896,696,876,661,849,630,820,604,791,583"/>
-<area shape="rect" href="forwardChain_8h.html" title="Non&#45;cyclic singly linked list implementation." alt="" coords="711,695,887,720"/>
-<area shape="poly" title=" " alt="" coords="775,584,795,620,802,661,802,694,797,694,797,661,789,622,771,586"/>
-<area shape="rect" href="hashTable_8h.html" title="Implementation of hashTable container." alt="" coords="1116,621,1271,647"/>
-<area shape="poly" title=" " alt="" coords="851,571,1126,619,1125,624,850,576"/>
-<area shape="poly" title=" " alt="" coords="801,734,801,768,796,768,796,734"/>
-<area shape="poly" title=" " alt="" coords="1165,656,1098,697,1095,692,1162,651"/>
-<area shape="poly" title=" " alt="" coords="1217,654,1257,693,1253,696,1213,658"/>
-<area shape="poly" title=" " alt="" coords="2034,579,2019,611,2016,629,2019,646,2031,678,2048,708,2087,764,2127,809,2158,839,2155,843,2123,813,2083,767,2043,711,2027,680,2013,647,2011,629,2014,610,2029,577"/>
-<area shape="poly" title=" " alt="" coords="2066,576,2095,620,2090,623,2061,579"/>
-<area shape="poly" title=" " alt="" coords="2110,659,2168,840,2163,842,2105,661"/>
-<area shape="poly" title=" " alt="" coords="2075,657,1925,770,1922,766,2072,653"/>
-<area shape="poly" title=" " alt="" coords="1651,579,1603,660,1575,698,1549,722,1509,735,1439,745,1243,762,1027,774,858,780,857,775,1027,768,1243,757,1438,740,1508,729,1547,718,1571,695,1598,657,1647,576"/>
-<area shape="poly" title=" " alt="" coords="1615,573,1464,624,1462,619,1614,568"/>
-<area shape="poly" title=" " alt="" coords="1749,565,1806,585,1833,600,1857,620,1883,657,1898,699,1907,738,1910,767,1905,768,1902,739,1893,700,1878,659,1853,623,1830,604,1804,589,1747,570"/>
-<area shape="poly" title=" " alt="" coords="1574,564,780,627,780,622,1574,559"/>
-<area shape="poly" title=" " alt="" coords="1739,566,2037,619,2036,624,1738,571"/>
-<area shape="poly" title=" " alt="" coords="1711,536,1745,538,1757,544,1761,553,1755,564,1740,570,1697,569,1697,563,1739,564,1752,560,1756,553,1753,548,1743,543,1710,542"/>
-<area shape="rect" href="algorithms_8h.html" title="Standard algorithm implementations for iterator&#45;based containers." alt="" coords="1639,621,1798,647"/>
-<area shape="poly" title=" " alt="" coords="1680,576,1712,620,1708,623,1676,579"/>
-<area shape="poly" title=" " alt="" coords="1698,658,1655,693,1628,709,1600,723,1535,739,1448,752,1237,770,1022,779,858,782,857,776,1022,773,1237,765,1448,747,1534,734,1598,717,1626,705,1652,688,1695,654"/>
-<area shape="rect" href="prique_8h.html" title="Priority queue container implementation." alt="" coords="1668,695,1799,720"/>
-<area shape="poly" title=" " alt="" coords="1726,660,1734,694,1728,695,1721,661"/>
-<area shape="poly" title=" " alt="" coords="1655,722,1650,723,1420,743,1194,760,858,779,857,774,1194,754,1420,738,1649,717,1654,717"/>
-<area shape="poly" title=" " alt="" coords="1775,723,1880,765,1878,770,1773,728"/>
-<area shape="poly" title=" " alt="" coords="2367,578,2340,622,2323,671,2317,712,2308,751,2298,773,2282,795,2265,811,2246,825,2207,844,2205,839,2243,820,2262,807,2278,792,2294,770,2303,750,2312,711,2318,669,2335,620,2363,576"/>
-<area shape="poly" title=" " alt="" coords="2329,572,2142,624,2140,619,2328,567"/>
-<area shape="poly" title=" " alt="" coords="2402,576,2436,619,2432,623,2398,579"/>
-<area shape="poly" title=" " alt="" coords="2435,567,2608,619,2606,624,2433,572"/>
-<area shape="poly" title=" " alt="" coords="2434,661,2395,727,2366,764,2332,795,2307,812,2279,825,2225,844,2223,839,2277,820,2304,807,2329,791,2362,760,2390,724,2429,658"/>
-<area shape="poly" title=" " alt="" coords="2617,657,2508,723,2437,761,2364,796,2287,824,2217,844,2215,839,2285,819,2362,791,2435,756,2505,718,2615,652"/>
+<area shape="rect" title="Cross&#45;platform mutex and lock management utilities." alt="" coords="2107,5,2256,31"/>
+<area shape="rect" href="atomic_8h_source.html" title=" " alt="" coords="1871,79,2023,104"/>
+<area shape="poly" title=" " alt="" coords="2131,37,1985,81,1984,76,2130,32"/>
+<area shape="rect" href="vibrant_8h_source.html" title=" " alt="" coords="1891,841,2045,867"/>
+<area shape="poly" title=" " alt="" coords="2151,40,2122,62,2094,90,2071,125,2065,144,2063,163,2063,709,2060,730,2054,751,2033,789,2007,821,1984,843,1980,839,2003,817,2028,786,2049,749,2055,729,2057,709,2057,163,2060,142,2067,122,2089,87,2119,58,2148,36"/>
+<area shape="rect" href="condition_8h.html" title="Condition variable implementation for thread synchronization." alt="" coords="2098,533,2265,559"/>
+<area shape="poly" title=" " alt="" coords="2184,44,2184,163,2184,393,2184,533,2179,533,2179,393,2179,163,2179,44"/>
+<area shape="rect" href="semaphores_8h.html" title="Semaphore synchronization primitives and guards." alt="" coords="2148,614,2335,639"/>
+<area shape="poly" title=" " alt="" coords="2214,36,2244,58,2273,87,2296,122,2303,142,2305,163,2305,474,2299,517,2285,557,2252,615,2247,613,2280,555,2294,515,2300,474,2300,163,2298,144,2291,125,2269,90,2240,62,2211,40"/>
+<area shape="rect" href="syncPoint_8h_source.html" title=" " alt="" coords="2359,614,2529,639"/>
+<area shape="poly" title=" " alt="" coords="2251,32,2301,50,2350,76,2370,94,2387,114,2397,137,2401,163,2401,474,2406,515,2416,554,2441,613,2436,615,2411,556,2400,516,2396,474,2396,164,2392,139,2382,117,2367,97,2347,81,2299,54,2249,37"/>
+<area shape="rect" href="autoPtr_8h.html" title="Base class for reference&#45;counted smart pointers." alt="" coords="1297,152,1431,177"/>
+<area shape="poly" title=" " alt="" coords="1857,106,1432,158,1431,152,1857,101"/>
+<area shape="poly" title=" " alt="" coords="1966,114,1996,168,2007,201,2012,236,2012,709,2008,748,1998,786,1976,842,1971,840,1993,784,2003,747,2007,709,2007,237,2002,203,1991,170,1961,117"/>
+<area shape="rect" href="tasks_8h.html" title="Thread pool and task management utilities." alt="" coords="1637,768,1779,793"/>
+<area shape="poly" title=" " alt="" coords="1879,110,1829,128,1781,154,1761,171,1746,190,1736,212,1732,237,1732,474,1730,597,1720,720,1713,768,1708,767,1715,720,1725,597,1727,474,1727,236,1731,210,1741,187,1758,167,1778,150,1827,123,1877,105"/>
+<area shape="rect" href="async_8h_source.html" title=" " alt="" coords="1826,614,1971,639"/>
+<area shape="poly" title=" " alt="" coords="1951,118,1956,237,1956,474,1951,516,1938,556,1908,615,1904,613,1933,554,1945,515,1951,474,1951,237,1946,118"/>
+<area shape="rect" href="core_8h.html" title="Core module header file." alt="" coords="656,768,773,793"/>
+<area shape="poly" title=" " alt="" coords="1283,169,960,174,751,181,535,193,333,211,164,236,99,251,49,269,18,289,11,299,8,310,8,628,13,660,27,683,49,700,80,718,127,735,192,749,269,760,353,767,521,775,656,777,656,782,521,780,352,772,268,765,191,754,125,740,78,722,46,705,23,686,8,662,3,628,3,310,6,297,15,285,47,264,97,246,163,231,332,205,534,187,750,175,960,168,1283,163"/>
+<area shape="rect" href="ownerPtr_8h.html" title="Exclusive&#45;ownership smart pointer implementation." alt="" coords="1035,225,1181,251"/>
+<area shape="poly" title=" " alt="" coords="1311,183,1150,228,1149,223,1309,178"/>
+<area shape="rect" href="refCntPtr_8h.html" title="Reference&#45;counted smart pointer hierarchy." alt="" coords="1445,533,1592,559"/>
+<area shape="poly" title=" " alt="" coords="1445,166,1521,178,1561,188,1598,202,1631,220,1657,244,1675,274,1681,310,1681,394,1677,420,1667,444,1651,465,1632,484,1589,515,1548,536,1546,531,1586,510,1629,480,1647,462,1662,441,1672,418,1676,393,1676,310,1670,276,1653,247,1628,225,1596,207,1559,193,1520,183,1445,172"/>
+<area shape="rect" href="original_8h.html" title="Main header file for Original." alt="" coords="1323,915,1429,940"/>
+<area shape="poly" title=" " alt="" coords="781,794,1324,912,1323,917,780,799"/>
+<area shape="poly" title=" " alt="" coords="1021,242,886,244,713,253,520,271,422,284,327,301,280,307,232,309,145,309,110,315,82,328,72,339,65,352,59,391,59,628,63,659,74,682,94,700,121,718,164,735,223,749,294,759,372,767,529,775,656,777,656,782,529,780,372,772,294,765,222,754,163,740,119,722,90,704,70,685,57,661,53,628,53,390,60,350,68,336,79,324,108,310,144,304,232,303,279,302,326,296,421,279,519,265,712,247,886,239,1021,236"/>
+<area shape="rect" href="maps_8h.html" title="Implementation of map containers with different underlying data structures." alt="" coords="985,695,1111,720"/>
+<area shape="poly" title=" " alt="" coords="1111,264,1111,391,1111,548,1105,592,1090,635,1058,696,1053,693,1085,632,1099,591,1105,547,1105,391,1105,264"/>
+<area shape="rect" href="sets_8h.html" title="Implementation of set containers with different underlying data structures." alt="" coords="1226,695,1342,720"/>
+<area shape="poly" title=" " alt="" coords="1187,251,1243,270,1296,297,1319,316,1337,337,1349,362,1353,390,1353,547,1352,577,1347,599,1326,648,1311,674,1296,696,1291,693,1307,671,1322,645,1342,598,1347,576,1348,547,1348,391,1344,364,1333,340,1315,319,1293,302,1241,274,1185,257"/>
+<area shape="rect" href="singleton_8h.html" title="Thread&#45;safe singleton pattern implementation with ownership management." alt="" coords="847,379,996,405"/>
+<area shape="poly" title=" " alt="" coords="1085,261,937,381,934,377,1082,257"/>
+<area shape="rect" href="stepIterator_8h.html" title="Step iterator base class for single&#45;step iterators." alt="" coords="339,299,503,324"/>
+<area shape="poly" title=" " alt="" coords="1021,251,504,304,504,299,1021,246"/>
+<area shape="rect" href="thread_8h.html" title="Thread management utilities." alt="" coords="1767,533,1916,559"/>
+<area shape="poly" title=" " alt="" coords="1195,251,1281,269,1370,296,1512,356,1645,425,1755,488,1825,531,1822,536,1752,492,1643,430,1510,361,1368,301,1279,274,1194,256"/>
+<area shape="poly" title=" " alt="" coords="982,725,769,770,768,765,981,720"/>
+<area shape="rect" href="generators_8h_source.html" title=" " alt="" coords="1305,768,1482,793"/>
+<area shape="poly" title=" " alt="" coords="1314,725,1377,766,1374,770,1312,730"/>
+<area shape="poly" title=" " alt="" coords="1496,792,1891,841,1891,846,1496,797"/>
+<area shape="poly" title=" " alt="" coords="1878,869,1430,922,1429,917,1878,863"/>
+<area shape="poly" title=" " alt="" coords="904,417,887,442,869,473,855,508,849,545,849,628,846,653,837,676,807,717,771,748,737,770,734,766,767,744,803,713,832,674,841,652,844,628,844,544,850,507,864,471,882,439,900,414"/>
+<area shape="poly" title=" " alt="" coords="407,336,385,373,366,421,360,471,360,628,362,650,368,670,378,688,392,703,426,729,469,748,517,762,567,770,656,777,655,783,566,776,516,767,468,754,424,734,388,707,374,691,364,672,357,651,355,628,355,471,361,420,380,371,402,334"/>
+<area shape="rect" href="doubleDirectionIterator_8h.html" title="Double&#45;direction iterator base class." alt="" coords="395,372,575,412"/>
+<area shape="poly" title=" " alt="" coords="442,333,472,370,468,374,437,337"/>
+<area shape="rect" href="singleDirectionIterator_8h.html" title="Single&#45;direction iterator base class." alt="" coords="145,607,319,647"/>
+<area shape="poly" title=" " alt="" coords="389,333,363,351,341,374,301,435,271,502,251,562,239,607,234,606,246,561,266,500,296,433,337,370,360,347,386,329"/>
+<area shape="poly" title=" " alt="" coords="462,424,444,449,428,478,415,511,411,545,411,628,412,679,419,698,435,718,450,728,472,737,530,753,656,771,655,777,528,758,470,742,448,733,432,722,414,701,406,679,405,628,405,544,410,509,423,476,440,446,457,421"/>
+<area shape="rect" href="chain_8h.html" title="Non&#45;cyclic doubly linked list implementation." alt="" coords="597,460,721,485"/>
+<area shape="poly" title=" " alt="" coords="540,415,634,457,632,462,538,420"/>
+<area shape="poly" title=" " alt="" coords="656,500,647,529,634,560,625,574,615,584,607,593,600,608,596,627,600,646,620,684,648,718,701,766,697,770,644,722,616,687,595,648,590,627,595,606,602,590,611,580,621,571,630,557,642,527,651,498"/>
+<area shape="rect" href="deque_8h.html" title="Double&#45;ended queue (deque) container adapter implementation." alt="" coords="446,695,575,720"/>
+<area shape="poly" title=" " alt="" coords="584,482,557,489,530,500,506,515,486,535,476,554,472,576,477,621,491,663,506,693,501,696,486,665,471,622,467,576,471,553,482,532,502,511,527,495,555,484,583,477"/>
+<area shape="rect" href="filterStream_8h.html" title="Composite filter operations with logical chaining." alt="" coords="1146,614,1313,639"/>
+<area shape="poly" title=" " alt="" coords="734,475,883,492,969,508,1053,531,1100,549,1145,571,1213,612,1211,616,1143,576,1098,554,1051,536,968,513,883,498,734,481"/>
+<area shape="rect" href="queue_8h.html" title="Queue container adapter implementation." alt="" coords="911,533,1041,559"/>
+<area shape="poly" title=" " alt="" coords="724,486,925,531,924,536,722,491"/>
+<area shape="rect" href="stack_8h.html" title="Stack container adapter implementation." alt="" coords="497,533,621,559"/>
+<area shape="poly" title=" " alt="" coords="633,495,577,535,573,531,630,491"/>
+<area shape="rect" href="transformStream_8h.html" title="Transform pipeline composition and execution." alt="" coords="609,614,809,639"/>
+<area shape="poly" title=" " alt="" coords="669,497,708,613,703,615,664,499"/>
+<area shape="poly" title=" " alt="" coords="557,722,683,765,681,770,555,727"/>
+<area shape="poly" title=" " alt="" coords="1213,651,1175,689,1150,707,1124,722,1057,742,962,757,774,777,773,772,961,752,1055,737,1122,718,1147,703,1171,685,1209,648"/>
+<area shape="poly" title=" " alt="" coords="956,570,925,608,909,640,900,667,890,694,867,722,845,739,820,752,771,770,769,765,818,747,842,734,863,718,885,691,895,666,904,638,920,605,952,567"/>
+<area shape="rect" href="RBTree_8h.html" title="Red&#45;Black Tree implementation header." alt="" coords="935,614,1070,639"/>
+<area shape="poly" title=" " alt="" coords="987,571,1001,613,996,615,982,572"/>
+<area shape="poly" title=" " alt="" coords="1054,548,1375,568,1527,584,1581,593,1612,604,1634,622,1652,642,1680,689,1698,734,1708,767,1703,769,1693,736,1675,691,1648,645,1630,625,1609,609,1579,599,1526,589,1375,573,1054,553"/>
+<area shape="poly" title=" " alt="" coords="989,652,959,688,917,722,882,740,845,755,774,773,773,768,843,750,880,736,915,718,955,684,985,649"/>
+<area shape="poly" title=" " alt="" coords="1019,650,1044,693,1039,696,1014,653"/>
+<area shape="poly" title=" " alt="" coords="1057,640,1244,692,1242,697,1056,646"/>
+<area shape="poly" title=" " alt="" coords="1764,794,1927,839,1925,844,1762,799"/>
+<area shape="poly" title=" " alt="" coords="554,573,549,609,550,628,556,646,583,686,620,720,658,747,691,765,688,770,655,751,616,725,579,690,551,648,545,629,543,609,548,572"/>
+<area shape="poly" title=" " alt="" coords="713,653,717,768,712,768,708,653"/>
+<area shape="poly" title=" " alt="" coords="176,655,152,670,135,686,127,702,129,710,134,718,160,731,209,742,354,759,519,770,656,775,655,780,519,775,354,764,208,747,158,736,130,722,124,712,122,701,130,683,149,665,173,651"/>
+<area shape="rect" href="forwardChain_8h.html" title="Non&#45;cyclic singly linked list implementation." alt="" coords="144,695,320,720"/>
+<area shape="poly" title=" " alt="" coords="235,660,235,694,229,694,229,660"/>
+<area shape="poly" title=" " alt="" coords="323,719,656,768,656,773,323,725"/>
+<area shape="poly" title=" " alt="" coords="1830,572,1817,607,1814,627,1817,646,1830,678,1847,708,1886,764,1926,809,1957,839,1953,843,1922,813,1882,767,1842,711,1825,680,1812,647,1809,627,1811,606,1825,570"/>
+<area shape="poly" title=" " alt="" coords="1860,568,1892,612,1888,615,1856,571"/>
+<area shape="poly" title=" " alt="" coords="1909,652,1967,840,1962,842,1904,653"/>
+<area shape="poly" title=" " alt="" coords="1875,650,1724,770,1721,766,1872,646"/>
+<area shape="poly" title=" " alt="" coords="1485,568,1456,586,1429,608,1407,639,1396,669,1383,697,1371,710,1355,722,1307,742,1242,757,1164,768,1080,775,909,782,774,783,774,778,909,777,1079,770,1164,762,1241,752,1306,737,1352,718,1368,706,1378,694,1391,667,1402,637,1425,605,1453,582,1482,563"/>
+<area shape="poly" title=" " alt="" coords="1464,565,1272,617,1271,611,1463,560"/>
+<area shape="poly" title=" " alt="" coords="1585,561,1623,578,1657,605,1683,647,1699,693,1707,736,1710,767,1705,768,1702,737,1694,695,1678,649,1653,608,1620,583,1583,565"/>
+<area shape="poly" title=" " alt="" coords="1432,558,810,618,810,613,1431,553"/>
+<area shape="poly" title=" " alt="" coords="1588,559,1844,611,1843,617,1587,564"/>
+<area shape="poly" title=" " alt="" coords="1578,530,1606,533,1615,538,1619,546,1613,555,1601,560,1564,561,1564,556,1600,555,1610,551,1613,546,1611,542,1604,538,1577,535"/>
+<area shape="rect" href="algorithms_8h.html" title="Standard algorithm implementations for iterator&#45;based containers." alt="" coords="1439,614,1598,639"/>
+<area shape="poly" title=" " alt="" coords="1521,572,1521,614,1516,614,1516,572"/>
+<area shape="poly" title=" " alt="" coords="1500,651,1457,689,1429,708,1400,722,1346,738,1274,750,1098,767,917,777,774,781,774,776,916,772,1098,762,1273,745,1345,732,1398,718,1427,703,1454,685,1497,647"/>
+<area shape="rect" href="prique_8h.html" title="Priority queue container implementation." alt="" coords="1468,695,1599,720"/>
+<area shape="poly" title=" " alt="" coords="1526,652,1534,694,1529,695,1521,653"/>
+<area shape="poly" title=" " alt="" coords="1455,722,1450,723,1064,758,774,778,773,773,1064,752,1449,717,1454,717"/>
+<area shape="poly" title=" " alt="" coords="1575,723,1680,765,1678,770,1573,728"/>
+<area shape="poly" title=" " alt="" coords="2164,571,2138,608,2127,635,2121,659,2116,704,2108,748,2098,771,2081,795,2064,811,2045,825,2006,844,2004,839,2042,820,2061,807,2077,792,2093,768,2103,746,2110,703,2115,658,2122,633,2134,605,2159,568"/>
+<area shape="poly" title=" " alt="" coords="2128,565,1941,617,1939,611,2127,560"/>
+<area shape="poly" title=" " alt="" coords="2201,568,2235,612,2230,615,2197,571"/>
+<area shape="poly" title=" " alt="" coords="2233,560,2407,611,2405,617,2232,565"/>
+<area shape="poly" title=" " alt="" coords="2233,653,2195,723,2166,762,2131,795,2106,812,2078,825,2025,844,2023,839,2076,821,2103,807,2128,791,2162,758,2190,720,2229,651"/>
+<area shape="poly" title=" " alt="" coords="2418,649,2308,719,2236,759,2161,796,2085,824,2016,844,2015,839,2084,819,2159,791,2233,755,2305,714,2415,645"/>
 </map>
 </div>
 </div>
@@ -264,8 +278,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1lockGuard.html">original::lockGuard</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for lock guard implementations.  <a href="classoriginal_1_1lockGuard.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1pMutex.html">original::pMutex</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">POSIX thread mutex implementation.  <a href="classoriginal_1_1pMutex.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1mutex.html">original::mutex</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoriginal_1_1uniqueLock.html">original::uniqueLock</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII wrapper for single mutex locking.  <a href="classoriginal_1_1uniqueLock.html#details">More...</a><br /></td></tr>

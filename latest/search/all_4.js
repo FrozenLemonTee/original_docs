@@ -28,7 +28,7 @@ var searchData=
   ['destroyptr_25',['destroyPtr',['../classoriginal_1_1refCountBase.html#a9b8ba70f20b7e085cd09daf2fdc015ba',1,'original::refCountBase']]],
   ['destroyrefcnt_26',['destroyRefCnt',['../classoriginal_1_1autoPtr.html#a14ff6c65daf21f01876ec6da122dd1bb',1,'original::autoPtr']]],
   ['destroytree_27',['destroyTree',['../classoriginal_1_1RBTree.html#a7ab46428f2c6215540cad11b11d05899',1,'original::RBTree']]],
-  ['detach_28',['detach',['../classoriginal_1_1threadBase.html#ae52074bbba857025c19e8c82e9bbb01f',1,'original::threadBase::detach()'],['../classoriginal_1_1pThread.html#a5326be352f20b05ca4d3e164a76c2ee0',1,'original::pThread::detach()'],['../classoriginal_1_1thread.html#a3da0ff160c257d08889a480e326350b0',1,'original::thread::detach()']]],
+  ['detach_28',['detach',['../classoriginal_1_1threadBase.html#ae52074bbba857025c19e8c82e9bbb01f',1,'original::threadBase::detach()'],['../classoriginal_1_1thread.html#a3da0ff160c257d08889a480e326350b0',1,'original::thread::detach()']]],
   ['detection_20functions_29',['detection functions',['../group__CompilerDetectionFunctions.html',1,'Compiler Detection Functions'],['../group__PlatformDetectionFunctions.html',1,'Platform Detection Functions']]],
   ['detection_20macros_30',['detection macros',['../group__CompilerDetection.html',1,'Compiler Detection Macros'],['../group__PlatformDetection.html',1,'Platform Detection Macros']]],
   ['dis_5f_31',['dis_',['../classoriginal_1_1skipList.html#a58eebb11debc991a7ca2202ed2102246',1,'original::skipList']]],

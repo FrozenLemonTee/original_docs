@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zero_0',['ZERO',['../classoriginal_1_1time_1_1duration.html#aad5f8c2ae7cacad2b21a052eb798bf52',1,'original::time::duration']]]
+  ['weak_5frefs_0',['weak_refs',['../classoriginal_1_1refCountBase.html#a7125dff4bc09d9d2c0e28d7e940acf59',1,'original::refCountBase']]],
+  ['wednesday_1',['WEDNESDAY',['../classoriginal_1_1time_1_1UTCTime.html#a7815181153ddc88156f1dddad5bface1',1,'original::time::UTCTime']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pi_0',['PI',['../namespaceoriginal.html#ab91dfcaba25870b33f8f72edcc791415',1,'original']]]
+  ['nanosecond_0',['NANOSECOND',['../classoriginal_1_1time.html#a17042db1ec79b876b5060aac0b8e6796',1,'original::time']]]
 ];

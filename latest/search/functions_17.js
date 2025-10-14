@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['zip_0',['zip',['../namespaceoriginal.html#ae0c7c44f58fe2c19b44736b606159f8d',1,'original']]],
-  ['zipwith_1',['zipWith',['../namespaceoriginal.html#a2d66ded42ac114bcf9d5fd5ea537c0b9',1,'original']]]
+  ['yield_5fvalue_0',['yield_value',['../structoriginal_1_1coroutine_1_1generator_1_1promise__type.html#aceaf7f41df102e8c9299a045a2af39e3',1,'original::coroutine::generator::promise_type']]]
 ];
